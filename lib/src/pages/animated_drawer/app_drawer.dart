@@ -1,6 +1,6 @@
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/pages/animated_drawer/drawer_element_tile_widget.dart';
-import 'package:softtech_test/src/pages/animated_drawer/route_list_app_args.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/animated_drawer/drawer_element_tile_widget.dart';
+import 'package:new_beginnings/src/pages/animated_drawer/route_list_app_args.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({

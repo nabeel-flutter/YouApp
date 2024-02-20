@@ -1,4 +1,4 @@
-import 'package:softtech_test/src/app/app_export.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class CustomCircularIcon extends StatelessWidget {
   const CustomCircularIcon({super.key, required this.imageUrl, this.color});

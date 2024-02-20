@@ -1,4 +1,4 @@
-// import 'package:softtech_test/src/theme/theme.dart';
+// import 'package:new_beginnings/src/theme/theme.dart';
 
 // class OnboardingScreenArgs {
 //   final MyTheme theme;

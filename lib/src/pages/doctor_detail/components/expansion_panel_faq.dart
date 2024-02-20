@@ -1,4 +1,4 @@
-import 'package:softtech_test/src/app/app_export.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class ExpansionPanelFaqs extends StatefulWidget {
   const ExpansionPanelFaqs({
@@ -92,7 +92,6 @@ class _ExpansionPanelFaqsState extends State<ExpansionPanelFaqs> {
             //     ),
             //   ),
             // ),
-    
           ],
         ),
       ),

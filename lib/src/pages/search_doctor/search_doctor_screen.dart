@@ -1,7 +1,7 @@
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/pages/search_doctor/components/search_doctor_categories.dart';
-import 'package:softtech_test/src/pages/search_doctor/components/search_doctor_search_bar.dart';
-import 'package:softtech_test/src/pages/search_doctor/components/search_doctor_show_doctors.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/search_doctor/components/search_doctor_categories.dart';
+import 'package:new_beginnings/src/pages/search_doctor/components/search_doctor_search_bar.dart';
+import 'package:new_beginnings/src/pages/search_doctor/components/search_doctor_show_doctors.dart';
 
 class SearchDoctorScreen extends StatelessWidget {
   const SearchDoctorScreen({super.key});

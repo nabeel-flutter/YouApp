@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:softtech_test/src/app/app_export.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class BloodPressureImageWidget extends StatelessWidget {
   const BloodPressureImageWidget({

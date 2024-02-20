@@ -1,6 +1,6 @@
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/pages/communication/past_records/components/past_records_body.dart';
-import 'package:softtech_test/src/pages/communication/past_records/components/past_records_months.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/communication/past_records/components/past_records_body.dart';
+import 'package:new_beginnings/src/pages/communication/past_records/components/past_records_months.dart';
 
 class PastRecordsPageView extends StatelessWidget {
   const PastRecordsPageView({Key? key}) : super(key: key);

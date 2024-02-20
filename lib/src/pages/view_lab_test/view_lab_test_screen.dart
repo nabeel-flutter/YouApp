@@ -1,5 +1,5 @@
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/pages/view_lab_test/components/view_lab_test_body.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/view_lab_test/components/view_lab_test_body.dart';
 
 class ViewLabTestScreen extends StatelessWidget {
   const ViewLabTestScreen({super.key});

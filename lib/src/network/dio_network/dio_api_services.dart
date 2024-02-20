@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:softtech_test/src/di/injector.dart';
-import 'package:softtech_test/src/network/dio_network/dio_client_network.dart';
+import 'package:new_beginnings/src/di/injector.dart';
+import 'package:new_beginnings/src/network/dio_network/dio_client_network.dart';
 
 class DioApiServices {
   String? authToken;

@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:softtech_test/src/data/dto/rating_dto.dart';
+import 'package:new_beginnings/src/data/dto/rating_dto.dart';
 
 part 'product_dto.g.dart';
 
@@ -16,7 +16,6 @@ class ProductDto {
   String? category;
   String? image;
   RatingDto? rating;
-  
 
   ProductDto(
       {this.id,

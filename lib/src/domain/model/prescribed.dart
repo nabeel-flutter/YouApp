@@ -1,4 +1,4 @@
-import 'package:softtech_test/src/domain/model/precribed_element.dart';
+import 'package:new_beginnings/src/domain/model/precribed_element.dart';
 
 class Prescribed {
   int id;

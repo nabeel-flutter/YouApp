@@ -1,5 +1,5 @@
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/pages/payment/model/my_payment_model.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/payment/model/my_payment_model.dart';
 
 class MyPaymentsScreen extends StatelessWidget {
   const MyPaymentsScreen({

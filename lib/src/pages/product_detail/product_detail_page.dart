@@ -1,6 +1,6 @@
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/pages/product_detail/cubit/product_detail_cubit.dart';
-import 'package:softtech_test/src/pages/products/products_screen.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/product_detail/cubit/product_detail_cubit.dart';
+import 'package:new_beginnings/src/pages/products/products_screen.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key, required this.args});

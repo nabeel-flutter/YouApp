@@ -1,8 +1,7 @@
-
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/data/dto/base_response_dto.dart';
-import 'package:softtech_test/src/data/dto/product_dto.dart';
-import 'package:softtech_test/src/domain/common/result.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
+import 'package:new_beginnings/src/data/dto/product_dto.dart';
+import 'package:new_beginnings/src/domain/common/result.dart';
 part 'product_detail_cubit.freezed.dart';
 
 class ProductDetailCubit extends Cubit<ProductDetailState> {
@@ -34,6 +33,5 @@ class ProductDetailState with _$ProductDetailState {
 
   const factory ProductDetailState.error(String message) = _Error;
 
-  const factory ProductDetailState.loaded(ProductDto product) =
-      _Loaded;
+  const factory ProductDetailState.loaded(ProductDto product) = _Loaded;
 }

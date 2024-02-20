@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:softtech_test/src/data/dto/doctor_dto.dart';
+import 'package:new_beginnings/src/data/dto/doctor_dto.dart';
 
 part 'share_record_with_doctor_dto.g.dart';
 

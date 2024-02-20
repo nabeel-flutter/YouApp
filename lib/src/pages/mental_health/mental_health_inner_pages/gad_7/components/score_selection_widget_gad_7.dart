@@ -1,6 +1,6 @@
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/pages/mental_health/mental_health_inner_pages/gad_7/cubit/gad_7_cubit.dart';
-import 'package:softtech_test/src/pages/mental_health/mental_health_inner_pages/gad_7/functions/get_scores_gad_7.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/mental_health/mental_health_inner_pages/gad_7/cubit/gad_7_cubit.dart';
+import 'package:new_beginnings/src/pages/mental_health/mental_health_inner_pages/gad_7/functions/get_scores_gad_7.dart';
 
 class ScoreSelectionGAD7Widget extends StatelessWidget {
   const ScoreSelectionGAD7Widget({super.key, required this.question});

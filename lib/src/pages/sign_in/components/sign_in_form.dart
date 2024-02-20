@@ -1,5 +1,5 @@
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/pages/sign_in/cubit/sign_in_cubit.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/sign_in/cubit/sign_in_cubit.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});

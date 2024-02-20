@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:softtech_test/src/domain/status/readings_status.dart';
+import 'package:new_beginnings/src/domain/status/readings_status.dart';
 
 class LastHealthScan extends Equatable {
   final String date;
