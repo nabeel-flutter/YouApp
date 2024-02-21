@@ -1,14 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class NavigationUtil {
-
   static Future<dynamic> push(
     BuildContext context,
     String routeName, {
     dynamic args,
   }) {
-    
-    return Navigator.pushNamed(context, routeName, arguments: args);
+    return context.router.pushNamed(routeName);
   }
 
   static Future<dynamic> pushReplace(
@@ -25,7 +23,6 @@ class NavigationUtil {
     dynamic args,
     bool removeScreen = true,
   }) {
-    
     return Navigator.pop(context);
   }
 
