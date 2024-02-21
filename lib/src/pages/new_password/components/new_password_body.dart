@@ -1,4 +1,4 @@
-import 'package:softtech_test/src/app/app_export.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class NewPasswordBody extends StatelessWidget {
   const NewPasswordBody({Key? key}) : super(key: key);

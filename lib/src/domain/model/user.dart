@@ -1,4 +1,4 @@
-import 'package:softtech_test/src/domain/model/cities_res_wrapper.dart';
+import 'package:new_beginnings/src/domain/model/cities_res_wrapper.dart';
 
 /// id : 4
 /// name : null

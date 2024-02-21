@@ -1,5 +1,5 @@
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/pages/home/components/slide_to_action_button_component.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/home/components/slide_to_action_button_component.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({

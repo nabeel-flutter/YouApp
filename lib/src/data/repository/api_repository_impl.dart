@@ -1,16 +1,16 @@
 import 'dart:io';
 import 'package:logger/logger.dart';
-import 'package:softtech_test/src/data/common/object_mapper.dart';
-import 'package:softtech_test/src/data/datasource/api/at_care_api.dart';
-import 'package:softtech_test/src/data/dto/base_response_dto.dart';
-import 'package:softtech_test/src/data/dto/data_list_dto.dart';
-import 'package:softtech_test/src/data/dto/product_dto.dart';
-import 'package:softtech_test/src/data/dto/token_dto.dart';
-import 'package:softtech_test/src/domain/domain.dart';
-import 'package:softtech_test/src/domain/model/appointment.dart';
-import 'package:softtech_test/src/domain/model/data_list.dart';
-import 'package:softtech_test/src/domain/model/docotor.dart';
-import 'package:softtech_test/src/domain/model/medical_records.dart';
+import 'package:new_beginnings/src/data/common/object_mapper.dart';
+import 'package:new_beginnings/src/data/datasource/api/at_care_api.dart';
+import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
+import 'package:new_beginnings/src/data/dto/data_list_dto.dart';
+import 'package:new_beginnings/src/data/dto/product_dto.dart';
+import 'package:new_beginnings/src/data/dto/token_dto.dart';
+import 'package:new_beginnings/src/domain/domain.dart';
+import 'package:new_beginnings/src/domain/model/appointment.dart';
+import 'package:new_beginnings/src/domain/model/data_list.dart';
+import 'package:new_beginnings/src/domain/model/docotor.dart';
+import 'package:new_beginnings/src/domain/model/medical_records.dart';
 
 class ApiRepositoryImpl extends ApiRepository {
   final SoftTechTestApi softTechTestApi;
@@ -196,18 +196,17 @@ class ApiRepositoryImpl extends ApiRepository {
       return Result.failed(objectMapper.toError(e));
     }
   }
-  
+
   @override
-  Future<Result<BaseResponseDto<TokenDto>>> signIn({required String userName, required String password}) async {
-      try {
-      final response = await softTechTestApi.signIn(password: password,
-      userName: userName
-      );
+  Future<Result<BaseResponseDto<TokenDto>>> signIn(
+      {required String userName, required String password}) async {
+    try {
+      final response =
+          await softTechTestApi.signIn(password: password, userName: userName);
       return Result.success(objectMapper.toSignIn(response));
     } on Exception catch (e) {
       logger.e(e);
       return Result.failed(objectMapper.toError(e));
     }
-  
   }
 }

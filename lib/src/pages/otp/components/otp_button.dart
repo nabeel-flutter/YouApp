@@ -1,4 +1,4 @@
-import 'package:softtech_test/src/app/app_export.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class OTPButton extends StatelessWidget {
   const OTPButton({Key? key}) : super(key: key);

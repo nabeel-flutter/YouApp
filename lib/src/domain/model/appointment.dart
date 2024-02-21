@@ -1,5 +1,5 @@
-import 'package:softtech_test/src/domain/model/docotor.dart';
-import 'package:softtech_test/src/domain/model/prescription.dart';
+import 'package:new_beginnings/src/domain/model/docotor.dart';
+import 'package:new_beginnings/src/domain/model/prescription.dart';
 
 class Appointment {
   int id;

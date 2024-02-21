@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:softtech_test/src/data/dto/medical_record_dto.dart';
+import 'package:new_beginnings/src/data/dto/medical_record_dto.dart';
 
 part 'medical_records_history_dto.g.dart';
 

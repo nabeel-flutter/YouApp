@@ -1,4 +1,4 @@
-import 'package:softtech_test/src/pages/change_language/components/language_setting.dart';
+import 'package:new_beginnings/src/pages/change_language/components/language_setting.dart';
 
 List<RadioListAppSetting> languageSetting = [
   RadioListAppSetting(

@@ -1,13 +1,13 @@
 import 'dart:io';
-import 'package:softtech_test/src/data/dto/base_response_dto.dart';
-import 'package:softtech_test/src/data/dto/data_list_dto.dart';
-import 'package:softtech_test/src/data/dto/product_dto.dart';
-import 'package:softtech_test/src/data/dto/token_dto.dart';
-import 'package:softtech_test/src/domain/domain.dart';
-import 'package:softtech_test/src/domain/model/appointment.dart';
-import 'package:softtech_test/src/domain/model/data_list.dart';
-import 'package:softtech_test/src/domain/model/docotor.dart';
-import 'package:softtech_test/src/domain/model/medical_records.dart';
+import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
+import 'package:new_beginnings/src/data/dto/data_list_dto.dart';
+import 'package:new_beginnings/src/data/dto/product_dto.dart';
+import 'package:new_beginnings/src/data/dto/token_dto.dart';
+import 'package:new_beginnings/src/domain/domain.dart';
+import 'package:new_beginnings/src/domain/model/appointment.dart';
+import 'package:new_beginnings/src/domain/model/data_list.dart';
+import 'package:new_beginnings/src/domain/model/docotor.dart';
+import 'package:new_beginnings/src/domain/model/medical_records.dart';
 
 abstract class ApiRepository extends Repository {
   ///
@@ -80,5 +80,6 @@ abstract class ApiRepository extends Repository {
 
   Future<Result<BaseResponseDto<ProductDto>>> getProductDetails(int id);
 
-Future<Result<BaseResponseDto<TokenDto>>>  signIn({required String userName,required String password});
+  Future<Result<BaseResponseDto<TokenDto>>> signIn(
+      {required String userName, required String password});
 }

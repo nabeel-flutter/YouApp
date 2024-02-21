@@ -1,5 +1,5 @@
-import 'package:softtech_test/src/domain/model/medical_record_file.dart';
-import 'package:softtech_test/src/domain/model/shared_with_doctors.dart';
+import 'package:new_beginnings/src/domain/model/medical_record_file.dart';
+import 'package:new_beginnings/src/domain/model/shared_with_doctors.dart';
 
 class MedicalRecords {
   int id;

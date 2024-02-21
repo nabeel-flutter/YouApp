@@ -1,6 +1,6 @@
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/pages/sign_in/cubit/sign_in_cubit.dart';
-import 'package:softtech_test/src/route/app_router.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/sign_in/cubit/sign_in_cubit.dart';
+import 'package:new_beginnings/src/route/app_router.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);

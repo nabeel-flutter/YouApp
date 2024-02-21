@@ -4,15 +4,15 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 // ignore: depend_on_referenced_packages
 import 'package:http_parser/http_parser.dart';
-import 'package:softtech_test/src/data/dto/appointments_history_dto.dart';
-import 'package:softtech_test/src/data/dto/base_response_dto.dart';
-import 'package:softtech_test/src/data/dto/dashboard_overview_dto.dart';
-import 'package:softtech_test/src/data/dto/data_list_dto.dart';
-import 'package:softtech_test/src/data/dto/doctor_dto.dart';
-import 'package:softtech_test/src/data/dto/medical_records_history_dto.dart';
-import 'package:softtech_test/src/data/dto/product_dto.dart';
-import 'package:softtech_test/src/data/dto/sehat_scan_history_dto.dart';
-import 'package:softtech_test/src/data/dto/token_dto.dart';
+import 'package:new_beginnings/src/data/dto/appointments_history_dto.dart';
+import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
+import 'package:new_beginnings/src/data/dto/dashboard_overview_dto.dart';
+import 'package:new_beginnings/src/data/dto/data_list_dto.dart';
+import 'package:new_beginnings/src/data/dto/doctor_dto.dart';
+import 'package:new_beginnings/src/data/dto/medical_records_history_dto.dart';
+import 'package:new_beginnings/src/data/dto/product_dto.dart';
+import 'package:new_beginnings/src/data/dto/sehat_scan_history_dto.dart';
+import 'package:new_beginnings/src/data/dto/token_dto.dart';
 
 ///
 ///

@@ -1,7 +1,7 @@
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/pages/doctor_detail/components/bottom_nav_bar_doctor_detail_screen.dart';
-import 'package:softtech_test/src/pages/doctor_detail/components/doctor_detail_screen_body.dart';
-import 'package:softtech_test/src/pages/doctor_detail/list_data/faq_list_data.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/doctor_detail/components/bottom_nav_bar_doctor_detail_screen.dart';
+import 'package:new_beginnings/src/pages/doctor_detail/components/doctor_detail_screen_body.dart';
+import 'package:new_beginnings/src/pages/doctor_detail/list_data/faq_list_data.dart';
 
 class DoctorDetailScreen extends StatelessWidget {
   const DoctorDetailScreen({super.key});

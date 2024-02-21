@@ -1,5 +1,5 @@
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/pages/notification/model/notification_data_model.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/notification/model/notification_data_model.dart';
 
 List<AppNotification> notificationList = [
   AppNotification(

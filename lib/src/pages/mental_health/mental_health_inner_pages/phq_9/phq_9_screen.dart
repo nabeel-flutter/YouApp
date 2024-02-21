@@ -1,4 +1,4 @@
-import 'package:softtech_test/src/app/app_export.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class PHQ9Screen extends StatelessWidget {
   const PHQ9Screen({super.key});

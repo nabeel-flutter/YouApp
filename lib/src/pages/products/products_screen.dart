@@ -1,8 +1,8 @@
 import 'package:flutter/rendering.dart';
-import 'package:softtech_test/src/app/app_export.dart';
-import 'package:softtech_test/src/data/dto/product_dto.dart';
-import 'package:softtech_test/src/pages/product_detail/product_detail_page.dart';
-import 'package:softtech_test/src/pages/products/cubit/products_list_cubit.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/data/dto/product_dto.dart';
+import 'package:new_beginnings/src/pages/product_detail/product_detail_page.dart';
+import 'package:new_beginnings/src/pages/products/cubit/products_list_cubit.dart';
 
 List<ProductDto> productsList = [];
 

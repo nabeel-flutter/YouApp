@@ -1,4 +1,4 @@
-import 'package:softtech_test/src/app/app_export.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 part 'app_router.gr.dart';
 
@@ -19,6 +19,5 @@ class AppRouter extends _$AppRouter {
           page: HomeRoute.page,
           path: RouteConstants.homeRoute,
         ),
-        
       ];
 }

@@ -1,4 +1,4 @@
-import 'package:softtech_test/src/app/app_export.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class MyTheme with ChangeNotifier {
   static bool isDark = false;
@@ -9,18 +9,18 @@ class MyTheme with ChangeNotifier {
         .getBool(SharedPreferenceConstants.isDark))!;
   }
 
-  ThemeMode currentTheme()  {
+  ThemeMode currentTheme() {
     return isDark ? ThemeMode.dark : ThemeMode.light;
   }
 
-  void switchColor(Color color) { 
+  void switchColor(Color color) {
     MyTheme.color = color;
     notifyListeners();
   }
 
   void switchTheme() {
     isDark = !isDark;
-     getIt
+    getIt
         .get<SharedPreferencesUtil>()
         .setBool(SharedPreferenceConstants.isDark, value: isDark);
     notifyListeners();
