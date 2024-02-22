@@ -8,22 +8,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool snap = false;
-
     return flavorBanner(
       show: true,
-      child: BlocProvider(
-          create: (context) => getIt.get<IsGradientBackgroundCubit>()
-            ..updateState(color: getThemeColor(context)),
-          child:
-              BlocBuilder<IsGradientBackgroundCubit, IsGradientBackgroundState>(
-            builder: (context, state) => state.maybeWhen(
-              orElse: () => HomeScreenComponent(
-                snap: snap,
-              ),
-              updateColorState: (color) => HomeScreenComponent(snap: snap),
-            ),
-          )),
+      child: const HomeScreenBody(),
     );
   }
 }

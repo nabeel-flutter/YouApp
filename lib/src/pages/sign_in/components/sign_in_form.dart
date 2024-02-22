@@ -22,18 +22,15 @@ class SignInForm extends StatelessWidget {
         TextFormFieldComponent(
             controller: passwordController, label: 'Password'),
         const SizedBox(height: 10),
-        // GestureDetector(
-        //   onTap: () {
-        //     NavigationUtil.push(
-        //       context,
-        //       RouteConstants.forgotPasswordRoute,
-        //     );
-        //   },
-        //   child: Align(
-        //     alignment: Alignment.centerRight,
-        //     child: Text(StringConstants.forgot),
-        //   ),
-        // ),
+        GestureDetector(
+          onTap: () {
+            context.router.pushNamed(RouteConstants.forgotPasswordRoute);
+          },
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: Text(StringConstants.forgot),
+          ),
+        ),
         const SizedBox(height: 40),
         BlocConsumer<SignInCubit, SignInState>(
             listener: (context, state) => state.maybeWhen(
@@ -87,7 +84,7 @@ class SignInForm extends StatelessWidget {
                                 userName: userNameController.text,
                                 password: passwordController.text);
                           },
-                          child: const Text("Retry Login")),
+                          child: const Text("Login")),
                       const SizedBox(height: 10),
                       Text(
                         message,

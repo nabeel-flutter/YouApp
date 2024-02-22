@@ -4,7 +4,6 @@ import 'package:new_beginnings/src/pages/sign_up/components/disclaimer.dart';
 import 'package:new_beginnings/src/pages/sign_up/components/privacy_policy.dart';
 
 part 'sign_up_form.freezed.dart';
-
 class SignUpForm extends StatefulWidget {
   const SignUpForm({Key? key}) : super(key: key);
 

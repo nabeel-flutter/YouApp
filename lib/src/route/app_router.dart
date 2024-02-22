@@ -19,5 +19,27 @@ class AppRouter extends _$AppRouter {
           page: HomeRoute.page,
           path: RouteConstants.homeRoute,
         ),
+        AutoRoute(
+          page: SignUpRoute.page,
+          path: RouteConstants.signUpRoute,
+        ),
+        AutoRoute(
+          page: ForgotPasswordRoute.page,
+          path: RouteConstants.forgotPasswordRoute,
+        ),
+        AutoRoute(
+          page: NewPasswordRoute.page,
+          path: RouteConstants.newPasswordRoute,
+        ),
+        AutoRoute(
+          page: NotificationRoute.page,
+          path: RouteConstants.notificationRoute,
+        ),
+        AutoRoute(
+          page: ProfileRoute.page,
+          path: RouteConstants.profileRoute,
+        ),
+        
+
       ];
 }

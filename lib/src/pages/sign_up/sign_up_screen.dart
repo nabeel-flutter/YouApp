@@ -1,5 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
-
+@RoutePage()
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
