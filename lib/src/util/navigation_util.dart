@@ -6,7 +6,7 @@ class NavigationUtil {
     String routeName, {
     dynamic args,
   }) {
-    return context.router.pushNamed(routeName);
+    return Navigator.pushNamed(context, routeName, arguments: args);
   }
 
   static Future<dynamic> pushReplace(
