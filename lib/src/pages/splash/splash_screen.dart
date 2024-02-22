@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       getIt
           .get<SharedPreferencesUtil>()
           .getString(SharedPreferenceConstants.apiAuthToken)
-          .then((value) async => value != null
+          .then((value) async => value == null
               ? await context.router.pushAndPopUntil(
                   predicate: (route) => false, const SignInRoute())
               : await context.router.pushAndPopUntil(

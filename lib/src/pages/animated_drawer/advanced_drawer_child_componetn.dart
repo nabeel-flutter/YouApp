@@ -1,4 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/route/app_router.dart';
 
 class AdvancedDrawerChildComponent extends StatelessWidget {
   const AdvancedDrawerChildComponent({
@@ -116,8 +117,9 @@ class AdvancedDrawerChildComponent extends StatelessWidget {
               getIt
                   .get<SharedPreferencesUtil>()
                   .removeValue(SharedPreferenceConstants.apiAuthToken)
-                  .then((value) => Navigator.popAndPushNamed(
-                      context, RouteConstants.splashRoute));
+                  .then((value) async =>            await context.router.pushAndPopUntil(
+                  predicate: (route) => false, const SignInRoute())
+             );
             },
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

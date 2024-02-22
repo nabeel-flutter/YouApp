@@ -1,5 +1,6 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/sign_in/cubit/sign_in_cubit.dart';
+import 'package:new_beginnings/src/route/app_router.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});
@@ -40,11 +41,11 @@ class SignInForm extends StatelessWidget {
                   orElse: () {
                     return null;
                   },
-                  loaded: (token) {
+                  loaded: (token) async {
                     getIt.get<SharedPreferencesUtil>().setString(
                         SharedPreferenceConstants.apiAuthToken, token.token);
-                    return NavigationUtil.pushReplace(context,
-                        RouteConstants.homeRoute, RouteConstants.signInRoute);
+                   return     await context.router.pushAndPopUntil(
+                  predicate: (route) => false, const HomeRoute());
                   },
                 ),
             builder: (context, state) => state.maybeWhen(
