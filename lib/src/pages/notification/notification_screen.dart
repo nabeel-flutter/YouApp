@@ -1,7 +1,7 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/notification/components/notification_tile_component.dart';
 import 'package:new_beginnings/src/pages/notification/list_data/notification_list_data.dart';
-
+@RoutePage()
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});
 

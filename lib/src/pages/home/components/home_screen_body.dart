@@ -1,5 +1,4 @@
 import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/home/components/slide_to_action_button_component.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({
@@ -9,19 +8,15 @@ class HomeScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
-        bottomNavigationBar: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.0),
-          child: SlideActionBtn(),
-        ),
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(12),
             child: const Column(
               children: [
-                SearchCompoentHome(),
-                HealthConditionsWidget(),
-                UpcommingAppointmentWidgetHome(),
-                TopDatedDoctorsWidget()
+                // SearchCompoentHome(),
+                // HealthConditionsWidget(),
+                // UpcommingAppointmentWidgetHome(),
+                // TopDatedDoctorsWidget()
               ],
             ),
           ),

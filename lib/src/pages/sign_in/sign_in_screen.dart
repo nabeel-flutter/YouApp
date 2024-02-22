@@ -21,11 +21,9 @@ class SignInScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              const Image(
-                image: AssetImage("assets/images/logo.png"),
-                height: 125,
-                width: double.infinity,
-                alignment: Alignment.center,
+              const Text(
+                'Welcome to new beginning',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
               ),
               const SignInForm(),
             ],
