@@ -12,12 +12,7 @@ class HomeScreenBody extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(12),
             child: const Column(
-              children: [
-                // SearchCompoentHome(),
-                // HealthConditionsWidget(),
-                // UpcommingAppointmentWidgetHome(),
-                // TopDatedDoctorsWidget()
-              ],
+              children: [],
             ),
           ),
         ),
