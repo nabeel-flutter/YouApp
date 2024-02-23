@@ -96,7 +96,7 @@ class SignInForm extends StatelessWidget {
                       ),
                     ],
                   );
-                },
+                },  
                 orElse: () => ElevatedButton(
                     onPressed: () {
                       context.read<SignInCubit>().signIn(

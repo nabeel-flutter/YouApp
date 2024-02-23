@@ -1,5 +1,4 @@
 import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/products/products_screen.dart';
 
 class AnimatedDrawerAfterLoadedState extends StatelessWidget {
   const AnimatedDrawerAfterLoadedState({
@@ -43,13 +42,7 @@ class AnimatedDrawerAfterLoadedState extends StatelessWidget {
             controller:
                 BlocProvider.of<AnimatedDrawerCubit>(context).pageController,
             children: const [
-              ProductsScreen(),
-              // ProfileScreen(),
-              // AppointmentsScreen(),
-              // CommunicationScreen(),
-              // DocumentsScreen(),
-              // MedicationsScreen(),
-              // BillingsAndPaymentScreen(),
+              HomeScreenBody(),
               SettingsScreen(),
             ],
           ),
