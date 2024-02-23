@@ -1,82 +1,81 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 
 class SharedPreferencesUtil {
-  final SharedPreferences sharedPreferences;
+  final FlutterSecureStorage secureStorage;
   final Logger logger;
 
   SharedPreferencesUtil({
-    required this.sharedPreferences,
+    required this.secureStorage,
     required this.logger,
   });
 
-  ///get string value in prefs
-  ///
   Future<void> setString(String? key, String? value) async {
-    await sharedPreferences.setString(key ?? '', value ?? '');
+    await secureStorage.write(key: key!, value: value!);
   }
 
-  ///get string value in prefs
   Future<String?> getString(String? key) async {
-    final stringValue = sharedPreferences.getString(key!);
-    return stringValue;
+    return await secureStorage.read(key: key!);
   }
 
-  ///set int value in prefs
-  Future setInt(String? key, int? value) async {
-    await sharedPreferences.setInt(key!, value!);
+  Future<void> setInt(String? key, int? value) async {
+    await secureStorage.write(key: key!, value: value.toString());
   }
 
-  ///get int value in prefs
   Future<int?> getInt(String key) async {
-    final intValue = sharedPreferences.getInt(key);
-    return intValue;
+    String? value = await secureStorage.read(key: key);
+    return value != null ? int.tryParse(value) : null;
   }
 
-  ///set double value in prefs
-  Future setDouble(String key, double value) async {
-    await sharedPreferences.setDouble(key, value);
+  Future<void> setDouble(String key, double value) async {
+    await secureStorage.write(key: key, value: value.toString());
   }
 
-  ///get double value in prefs
   Future<double?> getDouble(String key) async {
-    final doubleValue = sharedPreferences.getDouble(key);
-    return doubleValue;
+    String? value = await secureStorage.read(key: key);
+    return value != null ? double.tryParse(value) : null;
   }
 
-  ///set bool value in prefs
-  Future setBool(String? key, {bool? value}) async {
-    await sharedPreferences.setBool(key!, value!);
+  Future<void> setBool(String? key, {bool? value}) async {
+    await secureStorage.write(key: key!, value: value.toString());
   }
 
-  ///get bool value from prefs
   Future<bool?> getBool(String key) async {
-    return sharedPreferences.getBool(key);
+    String? value = await secureStorage.read(key: key);
+    return value != null ? value.toLowerCase() == 'true' : null;
   }
 
-  ///remove value from prefs
   Future<bool> removeValue(String key) async {
-    final isRemoved = await sharedPreferences.remove(key);
-    return isRemoved;
+    try {
+      await secureStorage.delete(key: key);
+      return true;
+    } catch (e) {
+      logger.e(e);
+      return false;
+    }
   }
 
-  ///check existing value in prefs
   Future<bool> isExist(String? key) async {
-    return sharedPreferences.containsKey(key!);
+    try {
+      String? value = await secureStorage.read(key: key!);
+      return value != null;
+    } catch (e) {
+      logger.e(e);
+      return false;
+    }
   }
 
-  ///set ListPrefs in prefs
-  Future setStringListPrefs(String key, List<String>? value) async {
-    await sharedPreferences.setStringList(key, value ?? []);
+  Future<void> setStringListPrefs(String key, List<String>? value) async {
+    await secureStorage.write(key: key, value: value!.join(','));
   }
 
-  ///get ListPrefs from prefs
-  Future<List<String?>?> getStringListPrefs(String key) async {
-    return sharedPreferences.getStringList(key);
+  Future<List<String>?> getStringListPrefs(String key) async {
+    String? value = await secureStorage.read(key: key);
+    return value?.split(',');
   }
 
   Future<String> getUserId() async {
     try {
-      return sharedPreferences.getString(SharedPreferenceConstants.userId) ??
+      return await secureStorage.read(key: SharedPreferenceConstants.userId) ??
           '';
     } catch (e) {
       logger.e(e);
@@ -86,8 +85,8 @@ class SharedPreferencesUtil {
 
   Future<void> setUserId(userId) async {
     try {
-      sharedPreferences.setString(
-          SharedPreferenceConstants.userId, userId.toString());
+      await secureStorage.write(
+          key: SharedPreferenceConstants.userId, value: userId.toString());
     } catch (e) {
       logger.e(e);
     }
@@ -95,10 +94,11 @@ class SharedPreferencesUtil {
 
   Future<bool> clearSharedPreference() async {
     try {
-      return await sharedPreferences.clear();
+      await secureStorage.deleteAll();
+      return true;
     } catch (e) {
       logger.e(e);
-      return true; // session does not exists in the shared-preferences
+      return true; // session does not exist in the shared-preferences
     }
   }
 }

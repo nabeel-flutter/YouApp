@@ -1,5 +1,5 @@
 export 'package:auto_route/auto_route.dart';
-
+export 'package:flutter_secure_storage/flutter_secure_storage.dart';
 export 'package:new_beginnings/src/pages/billing_payment/billing_and_payment_screen.dart';
 export 'package:new_beginnings/src/pages/documents/documents_screen.dart';
 export 'package:new_beginnings/src/pages/medication/medication_screen.dart';

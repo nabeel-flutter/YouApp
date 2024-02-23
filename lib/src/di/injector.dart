@@ -46,10 +46,12 @@ Future<void> _initializeData({bool enableLogging = true}) async {
   getIt.registerSingleton(ObjectMapper(logger: getIt.get()));
 
   final sharedPref = await SharedPreferences.getInstance();
+  const secureStorage = FlutterSecureStorage(
+      aOptions: AndroidOptions(encryptedSharedPreferences: true));
 
   getIt.registerFactory<SharedPreferencesUtil>(
     () => SharedPreferencesUtil(
-      sharedPreferences: sharedPref,
+      secureStorage: secureStorage,
       logger: getIt.get(),
     ),
   );
