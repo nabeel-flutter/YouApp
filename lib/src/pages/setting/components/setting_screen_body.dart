@@ -55,7 +55,7 @@ class SettingScreenBody extends StatelessWidget {
                       .updateStateDarkLight(value: value);
                 },
                 text: StringConstants.themeDarkLight),
-            const AppColorPicker(),
+            // const AppColorPicker(),
           ],
         ),
       ),

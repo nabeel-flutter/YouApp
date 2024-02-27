@@ -4,7 +4,7 @@ class ColorConstants {
   static const Color yellowIndicatorColor = Color(0xFFFDC13A);
   static const Color black = Color(0xff000000);
   static const Color white = Color(0xFFFFFFFF);
-  static const Color royalBlue = Color(0xFF2196F3);
+  static const Color primaryColor = Color(0xff0A7E80);
   static const Color green = Color(0xFF59E583);
   static const Color greenIndicatorColor = Color(0xFF59E584);
   static const Color redIndicatorColor = Color.fromRGBO(239, 89, 89, 1);

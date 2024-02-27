@@ -33,8 +33,8 @@ class ToastComponent2 {
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: ColorConstants.royalBlue),
-          color: ColorConstants.royalBlue,
+          border: Border.all(color: ColorConstants.primaryColor),
+          color: ColorConstants.primaryColor,
         ),
         // width: MediaQuery.of(context).size.width * .9,
         child: Row(
@@ -44,7 +44,7 @@ class ToastComponent2 {
               children: [
                 Icon(
                   Icons.info,
-                  color: ColorConstants.royalBlue,
+                  color: ColorConstants.primaryColor,
                 ),
                 SizedBox(width: 12),
               ],

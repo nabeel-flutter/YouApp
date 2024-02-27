@@ -2,7 +2,7 @@ import 'package:new_beginnings/src/app/app_export.dart';
 
 class MyTheme with ChangeNotifier {
   static bool isDark = false;
-  static Color color = ColorConstants.royalBlue;
+  static Color color = ColorConstants.primaryColor;
   void getStorageTheme() async {
     isDark = (await getIt
         .get<SharedPreferencesUtil>()
