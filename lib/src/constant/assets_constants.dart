@@ -17,6 +17,8 @@ class AssetsConstants {
       'assets/images/success_dialog_image.png';
   static const String failedDialogImage =
       'assets/images/failed_dioalog_image.png';
+  static const String splashLogo = 'assets/images/splash_logo.svg';
+  static const String splashLogoImage = 'assets/images/splash_logo.png';
 
   //Icons
   static const String billingsAndPaymentIcon =
@@ -44,7 +46,6 @@ class AssetsConstants {
   static const String notificationAppBarIcon =
       'assets/icon/notification_icon_app_bar.png';
   static const String emergencyMainScreenImage =
-      
       'assets/images/emergency_main_screen_image.png';
   static const String notificationIcon = 'assets/icon/notification_icon.png';
   static const String offersAndPromotionIcon =

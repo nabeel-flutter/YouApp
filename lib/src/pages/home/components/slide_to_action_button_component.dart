@@ -177,7 +177,7 @@ class SimpleExample extends StatelessWidget {
                 isVertical: true,
                 color: !state.isPerformingAction
                     ? ColorConstants.redIndicatorColor
-                    : ColorConstants.royalBlue),
+                    : ColorConstants.primaryColor),
 
             // color: ColorConstants.redIndicatorColor,
             borderRadius: BorderRadius.circular(100),

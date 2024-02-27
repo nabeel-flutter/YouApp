@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
           .getString(SharedPreferenceConstants.apiAuthToken)
           .then((value) async => value == null
               ? await context.router.pushAndPopUntil(
-                  predicate: (route) => false, const SignInRoute())
+                  predicate: (route) => false, const OnboardingRoute())
               : await context.router.pushAndPopUntil(
                   predicate: (route) => false, const HomeRoute()));
     });
@@ -38,10 +38,16 @@ class _SplashScreenState extends State<SplashScreen> {
     return Consumer<MyTheme>(
       builder: (context, theme, child) {
         this.theme = theme;
-        return const MainScaffold(
-          isGradient: false,
-          body: Center(child: Text('The New Beginning')),
-        );
+        return Scaffold(
+            backgroundColor: ColorConstants.primaryColor,
+            body: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                child: Image.asset(
+                  AssetsConstants.splashLogoImage,
+                ),
+              ),
+            ));
       },
     );
   }

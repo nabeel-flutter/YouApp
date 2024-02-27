@@ -39,7 +39,9 @@ class AppRouter extends _$AppRouter {
           page: ProfileRoute.page,
           path: RouteConstants.profileRoute,
         ),
-        
-
+        AutoRoute(
+          page: OnboardingRoute.page,
+          path: RouteConstants.onboardingRoute,
+        ),
       ];
 }
