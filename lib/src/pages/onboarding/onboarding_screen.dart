@@ -1,4 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/route/app_router.dart';
 
 @RoutePage()
 class OnboardingScreen extends StatelessWidget {
@@ -13,41 +14,70 @@ class OnboardingScreen extends StatelessWidget {
     return MainScaffold(
       isGradient: false,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text(
-            StringConstants.onboardingText,
-            style: FontStylesConstants.gilroy(
-              fontFamily: FontConstantc.gilroyRegular,
-              fontSize: 30,
-              color: ColorConstants.white,
-              fontWeight: FontWeight.w400,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 40),
-          Row(
-            children: [
-              Expanded(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  onPressed: () {
-                    NavigationUtil.popAllAndPush(
-                      context,
-                      RouteConstants.homeRoute,
-                    );
-                  },
-                  child: Text(StringConstants.getStarted),
+          Expanded(
+            child: Stack(children: [
+              Image.asset(
+                AssetsConstants.onboardingImage,
+                fit: BoxFit.cover,
+              ),
+              ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  bottomRight: Radius.circular(50),
+                ),
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.6,
+                  color: ColorConstants.primaryColor.withOpacity(0.2),
                 ),
               ),
-            ],
+            ]),
           ),
-          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  'Welcome to New Beginnings',
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 24,
+                      color: ColorConstants.primaryColor),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  'A platform for ordinary people with ideas that can can the world. Meet people, join groups, chat online and be a part of creating next big thing.',
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                        color: ColorConstants.primaryColor,
+                      ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 40),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    onPressed: () {
+                      context.router.push(const SignInRoute());
+                    },
+                    child: Text(
+                      StringConstants.getStarted,
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            color: ColorConstants.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                    )),
+                const SizedBox(height: 10),
+              ],
+            ),
+          ),
         ],
       ),
     );

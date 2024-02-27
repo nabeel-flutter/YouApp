@@ -19,6 +19,8 @@ class AssetsConstants {
       'assets/images/failed_dioalog_image.png';
   static const String splashLogo = 'assets/images/splash_logo.svg';
   static const String splashLogoImage = 'assets/images/splash_logo.png';
+  static const String onboardingImage =
+      'assets/images/onboarding_doctorImage.png';
 
   //Icons
   static const String billingsAndPaymentIcon =
