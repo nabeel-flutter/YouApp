@@ -49,9 +49,7 @@ class TextFormFieldComponent extends StatelessWidget {
         decoration: InputDecoration(
             focusColor: getThemeColor(context),
             filled: true,
-            fillColor: !getThemeStateIsLight()
-                ? (lighten(getThemeColor(context), 0.35))
-                : ColorConstants.white,
+            fillColor: ColorConstants.white,
             hintText: hintText,
             hintStyle: Theme.of(context)
                 .textTheme
@@ -65,25 +63,25 @@ class TextFormFieldComponent extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       color: lableColor,
                     )),
-            enabledBorder: UnderlineInputBorder(
+            enabledBorder: OutlineInputBorder(
                 borderSide:
-                    const BorderSide(color: ColorConstants.white, width: 0),
+                    const BorderSide(color: ColorConstants.black, width: 0),
                 borderRadius: BorderRadius.circular(20)),
             errorBorder: UnderlineInputBorder(
                 borderSide:
-                    const BorderSide(color: ColorConstants.white, width: 0),
+                    const BorderSide(color: ColorConstants.black, width: 0),
                 borderRadius: BorderRadius.circular(20)),
             disabledBorder: UnderlineInputBorder(
                 borderSide:
-                    const BorderSide(color: ColorConstants.white, width: 0),
+                    const BorderSide(color: ColorConstants.black, width: 0),
                 borderRadius: BorderRadius.circular(20)),
             focusedBorder: UnderlineInputBorder(
                 borderSide:
-                    const BorderSide(color: ColorConstants.white, width: 0),
+                    const BorderSide(color: ColorConstants.black, width: 0),
                 borderRadius: BorderRadius.circular(20)),
             border: UnderlineInputBorder(
                 borderSide:
-                    const BorderSide(color: ColorConstants.white, width: 0),
+                    const BorderSide(color: ColorConstants.black, width: 0),
                 borderRadius: BorderRadius.circular(20))),
       ),
     );

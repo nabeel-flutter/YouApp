@@ -14,8 +14,7 @@ class SignInForm extends StatelessWidget {
 
     return Column(
       children: [
-        const SizedBox(height: 50),
-        Text(StringConstants.account),
+        // Text(StringConstants.account),
         const SizedBox(height: 25),
         TextFormFieldComponent(
             controller: userNameController, label: 'User Name'),
@@ -29,7 +28,10 @@ class SignInForm extends StatelessWidget {
           },
           child: Align(
             alignment: Alignment.centerRight,
-            child: Text(StringConstants.forgot),
+            child: Text(StringConstants.forgot,
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                      color: ColorConstants.primaryColor,
+                    )),
           ),
         ),
         const SizedBox(height: 40),
@@ -41,8 +43,8 @@ class SignInForm extends StatelessWidget {
                   loaded: (token) async {
                     getIt.get<SharedPreferencesUtil>().setString(
                         SharedPreferenceConstants.apiAuthToken, token.token);
-                   return     await context.router.pushAndPopUntil(
-                  predicate: (route) => false, const HomeRoute());
+                    return await context.router.pushAndPopUntil(
+                        predicate: (route) => false, const HomeRoute());
                   },
                 ),
             builder: (context, state) => state.maybeWhen(
@@ -80,12 +82,25 @@ class SignInForm extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
                           onPressed: () {
                             context.read<SignInCubit>().signIn(
                                 userName: userNameController.text,
                                 password: passwordController.text);
                           },
-                          child: const Text("Login")),
+                          child: Text(
+                            "Login",
+                            style:
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                      color: ColorConstants.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                          )),
                       const SizedBox(height: 10),
                       Text(
                         message,
@@ -96,14 +111,57 @@ class SignInForm extends StatelessWidget {
                       ),
                     ],
                   );
-                },  
+                },
                 orElse: () => ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
                     onPressed: () {
                       context.read<SignInCubit>().signIn(
                           userName: userNameController.text,
                           password: passwordController.text);
                     },
-                    child: const Text('Sign In')))),
+                    child: Text(
+                      StringConstants.LogIn,
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            color: ColorConstants.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                    )))),
+        const SizedBox(height: 20),
+        ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              elevation: 0.0,
+              backgroundColor: ColorConstants.white,
+              shape: RoundedRectangleBorder(
+                side: const BorderSide(
+                    color: ColorConstants.primaryColor, width: 1),
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            onPressed: () {
+              context.router.pushNamed(RouteConstants.signUpRoute);
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Register',
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          color: ColorConstants.primaryColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        )),
+                const SizedBox(width: 10),
+                const Icon(
+                  Icons.arrow_forward_ios,
+                  color: ColorConstants.primaryColor,
+                  size: 16,
+                )
+              ],
+            )),
         const SizedBox(height: 50),
         // const SocialLogin(),
       ],

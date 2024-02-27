@@ -596,7 +596,7 @@ class StringConstants {
 
   static String get forgot => _getLang('forgot');
 
-  static String get signIn => _getLang('signIn');
+  static String get LogIn => _getLang('logIn');
 
   static String get newAccount => _getLang('newAccount');
 

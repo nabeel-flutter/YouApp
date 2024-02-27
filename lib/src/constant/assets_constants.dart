@@ -21,6 +21,7 @@ class AssetsConstants {
   static const String splashLogoImage = 'assets/images/splash_logo.png';
   static const String onboardingImage =
       'assets/images/onboarding_doctorImage.png';
+  static const String nbAuthLogo = 'assets/images/nb_auth_logo.png';
 
   //Icons
   static const String billingsAndPaymentIcon =
