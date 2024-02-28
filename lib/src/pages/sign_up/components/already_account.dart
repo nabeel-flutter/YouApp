@@ -5,28 +5,23 @@ class AlreadyAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        RichText(
-          text: TextSpan(
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
             text: 'Already have an account? ',
-            children: [
-              TextSpan(
-                text: 'Sign In',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall!
-                    .copyWith(color: Colors.lightBlue),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () {
-                    Navigator.pop(context);
-                  },
-              ),
-            ],
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  decoration: TextDecoration.underline,
+                  decorationColor: ColorConstants.primaryColor,
+                  color: ColorConstants.primaryColor,
+                ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                Navigator.pop(context);
+              },
           ),
-        ),
-        const SizedBox(height: 40),
-      ],
+        ],
+      ),
     );
   }
 }

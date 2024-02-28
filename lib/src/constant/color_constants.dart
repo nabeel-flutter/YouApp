@@ -4,6 +4,10 @@ class ColorConstants {
   static const Color yellowIndicatorColor = Color(0xFFFDC13A);
   static const Color black = Color(0xff000000);
   static const Color white = Color(0xFFFFFFFF);
+  static const Color bgColorLight = Color(0xffF6FDFD);
+  static const Color borderColorFields = Color(0xffF7F8F8);
+  static const Color hintTextColor = Color(0xff8A96BC);
+  static const Color subTextColor = Color(0xff8391A1);
   static const Color primaryColor = Color(0xff0A7E80);
   static const Color green = Color(0xFF59E583);
   static const Color greenIndicatorColor = Color(0xFF59E584);

@@ -24,8 +24,9 @@ class MainScaffold extends StatelessWidget {
     return Scaffold(
       floatingActionButton: floatingActionButton,
       bottomNavigationBar: bottomNavigationBar,
-      backgroundColor:
-          getThemeStateIsLight() ? ColorConstants.black : ColorConstants.white,
+      backgroundColor: getThemeStateIsLight()
+          ? ColorConstants.black
+          : ColorConstants.bgColorLight,
       appBar: appBar != null
           ? PreferredSize(
               preferredSize:

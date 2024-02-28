@@ -17,10 +17,22 @@ class SignInForm extends StatelessWidget {
         // Text(StringConstants.account),
         const SizedBox(height: 25),
         TextFormFieldComponent(
-            controller: userNameController, label: 'User Name'),
+          hintText: "Enter Email",
+          controller: userNameController,
+        ),
         const SizedBox(height: 20),
         TextFormFieldComponent(
-            controller: passwordController, label: 'Password'),
+          hintText: "Enter Password",
+          isPassword: true,
+          suffixIcon: IconButton(
+            icon: const Icon(
+              Icons.visibility,
+              color: ColorConstants.greyText,
+            ),
+            onPressed: () {},
+          ),
+          controller: passwordController,
+        ),
         const SizedBox(height: 10),
         GestureDetector(
           onTap: () {
@@ -30,6 +42,8 @@ class SignInForm extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Text(StringConstants.forgot,
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                      decoration: TextDecoration.underline,
+                      decorationColor: ColorConstants.primaryColor,
                       color: ColorConstants.primaryColor,
                     )),
           ),
@@ -82,11 +96,6 @@ class SignInForm extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
                           onPressed: () {
                             context.read<SignInCubit>().signIn(
                                 userName: userNameController.text,

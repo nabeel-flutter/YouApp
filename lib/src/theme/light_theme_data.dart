@@ -12,7 +12,7 @@ ThemeData lightThemeData(MyTheme theme, {Color? color}) {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         shape: MaterialStatePropertyAll(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
         fixedSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
         maximumSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
         minimumSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
