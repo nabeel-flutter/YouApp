@@ -1,4 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+
 @RoutePage()
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
@@ -11,6 +12,7 @@ class ForgotPasswordScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             children: [
+              SizedBox(height: 40),
               ForgotPasswordHeader(),
               ForgotPasswordBody(),
             ],

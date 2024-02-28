@@ -25,7 +25,7 @@ class RouteConstants {
 
   static const String signInRoute = '/loginRoute';
   static const String signUpRoute = '/signUpRoute';
-  static const String otpRoute = 'otpRoute';
+  static const String otpRoute = '/otpRoute';
   static const String newPasswordRoute = '/newPasswordRoute';
   static const String forgotPasswordRoute = '/forgotPasswordRoute';
   static const String emergencyRoute = 'emergencyRoute';

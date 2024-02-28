@@ -39,6 +39,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const NotificationScreen(),
       );
     },
+    OTPRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const OTPScreen(),
+      );
+    },
     OnboardingRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -124,6 +130,20 @@ class NotificationRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'NotificationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [OTPScreen]
+class OTPRoute extends PageRouteInfo<void> {
+  const OTPRoute({List<PageRouteInfo>? children})
+      : super(
+          OTPRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OTPRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

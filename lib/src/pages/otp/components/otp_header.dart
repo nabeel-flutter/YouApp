@@ -7,36 +7,33 @@ class OTPHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(height: 40),
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: Icon(
-              Icons.arrow_back,
-              color: ColorConstants.white,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image(
+              image: const AssetImage(AssetsConstants.nbAuthLogo),
+              height: MediaQuery.of(context).size.height * 0.15,
+              width: double.infinity,
+              alignment: Alignment.center,
             ),
-          ),
-          const SizedBox(height: 20),
-          Text(
-            'Verify your email',
-            style: Theme.of(context)
-                .textTheme
-                .labelLarge!
-                .copyWith(fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 20),
-          Text(
-            'Please enter the 4 digit code sent to',
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: ColorConstants.greyText),
-          ),
-          const SizedBox(height: 5),
-          const Text('atriatech@gmail.com'),
-        ],
+            const SizedBox(height: 40),
+            Text('OTP Verification',
+                style: Theme.of(context)
+                    .textTheme
+                    .labelLarge!
+                    .copyWith(fontWeight: FontWeight.bold, fontSize: 28)),
+            const SizedBox(height: 20),
+            Text(
+              'Enter the verification code we just sent on your email address.',
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  color: ColorConstants.subTextColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16),
+            ),
+          ],
+        ),
       ),
     );
   }

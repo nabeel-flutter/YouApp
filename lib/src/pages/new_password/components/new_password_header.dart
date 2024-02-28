@@ -8,33 +8,31 @@ class NewPasswordHeader extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 40),
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: Icon(
-              Icons.arrow_back,
-              color: ColorConstants.white,
-            ),
+          Image(
+            image: const AssetImage(AssetsConstants.nbAuthLogo),
+            height: MediaQuery.of(context).size.height * 0.15,
+            width: double.infinity,
+            alignment: Alignment.center,
           ),
           const SizedBox(height: 20),
           Text(
             'Create New Password',
             style: Theme.of(context)
                 .textTheme
-                .labelMedium!
-                .copyWith(fontWeight: FontWeight.bold),
+                .labelLarge!
+                .copyWith(fontWeight: FontWeight.bold, fontSize: 28),
           ),
           const SizedBox(height: 20),
           Text(
             'Please create new password',
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: ColorConstants.greyText),
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                color: ColorConstants.subTextColor,
+                fontWeight: FontWeight.w500,
+                fontSize: 16),
           ),
-          SvgPicture.asset("assets/icon/new_password_lock.svg"),
         ],
       ),
     );

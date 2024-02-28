@@ -24,6 +24,7 @@ class AssetsConstants {
   static const String nbAuthLogo = 'assets/images/nb_auth_logo.png';
 
   //Icons
+  static const String successIcon = 'assets/icon/check_icon.svg';
   static const String billingsAndPaymentIcon =
       'assets/icon/billings_and_payment_icon.png';
   static const String checkUpIcon = 'assets/icon/check_up.svg';

@@ -5,14 +5,12 @@ class OTPBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        const SizedBox(height: 40),
-        SvgPicture.asset("assets/icon/otp_letter.svg"),
-        const SizedBox(height: 30),
-        const OTPFields(),
-        const SizedBox(height: 10),
-        const OTPButton(),
+        SizedBox(height: 30),
+        OTPFields(),
+        SizedBox(height: 10),
+        OTPButton(),
       ],
     );
   }

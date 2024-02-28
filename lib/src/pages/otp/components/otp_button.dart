@@ -12,22 +12,15 @@ class OTPButton extends StatelessWidget {
           height: 56,
           child: ElevatedButton(
             onPressed: () {
-              NavigationUtil.push(
-                context,
-                RouteConstants.newPasswordRoute,
-              );
+              context.router.push(const NewPasswordRoute());
             },
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
             child: Text(
               'Verify',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyMedium!
-                  .copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: ColorConstants.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
             ),
           ),
         ),
@@ -38,14 +31,14 @@ class OTPButton extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!
-                .copyWith(color: Colors.grey),
+                .copyWith(color: ColorConstants.subTextColor),
             children: [
               TextSpan(
                 text: 'Resend Code',
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall!
-                    .copyWith(color: Colors.lightBlue),
+                    .copyWith(color: ColorConstants.primaryColor),
                 recognizer: TapGestureRecognizer()..onTap = () {},
               ),
             ],
