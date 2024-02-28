@@ -6,21 +6,25 @@ class TextFormFieldComponent extends StatelessWidget {
     super.key,
     required this.controller,
     this.listTextInputFormatter,
-    required this.label,
+    this.label,
     this.maxLines = 1,
     this.hintText = '',
     this.verticalPadding = 8.0,
     this.lableColor = ColorConstants.greyText,
     this.textInputType = TextInputType.text,
+    this.isPassword,
+    this.suffixIcon,
   });
   final List<TextInputFormatter>? listTextInputFormatter;
-  final String label;
+  final String? label;
   final TextEditingController controller;
   final int maxLines;
   final String hintText;
   final double verticalPadding;
   final Color lableColor;
   final TextInputType textInputType;
+  final bool? isPassword;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -46,44 +50,37 @@ class TextFormFieldComponent extends StatelessWidget {
               getThemeColor(context),
               0.4,
             )),
+        obscureText: isPassword == true ? true : false,
         decoration: InputDecoration(
+            suffixIcon: suffixIcon,
             focusColor: getThemeColor(context),
             filled: true,
-            fillColor: !getThemeStateIsLight()
-                ? (lighten(getThemeColor(context), 0.35))
-                : ColorConstants.white,
+            fillColor: ColorConstants.white,
             hintText: hintText,
-            hintStyle: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: ColorConstants.greyText),
-            labelStyle: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: lableColor),
-            label: Text(label,
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      color: lableColor,
-                    )),
-            enabledBorder: UnderlineInputBorder(
-                borderSide:
-                    const BorderSide(color: ColorConstants.white, width: 0),
+            hintStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
+                fontWeight: FontWeight.w400,
+                fontSize: 14,
+                color: ColorConstants.hintTextColor),
+            enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(
+                    color: ColorConstants.borderColorFields, width: 2.2),
                 borderRadius: BorderRadius.circular(20)),
-            errorBorder: UnderlineInputBorder(
-                borderSide:
-                    const BorderSide(color: ColorConstants.white, width: 0),
+            errorBorder: OutlineInputBorder(
+                borderSide: const BorderSide(
+                    color: ColorConstants.borderColorFields, width: 2.2),
                 borderRadius: BorderRadius.circular(20)),
-            disabledBorder: UnderlineInputBorder(
-                borderSide:
-                    const BorderSide(color: ColorConstants.white, width: 0),
+            disabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(
+                    color: ColorConstants.borderColorFields, width: 2.2),
                 borderRadius: BorderRadius.circular(20)),
-            focusedBorder: UnderlineInputBorder(
-                borderSide:
-                    const BorderSide(color: ColorConstants.white, width: 0),
-                borderRadius: BorderRadius.circular(20)),
-            border: UnderlineInputBorder(
-                borderSide:
-                    const BorderSide(color: ColorConstants.white, width: 0),
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                  color: ColorConstants.borderColorFields, width: 2.2),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            border: OutlineInputBorder(
+                borderSide: const BorderSide(
+                    color: ColorConstants.borderColorFields, width: 2.2),
                 borderRadius: BorderRadius.circular(20))),
       ),
     );

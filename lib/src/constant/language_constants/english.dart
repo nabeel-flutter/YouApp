@@ -299,7 +299,7 @@ class EnglishConstant {
     'email': 'Email Address',
     'password': 'Password',
     'forgot': 'Forgot Password?',
-    'signIn': 'Sign In',
+    'logIn': 'Login',
     'newAccount': 'Don’t have an account? ',
     'createAccount': 'Create Account',
 

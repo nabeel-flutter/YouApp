@@ -6,24 +6,19 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MainScaffold(
+      isGradient: false,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
           child: Column(
             children: [
-              const SizedBox(height: 40),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Icon(Icons.arrow_back, color: ColorConstants.white),
-                  Container(),
-                ],
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Welcome to new beginning',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              const SizedBox(height: 50),
+              Image(
+                image: const AssetImage(AssetsConstants.nbAuthLogo),
+                height: MediaQuery.of(context).size.height * 0.15,
+                width: double.infinity,
+                alignment: Alignment.center,
               ),
               const SignInForm(),
             ],

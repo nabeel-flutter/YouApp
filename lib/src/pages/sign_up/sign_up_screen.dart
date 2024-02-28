@@ -1,4 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+
 @RoutePage()
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -10,25 +11,41 @@ class SignUpScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 40),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Icon(Icons.arrow_back, color: ColorConstants.white),
-                  Text(
-                    'Create New Account',
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  Container(),
-                ],
-              ),
+              const Icon(Icons.arrow_back, color: ColorConstants.white),
               const SizedBox(height: 20),
-              const Image(
-                image: AssetImage("assets/images/logo.png"),
-                height: 70,
+              Image(
+                image: const AssetImage(AssetsConstants.nbAuthLogo),
+                height: MediaQuery.of(context).size.height * 0.15,
                 width: double.infinity,
                 alignment: Alignment.center,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Create Account',
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelLarge!
+                        .copyWith(fontWeight: FontWeight.bold, fontSize: 28),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Start By Creating an Account',
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: ColorConstants.subTextColor,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16),
+                  ),
+                ],
               ),
               const SignUpForm(),
             ],
