@@ -15,6 +15,7 @@ class SettingScreenBody extends StatelessWidget {
           children: [
             TextComponentSettingMainHeading(
                 text: StringConstants.generalSettings),
+
             AppTileComponent(
               isExpandable: false,
               onTap: () => NavigationUtil.push(
@@ -55,7 +56,29 @@ class SettingScreenBody extends StatelessWidget {
                       .updateStateDarkLight(value: value);
                 },
                 text: StringConstants.themeDarkLight),
-            // const AppColorPicker(),
+            //logout
+            GestureDetector(
+              onTap: () {
+                getIt
+                    .get<SharedPreferencesUtil>()
+                    .removeValue(SharedPreferenceConstants.apiAuthToken)
+                    .then((value) async => await context.router.pushAndPopUntil(
+                        predicate: (route) => false, const SignInRoute()));
+              },
+              child: Container(
+                  margin: const EdgeInsets.only(top: 20),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Logout',
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: ColorConstants.subTextColor,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
+                      ),
+                    ],
+                  )),
+            ),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+
 @RoutePage()
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -6,39 +7,25 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IsGradientBackGround(
-        body: Column(
-          children: [
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             const UserProfileComponent(),
-            Container(
-              padding: const EdgeInsets.all(3),
-              decoration: const BoxDecoration(
-                  color: ColorConstants.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20))),
-              child: Column(children: [
-                AppTileComponent(
-                  isExpandable: false,
-                  test: StringConstants.demographicProfile,
-                  image: AssetsConstants.demographicProfile,
-                  onTap: () {
-                    NavigationUtil.push(
-                        context, RouteConstants.demographicRoute);
-                  },
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
                 ),
-                const ExpansionPanelListComponent(),
-                AppTileComponent(
-                  isExpandable: false,
-                  test: StringConstants.familyHealthProfile,
-                  image: AssetsConstants.familyHealthProfile,
-                  onTap: () {
-                    NavigationUtil.push(
-                        context, RouteConstants.familyHealthProfileRoute);
-                  },
-                ),
-              ]),
-            ),
-          ],
+                onPressed: () {
+                  getIt
+                      .get<SharedPreferencesUtil>()
+                      .removeValue(SharedPreferenceConstants.apiAuthToken)
+                      .then((value) async => await context.router
+                          .pushAndPopUntil(
+                              predicate: (route) => false,
+                              const SignInRoute()));
+                },
+                child: const Text('Logout'))
+          ]),
         ),
         isBackAppBar: false,
         appbarText: StringConstants.profile);

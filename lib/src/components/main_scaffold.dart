@@ -10,10 +10,10 @@ class MainScaffold extends StatelessWidget {
   const MainScaffold({
     super.key,
     required this.body,
-     this.isGradient,
+    this.isGradient,
     this.appBar,
     this.bottomNavigationBar,
-    this.preferredSizeAppBar,
+    this.preferredSizeAppBar = kToolbarHeight * 1.4,
     this.floatingActionButton,
   });
 
@@ -30,7 +30,7 @@ class MainScaffold extends StatelessWidget {
       appBar: appBar != null
           ? PreferredSize(
               preferredSize:
-                  Size.fromHeight(preferredSizeAppBar ?? kToolbarHeight),
+                  Size.fromHeight(preferredSizeAppBar ?? kToolbarHeight + 1),
               child: appBar!)
           : null,
       body: body,

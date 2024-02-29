@@ -24,82 +24,76 @@ class AppBarcomponent extends StatelessWidget {
   @override
   PreferredSize build(BuildContext context) {
     return PreferredSize(
-      preferredSize: const Size.fromHeight(kToolbarHeight),
-      child: BlocBuilder<AnimatedDrawerCubit, AnimatedDrawerState>(
-        builder: (context, state) => Container(
-          decoration: BoxDecoration(boxShadow: appBarShadoow),
-          child: AppBar(
-              elevation: elevation,
-              centerTitle: isBackAppBar,
-              actions: !isBackAppBar
-                  ? [
-                      InkWell(
-                        onTap: () => context.router
-                            .pushNamed(RouteConstants.notificationRoute),
+      preferredSize: const Size.fromHeight(kToolbarHeight + 1),
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(22),
+                bottomRight: Radius.circular(22)),
+            color: appBarColor ?? ColorConstants.primaryColor,
+            boxShadow: appBarShadoow ?? []),
+        child: AppBar(
+            elevation: elevation,
+            centerTitle: isBackAppBar,
+            actions: !isBackAppBar
+                ? [
+                    InkWell(
+                      onTap: () => context.router
+                          .pushNamed(RouteConstants.notificationRoute),
+                      child: const Padding(
+                        padding: EdgeInsets.all(15),
                         child: Padding(
-                          padding: const EdgeInsets.all(15),
-                          child:
-                              Stack(alignment: Alignment.topRight, children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 6.0, right: 3),
-                              child: Image.asset(
-                                AssetsConstants.notificationAppBarIcon,
-                                color: !getThemeStateIsLight()
-                                    ? (darken(getThemeColor(context), 0.35))
-                                    : null,
-                              ),
-                            ),
-                            Container(
-                              height: 12,
-                              width: 12,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(100),
-                                  border: Border.all(
-                                      width: 1, color: getThemeColor(context)),
-                                  color: ColorConstants.green),
-                            ),
-                          ]),
+                          padding: EdgeInsets.only(top: 6.0, right: 3),
+                          child: Icon(
+                            Icons.notifications_on_outlined,
+                            color: ColorConstants.white,
+                          ),
                         ),
                       ),
-                    ]
-                  : actionTextButton != null
-                      ? [actionTextButton!]
-                      : [
-                          Container(
-                            width: 50,
-                          )
-                        ],
-              backgroundColor: getThemeStateIsLight()
-                  ? isGradient
-                      ? Colors.transparent
-                      : appBarColor ?? Theme.of(context).scaffoldBackgroundColor
-                  : appBarColor ?? Theme.of(context).scaffoldBackgroundColor,
-              leading: isBackAppBar
-                  ? GestureDetector(
-                      onTap: () => NavigationUtil.pop(context),
-                      child: Container(
-                          margin: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: ColorConstants.white),
-                          child: const Icon(
-                            Icons.arrow_back,
-                            color: ColorConstants.black,
-                          )),
-                    )
-                  : const DrawerLeadingComponent(),
-              title: !isTitleTowLines
-                  ? SizedBox(
-                      // width: MediaQuery.of(context).size.width / 1,
-                      child: Text(
-                        title,
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
-                      ),
-                    )
-                  : const HomeTitleComponent()),
-        ),
+                    ),
+                  ]
+                : actionTextButton != null
+                    ? [actionTextButton!]
+                    : [
+                        Container(
+                          width: 50,
+                        )
+                      ],
+            backgroundColor: Colors.transparent,
+            leadingWidth: isBackAppBar ? 50 : 150,
+            leading: isBackAppBar
+                ? GestureDetector(
+                    onTap: () => NavigationUtil.pop(context),
+                    child: Container(
+                        margin: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: ColorConstants.white),
+                        child: const Icon(
+                          Icons.arrow_back_ios_new,
+                          size: 12,
+                          color: ColorConstants.black,
+                        )),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: Image.asset(
+                      AssetsConstants.splashLogoImage,
+                    ),
+                  ),
+            title: isBackAppBar
+                ? SizedBox(
+                    child: Text(
+                      title,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          color: ColorConstants.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
+                    ),
+                  )
+                : null),
       ),
     );
   }
