@@ -7,36 +7,36 @@ class ForgotPasswordHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(height: 40),
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: Icon(
-              Icons.arrow_back,
-              color: ColorConstants.white,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 20),
+            Image(
+              image: const AssetImage(AssetsConstants.nbAuthLogo),
+              height: MediaQuery.of(context).size.height * 0.15,
+              width: double.infinity,
+              alignment: Alignment.center,
             ),
-          ),
-          const SizedBox(height: 20),
-          Text(
-            'Forgot Password',
-            style: Theme.of(context)
-                .textTheme
-                .labelMedium!
-                .copyWith(fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 20),
-          Text(
-            'Please enter your email address to receive a verification code',
-            textAlign: TextAlign.center,
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: ColorConstants.greyText),
-          ),
-          SvgPicture.asset("assets/icon/forgot_password_lock.svg"),
-        ],
+            const SizedBox(height: 40),
+            Text(
+              StringConstants.forgotPassword,
+              style: Theme.of(context)
+                  .textTheme
+                  .labelLarge!
+                  .copyWith(fontWeight: FontWeight.bold, fontSize: 28),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              StringConstants.forgotPasswordDescription,
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  color: ColorConstants.subTextColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -4,6 +4,8 @@ part 'animated_drawer_cubit.freezed.dart';
 class AnimatedDrawerCubit extends Cubit<AnimatedDrawerState> {
   AnimatedDrawerCubit() : super(const _Initial());
 
+  final int currentIndex = 0;
+
   void getDashBoardOverview(context,
       {required PageController pageController,
       required AdvancedDrawerController advancedDrawerController}) {

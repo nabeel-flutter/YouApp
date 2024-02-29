@@ -5,85 +5,47 @@ class ForgotPasswordBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController email = TextEditingController();
     return Column(
       children: [
-        _emailField(context),
+        TextFormFieldComponent(controller: email, hintText: 'Enter Your Email'),
         const SizedBox(height: 20),
-        _forgotPasswordButton(context),
+        ElevatedButton(
+            onPressed: () {
+              context.router.push(const OTPRoute());
+            },
+            child: Text(
+              StringConstants.sendCode,
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: ColorConstants.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
+            )),
         const SizedBox(height: 40),
         _rememberPassword(context),
-        const SizedBox(height: 20),
       ],
-    );
-  }
-
-  Widget _emailField(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        fillColor: darken(getThemeColor(context), 0.25),
-        filled: true,
-        contentPadding: const EdgeInsets.symmetric(vertical: 14),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide.none,
-        ),
-        prefixIcon: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
-          child: SvgPicture.asset('assets/icon/email.svg'),
-        ),
-        prefixIconConstraints: const BoxConstraints(minHeight: 20),
-        labelText: 'Email Address',
-        labelStyle: const TextStyle(color: ColorConstants.white),
-      ),
-    );
-  }
-
-  Widget _forgotPasswordButton(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 56,
-      child: ElevatedButton(
-        onPressed: () {
-          NavigationUtil.push(
-            context,
-            RouteConstants.otpRoute,
-          );
-        },
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-        ),
-        child: Text(
-          'Send',
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium!
-              .copyWith(fontWeight: FontWeight.bold),
-        ),
-      ),
     );
   }
 
   Widget _rememberPassword(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: 'Remember Password? ',
-        style:
-            Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.grey),
+        text: StringConstants.rememberPassword,
+        style: Theme.of(context)
+            .textTheme
+            .bodySmall!
+            .copyWith(color: ColorConstants.subTextColor),
         children: [
           TextSpan(
-            text: 'Sign In',
+            text: StringConstants.LogIn,
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!
-                .copyWith(color: Colors.lightBlue),
+                .copyWith(color: ColorConstants.primaryColor),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                NavigationUtil.popAllAndPush(
-                  context,
-                  RouteConstants.signInRoute,
-                );
+                context.router.pushNamed(RouteConstants.signInRoute);
               },
           ),
         ],

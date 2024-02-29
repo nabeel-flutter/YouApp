@@ -45,9 +45,11 @@ class _SignUpFormState extends State<SignUpForm> {
         ),
         const SizedBox(height: 20),
         ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              context.router.push(const OTPRoute());
+            },
             child: Text(
-              'Sign Up',
+              StringConstants.signUp,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color: ColorConstants.white,
                     fontSize: 16,

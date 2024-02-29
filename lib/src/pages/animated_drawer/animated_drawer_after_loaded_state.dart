@@ -1,52 +1,48 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 
-class AnimatedDrawerAfterLoadedState extends StatelessWidget {
+class AnimatedDrawerAfterLoadedState extends StatefulWidget {
   const AnimatedDrawerAfterLoadedState({
-    super.key,
+    Key? key,
     required this.color,
-  });
+  }) : super(key: key);
+
   final Color color;
 
   @override
+  State<AnimatedDrawerAfterLoadedState> createState() =>
+      _AnimatedDrawerAfterLoadedStateState();
+}
+
+class _AnimatedDrawerAfterLoadedStateState
+    extends State<AnimatedDrawerAfterLoadedState> {
+  int _selectedIndex = 0;
+
+  @override
   Widget build(BuildContext context) {
-    BorderSide borderSide = BorderSide(color: lighten(color, 0.1), width: 20);
-    return AdvancedDrawer(
-      backdrop: AnimatedDrawerBackDrop(
-        color: color,
+    return Scaffold(
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: const [HomeScreenBody(), ProfileScreen()],
       ),
-      controller: BlocProvider.of<AnimatedDrawerCubit>(context)
-          .advancedDrawerController,
-      animationCurve: Curves.easeInOut,
-      animationDuration: const Duration(
-        milliseconds: 300,
-      ),
-      animateChildDecoration: true,
-      rtlOpening: getCurrentLanguageDirection(),
-      openScale: 0.65,
-      openRatio: 0.5,
-      disabledGestures: true,
-      childDecoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(30),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: ColorConstants.primaryColor,
+        selectedItemColor: ColorConstants.white,
+        currentIndex: _selectedIndex,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-          border: Border(
-              bottom: borderSide,
-              top: borderSide,
-              left: borderSide,
-              right: borderSide)),
-      drawer: const AppDrawer(),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Scaffold(
-          body: PageView(
-            controller:
-                BlocProvider.of<AnimatedDrawerCubit>(context).pageController,
-            children: const [
-              HomeScreenBody(),
-              SettingsScreen(),
-            ],
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
           ),
-        ),
+        ],
       ),
     );
   }

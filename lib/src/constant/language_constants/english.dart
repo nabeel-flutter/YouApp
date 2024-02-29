@@ -1,5 +1,27 @@
 class EnglishConstant {
   static Map<String, String> englishLabels = {
+    'signUp': 'Sign Up',
+    'sendCode': 'Send Code',
+    'rememberPassword': 'Remember Password? ',
+    'register': 'Register',
+    'passwordChanged': 'Password Changed!',
+    'passwordChangedDescription': 'Your password has been changed successfully',
+    'continueText': 'Continue',
+    'backtoLogin': 'Back to Login',
+    'createNewPassword': 'Create New Password',
+    'createNewPasswordDescription':
+        'Please enter your new password and confirm the password',
+    'forgotPassword': 'Forgot Password?',
+    'forgotPasswordDescription':
+        "Don't worry! It occurs. Please enter the email address linked with your account.",
+    'otpVerification': "OTP Verification",
+    'otpVerificationDescription':
+        "Enter the verification code we just sent on your email address.",
+    'createAccountDescription':
+        "Please enter your details to create an account",
+    'onboardingTitle': 'Welcome to New Beginnings',
+    'onboardingDescription':
+        "A platform for ordinary people with ideas that can can the world. Meet people, join groups, chat online and be a part of creating next big thing.",
     'toBeCompletedByProvider': '(To be completed by provider)',
     'obervationQuestions': 'Obervation Questions:',
     'ifSoForWhat': 'If so, for what?',

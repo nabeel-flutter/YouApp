@@ -102,7 +102,7 @@ class SignInForm extends StatelessWidget {
                                 password: passwordController.text);
                           },
                           child: Text(
-                            "Login",
+                            StringConstants.LogIn,
                             style:
                                 Theme.of(context).textTheme.bodyLarge!.copyWith(
                                       color: ColorConstants.white,
@@ -157,7 +157,7 @@ class SignInForm extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Register',
+                Text(StringConstants.register,
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           color: ColorConstants.primaryColor,
                           fontSize: 16,
