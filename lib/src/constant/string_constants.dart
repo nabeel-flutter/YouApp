@@ -3,6 +3,40 @@ import 'package:new_beginnings/src/app/app_export.dart';
 class StringConstants {
   static String language = 'ur_PK';
 
+  static String signUp = _getLang('signUp');
+
+  static String register = _getLang('register');
+
+  static String sendCode = _getLang('sendCode');
+
+  static String rememberPassword  = _getLang('rememberPassword');
+
+  static String passwordChanged = _getLang('passwordChanged');
+
+  static String passwordChangedDescription = _getLang('passwordChangedDescription');
+
+  static String continueText = _getLang('continueText');
+
+  static String backtoLogin = _getLang('backtoLogin');
+
+  static String createNewPassword = _getLang('createNewPassword');
+
+  static String createNewPasswordDescription = _getLang('createNewPasswordDescription');
+
+  static String forgotPassword = _getLang('forgotPassword');
+
+  static String forgotPasswordDescription = _getLang('forgotPasswordDescription');
+
+  static String otpVerification = _getLang('otpVerification');
+
+  static String otpVerificationDescription = _getLang('otpVerificationDescription');
+
+  static String createAccountDescription = _getLang('createAccountDescription');
+
+  static String onboardingTitle = _getLang('onboardingTitle');
+
+  static String onboardingDescription = _getLang('onboardingDescription'); 
+
   static String get toBeCompletedByProvider =>
       _getLang('toBeCompletedByProvider');
 

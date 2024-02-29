@@ -15,7 +15,7 @@ class ForgotPasswordBody extends StatelessWidget {
               context.router.push(const OTPRoute());
             },
             child: Text(
-              'Send Code',
+              StringConstants.sendCode,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color: ColorConstants.white,
                     fontSize: 16,
@@ -31,14 +31,14 @@ class ForgotPasswordBody extends StatelessWidget {
   Widget _rememberPassword(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: 'Remember Password? ',
+        text: StringConstants.rememberPassword,
         style: Theme.of(context)
             .textTheme
             .bodySmall!
             .copyWith(color: ColorConstants.subTextColor),
         children: [
           TextSpan(
-            text: 'Sign In',
+            text: StringConstants.LogIn,
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!

@@ -21,7 +21,7 @@ class ForgotPasswordHeader extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             Text(
-              'Forgot Password?',
+              StringConstants.forgotPassword,
               style: Theme.of(context)
                   .textTheme
                   .labelLarge!
@@ -29,7 +29,7 @@ class ForgotPasswordHeader extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              "Don't worry! It occurs. Please enter the email address linked with your account.",
+              StringConstants.forgotPasswordDescription,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: ColorConstants.subTextColor,
                   fontWeight: FontWeight.w500,

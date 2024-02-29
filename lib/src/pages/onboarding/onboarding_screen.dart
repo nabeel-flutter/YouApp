@@ -39,7 +39,7 @@ class OnboardingScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  'Welcome to New Beginnings',
+                  StringConstants.onboardingTitle,
                   style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                       fontWeight: FontWeight.w700,
                       fontSize: 24,
@@ -48,7 +48,7 @@ class OnboardingScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'A platform for ordinary people with ideas that can can the world. Meet people, join groups, chat online and be a part of creating next big thing.',
+                  StringConstants.onboardingDescription,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         fontWeight: FontWeight.w400,
                         fontSize: 16,

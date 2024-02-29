@@ -19,14 +19,14 @@ class OTPHeader extends StatelessWidget {
               alignment: Alignment.center,
             ),
             const SizedBox(height: 40),
-            Text('OTP Verification',
+            Text(StringConstants.otpVerification,
                 style: Theme.of(context)
                     .textTheme
                     .labelLarge!
                     .copyWith(fontWeight: FontWeight.bold, fontSize: 28)),
             const SizedBox(height: 20),
             Text(
-              'Enter the verification code we just sent on your email address.',
+              StringConstants.otpVerificationDescription,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: ColorConstants.subTextColor,
                   fontWeight: FontWeight.w500,

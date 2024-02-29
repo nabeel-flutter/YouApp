@@ -36,10 +36,9 @@ class NewPasswordBody extends StatelessWidget {
                     child: Container(
                       color: ColorConstants.white.withOpacity(0.2),
                       child: customDialog(
-                        title: 'Password Changed',
-                        description:
-                            'Your password has been changed successfully',
-                        buttonText: 'Continue',
+                        title: StringConstants.passwordChanged,
+                        description: StringConstants.passwordChangedDescription,
+                        buttonText: StringConstants.backtoLogin,
                         onPressed: () {
                           context.router.pushNamed(RouteConstants.signInRoute);
                         },
@@ -50,7 +49,7 @@ class NewPasswordBody extends StatelessWidget {
               );
             },
             child: Text(
-              'Save',
+              StringConstants.save,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color: ColorConstants.white,
                     fontSize: 16,
@@ -67,14 +66,14 @@ class NewPasswordBody extends StatelessWidget {
   Widget _rememberPassword(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: 'Remember Password? ',
+        text: StringConstants.rememberPassword,
         style: Theme.of(context)
             .textTheme
             .bodySmall!
             .copyWith(color: ColorConstants.subTextColor),
         children: [
           TextSpan(
-            text: 'Sign In',
+            text: StringConstants.LogIn,
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!
@@ -109,15 +108,15 @@ class NewPasswordBody extends StatelessWidget {
               width: 100,
             ),
             const SizedBox(height: 20),
-            const Text('Password Changed!',
-                style: TextStyle(
+            Text(title,
+                style: const TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.w700,
                     color: ColorConstants.black)),
             const SizedBox(height: 20),
-            const Text(
-              'Your password has been changed successfully',
-              style: TextStyle(
+            Text(
+              description,
+              style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                   color: ColorConstants.black),
@@ -128,9 +127,9 @@ class NewPasswordBody extends StatelessWidget {
               onPressed: () {
                 onPressed();
               },
-              child: const Text(
-                'Back to Login',
-                style: TextStyle(
+              child: Text(
+                buttonText,
+                style: const TextStyle(
                     color: ColorConstants.white,
                     fontSize: 16,
                     fontWeight: FontWeight.w700),

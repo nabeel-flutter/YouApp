@@ -29,7 +29,7 @@ class SignUpScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Create Account',
+                    StringConstants.createAccount,
                     style: Theme.of(context)
                         .textTheme
                         .labelLarge!
@@ -39,7 +39,7 @@ class SignUpScreen extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    'Start By Creating an Account',
+                    StringConstants.createAccountDescription,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: ColorConstants.subTextColor,
                         fontWeight: FontWeight.w500,

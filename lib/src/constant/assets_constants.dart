@@ -116,4 +116,6 @@ class AssetsConstants {
       'assets/icon/profile_transparent_icon.png';
 
   static const String appLogo = "assets/images/logo.png";
+
+ 
 }

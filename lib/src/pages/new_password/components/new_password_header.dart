@@ -19,7 +19,7 @@ class NewPasswordHeader extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Text(
-            'Create New Password',
+            StringConstants.createNewPassword,
             style: Theme.of(context)
                 .textTheme
                 .labelLarge!
@@ -27,7 +27,7 @@ class NewPasswordHeader extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Text(
-            'Please create new password',
+            StringConstants.createNewPasswordDescription,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 color: ColorConstants.subTextColor,
                 fontWeight: FontWeight.w500,
