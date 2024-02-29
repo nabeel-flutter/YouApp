@@ -8,6 +8,7 @@ class OTPFields extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: PinCodeTextField(
+        keyboardType: TextInputType.number,
         appContext: context,
         length: 4,
         pinTheme: PinTheme(
