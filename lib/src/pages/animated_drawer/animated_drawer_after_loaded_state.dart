@@ -15,23 +15,28 @@ class AnimatedDrawerAfterLoadedState extends StatefulWidget {
 
 class _AnimatedDrawerAfterLoadedStateState
     extends State<AnimatedDrawerAfterLoadedState> {
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: const [HomeScreenBody(), ProfileScreen()],
+      body: PageView(
+        controller: context.read<AnimatedDrawerCubit>().pageController,
+        children: const [
+          HomeScreenBody(),
+          ProfileScreen(),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: ColorConstants.primaryColor,
         selectedItemColor: ColorConstants.white,
-        currentIndex: _selectedIndex,
+        currentIndex: context.read<AnimatedDrawerCubit>().currentIndex,
         onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
+          context.read<AnimatedDrawerCubit>().updateIndex(
+              isOpen: false,
+              index: index,
+              pageController:
+                  context.read<AnimatedDrawerCubit>().pageController,
+              advancedDrawerController:
+                  context.read<AnimatedDrawerCubit>().advancedDrawerController);
         },
         items: const [
           BottomNavigationBarItem(
