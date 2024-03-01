@@ -23,13 +23,17 @@ class SignInForm extends StatelessWidget {
         const SizedBox(height: 20),
         TextFormFieldComponent(
           hintText: "Enter Password",
-          isPassword: true,
+          isPassword: context.read<SignInCubit>().isPasswordVisible,
           suffixIcon: IconButton(
-            icon: const Icon(
-              Icons.visibility,
+            icon: Icon(
+              context.read<SignInCubit>().isPasswordVisible
+                  ? Icons.visibility_off
+                  : Icons.visibility,
               color: ColorConstants.greyText,
             ),
-            onPressed: () {},
+            onPressed: () {
+              context.read<SignInCubit>().isPasswordVisible;
+            },
           ),
           controller: passwordController,
         ),
@@ -68,13 +72,19 @@ class SignInForm extends StatelessWidget {
                           userName: userNameController.text,
                           password: passwordController.text);
                     },
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text('Loading...'),
-                        SizedBox(width: 10),
-                        SizedBox(
+                        Text('Loading...',
+                            style:
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                      color: ColorConstants.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w700,
+                                    )),
+                        const SizedBox(width: 10),
+                        const SizedBox(
                           height: 20,
                           width: 20,
                           child: AppProgressIndicator(
@@ -89,7 +99,12 @@ class SignInForm extends StatelessWidget {
                           userName: userNameController.text,
                           password: passwordController.text);
                     },
-                    child: const Text('Success Sign In')),
+                    child: Text(StringConstants.LogIn,
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                              color: ColorConstants.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ))),
                 error: (message) {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
