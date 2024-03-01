@@ -9,10 +9,10 @@ class HomeScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
-        body: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.all(12),
-            child: const Column(
+        body: const SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+            child: Column(
               children: [HomeCarouselWidget()],
             ),
           ),
