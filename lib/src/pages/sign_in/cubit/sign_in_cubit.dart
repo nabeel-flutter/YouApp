@@ -8,6 +8,8 @@ class SignInCubit extends Cubit<SignInState> {
   ApiRepository apiRepository;
   SignInCubit(this.apiRepository) : super(const _Initial());
 
+  bool isPasswordVisible = false;
+
   Future<void> signIn(
       {required String userName, required String password}) async {
     emit(const _Loading());
@@ -23,6 +25,10 @@ class SignInCubit extends Cubit<SignInState> {
       },
     );
     return;
+  }
+
+  void togglePasswordVisibility() {
+    isPasswordVisible = !isPasswordVisible;
   }
 }
 
