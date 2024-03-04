@@ -87,4 +87,6 @@ class RouteConstants {
   static const String allDoctorsRoute = '/allDoctorsRoute';
 
   static const String allServicesRoute = '/allServicesRoute';
+
+  static const String  bookAppointmentRoute = '/bookAppointmentRoute';
 }

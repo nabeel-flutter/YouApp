@@ -22,6 +22,7 @@ class _AnimatedDrawerAfterLoadedStateState
         controller: context.read<AnimatedDrawerCubit>().pageController,
         children: const [
           HomeScreenBody(),
+          AppointmentScreen(),
           ProfileScreen(),
         ],
       ),
@@ -42,6 +43,10 @@ class _AnimatedDrawerAfterLoadedStateState
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.group),
+            label: 'Appointments',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),

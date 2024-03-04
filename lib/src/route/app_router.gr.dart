@@ -27,6 +27,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AllServicesScreen(),
       );
     },
+    BookAppointmentRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const BookAppointmentScreen(),
+      );
+    },
     ForgotPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -114,6 +120,20 @@ class AllServicesRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AllServicesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [BookAppointmentScreen]
+class BookAppointmentRoute extends PageRouteInfo<void> {
+  const BookAppointmentRoute({List<PageRouteInfo>? children})
+      : super(
+          BookAppointmentRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BookAppointmentRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
