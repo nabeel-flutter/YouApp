@@ -41,7 +41,7 @@ class _HomeCarouselWidgetState extends State<HomeCarouselWidget> {
             items: [
               GestureDetector(
                 onTap: () {
-                  debugPrint('Tapped on Image');
+                  context.router.push(const AllDoctorsRoute());
                 },
                 child: const Image(
                   image: AssetImage(AssetsConstants.crouselImage1),

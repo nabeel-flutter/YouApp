@@ -17,4 +17,5 @@ class AppointmentCubit extends Cubit<AppointmentCubitState> {
     debugPrint('selectedTime: $selectedTime');
     emit(AppointmentCubitState.selectedTime(selectedTime));
   }
+  
 }
