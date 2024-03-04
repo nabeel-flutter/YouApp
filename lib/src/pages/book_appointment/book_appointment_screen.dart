@@ -38,17 +38,17 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                   Container(
                       padding: const EdgeInsets.all(10),
                       child: const Column(children: [
-                        HomeWidgetHeading(
-                            title: 'Select Date',
-                            isSeeAll: false,
-                            bottonPadding: 10,
-                            topPadding: 20),
-                        CalenderAppointmentBook(),
-                        HomeWidgetHeading(
-                            title: 'Select Hour',
-                            isSeeAll: false,
-                            bottonPadding: 10,
-                            topPadding: 20)
+                        // HomeWidgetHeading(
+                        //     title: 'Select Date',
+                        //     isSeeAll: false,
+                        //     bottonPadding: 10,
+                        //     topPadding: 20),
+                        // CalenderAppointmentBook(),
+                        // HomeWidgetHeading(
+                        //     title: 'Select Hour',
+                        //     isSeeAll: false,
+                        //     bottonPadding: 10,
+                        //     topPadding: 20)
                       ])),
                   Wrap(
                       children: listOfTime

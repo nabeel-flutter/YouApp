@@ -5,7 +5,7 @@ class CommunicationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const IsGradientBackGround(
+    return const PrimaryBackground(
       appbarText: "Communication",
       isBackAppBar: false,
       body: CommunicationBody(),

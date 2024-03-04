@@ -6,7 +6,7 @@ class FaqScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IsGradientBackGround(
+    return PrimaryBackground(
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(10),

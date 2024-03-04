@@ -25,7 +25,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
   int? selectedIndex;
   @override
   Widget build(BuildContext context) {
-    return IsGradientBackGround(
+    return PrimaryBackground(
         isBackAppBar: true,
         appbarText: 'Payments',
         body: MainScaffold(

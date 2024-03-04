@@ -129,8 +129,9 @@ export 'package:new_beginnings/src/pages/is_gradient_background_component/cubit/
 export 'package:new_beginnings/src/theme/switch_theme.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'dart:io';
+export 'package:new_beginnings/src/pages/doctors/views/all_doctors_screen.dart';
+export 'package:new_beginnings/src/pages/all_services/view/all_services_screen.dart';
 export 'package:new_beginnings/src/pages/home/components/doctor_detail_and_book_now_widget.dart';
-export 'package:new_beginnings/src/pages/home/components/home_widget_heading.dart';
 export 'package:new_beginnings/src/constant/font_constants.dart';
 export 'package:new_beginnings/src/pages/home/components/home_title_component.dart';
 export 'package:new_beginnings/src/pages/profile/health_profile_list.dart';

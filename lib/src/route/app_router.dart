@@ -47,5 +47,13 @@ class AppRouter extends _$AppRouter {
           page: OTPRoute.page,
           path: RouteConstants.otpRoute,
         ),
+        AutoRoute(
+          page: AllDoctorsRoute.page,
+          path: RouteConstants.allDoctorsRoute,
+        ),
+        AutoRoute(
+          page: AllServicesRoute.page,
+          path: RouteConstants.allServicesRoute,
+        ),
       ];
 }

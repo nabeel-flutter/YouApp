@@ -13,7 +13,7 @@ class BillingsAndPaymentScreen extends StatefulWidget {
 class _BillingsAndPaymentScreenState extends State<BillingsAndPaymentScreen> {
   @override
   Widget build(BuildContext context) {
-    return IsGradientBackGround(
+    return PrimaryBackground(
       appbarText: StringConstants.billings,
       isBackAppBar: false,
       body: MainScaffold(

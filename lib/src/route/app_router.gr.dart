@@ -15,6 +15,18 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AllDoctorsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AllDoctorsScreen(),
+      );
+    },
+    AllServicesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AllServicesScreen(),
+      );
+    },
     ForgotPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -76,6 +88,34 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AllDoctorsScreen]
+class AllDoctorsRoute extends PageRouteInfo<void> {
+  const AllDoctorsRoute({List<PageRouteInfo>? children})
+      : super(
+          AllDoctorsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AllDoctorsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [AllServicesScreen]
+class AllServicesRoute extends PageRouteInfo<void> {
+  const AllServicesRoute({List<PageRouteInfo>? children})
+      : super(
+          AllServicesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AllServicesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

@@ -42,7 +42,7 @@ class MedicationsScreen extends StatelessWidget {
       ),
     ];
 
-    return IsGradientBackGround(
+    return PrimaryBackground(
       appbarText: StringConstants.medications,
       isBackAppBar: false,
       body: MainScaffold(

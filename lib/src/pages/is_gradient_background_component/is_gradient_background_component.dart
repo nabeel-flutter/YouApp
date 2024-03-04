@@ -1,7 +1,7 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 
-class IsGradientBackGround extends StatelessWidget {
-  const IsGradientBackGround({
+class PrimaryBackground extends StatelessWidget {
+  const PrimaryBackground({
     super.key,
     required this.body,
     this.isBackAppBar,

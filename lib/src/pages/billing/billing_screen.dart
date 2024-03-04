@@ -24,7 +24,7 @@ class _BillingScreenState extends State<BillingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return IsGradientBackGround(
+    return PrimaryBackground(
         isBackAppBar: true,
         appbarText: 'Billings',
         body: MainScaffold(
