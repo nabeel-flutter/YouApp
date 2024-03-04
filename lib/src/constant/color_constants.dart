@@ -9,6 +9,8 @@ class ColorConstants {
   static const Color hintTextColor = Color(0xff8A96BC);
   static const Color subTextColor = Color(0xff8391A1);
   static const Color primaryColor = Color(0xff0A7E80);
+  static const Color primaryTextColor = Color(0xff023E3F);
+  static const Color widgetBgColor = Color(0xff80BCBD);
   static const Color green = Color(0xFF59E583);
   static const Color greenIndicatorColor = Color(0xFF59E584);
   static const Color redIndicatorColor = Color.fromRGBO(239, 89, 89, 1);

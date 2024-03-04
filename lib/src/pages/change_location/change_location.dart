@@ -5,7 +5,7 @@ class ChangeLocationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IsGradientBackGround(
+    return PrimaryBackground(
       isBackAppBar: true,
       appbarText: StringConstants.changeLocation,
       body: const SelectRadioListComponent(isLanguage: false),

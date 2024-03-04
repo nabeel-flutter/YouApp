@@ -50,7 +50,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     TextEditingController messagesController = TextEditingController();
 
-    return IsGradientBackGround(
+    return PrimaryBackground(
       appbarText: '',
       isAppBar: false,
       isBackAppBar: true,

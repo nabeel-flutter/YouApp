@@ -8,6 +8,11 @@ class EnglishConstant {
     'passwordChangedDescription': 'Your password has been changed successfully',
     'continueText': 'Continue',
     'backtoLogin': 'Back to Login',
+    'next': 'Next',
+    'timeSlot': 'Time Slot',
+    'selectDate': 'Select Date',
+    'paymentMode': 'Payment Mode',
+    'selfPay': 'Self Pay',
     'createNewPassword': 'Create New Password',
     'createNewPasswordDescription':
         'Please enter your new password and confirm the password',

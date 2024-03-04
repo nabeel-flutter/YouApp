@@ -6,7 +6,7 @@ class AppointmentsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IsGradientBackGround(
+    return PrimaryBackground(
       appbarText: StringConstants.appointments,
       isBackAppBar: false,
       body: const AppointmentsBody(),

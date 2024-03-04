@@ -35,7 +35,17 @@ class StringConstants {
 
   static String onboardingTitle = _getLang('onboardingTitle');
 
-  static String onboardingDescription = _getLang('onboardingDescription'); 
+  static String onboardingDescription = _getLang('onboardingDescription');
+
+  static String next = _getLang('next');
+
+  static String timeSlot = _getLang('timeSlot');
+
+  static String selectDate = _getLang('selectDate');
+
+  static String paymentMode = _getLang('paymentMode');
+
+  static String selfPay = _getLang('selfPay'); 
 
   static String get toBeCompletedByProvider =>
       _getLang('toBeCompletedByProvider');

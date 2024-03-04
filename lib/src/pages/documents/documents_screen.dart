@@ -5,7 +5,7 @@ class DocumentsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IsGradientBackGround(
+    return PrimaryBackground(
       appbarText: StringConstants.documents,
       isBackAppBar: false,
       body: const MainScaffold(
