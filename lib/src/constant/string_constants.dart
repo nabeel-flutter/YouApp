@@ -45,7 +45,13 @@ class StringConstants {
 
   static String paymentMode = _getLang('paymentMode');
 
-  static String selfPay = _getLang('selfPay'); 
+  static String selfPay = _getLang('selfPay');
+
+  static var reasonForAppointment;
+
+  static String facetoFace = _getLang('facetoFace');
+
+  static String telehealth = _getLang('telehealth'); 
 
   static String get toBeCompletedByProvider =>
       _getLang('toBeCompletedByProvider');

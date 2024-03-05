@@ -36,6 +36,7 @@ class _PaymentModeSelectionState extends State<PaymentModeSelection> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
+                      
                       shape: BoxShape.circle,
                       color: _selectedValue == 1
                           ? ColorConstants.primaryTextColor
@@ -84,6 +85,109 @@ class _PaymentModeSelectionState extends State<PaymentModeSelection> {
                   const SizedBox(width: 8),
                   Text(
                     StringConstants.selfPay,
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+
+
+class ModeOfAppointment extends StatefulWidget {
+  const ModeOfAppointment({Key? key}) : super(key: key);
+
+  @override
+  State<ModeOfAppointment> createState() => _ModeOfAppointmentState();
+}
+
+class _ModeOfAppointmentState extends State<ModeOfAppointment> {
+  int? _selectedValue;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Mode of Appointment',
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+                color: ColorConstants.primaryColor,
+              ),
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: [
+            InkWell(
+              onTap: () {
+                setState(() {
+                  _selectedValue = 1;
+                });
+              },
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      
+                      shape: BoxShape.circle,
+                      color: _selectedValue == 1
+                          ? ColorConstants.primaryTextColor
+                          : ColorConstants.widgetBgColor.withOpacity(0.37),
+                      border: Border.all(
+                        color: ColorConstants.primaryTextColor,
+                        width: 0.5,
+                      ),
+                    ),
+                    padding: const EdgeInsets.all(5),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    StringConstants.telehealth,
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 20),
+            InkWell(
+              onTap: () {
+                setState(() {
+                  _selectedValue = 2;
+                });
+              },
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: _selectedValue == 2
+                          ? ColorConstants.primaryTextColor
+                          : ColorConstants.widgetBgColor.withOpacity(0.37),
+                      border: Border.all(
+                        color: ColorConstants.primaryTextColor,
+                        width: 0.5,
+                      ),
+                    ),
+                    padding: const EdgeInsets.all(5),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    StringConstants.facetoFace,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: Colors.black,
                           fontSize: 14,

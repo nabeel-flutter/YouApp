@@ -1,9 +1,11 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/home/components/home_crousel.dart';
-import 'package:new_beginnings/src/pages/home/components/widgets/top_doctors_widget.dart';
+import 'package:new_beginnings/src/pages/home/components/widgets/top_services_widget.dart';
 
 import 'package:new_beginnings/src/pages/home/components/widgets/body_heading.dart';
-import 'package:new_beginnings/src/pages/home/components/widgets/top_services_widget.dart';
+import 'package:new_beginnings/src/pages/home/components/widgets/top_doctors_widget.dart';
+
+import 'package:new_beginnings/src/pages/all_services/models/services_model.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({
@@ -12,6 +14,13 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Service> services = [
+      Service(
+          name: "Psychiatric\nEvaluation", image: AssetsConstants.pscyEvImage),
+      Service(name: "Group Therapy", image: AssetsConstants.pscyEvImage),
+      Service(
+          name: "Medication\nManagement", image: AssetsConstants.pscyEvImage),
+    ];
     return MainScaffold(
         body: SingleChildScrollView(
           child: Padding(
@@ -20,9 +29,9 @@ class HomeScreenBody extends StatelessWidget {
               children: [
                 const HomeCarouselWidget(),
                 BodyHeading(
-                  title: "Top Doctors",
+                  title: "Top Services",
                   onTap: () {
-                    context.router.push(const AllDoctorsRoute());
+                    context.router.push(const AllServicesRoute());
                   },
                 ),
                 const SizedBox(height: 10),
@@ -30,20 +39,25 @@ class HomeScreenBody extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      ...List.generate(3, (index) => const TopDoctorsWidget()),
+                      ...services.map((e) => TopServicesWidget(
+                            title: e.name,
+                            image: e.image!,
+                          ))
                     ],
                   ),
                 ),
                 const SizedBox(height: 20),
                 BodyHeading(
-                  title: "Top Services",
+                  title: "Top Doctors",
                   onTap: () {
-                    context.router.push(const AllServicesRoute());
+                    context.router.push(const AllDoctorsRoute());
                   },
                 ),
                 const SizedBox(height: 10),
-                const Column(
-                  children: [TopServicesWidget()],
+                Column(
+                  children: [
+                    ...List.generate(3, (index) => const TopDoctorsWidget())
+                  ],
                 )
               ],
             ),

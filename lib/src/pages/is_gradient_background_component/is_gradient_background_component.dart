@@ -7,11 +7,13 @@ class PrimaryBackground extends StatelessWidget {
     this.isBackAppBar,
     this.appbarText,
     this.isAppBar = true,
+    this.floatingActionButton,
   });
   final Widget body;
   final bool? isBackAppBar;
   final String? appbarText;
   final bool? isAppBar;
+  final Widget? floatingActionButton;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class PrimaryBackground extends StatelessWidget {
               decoration:
                   value ? BoxDecoration(gradient: linerGradientForApp()) : null,
               child: MainScaffold(
+                floatingActionButton: floatingActionButton,
                 body: body,
                 isGradient: true,
                 appBar: isAppBar != null

@@ -30,7 +30,10 @@ class AppBarcomponent extends StatelessWidget {
             borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(22),
                 bottomRight: Radius.circular(22)),
-            color: appBarColor ?? ColorConstants.primaryColor,
+            image: const DecorationImage(
+                image: AssetImage(AssetsConstants.appBarbgImage),
+                fit: BoxFit.cover),
+            // color: appBarColor ?? ColorConstants.primaryColor,
             boxShadow: appBarShadoow ?? []),
         child: AppBar(
             elevation: elevation,
