@@ -70,20 +70,20 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
                       ),
                     ),
                   ),
-                  Expanded(
-                    child: Center(
-                      child: Text(
-                        selectedDate != null
-                            ? '${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}'
-                            : 'Select a Date',
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              color: Colors.black, // Adjust color as needed
-                            ),
-                      ),
+                  const SizedBox(width: 20),
+                  Center(
+                    child: Text(
+                      selectedDate != null
+                          ? '${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}'
+                          : 'Select a Date',
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: Colors.black, // Adjust color as needed
+                          ),
                     ),
                   ),
+                  const Spacer()
                 ],
               ),
             ),

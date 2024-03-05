@@ -13,6 +13,8 @@ class EnglishConstant {
     'selectDate': 'Select Date',
     'paymentMode': 'Payment Mode',
     'selfPay': 'Self Pay',
+    'facetoFace': 'Face to Face',
+    'telehealth': 'Telehealth',
     'createNewPassword': 'Create New Password',
     'createNewPasswordDescription':
         'Please enter your new password and confirm the password',
