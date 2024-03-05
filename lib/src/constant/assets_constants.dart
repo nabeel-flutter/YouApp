@@ -23,6 +23,7 @@ class AssetsConstants {
       'assets/images/onboarding_doctorImage.png';
   static const String nbAuthLogo = 'assets/images/nb_auth_logo.png';
   static const String crouselImage1 = 'assets/images/crousel_image.png';
+  static const String appBarbgImage = 'assets/images/appBar_bg.png';
 
   //Icons
   static const String successIcon = 'assets/icon/check_icon.svg';
