@@ -41,10 +41,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
               },
               title: appointmentCubit.reasonForAppointment,
             ),
-            appointmentCubit.reasonForAppointment ==
-                    'I Need Primary Care Service'
-                ? const ModeOfAppointment()
-                : Container(),
+            const ModeOfAppointment(),
             const SizedBox(height: 20),
             ElevatedButton(
                 onPressed: () {
