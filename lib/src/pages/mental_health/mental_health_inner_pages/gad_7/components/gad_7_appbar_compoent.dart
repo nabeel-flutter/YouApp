@@ -25,7 +25,7 @@ class GAD7AppbarComponent extends StatelessWidget {
               StringConstants
                   .theLastTwoWeeksHowOftenHaveYouBeenBotheredByAnyOfTheFollowingProblemsUseToIndicateYourAnswer,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  height: 1.5, fontFamily: FontConstantc.gilroyMedium),
+                  height: 1.5, fontFamily: FontConstants.gilroyMedium),
             ),
           ),
           Container(
@@ -45,14 +45,14 @@ class GAD7AppbarComponent extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
-                            .copyWith(fontFamily: FontConstantc.gilroyMedium),
+                            .copyWith(fontFamily: FontConstants.gilroyMedium),
                       ),
                       Text(
                         '$score/21',
                         style: Theme.of(context)
                             .textTheme
                             .headlineMedium!
-                            .copyWith(fontFamily: FontConstantc.gilroyMedium),
+                            .copyWith(fontFamily: FontConstants.gilroyMedium),
                       ),
                     ]),
               ))

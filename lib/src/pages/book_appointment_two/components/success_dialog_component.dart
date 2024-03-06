@@ -23,11 +23,11 @@ class SuccessDialog extends StatelessWidget {
               Text('Congratulations',
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                       color: Theme.of(context).scaffoldBackgroundColor,
-                      fontFamily: FontConstantc.gilroySemiBold)),
+                      fontFamily: FontConstants.gilroySemiBold)),
               Text('Your Payment is completed',
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       color: darken(getThemeColor(context), 0.3),
-                      fontFamily: FontConstantc.gilroyMedium)),
+                      fontFamily: FontConstants.gilroyMedium)),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 2.5,
                 child: BottomNavBarAppointmentBookScreen(

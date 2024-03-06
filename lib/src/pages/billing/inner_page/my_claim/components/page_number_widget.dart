@@ -33,7 +33,7 @@ class PageNumberWidget extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall!
-                    .copyWith(fontFamily: FontConstantc.gilroyMedium),
+                    .copyWith(fontFamily: FontConstants.gilroyMedium),
               ),
             ],
           )),

@@ -18,12 +18,12 @@ class ResultIdentifiedRow extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .titleLarge!
-                .copyWith(fontFamily: FontConstantc.gilroySemiBold),
+                .copyWith(fontFamily: FontConstants.gilroySemiBold),
           ),
           Text(
             StringConstants.identified,
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                fontFamily: FontConstantc.gilroySemiBold,
+                fontFamily: FontConstants.gilroySemiBold,
                 color: ColorConstants.green),
           ),
         ],

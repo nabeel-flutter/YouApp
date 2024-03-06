@@ -36,7 +36,7 @@ class _PhysicalHealthScreenState extends State<PhysicalHealthScreen> {
                                   .titleLarge!
                                   .copyWith(
                                       color: getThemeColor(context),
-                                      fontFamily: FontConstantc.gilroyMedium),
+                                      fontFamily: FontConstants.gilroyMedium),
                             ),
                           ],
                         )),

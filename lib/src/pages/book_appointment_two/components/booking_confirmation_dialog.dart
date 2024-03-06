@@ -23,7 +23,7 @@ class BookingConfirmationDialog extends StatelessWidget {
               Text('Booking Confirmation',
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                       color: Theme.of(context).scaffoldBackgroundColor,
-                      fontFamily: FontConstantc.gilroySemiBold)),
+                      fontFamily: FontConstants.gilroySemiBold)),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 1.5,
                 child: Text(
@@ -31,7 +31,7 @@ class BookingConfirmationDialog extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         color: darken(getThemeColor(context), 0.3),
-                        fontFamily: FontConstantc.gilroyMedium)),
+                        fontFamily: FontConstants.gilroyMedium)),
               ),
               const BookingDetailRow(keyOf: 'Booking ID', value: '#A78-5669'),
               const BookingDetailRow(keyOf: 'Date', value: '12 Dec, 2023'),

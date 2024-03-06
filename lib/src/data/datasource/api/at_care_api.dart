@@ -30,7 +30,9 @@ class SoftTechTestApi {
 
   static String kRouteGetProducts = 'products';
 
-  static String kRouteAuthLogin = 'auth/login';
+  static String kRouteAuthLogin = 'login';
+  
+  static String kRouteAuthSignUp= 'register';
 
   static String kRouteGetProductDetail(int id) => '$kRouteGetProducts/$id';
 
@@ -287,5 +289,24 @@ class SoftTechTestApi {
         value as Map<String, dynamic>,
       ),
     );
+  }
+
+  signUp({
+    required String password,
+    required firstName,
+    required String lastName,
+    required String email,
+    required String phone,
+    required String confirmPassword,
+  }) async {
+    final response = await dio.post(kRouteAuthSignUp, data: {
+      'firstName': firstName,
+      'password': password,
+      'lastName': lastName,
+      'phone': phone,
+      'email': email
+    });
+    return BaseResponseDto.fromJson({"data": response.data},
+        (value) => TokenDto.fromJson(value as Map<String, dynamic>));
   }
 }

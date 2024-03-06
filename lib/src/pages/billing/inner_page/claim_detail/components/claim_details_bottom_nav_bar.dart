@@ -18,7 +18,7 @@ class ClaimDetailBottomNavigationBarComponent extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .headlineSmall!
-                    .copyWith(fontFamily: FontConstantc.gilroyMedium))
+                    .copyWith(fontFamily: FontConstants.gilroyMedium))
           ])
         ]));
   }

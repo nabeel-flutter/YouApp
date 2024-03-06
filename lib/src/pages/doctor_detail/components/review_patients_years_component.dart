@@ -20,7 +20,7 @@ class ReviewPatientsYearsComponentDoctorDetailScreen extends StatelessWidget {
               const DoctorDetailHeadingOne(
                   heading: '348',
                   headingColor: ColorConstants.white,
-                  fontFamily: FontConstantc.gilroySemiBold),
+                  fontFamily: FontConstants.gilroySemiBold),
               DoctorDetailHeadingTwo(
                   color: !getThemeStateIsLight()
                       ? lighten(getThemeColor(context), 0.35)
@@ -38,7 +38,7 @@ class ReviewPatientsYearsComponentDoctorDetailScreen extends StatelessWidget {
               const DoctorDetailHeadingOne(
                   heading: '700+',
                   headingColor: ColorConstants.white,
-                  fontFamily: FontConstantc.gilroySemiBold),
+                  fontFamily: FontConstants.gilroySemiBold),
               DoctorDetailHeadingTwo(
                   color: !getThemeStateIsLight()
                       ? lighten(getThemeColor(context), 0.35)
@@ -52,7 +52,7 @@ class ReviewPatientsYearsComponentDoctorDetailScreen extends StatelessWidget {
               const DoctorDetailHeadingOne(
                   heading: '15',
                   headingColor: ColorConstants.white,
-                  fontFamily: FontConstantc.gilroySemiBold),
+                  fontFamily: FontConstants.gilroySemiBold),
               DoctorDetailHeadingTwo(
                   color: !getThemeStateIsLight()
                       ? lighten(getThemeColor(context), 0.35)

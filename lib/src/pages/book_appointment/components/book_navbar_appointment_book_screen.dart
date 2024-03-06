@@ -34,7 +34,7 @@ class BottomNavBarAppointmentBookScreen extends StatelessWidget {
           child: Text(
             text,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                fontFamily: FontConstantc.gilroySemiBold, color: fgColor),
+                fontFamily: FontConstants.gilroySemiBold, color: fgColor),
           )),
     );
   }

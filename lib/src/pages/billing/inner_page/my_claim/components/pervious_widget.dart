@@ -37,7 +37,7 @@ class PreviousButton extends StatelessWidget {
                               .textTheme
                               .bodySmall!
                               .copyWith(
-                                  fontFamily: FontConstantc.gilroyMedium)))
+                                  fontFamily: FontConstants.gilroyMedium)))
                 ])));
   }
 }

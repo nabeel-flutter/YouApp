@@ -57,7 +57,7 @@ class _BookAppointmentTwoScreenState extends State<BookAppointmentTwoScreen> {
                               .textTheme
                               .titleLarge!
                               .copyWith(
-                                  fontFamily: FontConstantc.gilroySemiBold)),
+                                  fontFamily: FontConstants.gilroySemiBold)),
                       TextFormFieldComponent(
                           controller: fullNameController, label: 'Full Name'),
                       DatePickerComponent(

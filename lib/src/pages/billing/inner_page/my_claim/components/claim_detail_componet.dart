@@ -60,14 +60,14 @@ class _ClaimDetailsComponentState extends State<ClaimDetailsComponent> {
           children: [
             Text(widget.heading,
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                      fontFamily: FontConstantc.gilroyMedium,
+                      fontFamily: FontConstants.gilroyMedium,
                       color: getThemeStateIsLight()
                           ? lighten(getThemeColor(context), 0.3)
                           : darken(getThemeColor(context), 0.35),
                     )),
             Text(widget.value,
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                      fontFamily: FontConstantc.gilroyMedium,
+                      fontFamily: FontConstants.gilroyMedium,
                     ))
           ]),
     ));

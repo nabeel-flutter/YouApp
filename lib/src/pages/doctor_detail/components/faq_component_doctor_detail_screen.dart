@@ -30,7 +30,7 @@ class FAQComponentDoctorDetailScreen extends StatelessWidget {
                         headingColor: !getThemeStateIsLight()
                             ? darken(getThemeColor(context), 0.35)
                             : ColorConstants.white,
-                        fontFamily: FontConstantc.gilroySemiBold),
+                        fontFamily: FontConstants.gilroySemiBold),
                   ),
                   InkWell(
                     onTap: () {

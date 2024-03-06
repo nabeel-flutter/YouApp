@@ -20,13 +20,13 @@ class BookingDetailRow extends StatelessWidget {
             keyOf,
             style: Theme.of(context).textTheme.bodySmall!.copyWith(
                 color: Theme.of(context).scaffoldBackgroundColor,
-                fontFamily: FontConstantc.gilroyMedium),
+                fontFamily: FontConstants.gilroyMedium),
           ),
           Text(
             value,
             style: Theme.of(context).textTheme.bodySmall!.copyWith(
                 color: Theme.of(context).scaffoldBackgroundColor,
-                fontFamily: FontConstantc.gilroyMedium),
+                fontFamily: FontConstants.gilroyMedium),
           )
         ],
       ),

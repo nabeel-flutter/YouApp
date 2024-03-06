@@ -12,7 +12,7 @@ class DoctorNameAndRatingComponentDoctorDetailScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           DoctorDetailHeadingOne(
-              fontFamily: FontConstantc.gilroySemiBold,
+              fontFamily: FontConstants.gilroySemiBold,
               headingColor: !getThemeStateIsLight()
                   ? darken(getThemeColor(context), 0.35)
                   : ColorConstants.white,
@@ -23,7 +23,7 @@ class DoctorNameAndRatingComponentDoctorDetailScreen extends StatelessWidget {
                   height: 13, width: 14)),
           Text('(4.3)',
               style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                  height: 1, fontFamily: FontConstantc.gilroySemiBold))
+                  height: 1, fontFamily: FontConstants.gilroySemiBold))
         ]);
   }
 }

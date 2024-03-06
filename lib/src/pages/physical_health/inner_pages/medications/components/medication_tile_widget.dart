@@ -42,13 +42,13 @@ class MedicationTileWidget extends StatelessWidget {
                   Text(
                     '${element.value.title}, ${element.value.dose}',
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          fontFamily: FontConstantc.gilroyMedium,
+                          fontFamily: FontConstants.gilroyMedium,
                         ),
                   ),
                   Text(
                     '${element.value.number.toString()} ${element.value.type}, ${StringConstants.every} ${element.value.inEvery.toString()} ${StringConstants.hrs}',
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                        fontFamily: FontConstantc.gilroyMedium,
+                        fontFamily: FontConstants.gilroyMedium,
                         color: lighten(getThemeColor(context), 0.3)),
                   ),
                 ],

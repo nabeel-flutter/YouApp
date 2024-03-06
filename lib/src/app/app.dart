@@ -1,5 +1,6 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/sign_in/cubit/sign_in_cubit.dart';
+import 'package:new_beginnings/src/pages/sign_up/cubit/sign_up_cubit.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -16,6 +17,10 @@ class App extends StatelessWidget {
               BlocProvider(
                 create: (context) => SignInCubit(getIt.get()),
               ),
+              BlocProvider(
+                create: (context) => SignUpCubit(getIt.get()),
+              ),
+              
               BlocProvider(create: (context) => AppCubit()),
               BlocProvider(create: (context) => AnimatedDrawerCubit()),
               BlocProvider(create: (context) => IsGradientBackgroundCubit()),

@@ -207,7 +207,7 @@ class ProductComponent extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge!
-                    .copyWith(fontFamily: FontConstantc.gilroyBlack)),
+                    .copyWith(fontFamily: FontConstants.gilroyBlack)),
             const SizedBox(height: 20),
             Text(description),
             const SizedBox(height: 20),

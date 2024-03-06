@@ -13,6 +13,6 @@ class HeadingSmall extends StatelessWidget {
         style: Theme.of(context)
             .textTheme
             .bodyMedium!
-            .copyWith(fontFamily: FontConstantc.gilroyMedium));
+            .copyWith(fontFamily: FontConstants.gilroyMedium));
   }
 }

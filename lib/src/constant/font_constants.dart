@@ -1,4 +1,4 @@
-class FontConstantc {
+class FontConstants {
   static const String gilroyBlack = 'GilroyBlack';
   static const String gilroyBlackItalic = 'GilroyBlackItalic';
   static const String gilroyBold = 'GilroyBold';

@@ -1,7 +1,7 @@
 class HttpConstants {
-  static const String baseUrlArticle = 'https://fakestoreapi.com/';
-  static const String base = 'https://fakestoreapi.com/';
-  static const String urlBase = 'https://fakestoreapi.com/';
+  static const String baseUrlArticle = 'http://ec2-54-164-108-167.compute-1.amazonaws.com:7000/api/v1/';
+  static const String base = 'http://ec2-54-164-108-167.compute-1.amazonaws.com:7000/api/v1/';
+  static const String urlBase = 'http://ec2-54-164-108-167.compute-1.amazonaws.com:7000/api/v1/';
   static const String downloadRecipt = 'payment-receipt-download';
   static const String token = 'get/token';
   static const String login = 'login';

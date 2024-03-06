@@ -59,7 +59,7 @@ class _ExpansionPanelFaqsState extends State<ExpansionPanelFaqs> {
             //           Text(
             //             widget.faq.value.title,
             //             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-            //                 fontFamily: FontConstantc.gilroyMedium,
+            //                 fontFamily: FontConstants.gilroyMedium,
             //                 color: Theme.of(context).scaffoldBackgroundColor),
             //           ),
             //           !isExpanded

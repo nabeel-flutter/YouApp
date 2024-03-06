@@ -55,9 +55,9 @@ class ScoreSelectionGAD7Widget extends StatelessWidget {
                                                                       .value
                                                                       .isSelected ==
                                                                   true
-                                                              ? FontConstantc
+                                                              ? FontConstants
                                                                   .gilroyBold
-                                                              : FontConstantc
+                                                              : FontConstants
                                                                   .gilroyMedium)))))),
                               Expanded(
                                   child: InkWell(
@@ -93,7 +93,7 @@ class ScoreSelectionGAD7Widget extends StatelessWidget {
                                                   ? darken(
                                                       getThemeColor(context), 0.2)
                                                   : darken(getThemeColor(context), 0.3)),
-                                          child: Center(child: Padding(padding: const EdgeInsets.all(0.0), child: Text(option.key.toString(), style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontFamily: option.value.isSelected == true ? FontConstantc.gilroyBold : FontConstantc.gilroyRegular)))))))
+                                          child: Center(child: Padding(padding: const EdgeInsets.all(0.0), child: Text(option.key.toString(), style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontFamily: option.value.isSelected == true ? FontConstants.gilroyBold : FontConstants.gilroyRegular)))))))
                             ]))))
                 .toList()));
   }
