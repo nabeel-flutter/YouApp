@@ -7,10 +7,10 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController userNameController =
-        TextEditingController(text: 'mor_2314');
+    TextEditingController emailController =
+        TextEditingController(text: 'ayanmughal557@gmail.com');
     TextEditingController passwordController =
-        TextEditingController(text: "83r5^_");
+        TextEditingController(text: "Smiu@123");
 
     return Column(
       children: [
@@ -18,7 +18,7 @@ class SignInForm extends StatelessWidget {
         const SizedBox(height: 25),
         TextFormFieldComponent(
           hintText: "Enter Email",
-          controller: userNameController,
+          controller: emailController,
         ),
         const SizedBox(height: 20),
         TextFormFieldComponent(
@@ -69,7 +69,7 @@ class SignInForm extends StatelessWidget {
                 loading: () => ElevatedButton(
                     onPressed: () {
                       context.read<SignInCubit>().signIn(
-                          userName: userNameController.text,
+                          email: emailController.text,
                           password: passwordController.text);
                     },
                     child: Row(
@@ -96,7 +96,7 @@ class SignInForm extends StatelessWidget {
                 loaded: (token) => ElevatedButton(
                     onPressed: () {
                       context.read<SignInCubit>().signIn(
-                          userName: userNameController.text,
+                          email: emailController.text,
                           password: passwordController.text);
                     },
                     child: Text(StringConstants.LogIn,
@@ -113,7 +113,7 @@ class SignInForm extends StatelessWidget {
                       ElevatedButton(
                           onPressed: () {
                             context.read<SignInCubit>().signIn(
-                                userName: userNameController.text,
+                                email: emailController.text,
                                 password: passwordController.text);
                           },
                           child: Text(
@@ -144,7 +144,7 @@ class SignInForm extends StatelessWidget {
                     ),
                     onPressed: () {
                       context.read<SignInCubit>().signIn(
-                          userName: userNameController.text,
+                          email: emailController.text,
                           password: passwordController.text);
                     },
                     child: Text(

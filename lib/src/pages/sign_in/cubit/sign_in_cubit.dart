@@ -10,12 +10,11 @@ class SignInCubit extends Cubit<SignInState> {
 
   bool isPasswordVisible = false;
 
-  Future<void> signIn(
-      {required String userName, required String password}) async {
+  Future<void> signIn({required String email, required String password}) async {
     emit(const _Loading());
 
     final Result<BaseResponseDto<TokenDto>> result =
-        await apiRepository.signIn(userName: userName, password: password);
+        await apiRepository.signIn(email: email, password: password);
     result.when(
       success: (data) {
         emit(_Loaded(data.data!));
