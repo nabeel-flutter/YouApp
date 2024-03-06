@@ -228,7 +228,7 @@ firstName: firstName,
 lastName: lastName,
 
            password: password,);
-      return Result.success(objectMapper.toSignIn(response));
+      return Result.success(objectMapper.toSignUp(response));
     } on Exception catch (e) {
       logger.e(e);
       return Result.failed(objectMapper.toError(e));

@@ -291,7 +291,7 @@ class SoftTechTestApi {
     );
   }
 
-  signUp({
+  Future<BaseResponseDto<TokenDto>> signUp({
     required String password,
     required firstName,
     required String lastName,

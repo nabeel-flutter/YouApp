@@ -34,7 +34,7 @@ class ToastComponent2 {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: ColorConstants.primaryColor),
-          color: ColorConstants.primaryColor,
+          color: ColorConstants.primaryColor.withOpacity(0.5),
         ),
         // width: MediaQuery.of(context).size.width * .9,
         child: Row(
@@ -108,15 +108,15 @@ class ToastComponent3 {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Row(
-            //   children: const [
-            //     Icon(
-            //       Icons.info,
-            //       color: ColorConstants.blue,
-            //     ),
-            //     SizedBox(width: 12),
-            //   ],
-            // ),
+            Row(
+              children: const [
+                Icon(
+                  Icons.info,
+                  color: ColorConstants.redIndicatorColor,
+                ),
+                SizedBox(width: 12),
+              ],
+            ),
             Flexible(
               child: Text(
                 message,

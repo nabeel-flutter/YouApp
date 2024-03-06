@@ -159,10 +159,16 @@ class _SignUpFormState extends State<SignUpForm> {
               orElse: () {
                 return 'asd';
               },
-              error: (message) {},
-              initial: () {},
+              error: (message) {
+         ToastComponent3(context).showToast(context, message);
+     
+              },
+              initial: () {
+
+              },
               loaded: (token) {
-                Navigator.pop(context);
+              ToastComponent2(context).showToast(context, 'User Created successfully please check your email');
+             return   Navigator.pop(context);
               },
             ),
           ),
