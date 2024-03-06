@@ -3,9 +3,11 @@ import 'package:new_beginnings/src/app/app_export.dart';
 class TopDoctorsWidget extends StatelessWidget {
   final String title;
   final String subtitle;
+  final String? image;
   const TopDoctorsWidget(
       {Key? key,
       this.title = "Dr Alexa Johnson",
+      this.image,
       this.subtitle = "Cardiologist"})
       : super(key: key);
 
@@ -35,7 +37,7 @@ class TopDoctorsWidget extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.asset(
-                  AssetsConstants.doctorDetailImage,
+                  image!,
                   height: 100,
                   fit: BoxFit.cover,
                 ),

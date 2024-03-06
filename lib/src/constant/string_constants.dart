@@ -9,11 +9,12 @@ class StringConstants {
 
   static String sendCode = _getLang('sendCode');
 
-  static String rememberPassword  = _getLang('rememberPassword');
+  static String rememberPassword = _getLang('rememberPassword');
 
   static String passwordChanged = _getLang('passwordChanged');
 
-  static String passwordChangedDescription = _getLang('passwordChangedDescription');
+  static String passwordChangedDescription =
+      _getLang('passwordChangedDescription');
 
   static String continueText = _getLang('continueText');
 
@@ -21,15 +22,18 @@ class StringConstants {
 
   static String createNewPassword = _getLang('createNewPassword');
 
-  static String createNewPasswordDescription = _getLang('createNewPasswordDescription');
+  static String createNewPasswordDescription =
+      _getLang('createNewPasswordDescription');
 
   static String forgotPassword = _getLang('forgotPassword');
 
-  static String forgotPasswordDescription = _getLang('forgotPasswordDescription');
+  static String forgotPasswordDescription =
+      _getLang('forgotPasswordDescription');
 
   static String otpVerification = _getLang('otpVerification');
 
-  static String otpVerificationDescription = _getLang('otpVerificationDescription');
+  static String otpVerificationDescription =
+      _getLang('otpVerificationDescription');
 
   static String createAccountDescription = _getLang('createAccountDescription');
 
@@ -51,7 +55,19 @@ class StringConstants {
 
   static String facetoFace = _getLang('facetoFace');
 
-  static String telehealth = _getLang('telehealth'); 
+  static String telehealth = _getLang('telehealth');
+
+  static String doctorProfile = _getLang('doctorProfile');
+
+  static String patients = _getLang('patients');
+
+  static String yearsExpert = _getLang('yearsExpert');
+
+  static String rating = _getLang('rating');
+
+  static String reviews = _getLang('reviews');
+
+  static String aboutMe  = _getLang('aboutMe');
 
   static String get toBeCompletedByProvider =>
       _getLang('toBeCompletedByProvider');
