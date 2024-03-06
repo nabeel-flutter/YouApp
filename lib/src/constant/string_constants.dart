@@ -9,11 +9,12 @@ class StringConstants {
 
   static String sendCode = _getLang('sendCode');
 
-  static String rememberPassword  = _getLang('rememberPassword');
+  static String rememberPassword = _getLang('rememberPassword');
 
   static String passwordChanged = _getLang('passwordChanged');
 
-  static String passwordChangedDescription = _getLang('passwordChangedDescription');
+  static String passwordChangedDescription =
+      _getLang('passwordChangedDescription');
 
   static String continueText = _getLang('continueText');
 
@@ -21,15 +22,18 @@ class StringConstants {
 
   static String createNewPassword = _getLang('createNewPassword');
 
-  static String createNewPasswordDescription = _getLang('createNewPasswordDescription');
+  static String createNewPasswordDescription =
+      _getLang('createNewPasswordDescription');
 
   static String forgotPassword = _getLang('forgotPassword');
 
-  static String forgotPasswordDescription = _getLang('forgotPasswordDescription');
+  static String forgotPasswordDescription =
+      _getLang('forgotPasswordDescription');
 
   static String otpVerification = _getLang('otpVerification');
 
-  static String otpVerificationDescription = _getLang('otpVerificationDescription');
+  static String otpVerificationDescription =
+      _getLang('otpVerificationDescription');
 
   static String createAccountDescription = _getLang('createAccountDescription');
 
@@ -51,7 +55,7 @@ class StringConstants {
 
   static String facetoFace = _getLang('facetoFace');
 
-  static String telehealth = _getLang('telehealth'); 
+  static String telehealth = _getLang('telehealth');
 
   static String get toBeCompletedByProvider =>
       _getLang('toBeCompletedByProvider');
@@ -495,6 +499,7 @@ class StringConstants {
   static String get zipCode => _getLang('zipCode');
 
   static String get insurance => _getLang('insurance');
+  static String get insured => _getLang('insured');
 
   static String get male => _getLang('male');
 
@@ -600,6 +605,7 @@ class StringConstants {
   static String get save => _getLang('save');
 
   static String get otherSettings => _getLang('otherSettings');
+  static String get other => _getLang('otherSettings');
 
   static String get selectLanguage => _getLang('selectLanguage');
 

@@ -9,177 +9,97 @@ class AppBarcomponent extends StatelessWidget {
   final Color? appBarColor;
   final double elevation;
   final List<BoxShadow>? appBarShadoow;
-  final bool? isProfileBackAppbar;
 
-  const AppBarcomponent(
-      {super.key,
-      required this.isGradient,
-      required this.title,
-      required this.isBackAppBar,
-      required this.isTitleTowLines,
-      this.actionTextButton,
-      this.appBarColor,
-      this.elevation = 0,
-      this.appBarShadoow,
-      this.isProfileBackAppbar});
+  const AppBarcomponent({
+    super.key,
+    required this.isGradient,
+    required this.title,
+    required this.isBackAppBar,
+    required this.isTitleTowLines,
+    this.actionTextButton,
+    this.appBarColor,
+    this.elevation = 0,
+    this.appBarShadoow,
+  });
 
   @override
   PreferredSize build(BuildContext context) {
     return PreferredSize(
-        preferredSize: const Size.fromHeight(kToolbarHeight + 1),
-        child: isProfileBackAppbar!
-            ? Container(
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(22),
-                        bottomRight: Radius.circular(22)),
-                    image: const DecorationImage(
-                        image: AssetImage(AssetsConstants.appBarbgImage),
-                        fit: BoxFit.cover),
-                    // color: appBarColor ?? ColorConstants.primaryColor,
-                    boxShadow: appBarShadoow ?? []),
-                child: AppBar(
-                    elevation: elevation,
-                    centerTitle: isBackAppBar,
-                    actions: !isBackAppBar
-                        ? [
-                            InkWell(
-                              onTap: () => context.router
-                                  .pushNamed(RouteConstants.notificationRoute),
-                              child: const Padding(
-                                padding: EdgeInsets.all(15),
-                                child: Padding(
-                                  padding: EdgeInsets.only(top: 6.0, right: 3),
-                                  child: Icon(
-                                    Icons.notifications_on_outlined,
-                                    color: ColorConstants.purpleScanHome,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ]
-                        : actionTextButton != null
-                            ? [actionTextButton!]
-                            : [
-                                Container(
-                                  width: 50,
-                                )
-                              ],
-                    backgroundColor: Colors.transparent,
-                    leadingWidth: isBackAppBar ? 50 : 150,
-                    leading: isBackAppBar
-                        ? GestureDetector(
-                            onTap: () => NavigationUtil.pop(context),
-                            child: Container(
-                                margin: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: ColorConstants.white),
-                                child: const Icon(
-                                  Icons.arrow_back_ios_new,
-                                  size: 12,
-                                  color: ColorConstants.black,
-                                )),
-                          )
-                        : Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Image.asset(
-                              AssetsConstants.splashLogoImage,
-                            ),
+      preferredSize: const Size.fromHeight(kToolbarHeight + 1),
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(22),
+                bottomRight: Radius.circular(22)),
+            image: const DecorationImage(
+                image: AssetImage(AssetsConstants.appBarbgImage),
+                fit: BoxFit.cover),
+            // color: appBarColor ?? ColorConstants.primaryColor,
+            boxShadow: appBarShadoow ?? []),
+        child: AppBar(
+            elevation: elevation,
+            centerTitle: isBackAppBar,
+            actions: !isBackAppBar
+                ? [
+                    InkWell(
+                      onTap: () => context.router
+                          .pushNamed(RouteConstants.notificationRoute),
+                      child: const Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 6.0, right: 3),
+                          child: Icon(
+                            Icons.notifications_on_outlined,
+                            color: ColorConstants.white,
                           ),
-                    title: isBackAppBar
-                        ? SizedBox(
-                            child: Text(
-                              title,
-                              maxLines: 2,
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelLarge!
-                                  .copyWith(
-                                      color: ColorConstants.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
-                            ),
-                          )
-                        : null),
-              )
-            : Container(
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(22),
-                        bottomRight: Radius.circular(22)),
-                    image: const DecorationImage(
-                        image: AssetImage(AssetsConstants.appBarbgImage),
-                        fit: BoxFit.cover),
-                    // color: appBarColor ?? ColorConstants.primaryColor,
-                    boxShadow: appBarShadoow ?? []),
-                child: AppBar(
-                    elevation: elevation,
-                    centerTitle: isBackAppBar,
-                    actions: !isBackAppBar
-                        ? [
-                            InkWell(
-                              onTap: () => context.router
-                                  .pushNamed(RouteConstants.notificationRoute),
-                              child: const Padding(
-                                padding: EdgeInsets.all(15),
-                                child: Padding(
-                                  padding: EdgeInsets.only(top: 6.0, right: 3),
-                                  child: Icon(
-                                    Icons.notifications_on_outlined,
-                                    color: ColorConstants.white,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ]
-                        : actionTextButton != null
-                            ? [actionTextButton!]
-                            : [
-                                Container(
-                                  width: 50,
-                                )
-                              ],
-                    backgroundColor: Colors.transparent,
-                    leadingWidth: isBackAppBar ? 50 : 150,
-                    leading: isBackAppBar
-                        ? GestureDetector(
-                            onTap: () => NavigationUtil.pop(context),
-                            child: Container(
-                                margin: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: ColorConstants.white),
-                                child: const Icon(
-                                  Icons.arrow_back_ios_new,
-                                  size: 12,
-                                  color: ColorConstants.black,
-                                )),
-                          )
-                        : Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Image.asset(
-                              AssetsConstants.splashLogoImage,
-                            ),
-                          ),
-                    title: isBackAppBar
-                        ? SizedBox(
-                            child: Text(
-                              title,
-                              maxLines: 2,
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelLarge!
-                                  .copyWith(
-                                      color: ColorConstants.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
-                            ),
-                          )
-                        : null),
-              ));
+                        ),
+                      ),
+                    ),
+                  ]
+                : actionTextButton != null
+                    ? [actionTextButton!]
+                    : [
+                        Container(
+                          width: 50,
+                        )
+                      ],
+            backgroundColor: Colors.transparent,
+            leadingWidth: isBackAppBar ? 50 : 150,
+            leading: isBackAppBar
+                ? GestureDetector(
+                    onTap: () => NavigationUtil.pop(context),
+                    child: Container(
+                        margin: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: ColorConstants.white),
+                        child: const Icon(
+                          Icons.arrow_back_ios_new,
+                          size: 12,
+                          color: ColorConstants.black,
+                        )),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: Image.asset(
+                      AssetsConstants.splashLogoImage,
+                    ),
+                  ),
+            title: isBackAppBar
+                ? SizedBox(
+                    child: Text(
+                      title,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          color: ColorConstants.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
+                    ),
+                  )
+                : null),
+      ),
+    );
   }
 }
 

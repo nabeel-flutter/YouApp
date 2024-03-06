@@ -7,28 +7,11 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PrimaryBackground(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            const UserProfileComponent(),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                ),
-                onPressed: () {
-                  getIt
-                      .get<SharedPreferencesUtil>()
-                      .removeValue(SharedPreferenceConstants.apiAuthToken)
-                      .then((value) async => await context.router
-                          .pushAndPopUntil(
-                              predicate: (route) => false,
-                              const SignInRoute()));
-                },
-                child: const Text('Logout'))
-          ]),
-        ),
-        isProfileAppbar: true,
-        isBackAppBar: true,
+        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          const UserProfileComponent(),
+          const UserProfileBottomComponent()
+        ]),
+        isBackAppBar: false,
         appbarText: StringConstants.profile);
   }
 }

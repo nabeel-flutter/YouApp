@@ -130,6 +130,7 @@ export 'package:flutter_bloc/flutter_bloc.dart';
 export 'dart:io';
 
 export 'package:new_beginnings/src/pages/appointment/cubit/cubit/appointment_cubit_cubit.dart';
+export 'package:new_beginnings/src/pages/profile/edit_profile.dart';
 
 export 'package:new_beginnings/src/pages/appointment/views/appoinment_screen.dart';
 export 'package:new_beginnings/src/pages/appointment/views/book_appointment_screen.dart';
