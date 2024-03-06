@@ -387,4 +387,9 @@ class ObjectMapper {
   BaseResponseDto<TokenDto> toSignIn(BaseResponseDto<TokenDto> dto) {
     return BaseResponseDto<TokenDto>(data: dto.data);
   }
+
+  BaseResponseDto<TokenDto> toSignUp(BaseResponseDto<TokenDto> dto) {
+        return BaseResponseDto<TokenDto>(data: dto.data);
+
+  }
 }
