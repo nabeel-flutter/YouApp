@@ -36,7 +36,7 @@ class IndicatorWidget extends StatelessWidget {
                     : !getThemeStateIsLight()
                         ? lighten(getThemeColor(context), 0.35)
                         : darken(getThemeColor(context), 0.5),
-                fontFamily: FontConstantc.gilroySemiBold),
+                fontFamily: FontConstants.gilroySemiBold),
           )),
         ),
       ),

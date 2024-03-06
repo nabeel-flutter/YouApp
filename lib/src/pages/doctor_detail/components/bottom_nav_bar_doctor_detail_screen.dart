@@ -55,7 +55,7 @@ class DoctorDetailScreenBottonNavBarButton extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: textColor,
                 height: 1,
-                fontFamily: FontConstantc.gilroySemiBold),
+                fontFamily: FontConstants.gilroySemiBold),
           ),
         ),
       ),

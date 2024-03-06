@@ -16,11 +16,11 @@ class QuestionFormHeading extends StatelessWidget {
         children: [
           Text('${questions.key + 1}. ',
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  fontSize: 16, fontFamily: FontConstantc.gilroySemiBold)),
+                  fontSize: 16, fontFamily: FontConstants.gilroySemiBold)),
           Expanded(
             child: Text(questions.value.question,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    fontSize: 16, fontFamily: FontConstantc.gilroySemiBold)),
+                    fontSize: 16, fontFamily: FontConstants.gilroySemiBold)),
           ),
         ],
       ),

@@ -16,7 +16,7 @@ class AboutDoctorComponentDoctorDetailScreen extends StatelessWidget {
             headingColor: !getThemeStateIsLight()
                 ? darken(getThemeColor(context), 0.35)
                 : ColorConstants.white,
-            fontFamily: FontConstantc.gilroySemiBold),
+            fontFamily: FontConstants.gilroySemiBold),
         const SizedBox(height: 10),
         DoctorDetailHeadingTwo(
           color: getThemeStateIsLight()

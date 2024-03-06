@@ -18,7 +18,7 @@ class OtherSpecifiedHeading extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .titleLarge!
-                .copyWith(fontFamily: FontConstantc.gilroySemiBold),
+                .copyWith(fontFamily: FontConstants.gilroySemiBold),
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 2.0),
@@ -27,7 +27,7 @@ class OtherSpecifiedHeading extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .labelSmall!
-                  .copyWith(fontFamily: FontConstantc.gilroySemiBold),
+                  .copyWith(fontFamily: FontConstants.gilroySemiBold),
             ),
           ),
         ],

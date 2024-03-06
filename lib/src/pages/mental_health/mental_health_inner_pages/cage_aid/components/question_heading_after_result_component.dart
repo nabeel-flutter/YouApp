@@ -17,7 +17,7 @@ class QuestionHeadingAfterResult extends StatelessWidget {
           Text(
             'Q. ',
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  fontFamily: FontConstantc.gilroyRegular,
+                  fontFamily: FontConstants.gilroyRegular,
                 ),
           ),
           Expanded(
@@ -26,7 +26,7 @@ class QuestionHeadingAfterResult extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .titleLarge!
-                  .copyWith(fontFamily: FontConstantc.gilroyRegular),
+                  .copyWith(fontFamily: FontConstants.gilroyRegular),
             ),
           ),
         ],

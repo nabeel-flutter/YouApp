@@ -23,7 +23,7 @@ class BFTQuestionnaireAppBar extends StatelessWidget {
               StringConstants
                   .noteIfYouAnswerYesForAnEventPleaseAnswerAnyAdditionalQuestionsThatAreListedIfYouAnswerNoForAnEventGoOnToTheNextEvent,
               style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                  height: 1.5, fontFamily: FontConstantc.gilroyMedium),
+                  height: 1.5, fontFamily: FontConstants.gilroyMedium),
             ),
           ),
           Container(
@@ -43,14 +43,14 @@ class BFTQuestionnaireAppBar extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium!
-                        .copyWith(fontFamily: FontConstantc.gilroyMedium),
+                        .copyWith(fontFamily: FontConstants.gilroyMedium),
                   ),
                   Text(
                     StringConstants.identified,
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge!
-                        .copyWith(fontFamily: FontConstantc.gilroyMedium),
+                        .copyWith(fontFamily: FontConstants.gilroyMedium),
                   )
                 ],
               ),

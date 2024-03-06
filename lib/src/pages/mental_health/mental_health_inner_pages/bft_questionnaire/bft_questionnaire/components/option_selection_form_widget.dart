@@ -46,7 +46,7 @@ class OptionSelectionFormWidget extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .labelSmall!
-                          .copyWith(fontFamily: FontConstantc.gilroyMedium),
+                          .copyWith(fontFamily: FontConstants.gilroyMedium),
                       textAlign: TextAlign.center,
                     ),
                   )),

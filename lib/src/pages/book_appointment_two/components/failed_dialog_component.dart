@@ -23,11 +23,11 @@ class FailedDialog extends StatelessWidget {
               Text('Payment Failed',
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                       color: Theme.of(context).scaffoldBackgroundColor,
-                      fontFamily: FontConstantc.gilroySemiBold)),
+                      fontFamily: FontConstants.gilroySemiBold)),
               Text('Your Payment is not completed',
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       color: darken(getThemeColor(context), 0.3),
-                      fontFamily: FontConstantc.gilroyMedium)),
+                      fontFamily: FontConstants.gilroyMedium)),
               Row(
                 children: [
                   Expanded(

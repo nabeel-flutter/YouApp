@@ -26,7 +26,7 @@ class MentalHealthIndicatorsComponent extends StatelessWidget {
               Text(
                 element.value.title,
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                    height: 0, fontFamily: FontConstantc.gilroyMedium),
+                    height: 0, fontFamily: FontConstants.gilroyMedium),
               )
             ]),
       ),

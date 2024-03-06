@@ -19,7 +19,7 @@ class TitleDemographicsMainHeadingInnerPage extends StatelessWidget {
           titleDemographicInnerScreen,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
               color: getThemeColor(context),
-              fontFamily: FontConstantc.gilroySemiBold),
+              fontFamily: FontConstants.gilroySemiBold),
         ),
         const SizedBox(height: 10),
       ],

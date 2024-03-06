@@ -82,4 +82,13 @@ abstract class ApiRepository extends Repository {
 
   Future<Result<BaseResponseDto<TokenDto>>> signIn(
       {required String userName, required String password});
+
+ Future<Result<BaseResponseDto<TokenDto>>> signUp({
+  required String lastName,
+  required String phone,
+
+  required String  firstName, 
+  required  String email,
+  required String confirmPassword,
+  required String password});
 }

@@ -34,7 +34,7 @@ class ExpansionTileComponent extends StatelessWidget {
             Text(
               test,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  fontFamily: FontConstantc.gilroyBold,
+                  fontFamily: FontConstants.gilroyBold,
                   color: !getThemeStateIsLight()
                       ? darken(getThemeColor(context), 0.35)
                       : Theme.of(context).scaffoldBackgroundColor),

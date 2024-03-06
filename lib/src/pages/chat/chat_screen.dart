@@ -100,7 +100,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                             color: Theme.of(context)
                                                 .scaffoldBackgroundColor,
                                             fontFamily:
-                                                FontConstantc.gilroyMedium),
+                                                FontConstants.gilroyMedium),
                                     controller: messagesController,
                                     decoration: InputDecoration(
                                         hintText: "Message..",
@@ -115,7 +115,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                                     : Theme.of(context)
                                                         .scaffoldBackgroundColor,
                                                 fontFamily:
-                                                    FontConstantc.gilroyMedium),
+                                                    FontConstants.gilroyMedium),
                                         border: InputBorder.none),
                                   ),
                                 ),

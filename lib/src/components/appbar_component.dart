@@ -136,7 +136,7 @@ class TopSheetComponent extends StatelessWidget {
             text,
             style: Theme.of(context).textTheme.labelSmall!.copyWith(
                 color: ColorConstants.white,
-                fontFamily: FontConstantc.gilroyMedium),
+                fontFamily: FontConstants.gilroyMedium),
           )
         ],
       ),

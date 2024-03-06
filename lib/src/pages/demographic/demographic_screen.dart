@@ -293,7 +293,7 @@ class _DemographicScreenState extends State<DemographicScreen> {
                   StringConstants.save,
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       color: getThemeColor(context),
-                      fontFamily: FontConstantc.gilroyMedium),
+                      fontFamily: FontConstants.gilroyMedium),
                 )),
           ),
           isGradient: false,

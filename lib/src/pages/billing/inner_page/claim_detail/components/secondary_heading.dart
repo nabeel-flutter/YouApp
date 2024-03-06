@@ -14,6 +14,6 @@ class SecondaryHeading extends StatelessWidget {
         style: Theme.of(context)
             .textTheme
             .bodyMedium!
-            .copyWith(fontFamily: FontConstantc.gilroySemiBold));
+            .copyWith(fontFamily: FontConstants.gilroySemiBold));
   }
 }

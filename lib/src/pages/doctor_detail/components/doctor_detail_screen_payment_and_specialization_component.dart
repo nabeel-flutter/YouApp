@@ -18,11 +18,11 @@ class DoctorDetailScreenPaymentAndSpecialization extends StatelessWidget {
         const Row(
           children: [
             DoctorDetailHeadingOne(
-                fontFamily: FontConstantc.gilroySemiBold,
+                fontFamily: FontConstants.gilroySemiBold,
                 heading: '\$39',
                 headingColor: ColorConstants.greenIndicatorColor),
             DoctorDetailHeadingOne(
-                fontFamily: FontConstantc.gilroyRegular,
+                fontFamily: FontConstants.gilroyRegular,
                 heading: '/h',
                 headingColor: ColorConstants.greenIndicatorColor),
           ],

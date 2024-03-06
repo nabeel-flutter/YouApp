@@ -23,7 +23,7 @@ class DomesticViolenceCheckListScreen extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge!
-                        .copyWith(fontFamily: FontConstantc.gilroySemiBold),
+                        .copyWith(fontFamily: FontConstants.gilroySemiBold),
                   ),
                 ),
                 CheckBoxListTileComponent(

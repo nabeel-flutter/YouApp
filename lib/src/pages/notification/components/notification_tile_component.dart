@@ -42,10 +42,10 @@ class NotificationTileComponent extends StatelessWidget {
                   children: [
                     Text(notification.value.title,
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            fontFamily: FontConstantc.gilroySemiBold)),
+                            fontFamily: FontConstants.gilroySemiBold)),
                     Text(notification.value.date,
                         style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                            fontFamily: FontConstantc.gilroyMedium,
+                            fontFamily: FontConstants.gilroyMedium,
                             color: !getThemeStateIsLight()
                                 ? darken(getThemeColor(context), 0.2)
                                 : lighten(getThemeColor(context), 0.3)))
@@ -71,7 +71,7 @@ class NotificationTileComponent extends StatelessWidget {
           ),
           Text(notification.value.decs,
               style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                  fontFamily: FontConstantc.gilroyMedium,
+                  fontFamily: FontConstants.gilroyMedium,
                   color: !getThemeStateIsLight()
                       ? darken(getThemeColor(context), 0.2)
                       : lighten(getThemeColor(context), 0.3)))

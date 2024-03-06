@@ -18,12 +18,12 @@ class DoctorDetailAndBookNowWidget extends StatelessWidget {
               Text(
                 StringConstants.drLouisaJackson,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    fontFamily: FontConstantc.gilroySemiBold,
+                    fontFamily: FontConstants.gilroySemiBold,
                     color: ColorConstants.black),
               ),
               Text(StringConstants.heartSpecialist,
                   style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                      fontFamily: FontConstantc.gilroySemiBold,
+                      fontFamily: FontConstants.gilroySemiBold,
                       color: ColorConstants.greyText)),
             ],
           ),

@@ -84,7 +84,7 @@ class _ExpansionPanelListComponentHealthProfileFamilyMembersState
                                                     .bodySmall!
                                                     .copyWith(
                                                         fontFamily:
-                                                            FontConstantc
+                                                            FontConstants
                                                                 .gilroySemiBold,
                                                         color: !getThemeStateIsLight()
                                                             ? darken(

@@ -32,7 +32,7 @@ class MentalHealthListElementWidget extends StatelessWidget {
                               .bodyMedium!
                               .copyWith(
                                   color: ColorConstants.white,
-                                  fontFamily: FontConstantc.gilroyMedium)),
+                                  fontFamily: FontConstants.gilroyMedium)),
                       const SizedBox(height: 3),
                       Text(mentalHealthListElement.value.date,
                           style: Theme.of(context)
@@ -40,7 +40,7 @@ class MentalHealthListElementWidget extends StatelessWidget {
                               .labelSmall!
                               .copyWith(
                                   color: lighten(getThemeColor(context), 0.3),
-                                  fontFamily: FontConstantc.gilroyMedium))
+                                  fontFamily: FontConstants.gilroyMedium))
                     ],
                   ),
                 ),
@@ -74,7 +74,7 @@ class MentalHealthListElementWidget extends StatelessWidget {
                                   .textTheme
                                   .titleMedium!
                                   .copyWith(
-                                      fontFamily: FontConstantc.gilroyMedium,
+                                      fontFamily: FontConstants.gilroyMedium,
                                       color:
                                           lighten(getThemeColor(context), 0.4)),
                             ),
@@ -83,7 +83,7 @@ class MentalHealthListElementWidget extends StatelessWidget {
                                     .textTheme
                                     .titleLarge!
                                     .copyWith(
-                                        fontFamily: FontConstantc.gilroyMedium,
+                                        fontFamily: FontConstants.gilroyMedium,
                                         color: lighten(
                                             getThemeColor(context), 0.4)),
                                 mentalHealthListElement.value.score.toString())
@@ -101,7 +101,7 @@ class MentalHealthListElementWidget extends StatelessWidget {
                         color: mentalHealthListElement.value.isIdentified!
                             ? ColorConstants.white
                             : ColorConstants.redIndicatorColor,
-                        fontFamily: FontConstantc.gilroyMedium),
+                        fontFamily: FontConstants.gilroyMedium),
                   )
               ])),
     );
