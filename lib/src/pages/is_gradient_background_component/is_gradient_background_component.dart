@@ -8,12 +8,14 @@ class PrimaryBackground extends StatelessWidget {
     this.appbarText,
     this.isAppBar = true,
     this.floatingActionButton,
+    this.isProfileAppbar,
   });
   final Widget body;
   final bool? isBackAppBar;
   final String? appbarText;
   final bool? isAppBar;
   final Widget? floatingActionButton;
+  final bool? isProfileAppbar;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,7 @@ class PrimaryBackground extends StatelessWidget {
                             isBackAppBar: isBackAppBar ?? false,
                             isGradient: true,
                             title: appbarText ?? '',
+                            isProfileBackAppbar: isProfileAppbar ?? false,
                           )
                         : null
                     : null,
@@ -58,6 +61,7 @@ class PrimaryBackground extends StatelessWidget {
                             isBackAppBar: isBackAppBar ?? false,
                             isGradient: true,
                             title: appbarText ?? '',
+                            isProfileBackAppbar: true,
                           )
                         : null
                     : null,

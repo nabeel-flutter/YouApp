@@ -23,9 +23,6 @@ class ApiRepositoryImpl extends ApiRepository {
     required this.logger,
   });
 
-
-
-
   @override
   Future<Result<AnimatedDrawer>> getDashboardOverview() async {
     try {
@@ -202,36 +199,38 @@ class ApiRepositoryImpl extends ApiRepository {
 
   @override
   Future<Result<BaseResponseDto<TokenDto>>> signIn(
-      {required String userName, required String password}) async {
+      {required String email, required String password}) async {
     try {
       final response =
-          await softTechTestApi.signIn(password: password, userName: userName);
+          await softTechTestApi.signIn(password: password, email: email);
       return Result.success(objectMapper.toSignIn(response));
     } on Exception catch (e) {
       logger.e(e);
       return Result.failed(objectMapper.toError(e));
     }
   }
-  
-  @override
-  Future<Result<BaseResponseDto<TokenDto>>> signUp({
-    
-    required String phone,
-    required String lastName, required String firstName, required String email, required String confirmPassword, required String password}) async {
-  try {
-      final response =
-          await softTechTestApi.signUp(
-            confirmPassword: confirmPassword,
-            email: email,
-phone: phone,
-firstName: firstName, 
-lastName: lastName,
 
-           password: password,);
-      return Result.success(objectMapper.toSignUp(response));
+  @override
+  Future<Result<BaseResponseDto<TokenDto>>> signUp(
+      {required String phone,
+      required String lastName,
+      required String firstName,
+      required String email,
+      required String confirmPassword,
+      required String password}) async {
+    try {
+      final response = await softTechTestApi.signUp(
+        confirmPassword: confirmPassword,
+        email: email,
+        phone: phone,
+        firstName: firstName,
+        lastName: lastName,
+        password: password,
+      );
+      return Result.success(objectMapper.toSignIn(response));
     } on Exception catch (e) {
       logger.e(e);
       return Result.failed(objectMapper.toError(e));
     }
-   }
+  }
 }
