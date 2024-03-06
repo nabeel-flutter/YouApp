@@ -15,6 +15,12 @@ class EnglishConstant {
     'selfPay': 'Self Pay',
     'facetoFace': 'Face to Face',
     'telehealth': 'Telehealth',
+    'doctorProfile': 'Doctor Profile',
+    'patients': 'Patients',
+    'yearsExpert': 'Years Expert',
+    'rating': 'Rating',
+    'reviews': 'Reviews',
+    'aboutMe': 'About Me',
     'createNewPassword': 'Create New Password',
     'createNewPasswordDescription':
         'Please enter your new password and confirm the password',

@@ -130,10 +130,11 @@ export 'package:flutter_bloc/flutter_bloc.dart';
 export 'dart:io';
 
 export 'package:new_beginnings/src/pages/appointment/cubit/cubit/appointment_cubit_cubit.dart';
-
+export 'package:new_beginnings/src/pages/doctors/models/doctor_model.dart';
 export 'package:new_beginnings/src/pages/appointment/views/appoinment_screen.dart';
 export 'package:new_beginnings/src/pages/appointment/views/book_appointment_screen.dart';
 export 'package:new_beginnings/src/pages/doctors/views/all_doctors_screen.dart';
+export 'package:new_beginnings/src/pages/doctors/views/doctor_profile_screen.dart';
 export 'package:new_beginnings/src/pages/all_services/view/all_services_screen.dart';
 export 'package:new_beginnings/src/pages/home/components/doctor_detail_and_book_now_widget.dart';
 export 'package:new_beginnings/src/constant/font_constants.dart';

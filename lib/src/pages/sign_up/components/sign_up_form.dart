@@ -159,7 +159,9 @@ class _SignUpFormState extends State<SignUpForm> {
               orElse: () {
                 return 'asd';
               },
-              error: (message) {},
+              error: (message) {
+                
+              },
               initial: () {},
               loaded: (token) {
                 Navigator.pop(context);

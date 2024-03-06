@@ -7,6 +7,8 @@ import 'package:new_beginnings/src/pages/home/components/widgets/top_doctors_wid
 
 import 'package:new_beginnings/src/pages/all_services/models/services_model.dart';
 
+import 'package:new_beginnings/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
+
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({
     super.key,
@@ -55,10 +57,21 @@ class HomeScreenBody extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Column(
-                  children: [
-                    ...List.generate(3, (index) => const TopDoctorsWidget())
-                  ],
-                )
+                    children: BlocProvider.of<DoctorsCubit>(context)
+                        .doctors
+                        .map((e) => GestureDetector(
+                              onTap: () {
+                                context.router.push(
+                                  DoctorProfileRoute(doctor: e),
+                                );
+                              },
+                              child: TopDoctorsWidget(
+                                title: e.name,
+                                subtitle: e.speciality,
+                                image: e.image,
+                              ),
+                            ))
+                        .toList()),
               ],
             ),
           ),
