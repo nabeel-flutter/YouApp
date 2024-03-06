@@ -27,7 +27,8 @@ class ProfileScreen extends StatelessWidget {
                 child: const Text('Logout'))
           ]),
         ),
-        isBackAppBar: false,
+        isProfileAppbar: true,
+        isBackAppBar: true,
         appbarText: StringConstants.profile);
   }
 }
