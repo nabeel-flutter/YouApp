@@ -1,5 +1,8 @@
 class AssetsConstants {
   //Images
+  static String uploadimageicon = 'assets/images/upload_bg.png';
+  static String uploadicon = 'assets/images/dropback.png';
+
   static const String logoutImage = 'assets/images/logout_image.png';
   static String doctorDetailImage = 'assets/images/doctor_profile_image.jpg';
   static String visaPaymentImage = 'assets/images/visa_payment_image.png';
@@ -24,6 +27,7 @@ class AssetsConstants {
   static const String nbAuthLogo = 'assets/images/nb_auth_logo.png';
   static const String crouselImage1 = 'assets/images/crousel_image.png';
   static const String appBarbgImage = 'assets/images/appBar_bg.png';
+  static const String profileappBarimage = 'assets/images/profileAppbar_bg.png';
   static const String pscyEvImage = 'assets/images/psyev_services.png';
 
   //Icons
@@ -79,6 +83,7 @@ class AssetsConstants {
   static const String diabeticIcon = 'assets/icon/diabetic_icon.png';
   static const String depressionIcon = 'assets/icon/depression_icon.png';
   static const String anxietyIcon = 'assets/icon/anxiety_icon.png';
+  static const String camerasuffix = 'assets/images/camera_suffix.png';
   static const String editTextIcon = 'assets/icon/edit_text_icon.png';
   static const String capsuleIcon = 'assets/icon/capsule_icon.png';
   static const String tabletIcon = 'assets/icon/tablet_icon.png';

@@ -67,7 +67,7 @@ class StringConstants {
 
   static String reviews = _getLang('reviews');
 
-  static String aboutMe  = _getLang('aboutMe');
+  static String aboutMe = _getLang('aboutMe');
 
   static String get toBeCompletedByProvider =>
       _getLang('toBeCompletedByProvider');
@@ -511,6 +511,7 @@ class StringConstants {
   static String get zipCode => _getLang('zipCode');
 
   static String get insurance => _getLang('insurance');
+  static String get insured => _getLang('insured');
 
   static String get male => _getLang('male');
 
@@ -616,6 +617,7 @@ class StringConstants {
   static String get save => _getLang('save');
 
   static String get otherSettings => _getLang('otherSettings');
+  static String get other => _getLang('otherSettings');
 
   static String get selectLanguage => _getLang('selectLanguage');
 

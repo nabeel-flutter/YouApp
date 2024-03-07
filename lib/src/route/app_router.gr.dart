@@ -43,6 +43,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    EditProfileRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EditProfileScreen(),
+      );
+    },
     ForgotPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -184,6 +190,20 @@ class DoctorProfileRouteArgs {
   String toString() {
     return 'DoctorProfileRouteArgs{key: $key, doctor: $doctor}';
   }
+}
+
+/// generated route for
+/// [EditProfileScreen]
+class EditProfileRoute extends PageRouteInfo<void> {
+  const EditProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          EditProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EditProfileRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
