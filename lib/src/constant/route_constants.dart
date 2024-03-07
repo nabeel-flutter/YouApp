@@ -92,4 +92,6 @@ class RouteConstants {
 
   static const String editProfile = '/editProfileRoute';
   static const String doctorProfileRoute = '/doctorProfileRoute';
+
+  static const String serviceInnerScreenRoute = '/serviceInnerScreenRoute';
 }

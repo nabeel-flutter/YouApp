@@ -16,11 +16,11 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Service> services = [
-      Service(
+    List<ServiceModel> services = [
+      ServiceModel(
           name: "Psychiatric\nEvaluation", image: AssetsConstants.pscyEvImage),
-      Service(name: "Group Therapy", image: AssetsConstants.pscyEvImage),
-      Service(
+      ServiceModel(name: "Group Therapy", image: AssetsConstants.pscyEvImage),
+      ServiceModel(
           name: "Medication\nManagement", image: AssetsConstants.pscyEvImage),
     ];
     return MainScaffold(

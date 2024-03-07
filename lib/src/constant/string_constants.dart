@@ -69,6 +69,8 @@ class StringConstants {
 
   static String aboutMe = _getLang('aboutMe');
 
+  static String services = _getLang('services');
+
   static String get toBeCompletedByProvider =>
       _getLang('toBeCompletedByProvider');
 

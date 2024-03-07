@@ -91,6 +91,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProfileScreen(),
       );
     },
+    ServiceInnerRoute.name: (routeData) {
+      final args = routeData.argsAs<ServiceInnerRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ServiceInnerScreen(
+          key: args.key,
+          service: args.service,
+        ),
+      );
+    },
     SignInRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -302,6 +312,44 @@ class ProfileRoute extends PageRouteInfo<void> {
   static const String name = 'ProfileRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ServiceInnerScreen]
+class ServiceInnerRoute extends PageRouteInfo<ServiceInnerRouteArgs> {
+  ServiceInnerRoute({
+    Key? key,
+    required ServiceModel service,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ServiceInnerRoute.name,
+          args: ServiceInnerRouteArgs(
+            key: key,
+            service: service,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ServiceInnerRoute';
+
+  static const PageInfo<ServiceInnerRouteArgs> page =
+      PageInfo<ServiceInnerRouteArgs>(name);
+}
+
+class ServiceInnerRouteArgs {
+  const ServiceInnerRouteArgs({
+    this.key,
+    required this.service,
+  });
+
+  final Key? key;
+
+  final ServiceModel service;
+
+  @override
+  String toString() {
+    return 'ServiceInnerRouteArgs{key: $key, service: $service}';
+  }
 }
 
 /// generated route for

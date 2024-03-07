@@ -1,8 +1,8 @@
-class Service {
+class ServiceModel {
   final String name;
   final String? image;
   final String? description;
-  Service({
+  ServiceModel({
     required this.name,
     this.image,
     this.description,

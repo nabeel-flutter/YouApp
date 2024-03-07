@@ -56,6 +56,10 @@ class AppRouter extends _$AppRouter {
           path: RouteConstants.allServicesRoute,
         ),
         AutoRoute(
+          page: ServiceInnerRoute.page,
+          path: RouteConstants.serviceInnerScreenRoute,
+        ),
+        AutoRoute(
           page: BookAppointmentRoute.page,
           path: RouteConstants.bookAppointmentRoute,
         ),
@@ -67,5 +71,6 @@ class AppRouter extends _$AppRouter {
           page: DoctorProfileRoute.page,
           path: RouteConstants.doctorProfileRoute,
         ),
+
       ];
 }
