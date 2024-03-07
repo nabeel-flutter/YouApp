@@ -29,11 +29,20 @@ class AssetsConstants {
   static const String appBarbgImage = 'assets/images/appBar_bg.png';
   static const String profileappBarimage = 'assets/images/profileAppbar_bg.png';
   static const String pscyEvImage = 'assets/images/psyev_services.png';
+  static const String groupTherapyImage = 'assets/images/gt_service.png';
+  static const String medicationManagementImage =
+      'assets/images/mm_service.png';
+  static const String planTherapyImage = 'assets/images/pt_service.png';
+  static const String individualTherapyImage = 'assets/images/id_service.png';
+  static const String familyTherapyImage = 'assets/images/c&f_service.png';
+  static const String pmImage = 'assets/images/pm_service.png';
+  static const String addictionTreatmentImage = 'assets/images/at_service.png';
+  static const String tpImage = 'assets/images/tp_service.png';
+  static const String primaryCareImage = 'assets/images/pc_service.png';
 
   //Icons
   static const String noOfPatientsIcon = 'assets/icon/noOfPatientsIcon.svg';
-  static const String yearsOfExperienceIcon =
-      'assets/icon/yearsOfExpIcon.svg';
+  static const String yearsOfExperienceIcon = 'assets/icon/yearsOfExpIcon.svg';
   static const String ratingIconDoctor = 'assets/icon/ratingIcon.svg';
   static const String reviewsIcon = 'assets/icon/reviewsIcon.svg';
   static const String successIcon = 'assets/icon/check_icon.svg';

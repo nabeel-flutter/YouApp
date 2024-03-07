@@ -46,9 +46,11 @@ class HomeScreenBody extends StatelessWidget {
                         .services
                         .map((e) => GestureDetector(
                               onTap: () {
-                                context.router.push(
-                                  ServiceInnerRoute(service: e),
-                                );
+                                if (e.name == "Psychiatric\nEvaluation") {
+                                  context.router.push(
+                                    ServiceInnerRoute(service: e),
+                                  );
+                                }
                               },
                               child: TopServicesWidget(
                                 title: e.name,

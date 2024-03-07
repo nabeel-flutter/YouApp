@@ -25,9 +25,12 @@ class AllServicesScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              context.router.push(
-                                ServiceInnerRoute(service: services[index]),
-                              );
+                              if (services[index].name ==
+                                  "Psychiatric\nEvaluation") {
+                                context.router.push(
+                                  ServiceInnerRoute(service: services[index]),
+                                );
+                              }
                             },
                             child: ServiceCard(
                               title: services[index].name,
