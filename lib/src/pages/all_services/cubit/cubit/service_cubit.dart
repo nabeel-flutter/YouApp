@@ -17,7 +17,7 @@ class ServiceCubit extends Cubit<ServiceState> {
             "Psychiatric evaluation is a comprehensive assessment of a patient's mental and physical health"),
     ServiceModel(
         name: "Group Therapy",
-        image: AssetsConstants.pscyEvImage,
+        image: AssetsConstants.groupTherapyImage,
         description:
             "Group therapy is a form of psychotherapy that involves one or more therapists working"),
     ServiceModel(

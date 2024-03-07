@@ -39,6 +39,8 @@ class AssetsConstants {
   static const String addictionTreatmentImage = 'assets/images/at_service.png';
   static const String tpImage = 'assets/images/tp_service.png';
   static const String primaryCareImage = 'assets/images/pc_service.png';
+  static const String stackPattern1 = 'assets/images/stack_pattern1.png';
+  static const String stackPattern2 = 'assets/images/stack_pattern2.png';
 
   //Icons
   static const String noOfPatientsIcon = 'assets/icon/noOfPatientsIcon.svg';

@@ -714,3 +714,27 @@ class StringConstants {
     }
   }
 }
+
+
+
+class ListConstants{
+  static List<String> psychiatristEvaluationTextList = [
+   'Description of behaviors (including when they occur, duration, and typical conditions)',
+          'Description of symptoms (both physical and psychiatric)',
+          'Assessment of the impact of behaviors or symptoms on:',
+          'Work performance',
+          'School performance',
+          'Relationships and interactions with others (spouse, coworkers, family members, or neighbors)',
+          'Family involvement',
+          'Activity involvement',
+          'Psychiatric interview',
+          'Personal and family history of emotional, behavioral, or developmental disorders',
+          'A comprehensive medical history, covering overall physical health, a list of any other illnesses or conditions, and current treatments',
+          'Lab tests, when necessary (used to identify underlying medical conditions), including:',
+          'Blood panel and urine toxicology tests',
+          'Radiology studies to examine brain structures for abnormalities',
+          'Educational assessments',
+          'Speech and language assessments',
+          'Psychological assessments',
+  ];
+}

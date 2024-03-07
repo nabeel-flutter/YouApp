@@ -52,31 +52,29 @@ class AppRouter extends _$AppRouter {
           path: RouteConstants.allDoctorsRoute,
         ),
         AutoRoute(
-            page: AllServicesRoute.page,
-            path: RouteConstants.allServicesRoute,
-            children: [
-              AutoRoute(
-                page: ServiceInnerRoute.page,
-                path: RouteConstants.serviceInnerScreenRoute,
-              ),
-              AutoRoute(
-                page: GTRoute.page,
-              ),
-              AutoRoute(
-                page: ATRoute.page,
-              ),
-              AutoRoute(
-                page: CPTRoute.page,
-              ),
-              AutoRoute(
-                page: MMRoute.page,
-              ),
-              AutoRoute(page: IDRoute.page),
-              AutoRoute(page: PTRoute.page),
-              AutoRoute(page: PMRoute.page),
-              AutoRoute(page: PCRoute.page),
-              AutoRoute(page: TPRoute.page),
-            ]),
+          page: AllServicesRoute.page,
+          path: RouteConstants.allServicesRoute,
+        ),
+        AutoRoute(
+          page: ServiceInnerRoute.page,
+        ),
+        AutoRoute(
+          page: GTRoute.page,
+        ),
+        AutoRoute(
+          page: ATRoute.page,
+        ),
+        AutoRoute(
+          page: CPTRoute.page,
+        ),
+        AutoRoute(
+          page: MMRoute.page,
+        ),
+        AutoRoute(page: IDRoute.page),
+        AutoRoute(page: PTRoute.page),
+        AutoRoute(page: PMRoute.page),
+        AutoRoute(page: PCRoute.page),
+        AutoRoute(page: TPRoute.page),
         AutoRoute(
           page: BookAppointmentRoute.page,
           path: RouteConstants.bookAppointmentRoute,

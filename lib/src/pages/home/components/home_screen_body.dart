@@ -51,6 +51,12 @@ class HomeScreenBody extends StatelessWidget {
                                     ServiceInnerRoute(service: e),
                                   );
                                 }
+                                if (e.name == "Group Therapy") {
+                                  debugPrint("Group Therapy");
+                                  context.router.push(
+                                    const GTRoute(),
+                                  );
+                                }
                               },
                               child: TopServicesWidget(
                                 title: e.name,

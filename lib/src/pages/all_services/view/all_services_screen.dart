@@ -131,7 +131,8 @@ class ServiceCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 child: Image.asset(
                   image!,
-                  height: 100,
+                  height: MediaQuery.of(context).size.height * 0.13,
+                  width: MediaQuery.of(context).size.width * 0.3,
                   fit: BoxFit.cover,
                 ),
               ),
