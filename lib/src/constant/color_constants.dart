@@ -14,7 +14,7 @@ class ColorConstants {
   static const Color green = Color(0xFF59E583);
   static const Color greenIndicatorColor = Color(0xFF59E584);
   static const Color redIndicatorColor = Color.fromRGBO(239, 89, 89, 1);
-  static const Color yellowGolden = Color(0xFFFDC23A);
+  static const Color yellowGolden = Color(0xFFE8E753);
   static const Color greyText = Color(0xFF8593A5);
   static const Color pinkScanHome = Color(0xFFFD3A85);
   static const Color purpleScanHome = Color(0xFFD077FF);
