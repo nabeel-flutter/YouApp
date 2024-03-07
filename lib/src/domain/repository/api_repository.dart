@@ -90,4 +90,6 @@ abstract class ApiRepository extends Repository {
       required String email,
       required String confirmPassword,
       required String password});
+
+  Future<Result<BaseResponseDto>>  forgetPassword({required String email});
 }

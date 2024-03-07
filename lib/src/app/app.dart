@@ -1,4 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/forgot_password/cubit/forget_password_cubit.dart';
 import 'package:new_beginnings/src/pages/sign_in/cubit/sign_in_cubit.dart';
 import 'package:new_beginnings/src/pages/sign_up/cubit/sign_up_cubit.dart';
 
@@ -21,6 +22,9 @@ class App extends StatelessWidget {
               ),
               BlocProvider(
                 create: (context) => SignUpCubit(getIt.get()),
+              ),
+              BlocProvider(
+                create: (context) =>             ForgetPasswordCubit(getIt.get()),
               ),
               BlocProvider(create: (context) => AppCubit()),
               BlocProvider(create: (context) => AnimatedDrawerCubit()),

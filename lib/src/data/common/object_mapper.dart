@@ -376,7 +376,9 @@ class ObjectMapper {
 
   BaseResponseDto<ProductDto> toGetProductDetail(
       BaseResponseDto<ProductDto> dto) {
-    return BaseResponseDto(data: dto.data);
+    return BaseResponseDto(data: dto.data,
+    message: dto.message
+    );
   }
 
   DataListDto<ProductDto> toGetProducts(DataListDto<ProductDto> dto) {
@@ -385,11 +387,22 @@ class ObjectMapper {
   }
 
   BaseResponseDto<TokenDto> toSignIn(BaseResponseDto<TokenDto> dto) {
-    return BaseResponseDto<TokenDto>(data: dto.data);
+    return BaseResponseDto<TokenDto>(data: dto.data,
+    message: dto.message
+    );
   }
 
   BaseResponseDto<TokenDto> toSignUp(BaseResponseDto<TokenDto> dto) {
-        return BaseResponseDto<TokenDto>(data: dto.data);
+        return BaseResponseDto<TokenDto>(data: dto.data
+    ,    message: dto.message
+        );
+
+  }
+
+  BaseResponseDto toforgetPassword(BaseResponseDto dto) {
+    return BaseResponseDto(data: dto.data,
+    message: dto.data['message']
+    );
 
   }
 }
