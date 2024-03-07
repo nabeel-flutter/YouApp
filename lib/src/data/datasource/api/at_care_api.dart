@@ -34,6 +34,8 @@ class SoftTechTestApi {
 
   static String kRouteAuthSignUp = 'register';
 
+  static String kRouteAuthForgetPassword='password/forgot';
+
   static String kRouteGetProductDetail(int id) => '$kRouteGetProducts/$id';
 
   static String kRouteDeleteMedicalRecord(int id) =>
@@ -308,5 +310,14 @@ class SoftTechTestApi {
     });
     return BaseResponseDto.fromJson({"data": response.data},
         (value) => TokenDto.fromJson(value as Map<String, dynamic>));
+  }
+
+  Future<BaseResponseDto> forgetPassword({required String email,}) async {
+       final response = await dio.post(kRouteAuthForgetPassword, data: {
+      'email': email
+    });
+    return BaseResponseDto.fromJson({"data": response.data},
+        (value) => value );
+ 
   }
 }
