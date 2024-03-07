@@ -26,33 +26,41 @@ class _AnimatedDrawerAfterLoadedStateState
           ProfileScreen(),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: ColorConstants.primaryColor,
-        selectedItemColor: ColorConstants.white,
-        currentIndex: context.read<AnimatedDrawerCubit>().currentIndex,
-        onTap: (index) {
-          context.read<AnimatedDrawerCubit>().updateIndex(
-              isOpen: false,
-              index: index,
-              pageController:
-                  context.read<AnimatedDrawerCubit>().pageController,
-              advancedDrawerController:
-                  context.read<AnimatedDrawerCubit>().advancedDrawerController);
+      bottomNavigationBar: BlocConsumer<AnimatedDrawerCubit, AnimatedDrawerState>(
+        listener: (context, state) {
+          
         },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.group),
-            label: 'Appointments',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
+        builder: (context, state) {
+          return BottomNavigationBar(
+            backgroundColor: ColorConstants.primaryColor,
+            selectedItemColor: ColorConstants.white,
+            currentIndex: context.read<AnimatedDrawerCubit>().getBottomNavIndex,
+            onTap: (index) {
+              context.read<AnimatedDrawerCubit>().updateIndex(
+                  isOpen: false,
+                  index: index,
+                  pageController:
+                      context.read<AnimatedDrawerCubit>().pageController,
+                  advancedDrawerController: context
+                      .read<AnimatedDrawerCubit>()
+                      .advancedDrawerController);
+            },
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.group),
+                label: 'Appointments',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Profile',
+              ),
+            ],
+          );
+        },
       ),
     );
   }

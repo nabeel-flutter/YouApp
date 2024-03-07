@@ -21,7 +21,7 @@ class AppBarcomponent extends StatelessWidget {
       this.appBarColor,
       this.elevation = 0,
       this.appBarShadoow,
-      this.isProfileBackAppbar});
+      this.isProfileBackAppbar=false});
 
   @override
   PreferredSize build(BuildContext context) {
