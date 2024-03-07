@@ -31,6 +31,11 @@ class AssetsConstants {
   static const String pscyEvImage = 'assets/images/psyev_services.png';
 
   //Icons
+  static const String noOfPatientsIcon = 'assets/icon/noOfPatientsIcon.svg';
+  static const String yearsOfExperienceIcon =
+      'assets/icon/yearsOfExpIcon.svg';
+  static const String ratingIconDoctor = 'assets/icon/ratingIcon.svg';
+  static const String reviewsIcon = 'assets/icon/reviewsIcon.svg';
   static const String successIcon = 'assets/icon/check_icon.svg';
   static const String billingsAndPaymentIcon =
       'assets/icon/billings_and_payment_icon.png';

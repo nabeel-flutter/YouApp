@@ -57,6 +57,18 @@ class StringConstants {
 
   static String telehealth = _getLang('telehealth');
 
+  static String doctorProfile = _getLang('doctorProfile');
+
+  static String patients = _getLang('patients');
+
+  static String yearsExpert = _getLang('yearsExpert');
+
+  static String rating = _getLang('rating');
+
+  static String reviews = _getLang('reviews');
+
+  static String aboutMe = _getLang('aboutMe');
+
   static String get toBeCompletedByProvider =>
       _getLang('toBeCompletedByProvider');
 

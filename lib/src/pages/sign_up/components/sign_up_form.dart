@@ -160,12 +160,9 @@ class _SignUpFormState extends State<SignUpForm> {
                 return 'asd';
               },
               error: (message) {
-         ToastComponent3(context).showToast(context, message);
-     
+                
               },
-              initial: () {
-
-              },
+              initial: () {},
               loaded: (token) {
               ToastComponent2(context).showToast(context, 'User Created successfully please check your email');
              return   Navigator.pop(context);
