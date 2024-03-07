@@ -33,6 +33,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const BookAppointmentScreen(),
       );
     },
+    DoctorProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<DoctorProfileRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: DoctorProfileScreen(
+          key: args.key,
+          doctor: args.doctor,
+        ),
+      );
+    },
+    EditProfileRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EditProfileScreen(),
+      );
+    },
     ForgotPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -134,6 +150,58 @@ class BookAppointmentRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'BookAppointmentRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DoctorProfileScreen]
+class DoctorProfileRoute extends PageRouteInfo<DoctorProfileRouteArgs> {
+  DoctorProfileRoute({
+    Key? key,
+    required Doctor doctor,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DoctorProfileRoute.name,
+          args: DoctorProfileRouteArgs(
+            key: key,
+            doctor: doctor,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'DoctorProfileRoute';
+
+  static const PageInfo<DoctorProfileRouteArgs> page =
+      PageInfo<DoctorProfileRouteArgs>(name);
+}
+
+class DoctorProfileRouteArgs {
+  const DoctorProfileRouteArgs({
+    this.key,
+    required this.doctor,
+  });
+
+  final Key? key;
+
+  final Doctor doctor;
+
+  @override
+  String toString() {
+    return 'DoctorProfileRouteArgs{key: $key, doctor: $doctor}';
+  }
+}
+
+/// generated route for
+/// [EditProfileScreen]
+class EditProfileRoute extends PageRouteInfo<void> {
+  const EditProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          EditProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EditProfileRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

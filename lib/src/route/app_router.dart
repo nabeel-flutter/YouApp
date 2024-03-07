@@ -59,5 +59,13 @@ class AppRouter extends _$AppRouter {
           page: BookAppointmentRoute.page,
           path: RouteConstants.bookAppointmentRoute,
         ),
+        AutoRoute(
+          page: EditProfileRoute.page,
+          path: RouteConstants.editProfile,
+        ),
+        AutoRoute(
+          page: DoctorProfileRoute.page,
+          path: RouteConstants.doctorProfileRoute,
+        ),
       ];
 }

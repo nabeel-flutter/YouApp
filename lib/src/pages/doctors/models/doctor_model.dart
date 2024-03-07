@@ -4,6 +4,9 @@ class Doctor {
   final String image;
   final String? description;
   final String? rating;
+  final String? reviews;
+  final String? noOfPatients;
+  final String? yearsOfExperience;
 
   Doctor({
     required this.name,
@@ -11,5 +14,8 @@ class Doctor {
     required this.image,
     this.description,
     this.rating,
+    this.reviews,
+    this.noOfPatients,
+    this.yearsOfExperience,
   });
 }

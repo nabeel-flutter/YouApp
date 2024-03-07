@@ -122,7 +122,7 @@ else
     } else if (textInputType == TextInputType.visiblePassword) {
       RegExp regex = RegExp(
           r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-      if (value!.isEmpty) {
+      if (value.isEmpty) {
         return 'Please enter password';
       } else {
         if (!regex.hasMatch(value)) {
@@ -133,7 +133,7 @@ else
       }
     } 
      else if (textInputType == TextInputType.name) {
-      if(value!.length<4){
+      if(value.length<4){
         return 'Name is too short';
       }
     } 
