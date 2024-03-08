@@ -5,7 +5,7 @@ class ParagraphWidget extends StatelessWidget {
   final String heading;
   final String description;
   final String? secondHeading;
-  final List<String>? bulletList;
+  final List<PsychiatristEvaluationTextList>? bulletList;
   const ParagraphWidget({
     super.key,
     this.heading = "What is involved in a psychiatric evaluation",
