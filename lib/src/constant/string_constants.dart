@@ -750,10 +750,13 @@ class ListConstants {
         innerList: [
           'Blood panel and urine toxicology tests',
           'Radiology studies to examine brain structures for abnormalities',
-          'Educational assessments',
-          'Speech and language assessments',
-          'Psychological assessments',
-        ])
+        ]),
+    PsychiatristEvaluationTextList(
+        text: 'Educational assessments', innerList: []),
+    PsychiatristEvaluationTextList(
+        text: 'ESpeech and language assessments', innerList: []),
+    PsychiatristEvaluationTextList(
+        text: 'Psychological assessments', innerList: []),
   ];
 }
 
