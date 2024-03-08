@@ -1,5 +1,8 @@
 class AssetsConstants {
   //Images
+  static String newappointmenticon = 'assets/images/new_appointment.png';
+  static String timechnagedicon = 'assets/images/time_changed.png';
+  static String paymentreceivedicon = 'assets/images/payment_received.png';
   static String uploadimageicon = 'assets/images/upload_bg.png';
   static String uploadicon = 'assets/images/dropback.png';
 
@@ -32,8 +35,7 @@ class AssetsConstants {
 
   //Icons
   static const String noOfPatientsIcon = 'assets/icon/noOfPatientsIcon.svg';
-  static const String yearsOfExperienceIcon =
-      'assets/icon/yearsOfExpIcon.svg';
+  static const String yearsOfExperienceIcon = 'assets/icon/yearsOfExpIcon.svg';
   static const String ratingIconDoctor = 'assets/icon/ratingIcon.svg';
   static const String reviewsIcon = 'assets/icon/reviewsIcon.svg';
   static const String successIcon = 'assets/icon/check_icon.svg';

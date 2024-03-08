@@ -10,71 +10,60 @@ class NotificationTileComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 115,
-      padding: const EdgeInsets.all(12.0),
+      height: 85,
+      padding: const EdgeInsets.all(6.0),
       margin: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: getThemeStateIsLight()
-            ? darken(getThemeColor(context), 0.3)
-            : lighten(getThemeColor(context), 0.35),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+          borderRadius: BorderRadius.circular(16), color: Color(0xff80BCBD)),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: Image.asset(
-                  notification.value.image,
-                  width: 49,
-                  height: 49,
+          Padding(
+            padding: const EdgeInsets.only(top: 4, left: 2),
+            child: Image.asset(
+              notification.value.image,
+              width: 70,
+              height: 70,
+            ),
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(notification.value.title,
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontFamily: FontConstants.gilroySemiBold,
+                        fontSize: 15)),
+                SizedBox(
+                  height: 5,
                 ),
-              ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(notification.value.title,
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            fontFamily: FontConstants.gilroySemiBold)),
-                    Text(notification.value.date,
-                        style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                            fontFamily: FontConstants.gilroyMedium,
-                            color: !getThemeStateIsLight()
-                                ? darken(getThemeColor(context), 0.2)
-                                : lighten(getThemeColor(context), 0.3)))
-                  ],
-                ),
-              ),
-              if (notification.value.isNew)
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(6),
-                        color: ColorConstants.greenIndicatorColor),
-                    width: 35,
-                    height: 21,
-                    child: const Center(child: Text('New')),
-                  ),
+                Container(
+                  width: 250,
+                  child: Text(notification.value.decs,
+                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                          fontFamily: FontConstants.gilroyMedium,
+                          fontSize: 12,
+                          color: !getThemeStateIsLight()
+                              ? darken(getThemeColor(context), 0.2)
+                              : lighten(getThemeColor(context), 0.3))),
                 )
-            ],
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 35.0, right: 10),
+            child: Text(notification.value.date,
+                style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                    fontFamily: FontConstants.gilroyMedium,
+                    color: !getThemeStateIsLight()
+                        ? darken(getThemeColor(context), 0.2)
+                        : lighten(getThemeColor(context), 0.3))),
           ),
           const SizedBox(
             height: 10,
           ),
-          Text(notification.value.decs,
-              style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                  fontFamily: FontConstants.gilroyMedium,
-                  color: !getThemeStateIsLight()
-                      ? darken(getThemeColor(context), 0.2)
-                      : lighten(getThemeColor(context), 0.3)))
         ],
       ),
     );

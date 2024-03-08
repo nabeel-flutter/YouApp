@@ -3,50 +3,25 @@ import 'package:new_beginnings/src/pages/notification/model/notification_data_mo
 
 List<AppNotification> notificationList = [
   AppNotification(
-    date: 'Today  |  15:36 PM',
+    date: '12:30 PM',
     decs:
-        'You have successfully canceled your appointment with Bruce Andrews on Dec 24, 2023, 06:30 PM.',
-    image: AssetsConstants.appointmentCancleIcon,
+        'The New Appointment has been scheduled for tomorrow at 6:00 pm to 06:30 pm.',
+    image: AssetsConstants.newappointmenticon,
     isNew: true,
-    title: 'Appointment Cancelled!',
+    title: 'New Appointment',
   ),
   AppNotification(
-    date: 'Today  |  15:36 PM',
-    decs:
-        'You have successfully canceled your appointment with Bruce Andrews on Dec 24, 2023, 06:30 PM.',
-    image: AssetsConstants.schedualChangedIcon,
+    date: '2:08 PM',
+    decs: 'Your timing for next appointment has been changed.',
+    image: AssetsConstants.timechnagedicon,
     isNew: true,
-    title: 'Schedule Changed',
+    title: 'Timming Chnaged',
   ),
   AppNotification(
-    date: 'Today  |  15:36 PM',
-    decs:
-        'You have successfully canceled your appointment with Bruce Andrews on Dec 24, 2023, 06:30 PM.',
-    image: AssetsConstants.paymentConfirmedIcon,
+    date: '4:15 PM',
+    decs: 'Your payment for newly schedule appointment has been received. ',
+    image: AssetsConstants.paymentreceivedicon,
     isNew: false,
-    title: 'Payment Condfirmed',
-  ),
-  AppNotification(
-    date: '15 Dec, 2023  |  15:36 PM',
-    decs:
-        'You have successfully canceled your appointment with Bruce Andrews on Dec 24, 2023, 06:30 PM.',
-    image: AssetsConstants.rateExperienceIcon,
-    isNew: false,
-    title: 'Rate your Experience',
-  ),
-  AppNotification(
-    date: '15 Dec, 2023  |  15:36 PM',
-    decs:
-        'You have successfully canceled your appointment with Bruce Andrews on Dec 24, 2023, 06:30 PM.',
-    image: AssetsConstants.disputeCreatedIcon,
-    isNew: false,
-    title: 'Dispute Created',
-  ),
-  AppNotification(
-    date: '15 Dec, 2023  |  15:36 PM',
-    decs: 'You have successfully changed your password.',
-    image: AssetsConstants.passwordChangedIcon,
-    isNew: false,
-    title: 'Password Changed',
+    title: 'Payment Received',
   ),
 ];
