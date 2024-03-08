@@ -39,6 +39,7 @@ class TopDoctorsWidget extends StatelessWidget {
                 child: Image.asset(
                   image!,
                   height: 100,
+                  width: 100,
                   fit: BoxFit.cover,
                 ),
               ),
