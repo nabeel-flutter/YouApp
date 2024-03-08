@@ -38,11 +38,18 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              backgroundColor: ColorConstants.white,
-                              selectedColor: ColorConstants.primaryColor,
+                              backgroundColor: speciality == e
+                                  ? ColorConstants.primaryTextColor
+                                  : ColorConstants.white,
                               label: Text(e,
-                                  style:
-                                      Theme.of(context).textTheme.bodySmall!),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                        color: speciality == e
+                                            ? ColorConstants.white
+                                            : ColorConstants.primaryTextColor,
+                                      )),
                               onSelected: (bool value) {
                                 setState(() {
                                   speciality = e;
@@ -77,7 +84,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                     : context
                         .read<DoctorsCubit>()
                         .doctors
-                        .where((element) => element.speciality == speciality)
+                        .where((element) => element.department == speciality)
                         .map((e) => GestureDetector(
                               onTap: () {
                                 context.router.push(
