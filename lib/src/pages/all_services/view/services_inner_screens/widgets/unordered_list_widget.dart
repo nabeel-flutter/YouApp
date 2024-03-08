@@ -16,8 +16,14 @@ class UnorderedList extends StatelessWidget {
       }else{
         return 
         Column(
-          children: 
-        e.value.innerList.asMap().entries.map((unOrderItem) =>  UnorderedListItem( unOrderItem.value  )).toList());
+          children: [OrderedListItem(e.value.text,
+        index: e.key,
+        ),
+            Column(
+              children: 
+            e.value.innerList.asMap().entries.map((unOrderItem) =>  UnorderedListItem( unOrderItem.value  )).toList()),
+          ],
+        );
       }
     }   
     ).toList() );
