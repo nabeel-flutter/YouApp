@@ -11,8 +11,8 @@ class ParagraphWidget extends StatelessWidget {
     this.heading = "What is involved in a psychiatric evaluation",
     this.description =
         "A comprehensive psychiatric evaluation is tailored to each individual, reflecting the diversity in symptoms and behaviors across patients. This evaluation is a critical component of mental health treatment, addressing a wide range of emotional, behavioral, or developmental disorders through various assessments",
-    this.secondHeading,
-    this.bulletList,
+    this.secondHeading = '',
+    this.bulletList = const [],
   });
 
   @override

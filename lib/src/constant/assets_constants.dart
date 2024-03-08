@@ -29,6 +29,8 @@ class AssetsConstants {
       'assets/images/onboarding_doctorImage.png';
   static const String nbAuthLogo = 'assets/images/nb_auth_logo.png';
   static const String crouselImage1 = 'assets/images/crousel_image.png';
+  static const String crouselImage2 = 'assets/images/crousel_image2.png';
+  static const String crouselImage3 = 'assets/images/crousel_image3.png';
   static const String appBarbgImage = 'assets/images/appBar_bg.png';
   static const String profileappBarimage = 'assets/images/profileAppbar_bg.png';
   static const String pscyEvImage = 'assets/images/psyev_services.png';

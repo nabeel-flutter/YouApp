@@ -77,6 +77,26 @@ class HomeScreenBody extends StatelessWidget {
                                     const CPTRoute(),
                                   );
                                 }
+                                if (e.name == "Pharmacogenomics") {
+                                  context.router.push(
+                                    const PMRoute(),
+                                  );
+                                }
+                                if (e.name == "Addiction Treatment") {
+                                  context.router.push(
+                                    const ATRoute(),
+                                  );
+                                }
+                                if (e.name == "Telepsychiatry") {
+                                  context.router.push(
+                                    const TPRoute(),
+                                  );
+                                }
+                                if (e.name == "Primary Care") {
+                                  context.router.push(
+                                    const PCRoute(),
+                                  );
+                                }
                               },
                               child: TopServicesWidget(
                                 title: e.name,

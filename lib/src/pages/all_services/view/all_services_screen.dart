@@ -31,6 +31,56 @@ class AllServicesScreen extends StatelessWidget {
                                   ServiceInnerRoute(service: services[index]),
                                 );
                               }
+                              if (services[index].name == "Group Therapy") {
+                                debugPrint("Group Therapy");
+                                context.router.push(
+                                  const GTRoute(),
+                                );
+                              }
+                              if (services[index].name ==
+                                  "Medication\nManagement") {
+                                context.router.push(
+                                  const MMRoute(),
+                                );
+                              }
+                              if (services[index].name == "Play Therapy") {
+                                context.router.push(
+                                  const PTRoute(),
+                                );
+                              }
+                              if (services[index].name ==
+                                  "Individual Therapy") {
+                                context.router.push(
+                                  const IDRoute(),
+                                );
+                              }
+                              if (services[index].name ==
+                                  "Couple & Family Therapy") {
+                                context.router.push(
+                                  const CPTRoute(),
+                                );
+                              }
+                              if (services[index].name == "Pharmacogenomics") {
+                                context.router.push(
+                                  const PMRoute(),
+                                );
+                              }
+                              if (services[index].name ==
+                                  "Addiction Treatment") {
+                                context.router.push(
+                                  const ATRoute(),
+                                );
+                              }
+                              if (services[index].name == "Telepsychiatry") {
+                                context.router.push(
+                                  const TPRoute(),
+                                );
+                              }
+                              if (services[index].name == "Primary Care") {
+                                context.router.push(
+                                  const PCRoute(),
+                                );
+                              }
                             },
                             child: ServiceCard(
                               title: services[index].name,
@@ -85,6 +135,7 @@ class SearchBarWidget extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         color: ColorConstants.widgetBgColor,
                         fontSize: 14,
+                        height: 2,
                       ),
                   border: InputBorder.none,
                 ),
