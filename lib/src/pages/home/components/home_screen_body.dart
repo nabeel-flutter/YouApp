@@ -57,6 +57,11 @@ class HomeScreenBody extends StatelessWidget {
                                     const GTRoute(),
                                   );
                                 }
+                                if (e.name == "Medication\nManagement") {
+                                  context.router.push(
+                                    const MMRoute(),
+                                  );
+                                }
                               },
                               child: TopServicesWidget(
                                 title: e.name,

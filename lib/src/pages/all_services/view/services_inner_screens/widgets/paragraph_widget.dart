@@ -1,5 +1,5 @@
-import '../../../../../app/app_export.dart';
-import 'unordered_list_widget.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/all_services/view/services_inner_screens/widgets/unordered_list_widget.dart';
 
 class ParagraphWidget extends StatelessWidget {
   final String heading;
@@ -17,33 +17,35 @@ class ParagraphWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          heading,
-          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
-        ),
-        const SizedBox(height: 20),
-        Text(
-          description,
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                fontWeight: FontWeight.w400,
-              ),
-        ),
-        const SizedBox(height: 20),
-        Text(
-          secondHeading!,
-          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                fontWeight: FontWeight.w500,
-              ),
-        ),
-        const SizedBox(height: 20),
-        UnorderedList(bulletList!)
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            heading,
+            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
+          const SizedBox(height: 20),
+          Text(
+            description,
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  fontWeight: FontWeight.w400,
+                ),
+          ),
+          const SizedBox(height: 20),
+          Text(
+            secondHeading!,
+            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  fontWeight: FontWeight.w500,
+                ),
+          ),
+          const SizedBox(height: 20),
+          UnorderedList(bulletList!)
+        ],
+      ),
     );
   }
 }
-
