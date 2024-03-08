@@ -51,7 +51,7 @@ class _GenderSelectionState extends State<GenderSelection> {
                     StringConstants.male,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: Colors.black,
-                          fontSize: 14,
+                          fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
@@ -85,7 +85,7 @@ class _GenderSelectionState extends State<GenderSelection> {
                     StringConstants.female,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: Colors.black,
-                          fontSize: 14,
+                          fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
@@ -119,7 +119,7 @@ class _GenderSelectionState extends State<GenderSelection> {
                     "Other",
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: Colors.black,
-                          fontSize: 14,
+                          fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                   ),

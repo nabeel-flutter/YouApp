@@ -51,7 +51,7 @@ class _PaymentSelectionState extends State<PaymentSelection> {
                     StringConstants.insured,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: Colors.black,
-                          fontSize: 14,
+                          fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
@@ -85,7 +85,7 @@ class _PaymentSelectionState extends State<PaymentSelection> {
                     StringConstants.selfPay,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: Colors.black,
-                          fontSize: 14,
+                          fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
