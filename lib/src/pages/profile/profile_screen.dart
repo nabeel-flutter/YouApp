@@ -18,15 +18,29 @@ class ProfileScreen extends StatelessWidget {
                   child: Container(
                       height: 250,
                       width: double.infinity,
-                      color: Color(0xff0A7E80)),
+                      color: Color(0xff0A7E80),
+                      child: Center(
+                        child: Container(
+                          margin: EdgeInsets.only(bottom: 70),
+                          child: Text(
+                            "Profile",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20),
+                          ),
+                        ),
+                      )),
                 ),
               ],
             ),
             Positioned(
-                top: MediaQuery.of(context).size.height / 6,
+                top: MediaQuery.of(context).size.height / 7,
                 left: 0,
                 right: 0,
-                child: UserProfileComponent()),
+                child: UserProfileComponent(
+                  profile: true,
+                )),
             Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [Spacer(), const UserProfileBottomComponent()]),

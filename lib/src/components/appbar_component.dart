@@ -69,14 +69,16 @@ class AppBarcomponent extends StatelessWidget {
                 ? GestureDetector(
                     onTap: () => NavigationUtil.pop(context),
                     child: Container(
+                        width: 32,
+                        height: 32,
                         margin: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
                             color: ColorConstants.white),
                         child: const Icon(
                           Icons.arrow_back_ios_new,
-                          size: 12,
-                          color: ColorConstants.black,
+                          size: 14,
+                          color: const Color(0xff0A7E80),
                         )),
                   )
                 : Padding(
