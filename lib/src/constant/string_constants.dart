@@ -69,6 +69,8 @@ class StringConstants {
 
   static String aboutMe = _getLang('aboutMe');
 
+  static String services = _getLang('services');
+
   static String get toBeCompletedByProvider =>
       _getLang('toBeCompletedByProvider');
 
@@ -711,4 +713,53 @@ class StringConstants {
       return EnglishConstant.englishLabels[s] ?? '';
     }
   }
+}
+
+class ListConstants {
+  static List<PsychiatristEvaluationTextList> psychiatristEvaluationTextList = [
+    PsychiatristEvaluationTextList(
+        text:
+            'Description of behaviors (including when they occur, duration, and typical conditions)',
+        innerList: []),
+    PsychiatristEvaluationTextList(
+        text: 'Description of symptoms (both physical and psychiatric)',
+        innerList: []),
+    PsychiatristEvaluationTextList(
+      text: 'Assessment of the impact of behaviors or symptoms on:',
+      innerList: [
+        'Work performance',
+        'School performance',
+        'Relationships and interactions with others (spouse, coworkers, family members, or neighbors)',
+        'Family involvement',
+        'Activity involvement',
+      ],
+    ),
+    PsychiatristEvaluationTextList(
+        text: 'Psychiatric interview', innerList: []),
+    PsychiatristEvaluationTextList(
+        text:
+            'Personal and family history of emotional, behavioral, or developmental disorders',
+        innerList: []),
+    PsychiatristEvaluationTextList(
+        text:
+            'A comprehensive medical history, covering overall physical health, a list of any other illnesses or conditions, and current treatments',
+        innerList: []),
+    PsychiatristEvaluationTextList(
+        text:
+            'Lab tests, when necessary (used to identify underlying medical conditions), including:',
+        innerList: [
+          'Blood panel and urine toxicology tests',
+          'Radiology studies to examine brain structures for abnormalities',
+          'Educational assessments',
+          'Speech and language assessments',
+          'Psychological assessments',
+        ])
+  ];
+}
+
+class PsychiatristEvaluationTextList {
+  final String text;
+  final List<String> innerList;
+
+  PsychiatristEvaluationTextList({required this.text, required this.innerList});
 }

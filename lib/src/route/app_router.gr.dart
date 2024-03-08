@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    ATRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ATScreen(),
+      );
+    },
     AllDoctorsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -31,6 +37,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const BookAppointmentScreen(),
+      );
+    },
+    CPTRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CPTScreen(),
       );
     },
     DoctorProfileRoute.name: (routeData) {
@@ -55,10 +67,28 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ForgotPasswordScreen(),
       );
     },
+    GTRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const GTScreen(),
+      );
+    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const HomeScreen(),
+      );
+    },
+    IDRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const IDScreen(),
+      );
+    },
+    MMRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MMScreen(),
       );
     },
     NewPasswordRoute.name: (routeData) {
@@ -85,10 +115,38 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const OnboardingScreen(),
       );
     },
+    PCRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PCScreen(),
+      );
+    },
+    PMRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PMScreen(),
+      );
+    },
+    PTRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PTScreen(),
+      );
+    },
     ProfileRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ProfileScreen(),
+      );
+    },
+    ServiceInnerRoute.name: (routeData) {
+      final args = routeData.argsAs<ServiceInnerRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ServiceInnerScreen(
+          key: args.key,
+          service: args.service,
+        ),
       );
     },
     SignInRoute.name: (routeData) {
@@ -109,7 +167,27 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashScreen(),
       );
     },
+    TPRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TPScreen(),
+      );
+    },
   };
+}
+
+/// generated route for
+/// [ATScreen]
+class ATRoute extends PageRouteInfo<void> {
+  const ATRoute({List<PageRouteInfo>? children})
+      : super(
+          ATRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ATRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -150,6 +228,20 @@ class BookAppointmentRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'BookAppointmentRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CPTScreen]
+class CPTRoute extends PageRouteInfo<void> {
+  const CPTRoute({List<PageRouteInfo>? children})
+      : super(
+          CPTRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CPTRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -221,6 +313,20 @@ class ForgotPasswordRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [GTScreen]
+class GTRoute extends PageRouteInfo<void> {
+  const GTRoute({List<PageRouteInfo>? children})
+      : super(
+          GTRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'GTRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [HomeScreen]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})
@@ -230,6 +336,34 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [IDScreen]
+class IDRoute extends PageRouteInfo<void> {
+  const IDRoute({List<PageRouteInfo>? children})
+      : super(
+          IDRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'IDRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MMScreen]
+class MMRoute extends PageRouteInfo<void> {
+  const MMRoute({List<PageRouteInfo>? children})
+      : super(
+          MMRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MMRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -291,6 +425,48 @@ class OnboardingRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [PCScreen]
+class PCRoute extends PageRouteInfo<void> {
+  const PCRoute({List<PageRouteInfo>? children})
+      : super(
+          PCRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PCRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PMScreen]
+class PMRoute extends PageRouteInfo<void> {
+  const PMRoute({List<PageRouteInfo>? children})
+      : super(
+          PMRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PMRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PTScreen]
+class PTRoute extends PageRouteInfo<void> {
+  const PTRoute({List<PageRouteInfo>? children})
+      : super(
+          PTRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PTRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [ProfileScreen]
 class ProfileRoute extends PageRouteInfo<void> {
   const ProfileRoute({List<PageRouteInfo>? children})
@@ -302,6 +478,44 @@ class ProfileRoute extends PageRouteInfo<void> {
   static const String name = 'ProfileRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ServiceInnerScreen]
+class ServiceInnerRoute extends PageRouteInfo<ServiceInnerRouteArgs> {
+  ServiceInnerRoute({
+    Key? key,
+    required ServiceModel service,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ServiceInnerRoute.name,
+          args: ServiceInnerRouteArgs(
+            key: key,
+            service: service,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ServiceInnerRoute';
+
+  static const PageInfo<ServiceInnerRouteArgs> page =
+      PageInfo<ServiceInnerRouteArgs>(name);
+}
+
+class ServiceInnerRouteArgs {
+  const ServiceInnerRouteArgs({
+    this.key,
+    required this.service,
+  });
+
+  final Key? key;
+
+  final ServiceModel service;
+
+  @override
+  String toString() {
+    return 'ServiceInnerRouteArgs{key: $key, service: $service}';
+  }
 }
 
 /// generated route for
@@ -342,6 +556,20 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TPScreen]
+class TPRoute extends PageRouteInfo<void> {
+  const TPRoute({List<PageRouteInfo>? children})
+      : super(
+          TPRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TPRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

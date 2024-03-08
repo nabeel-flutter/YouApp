@@ -11,184 +11,203 @@ class SignInForm extends StatelessWidget {
         TextEditingController(text: 'ayanmughal557@gmail.com');
     TextEditingController passwordController =
         TextEditingController(text: "Smiu@123");
-
-    return Column(
-      children: [
-        // Text(StringConstants.account),
-        const SizedBox(height: 25),
-        TextFormFieldComponent(
-          hintText: "Enter Email",
-          controller: emailController,
-        ),
-        const SizedBox(height: 20),
-        TextFormFieldComponent(
-          hintText: "Enter Password",
-          isPassword: context.read<SignInCubit>().isPasswordVisible,
-          suffixIcon: IconButton(
-            icon: Icon(
-              context.read<SignInCubit>().isPasswordVisible
-                  ? Icons.visibility_off
-                  : Icons.visibility,
-              color: ColorConstants.greyText,
+    // TextEditingController emailController =
+    //     TextEditingController(text: '');
+    // TextEditingController passwordController =
+    //     TextEditingController(text: "");
+ final formKey = GlobalKey<FormState>();
+ 
+    return Form(
+      key: formKey,
+      child: Column(
+        children: [
+          // Text(StringConstants.account),
+          const SizedBox(height: 25),
+          TextFormFieldComponent(
+            hintText: "Enter Email",
+            controller: emailController,
+            textInputType: TextInputType.emailAddress,
+          ),
+          const SizedBox(height: 20),
+          TextFormFieldComponent(
+            textInputType: TextInputType.visiblePassword,
+            hintText: "Enter Password",
+            isPassword: context.read<SignInCubit>().isPasswordVisible,
+            suffixIcon: IconButton(
+              icon: Icon(
+                context.read<SignInCubit>().isPasswordVisible
+                    ? Icons.visibility_off
+                    : Icons.visibility,
+                color: ColorConstants.greyText,
+              ),
+              onPressed: () {
+                context.read<SignInCubit>().isPasswordVisible;
+              },
             ),
-            onPressed: () {
-              context.read<SignInCubit>().isPasswordVisible;
+            controller: passwordController,
+          ),
+          const SizedBox(height: 10),
+          GestureDetector(
+            onTap: () {
+              context.router.pushNamed(RouteConstants.forgotPasswordRoute);
             },
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: Text(StringConstants.forgot,
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        decoration: TextDecoration.underline,
+                        decorationColor: ColorConstants.primaryColor,
+                        color: ColorConstants.primaryColor,
+                      )),
+            ),
           ),
-          controller: passwordController,
-        ),
-        const SizedBox(height: 10),
-        GestureDetector(
-          onTap: () {
-            context.router.pushNamed(RouteConstants.forgotPasswordRoute);
-          },
-          child: Align(
-            alignment: Alignment.centerRight,
-            child: Text(StringConstants.forgot,
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      decoration: TextDecoration.underline,
-                      decorationColor: ColorConstants.primaryColor,
-                      color: ColorConstants.primaryColor,
-                    )),
-          ),
-        ),
-        const SizedBox(height: 40),
-        BlocConsumer<SignInCubit, SignInState>(
-            listener: (context, state) => state.maybeWhen(
-                  orElse: () {
-                    return null;
-                  },
-                  loaded: (token) async {
-                    getIt.get<SharedPreferencesUtil>().setString(
-                        SharedPreferenceConstants.apiAuthToken, token.token);
-                    return await context.router.pushAndPopUntil(
-                        predicate: (route) => false, const HomeRoute());
-                  },
-                ),
-            builder: (context, state) => state.maybeWhen(
-                loading: () => ElevatedButton(
-                    onPressed: () {
-                      context.read<SignInCubit>().signIn(
-                          email: emailController.text,
-                          password: passwordController.text);
+          const SizedBox(height: 40),
+          BlocConsumer<SignInCubit, SignInState>(
+              listener: (context, state) => state.maybeWhen(
+                    orElse: () {
+                      return null;
                     },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                    loaded: (token) async {
+                      getIt.get<SharedPreferencesUtil>().setString(
+                          SharedPreferenceConstants.apiAuthToken, token.token);
+                      return await context.router.pushAndPopUntil(
+                          predicate: (route) => false, const HomeRoute());
+                    },
+                  ),
+              builder: (context, state) => state.maybeWhen(
+                  loading: () => ElevatedButton(
+                      onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                        context.read<SignInCubit>().signIn(
+                            email: emailController.text,
+                            password: passwordController.text);
+                          
+                        }
+                    },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text('Loading...',
+                              style:
+                                  Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                        color: ColorConstants.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w700,
+                                      )),
+                          const SizedBox(width: 10),
+                          const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: AppProgressIndicator(
+                              color: ColorConstants.white,
+                            ),
+                          )
+                        ],
+                      )),
+                  loaded: (token) => ElevatedButton(
+                      onPressed: () {
+                        context.read<SignInCubit>().signIn(
+                            email: emailController.text,
+                            password: passwordController.text);
+                      },
+                      child: Text(StringConstants.LogIn,
+                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                color: ColorConstants.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                              ))),
+                  error: (message) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text('Loading...',
-                            style:
-                                Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      color: ColorConstants.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700,
-                                    )),
-                        const SizedBox(width: 10),
-                        const SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: AppProgressIndicator(
-                            color: ColorConstants.white,
-                          ),
-                        )
+                        ElevatedButton(
+                            onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                        context.read<SignInCubit>().signIn(
+                            email: emailController.text,
+                            password: passwordController.text);
+                          
+                        }
+                          },
+                            child: Text(
+                              StringConstants.LogIn,
+                              style:
+                                  Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                        color: ColorConstants.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                            )),
+                        const SizedBox(height: 10),
+                        Text(
+                          message,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(color: ColorConstants.redIndicatorColor),
+                        ),
                       ],
-                    )),
-                loaded: (token) => ElevatedButton(
-                    onPressed: () {
-                      context.read<SignInCubit>().signIn(
-                          email: emailController.text,
-                          password: passwordController.text);
-                    },
-                    child: Text(StringConstants.LogIn,
+                    );
+                  },
+                  orElse: () => ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                        context.read<SignInCubit>().signIn(
+                            email: emailController.text,
+                            password: passwordController.text);
+                          
+                        }
+                      },
+                      child: Text(
+                        StringConstants.LogIn,
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               color: ColorConstants.white,
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
-                            ))),
-                error: (message) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      ElevatedButton(
-                          onPressed: () {
-                            context.read<SignInCubit>().signIn(
-                                email: emailController.text,
-                                password: passwordController.text);
-                          },
-                          child: Text(
-                            StringConstants.LogIn,
-                            style:
-                                Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      color: ColorConstants.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                          )),
-                      const SizedBox(height: 10),
-                      Text(
-                        message,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodySmall!
-                            .copyWith(color: ColorConstants.redIndicatorColor),
-                      ),
-                    ],
-                  );
-                },
-                orElse: () => ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    onPressed: () {
-                      context.read<SignInCubit>().signIn(
-                          email: emailController.text,
-                          password: passwordController.text);
-                    },
-                    child: Text(
-                      StringConstants.LogIn,
+                            ),
+                      )))),
+          const SizedBox(height: 20),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                elevation: 0.0,
+                backgroundColor: ColorConstants.white,
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(
+                      color: ColorConstants.primaryColor, width: 1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              onPressed: () {
+                context.router.pushNamed(RouteConstants.signUpRoute);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(StringConstants.register,
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: ColorConstants.white,
+                            color: ColorConstants.primaryColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
-                          ),
-                    )))),
-        const SizedBox(height: 20),
-        ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              elevation: 0.0,
-              backgroundColor: ColorConstants.white,
-              shape: RoundedRectangleBorder(
-                side: const BorderSide(
-                    color: ColorConstants.primaryColor, width: 1),
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-            onPressed: () {
-              context.router.pushNamed(RouteConstants.signUpRoute);
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(StringConstants.register,
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: ColorConstants.primaryColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                        )),
-                const SizedBox(width: 10),
-                const Icon(
-                  Icons.arrow_forward_ios,
-                  color: ColorConstants.primaryColor,
-                  size: 16,
-                )
-              ],
-            )),
-        const SizedBox(height: 50),
-        // const SocialLogin(),
-      ],
+                          )),
+                  const SizedBox(width: 10),
+                  const Icon(
+                    Icons.arrow_forward_ios,
+                    color: ColorConstants.primaryColor,
+                    size: 16,
+                  )
+                ],
+              )),
+          const SizedBox(height: 50),
+          // const SocialLogin(),
+        ],
+      ),
     );
   }
 }

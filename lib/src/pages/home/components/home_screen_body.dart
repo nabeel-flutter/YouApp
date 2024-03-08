@@ -9,6 +9,8 @@ import 'package:new_beginnings/src/pages/all_services/models/services_model.dart
 
 import 'package:new_beginnings/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
 
+import 'package:new_beginnings/src/pages/all_services/cubit/cubit/service_cubit.dart';
+
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({
     super.key,
@@ -16,11 +18,11 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Service> services = [
-      Service(
+    List<ServiceModel> services = [
+      ServiceModel(
           name: "Psychiatric\nEvaluation", image: AssetsConstants.pscyEvImage),
-      Service(name: "Group Therapy", image: AssetsConstants.pscyEvImage),
-      Service(
+      ServiceModel(name: "Group Therapy", image: AssetsConstants.pscyEvImage),
+      ServiceModel(
           name: "Medication\nManagement", image: AssetsConstants.pscyEvImage),
     ];
     return MainScaffold(
@@ -40,12 +42,28 @@ class HomeScreenBody extends StatelessWidget {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: [
-                      ...services.map((e) => TopServicesWidget(
-                            title: e.name,
-                            image: e.image!,
-                          ))
-                    ],
+                    children: BlocProvider.of<ServiceCubit>(context)
+                        .services
+                        .map((e) => GestureDetector(
+                              onTap: () {
+                                if (e.name == "Psychiatric\nEvaluation") {
+                                  context.router.push(
+                                    ServiceInnerRoute(service: e),
+                                  );
+                                }
+                                if (e.name == "Group Therapy") {
+                                  debugPrint("Group Therapy");
+                                  context.router.push(
+                                    const GTRoute(),
+                                  );
+                                }
+                              },
+                              child: TopServicesWidget(
+                                title: e.name,
+                                image: e.image!,
+                              ),
+                            ))
+                        .toList(),
                   ),
                 ),
                 const SizedBox(height: 20),

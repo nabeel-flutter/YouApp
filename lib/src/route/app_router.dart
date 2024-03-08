@@ -56,6 +56,26 @@ class AppRouter extends _$AppRouter {
           path: RouteConstants.allServicesRoute,
         ),
         AutoRoute(
+          page: ServiceInnerRoute.page,
+        ),
+        AutoRoute(
+          page: GTRoute.page,
+        ),
+        AutoRoute(
+          page: ATRoute.page,
+        ),
+        AutoRoute(
+          page: CPTRoute.page,
+        ),
+        AutoRoute(
+          page: MMRoute.page,
+        ),
+        AutoRoute(page: IDRoute.page),
+        AutoRoute(page: PTRoute.page),
+        AutoRoute(page: PMRoute.page),
+        AutoRoute(page: PCRoute.page),
+        AutoRoute(page: TPRoute.page),
+        AutoRoute(
           page: BookAppointmentRoute.page,
           path: RouteConstants.bookAppointmentRoute,
         ),

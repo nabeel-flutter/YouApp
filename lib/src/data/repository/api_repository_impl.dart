@@ -227,7 +227,20 @@ class ApiRepositoryImpl extends ApiRepository {
         lastName: lastName,
         password: password,
       );
-      return Result.success(objectMapper.toSignIn(response));
+      return Result.success(objectMapper.toSignUp(response));
+    } on Exception catch (e) {
+      logger.e(e);
+      return Result.failed(objectMapper.toError(e));
+    }
+  }
+  
+  @override
+  Future<Result<BaseResponseDto>> forgetPassword({required String email}) async {
+    try {
+      final response = await softTechTestApi.forgetPassword(
+        email: email,
+      );
+      return Result.success(objectMapper.toforgetPassword(response));
     } on Exception catch (e) {
       logger.e(e);
       return Result.failed(objectMapper.toError(e));

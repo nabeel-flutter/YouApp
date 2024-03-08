@@ -10,6 +10,7 @@ class AnimatedDrawerCubit extends Cubit<AnimatedDrawerState> {
       {required PageController pageController,
       required AdvancedDrawerController advancedDrawerController}) {
     _advancedDrawerController = advancedDrawerController;
+    
 
     emit(const _Loading());
     emit(_Loaded(pageController));

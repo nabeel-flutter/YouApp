@@ -22,6 +22,7 @@ class EnglishConstant {
     'rating': 'Rating',
     'reviews': 'Reviews',
     'aboutMe': 'About Me',
+    'services': 'Services',
     'createNewPassword': 'Create New Password',
     'createNewPasswordDescription':
         'Please enter your new password and confirm the password',

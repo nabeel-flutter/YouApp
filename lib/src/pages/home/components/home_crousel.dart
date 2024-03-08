@@ -55,26 +55,26 @@ class _HomeCarouselWidgetState extends State<HomeCarouselWidget> {
               ),
             ],
           ),
-          Positioned(
-            bottom: 30,
-            right: 140,
-            child: DotsIndicator(
-              axis: Axis.horizontal,
-              decorator: DotsDecorator(
-                color: ColorConstants.white,
-                activeColor: ColorConstants.subTextColor,
-                activeSize: const Size(18, 8),
-                size: const Size(8, 8),
-                spacing: const EdgeInsets.symmetric(horizontal: 4),
-                activeShape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-              dotsCount: 3,
-              position: _currentIndex,
-              reversed: false,
-            ),
-          ),
+          // Positioned(
+          //   bottom: 10,
+          //   right: 10,
+          //   child: DotsIndicator(
+          //     axis: Axis.horizontal,
+          //     decorator: DotsDecorator(
+          //       color: ColorConstants.white,
+          //       activeColor: ColorConstants.subTextColor,
+          //       activeSize: const Size(18, 8),
+          //       size: const Size(8, 8),
+          //       spacing: const EdgeInsets.symmetric(horizontal: 4),
+          //       activeShape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(5),
+          //       ),
+          //     ),
+          //     dotsCount: 3,
+          //     position: _currentIndex,
+          //     reversed: false,
+          //   ),
+          // ),
         ],
       ),
     );
