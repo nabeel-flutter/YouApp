@@ -1,6 +1,7 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/notification/components/notification_tile_component.dart';
 import 'package:new_beginnings/src/pages/notification/list_data/notification_list_data.dart';
+
 @RoutePage()
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});
@@ -12,12 +13,45 @@ class NotificationScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: notificationList
-                .asMap()
-                .entries
-                .map((notification) =>
-                    NotificationTileComponent(notification: notification))
-                .toList(),
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12.0, horizontal: 6),
+                  child: Text(
+                    "Today",
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                        color: Colors.black),
+                  )),
+              Column(
+                children: notificationList
+                    .asMap()
+                    .entries
+                    .map((notification) =>
+                        NotificationTileComponent(notification: notification))
+                    .toList(),
+              ),
+              Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12.0, horizontal: 6),
+                  child: Text(
+                    "Yesterday",
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                        color: Colors.black),
+                  )),
+              Column(
+                children: notificationList
+                    .asMap()
+                    .entries
+                    .map((notification) =>
+                        NotificationTileComponent(notification: notification))
+                    .toList(),
+              ),
+            ],
           ),
         ),
       ),

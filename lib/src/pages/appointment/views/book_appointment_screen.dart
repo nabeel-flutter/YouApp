@@ -151,8 +151,8 @@ class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
           ),
           Container(
             decoration: BoxDecoration(
-              color: ColorConstants.widgetBgColor.withOpacity(0.27),
-              borderRadius: BorderRadius.circular(10.0),
+              color: Color(0xff80BCBD).withOpacity(0.2),
+              borderRadius: BorderRadius.circular(8.0),
               border: Border.all(
                 color: ColorConstants.primaryColor,
               ),
@@ -183,7 +183,7 @@ class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
                       title: Text(
                         location,
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                              color: ColorConstants.primaryTextColor,
+                              color: ColorConstants.greenish,
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
                             ),

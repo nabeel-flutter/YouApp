@@ -1,5 +1,8 @@
 class AssetsConstants {
   //Images
+  static String newappointmenticon = 'assets/images/new_appointment.png';
+  static String timechnagedicon = 'assets/images/time_changed.png';
+  static String paymentreceivedicon = 'assets/images/payment_received.png';
   static String uploadimageicon = 'assets/images/upload_bg.png';
   static String uploadicon = 'assets/images/dropback.png';
 
