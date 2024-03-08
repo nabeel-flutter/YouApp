@@ -72,6 +72,11 @@ class HomeScreenBody extends StatelessWidget {
                                     const IDRoute(),
                                   );
                                 }
+                                if (e.name == "Couple & Family Therapy") {
+                                  context.router.push(
+                                    const CPTRoute(),
+                                  );
+                                }
                               },
                               child: TopServicesWidget(
                                 title: e.name,
