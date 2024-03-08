@@ -6,27 +6,30 @@ class UnorderedList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-
-    return Column(children:texts.asMap().entries.map((e) {
-      if(e.value.innerList.isEmpty){
-        return OrderedListItem(e.value.text,
-        index: e.key,
+    return Column(
+        children: texts.asMap().entries.map((e) {
+      if (e.value.innerList.isEmpty) {
+        return OrderedListItem(
+          e.value.text,
+          index: e.key,
         );
-      }else{
-        return 
-        Column(
-          children: [OrderedListItem(e.value.text,
-        index: e.key,
-        ),
+      } else {
+        return Column(
+          children: [
+            OrderedListItem(
+              e.value.text,
+              index: e.key,
+            ),
             Column(
-              children: 
-            e.value.innerList.asMap().entries.map((unOrderItem) =>  UnorderedListItem( unOrderItem.value  )).toList()),
+                children: e.value.innerList
+                    .asMap()
+                    .entries
+                    .map((unOrderItem) => UnorderedListItem(unOrderItem.value))
+                    .toList()),
           ],
         );
       }
-    }   
-    ).toList() );
+    }).toList());
   }
 }
 
@@ -55,6 +58,7 @@ class UnorderedListItem extends StatelessWidget {
     );
   }
 }
+
 class OrderedListItem extends StatelessWidget {
   const OrderedListItem(this.text, {super.key, required this.index});
   final String text;
@@ -65,9 +69,9 @@ class OrderedListItem extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-         Text(
-          "${index+1} ",
-          style: TextStyle(fontSize: 16),
+        Text(
+          "${index + 1}. ",
+          style: const TextStyle(fontSize: 16),
         ),
         Expanded(
           child: Text(
