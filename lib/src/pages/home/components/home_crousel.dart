@@ -26,7 +26,7 @@ class _HomeCarouselWidgetState extends State<HomeCarouselWidget> {
               initialPage: _currentIndex,
               enableInfiniteScroll: true,
               reverse: false,
-              autoPlay: false,
+              autoPlay: true,
               autoPlayInterval: const Duration(seconds: 3),
               autoPlayAnimationDuration: const Duration(milliseconds: 800),
               autoPlayCurve: Curves.fastOutSlowIn,
@@ -41,17 +41,27 @@ class _HomeCarouselWidgetState extends State<HomeCarouselWidget> {
             items: [
               GestureDetector(
                 onTap: () {
-                  context.router.push(const AllDoctorsRoute());
+                  context.router.push(const AllServicesRoute());
                 },
                 child: const Image(
                   image: AssetImage(AssetsConstants.crouselImage1),
                 ),
               ),
-              const Image(
-                image: AssetImage(AssetsConstants.crouselImage1),
+              GestureDetector(
+                onTap: () {
+                  context.router.push(const AllServicesRoute());
+                },
+                child: const Image(
+                  image: AssetImage(AssetsConstants.crouselImage2),
+                ),
               ),
-              const Image(
-                image: AssetImage(AssetsConstants.crouselImage1),
+              GestureDetector(
+                onTap: () {
+                  context.router.push(const AllServicesRoute());
+                },
+                child: const Image(
+                  image: AssetImage(AssetsConstants.crouselImage3),
+                ),
               ),
             ],
           ),

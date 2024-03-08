@@ -26,10 +26,9 @@ class _AnimatedDrawerAfterLoadedStateState
           ProfileScreen(),
         ],
       ),
-      bottomNavigationBar: BlocConsumer<AnimatedDrawerCubit, AnimatedDrawerState>(
-        listener: (context, state) {
-          
-        },
+      bottomNavigationBar:
+          BlocConsumer<AnimatedDrawerCubit, AnimatedDrawerState>(
+        listener: (context, state) {},
         builder: (context, state) {
           return BottomNavigationBar(
             backgroundColor: ColorConstants.primaryColor,
@@ -45,17 +44,41 @@ class _AnimatedDrawerAfterLoadedStateState
                       .read<AnimatedDrawerCubit>()
                       .advancedDrawerController);
             },
-            items: const [
+            items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: Image.asset(
+                  AssetsConstants.homeIcon,
+                  color:
+                      context.read<AnimatedDrawerCubit>().getBottomNavIndex == 0
+                          ? ColorConstants.white
+                          : ColorConstants.primaryTextColor,
+                  height: 24,
+                  width: 24,
+                ),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.group),
+                icon: Image.asset(
+                  AssetsConstants.appointmentIcon,
+                  color:
+                      context.read<AnimatedDrawerCubit>().getBottomNavIndex == 1
+                          ? ColorConstants.white
+                          : ColorConstants.primaryTextColor,
+                  height: 24,
+                  width: 24,
+                ),
                 label: 'Appointments',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
+                icon: Image.asset(
+                  AssetsConstants.profileIcon,
+                  color:
+                      context.read<AnimatedDrawerCubit>().getBottomNavIndex == 2
+                          ? ColorConstants.white
+                          : ColorConstants.primaryTextColor,
+                  height: 24,
+                  width: 24,
+                ),
                 label: 'Profile',
               ),
             ],

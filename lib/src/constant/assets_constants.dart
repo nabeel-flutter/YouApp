@@ -29,6 +29,8 @@ class AssetsConstants {
       'assets/images/onboarding_doctorImage.png';
   static const String nbAuthLogo = 'assets/images/nb_auth_logo.png';
   static const String crouselImage1 = 'assets/images/crousel_image.png';
+  static const String crouselImage2 = 'assets/images/crousel_image2.png';
+  static const String crouselImage3 = 'assets/images/crousel_image3.png';
   static const String appBarbgImage = 'assets/images/appBar_bg.png';
   static const String profileappBarimage = 'assets/images/profileAppbar_bg.png';
   static const String pscyEvImage = 'assets/images/psyev_services.png';
@@ -44,6 +46,10 @@ class AssetsConstants {
   static const String primaryCareImage = 'assets/images/pc_service.png';
   static const String stackPattern1 = 'assets/images/stack_pattern1.png';
   static const String stackPattern2 = 'assets/images/stack_pattern2.png';
+  static const String ptImage1 = 'assets/images/pt_image1.png';
+  static const String ptImage2 = 'assets/images/pt_image2.png';
+  static const String ptImage3 = 'assets/images/pt_image3.png';
+  static const String ptImage4 = 'assets/images/pt_image4.png';
 
   //Icons
   static const String noOfPatientsIcon = 'assets/icon/noOfPatientsIcon.svg';
@@ -64,8 +70,9 @@ class AssetsConstants {
   static const String tempIcon = 'assets/icon/temp_icon.png';
   static const String weughtIcon = 'assets/icon/weight_icon.png';
   static const String settingIcon = 'assets/icon/setting_icon.png';
-  static const String homeIcon = 'assets/icon/home_icon.png';
-  static const String profileIcon = 'assets/icon/profile_icon.png';
+  static const String homeIcon = 'assets/icon/homeIcon.png';
+  static const String appointmentIcon = 'assets/icon/AppointmentIcon.png';
+  static const String profileIcon = 'assets/icon/profileIcon.png';
   static const String appointmentsIcon = 'assets/icon/appointments.png';
   static const String communicationIcon = 'assets/icon/communication.png';
   static const String documentsIcon = 'assets/icon/documents.png';
