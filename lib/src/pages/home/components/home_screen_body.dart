@@ -5,7 +5,7 @@ import 'package:new_beginnings/src/pages/home/components/widgets/top_services_wi
 import 'package:new_beginnings/src/pages/home/components/widgets/body_heading.dart';
 import 'package:new_beginnings/src/pages/home/components/widgets/top_doctors_widget.dart';
 
-import 'package:new_beginnings/src/pages/all_services/models/services_model.dart';
+
 
 import 'package:new_beginnings/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
 
@@ -18,13 +18,13 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<ServiceModel> services = [
-      ServiceModel(
-          name: "Psychiatric\nEvaluation", image: AssetsConstants.pscyEvImage),
-      ServiceModel(name: "Group Therapy", image: AssetsConstants.pscyEvImage),
-      ServiceModel(
-          name: "Medication\nManagement", image: AssetsConstants.pscyEvImage),
-    ];
+    // List<ServiceModel> services = [
+    //   ServiceModel(
+    //       name: "Psychiatric\nEvaluation", image: AssetsConstants.pscyEvImage),
+    //   ServiceModel(name: "Group Therapy", image: AssetsConstants.pscyEvImage),
+    //   ServiceModel(
+    //       name: "Medication\nManagement", image: AssetsConstants.pscyEvImage),
+    // ];
     return MainScaffold(
         body: SingleChildScrollView(
           child: Padding(

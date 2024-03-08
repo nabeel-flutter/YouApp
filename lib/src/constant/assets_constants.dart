@@ -70,8 +70,9 @@ class AssetsConstants {
   static const String tempIcon = 'assets/icon/temp_icon.png';
   static const String weughtIcon = 'assets/icon/weight_icon.png';
   static const String settingIcon = 'assets/icon/setting_icon.png';
-  static const String homeIcon = 'assets/icon/home_icon.png';
-  static const String profileIcon = 'assets/icon/profile_icon.png';
+  static const String homeIcon = 'assets/icon/homeIcon.png';
+  static const String appointmentIcon = 'assets/icon/AppointmentIcon.png';
+  static const String profileIcon = 'assets/icon/profileIcon.png';
   static const String appointmentsIcon = 'assets/icon/appointments.png';
   static const String communicationIcon = 'assets/icon/communication.png';
   static const String documentsIcon = 'assets/icon/documents.png';
