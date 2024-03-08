@@ -44,6 +44,10 @@ class AssetsConstants {
   static const String primaryCareImage = 'assets/images/pc_service.png';
   static const String stackPattern1 = 'assets/images/stack_pattern1.png';
   static const String stackPattern2 = 'assets/images/stack_pattern2.png';
+  static const String ptImage1 = 'assets/images/pt_image1.png';
+  static const String ptImage2 = 'assets/images/pt_image2.png';
+  static const String ptImage3 = 'assets/images/pt_image3.png';
+  static const String ptImage4 = 'assets/images/pt_image4.png';
 
   //Icons
   static const String noOfPatientsIcon = 'assets/icon/noOfPatientsIcon.svg';

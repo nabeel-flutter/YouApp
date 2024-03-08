@@ -62,6 +62,11 @@ class HomeScreenBody extends StatelessWidget {
                                     const MMRoute(),
                                   );
                                 }
+                                if (e.name == "Play Therapy") {
+                                  context.router.push(
+                                    const PTRoute(),
+                                  );
+                                }
                               },
                               child: TopServicesWidget(
                                 title: e.name,
