@@ -67,6 +67,9 @@ class SignInForm extends StatelessWidget {
                     orElse: () {
                       return null;
                     },
+                    error: (message) {
+      context.router.pushNamed(RouteConstants.verifyEmailRoute);
+                            },
                     loaded: (token) async {
                       getIt.get<SharedPreferencesUtil>().setString(
                           SharedPreferenceConstants.apiAuthToken, token.token);

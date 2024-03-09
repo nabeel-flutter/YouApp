@@ -84,6 +84,8 @@ Route onGenerateRoute(RouteSettings settings) {
 
     case RouteConstants.forgotPasswordRoute:
       return materialRoute(const ForgotPasswordScreen());
+    case RouteConstants.verifyEmailRoute:
+      return materialRoute(const ForgotPasswordScreen());
 
     case RouteConstants.emergencyRoute:
       return materialRoute(const EmergencyScreen());

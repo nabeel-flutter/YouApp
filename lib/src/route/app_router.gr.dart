@@ -173,6 +173,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const TPScreen(),
       );
     },
+    VerifyEmailRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const VerifyEmailScreen(),
+      );
+    },
   };
 }
 
@@ -570,6 +576,20 @@ class TPRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'TPRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [VerifyEmailScreen]
+class VerifyEmailRoute extends PageRouteInfo<void> {
+  const VerifyEmailRoute({List<PageRouteInfo>? children})
+      : super(
+          VerifyEmailRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'VerifyEmailRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

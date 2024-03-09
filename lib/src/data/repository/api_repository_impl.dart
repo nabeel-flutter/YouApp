@@ -246,4 +246,17 @@ class ApiRepositoryImpl extends ApiRepository {
       return Result.failed(objectMapper.toError(e));
     }
   }
+  @override
+  Future<Result<BaseResponseDto>> verifyEmail({required String email}) async {
+    try {
+      final response = await softTechTestApi.verifyEmail(
+        email: email,
+      );
+      return Result.success(objectMapper.toVerifyEmail(response));
+    } on Exception catch (e) {
+      logger.e(e);
+      return Result.failed(objectMapper.toError(e));
+    }
+  }
+  
 }
