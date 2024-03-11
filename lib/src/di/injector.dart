@@ -1,4 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/all_services/cubit/cubit/service_cubit.dart';
 import 'package:new_beginnings/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
 import 'package:new_beginnings/src/pages/forgot_password/cubit/forget_password_cubit.dart';
 import 'package:new_beginnings/src/pages/mental_health/mental_health_inner_pages/gad_7/cubit/gad_7_cubit.dart';
@@ -6,6 +7,7 @@ import 'package:new_beginnings/src/pages/product_detail/cubit/product_detail_cub
 import 'package:new_beginnings/src/pages/products/cubit/products_list_cubit.dart';
 import 'package:new_beginnings/src/pages/sign_in/cubit/sign_in_cubit.dart';
 import 'package:new_beginnings/src/pages/sign_up/cubit/sign_up_cubit.dart';
+import 'package:new_beginnings/src/pages/verify_email/cubit/verify_email_cubit.dart';
 
 import 'package:new_beginnings/src/route/app_router.dart';
 
@@ -42,9 +44,12 @@ void _injectBlocsAndCubits() {
   getIt.registerFactory(() => SignInCubit(getIt.get()));
   getIt.registerFactory(() => SignUpCubit(getIt.get()));
   getIt.registerFactory(() => ForgetPasswordCubit(getIt.get()));
+  getIt.registerFactory(() => VerifyEmailCubit(getIt.get()));
+  
   
   getIt.registerFactory(() => GAD7Cubit());
   getIt.registerFactory(() => DoctorsCubit());
+    getIt.registerFactory(() => ServiceCubit());
   getIt.registerLazySingleton(() => AppRouter());
 }
 

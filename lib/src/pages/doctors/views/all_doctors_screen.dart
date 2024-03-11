@@ -12,7 +12,7 @@ class AllDoctorsScreen extends StatefulWidget {
 }
 
 class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
-  String speciality = 'All';
+  String specialty = 'All';
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              backgroundColor: speciality == e
+                              backgroundColor: specialty == e
                                   ? ColorConstants.primaryTextColor
                                   : ColorConstants.white,
                               label: Text(e,
@@ -46,13 +46,13 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                                       .textTheme
                                       .bodySmall!
                                       .copyWith(
-                                        color: speciality == e
+                                        color: specialty == e
                                             ? ColorConstants.white
                                             : ColorConstants.primaryTextColor,
                                       )),
                               onSelected: (bool value) {
                                 setState(() {
-                                  speciality = e;
+                                  specialty = e;
                                 });
                                 BlocProvider.of<DoctorsCubit>(context)
                                     .filterDoctorsBySpecialty(e);
@@ -64,7 +64,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
               ),
               const SizedBox(height: 20),
               Column(
-                children: speciality == 'All'
+                children: specialty == 'All'
                     ? context
                         .read<DoctorsCubit>()
                         .doctors
@@ -76,7 +76,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                               },
                               child: TopDoctorsWidget(
                                 title: e.name,
-                                subtitle: e.speciality,
+                                subtitle: e.specialty,
                                 image: e.image,
                               ),
                             ))
@@ -84,7 +84,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                     : context
                         .read<DoctorsCubit>()
                         .doctors
-                        .where((element) => element.department == speciality)
+                        .where((element) => element.specialty == specialty)
                         .map((e) => GestureDetector(
                               onTap: () {
                                 context.router.push(
@@ -93,7 +93,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                               },
                               child: TopDoctorsWidget(
                                 title: e.name,
-                                subtitle: e.speciality,
+                                subtitle: e.specialty,
                                 image: e.image,
                               ),
                             ))

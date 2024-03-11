@@ -6,6 +6,7 @@ import 'package:new_beginnings/src/pages/sign_up/cubit/sign_up_cubit.dart';
 import 'package:new_beginnings/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
 
 import 'package:new_beginnings/src/pages/all_services/cubit/cubit/service_cubit.dart';
+import 'package:new_beginnings/src/pages/verify_email/cubit/verify_email_cubit.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -22,6 +23,7 @@ class App extends StatelessWidget {
               BlocProvider(
                 create: (context) => SignInCubit(getIt.get()),
               ),
+              BlocProvider(create:(context) =>  VerifyEmailCubit(getIt.get())),
               BlocProvider(
                 create: (context) => SignUpCubit(getIt.get()),
               ),
@@ -33,8 +35,8 @@ class App extends StatelessWidget {
               BlocProvider(create: (context) => IsGradientBackgroundCubit()),
               BlocProvider(create: (context) => AppointmentCubit()),
               BlocProvider(create: (context) => DoctorsCubit()),
-              BlocProvider(create: (context) => ServiceCubit()..getServices()),
-              BlocProvider(create: (context) => ServiceCubit()..getServices()),
+              BlocProvider(create: (context) => ServiceCubit(),
+              ),
             ],
             child: MaterialApp.router(
               key: navigationService?.navigatorKey,

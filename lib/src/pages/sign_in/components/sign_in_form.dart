@@ -1,6 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/sign_in/cubit/sign_in_cubit.dart';
-import 'package:new_beginnings/src/route/app_router.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});
@@ -15,8 +14,8 @@ class SignInForm extends StatelessWidget {
     //     TextEditingController(text: '');
     // TextEditingController passwordController =
     //     TextEditingController(text: "");
- final formKey = GlobalKey<FormState>();
- 
+    final formKey = GlobalKey<FormState>();
+
     return Form(
       key: formKey,
       child: Column(
@@ -49,7 +48,9 @@ class SignInForm extends StatelessWidget {
           const SizedBox(height: 10),
           GestureDetector(
             onTap: () {
-              context.router.pushNamed(RouteConstants.forgotPasswordRoute);
+              context.router.pushNamed(RouteConstants.forgotPasswordRoute,
+              
+              );
             },
             child: Align(
               alignment: Alignment.centerRight,
@@ -67,6 +68,15 @@ class SignInForm extends StatelessWidget {
                     orElse: () {
                       return null;
                     },
+                    error: (message) async {
+                      if (message == 'User not verified') {
+                        ToastComponent3(context).showToast(context, message);
+                        await context.router.push(
+                          VerifyEmailRoute(email:  emailController.text)
+                        );
+                      }
+                      return null;
+                    },
                     loaded: (token) async {
                       getIt.get<SharedPreferencesUtil>().setString(
                           SharedPreferenceConstants.apiAuthToken, token.token);
@@ -77,24 +87,25 @@ class SignInForm extends StatelessWidget {
               builder: (context, state) => state.maybeWhen(
                   loading: () => ElevatedButton(
                       onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                        context.read<SignInCubit>().signIn(
-                            email: emailController.text,
-                            password: passwordController.text);
-                          
+                        if (formKey.currentState!.validate()) {
+                          context.read<SignInCubit>().signIn(
+                              email: emailController.text,
+                              password: passwordController.text);
                         }
-                    },
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text('Loading...',
-                              style:
-                                  Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                        color: ColorConstants.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700,
-                                      )),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                    color: ColorConstants.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                  )),
                           const SizedBox(width: 10),
                           const SizedBox(
                             height: 20,
@@ -112,11 +123,12 @@ class SignInForm extends StatelessWidget {
                             password: passwordController.text);
                       },
                       child: Text(StringConstants.LogIn,
-                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                color: ColorConstants.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                              ))),
+                          style:
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    color: ColorConstants.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                  ))),
                   error: (message) {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,21 +136,22 @@ class SignInForm extends StatelessWidget {
                       children: [
                         ElevatedButton(
                             onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                        context.read<SignInCubit>().signIn(
-                            email: emailController.text,
-                            password: passwordController.text);
-                          
-                        }
-                          },
+                              if (formKey.currentState!.validate()) {
+                                context.read<SignInCubit>().signIn(
+                                    email: emailController.text,
+                                    password: passwordController.text);
+                              }
+                            },
                             child: Text(
                               StringConstants.LogIn,
-                              style:
-                                  Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                        color: ColorConstants.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700,
-                                      ),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                    color: ColorConstants.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                             )),
                         const SizedBox(height: 10),
                         Text(
@@ -146,7 +159,8 @@ class SignInForm extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .bodySmall!
-                              .copyWith(color: ColorConstants.redIndicatorColor),
+                              .copyWith(
+                                  color: ColorConstants.redIndicatorColor),
                         ),
                       ],
                     );
@@ -159,10 +173,9 @@ class SignInForm extends StatelessWidget {
                       ),
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                        context.read<SignInCubit>().signIn(
-                            email: emailController.text,
-                            password: passwordController.text);
-                          
+                          context.read<SignInCubit>().signIn(
+                              email: emailController.text,
+                              password: passwordController.text);
                         }
                       },
                       child: Text(

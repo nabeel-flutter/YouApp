@@ -103,7 +103,8 @@ class HomeScreenBody extends StatelessWidget {
                                 image: e.image!,
                               ),
                             ))
-                        .toList(),
+                        .toList()
+                        .sublist(0, 5),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -125,11 +126,12 @@ class HomeScreenBody extends StatelessWidget {
                               },
                               child: TopDoctorsWidget(
                                 title: e.name,
-                                subtitle: e.speciality,
+                                subtitle: e.specialty,
                                 image: e.image,
                               ),
                             ))
-                        .toList()),
+                        .toList()
+                        .sublist(0, 5)),
               ],
             ),
           ),
