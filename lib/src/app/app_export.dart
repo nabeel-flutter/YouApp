@@ -1,3 +1,4 @@
+export 'package:new_beginnings/src/pages/verify_email/verify_email_screen.dart';
 export 'package:auto_route/auto_route.dart';
 export 'package:new_beginnings/src/route/app_router.dart';
 export 'package:flutter_secure_storage/flutter_secure_storage.dart';

@@ -5,6 +5,8 @@ import 'package:new_beginnings/src/pages/home/components/widgets/top_services_wi
 import 'package:new_beginnings/src/pages/home/components/widgets/body_heading.dart';
 import 'package:new_beginnings/src/pages/home/components/widgets/top_doctors_widget.dart';
 
+
+
 import 'package:new_beginnings/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
 
 import 'package:new_beginnings/src/pages/all_services/cubit/cubit/service_cubit.dart';
@@ -124,7 +126,7 @@ class HomeScreenBody extends StatelessWidget {
                               },
                               child: TopDoctorsWidget(
                                 title: e.name,
-                                subtitle: e.speciality,
+                                subtitle: e.specialty,
                                 image: e.image,
                               ),
                             ))

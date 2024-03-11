@@ -7,6 +7,7 @@ import 'package:new_beginnings/src/pages/product_detail/cubit/product_detail_cub
 import 'package:new_beginnings/src/pages/products/cubit/products_list_cubit.dart';
 import 'package:new_beginnings/src/pages/sign_in/cubit/sign_in_cubit.dart';
 import 'package:new_beginnings/src/pages/sign_up/cubit/sign_up_cubit.dart';
+import 'package:new_beginnings/src/pages/verify_email/cubit/verify_email_cubit.dart';
 
 import 'package:new_beginnings/src/route/app_router.dart';
 
@@ -43,6 +44,8 @@ void _injectBlocsAndCubits() {
   getIt.registerFactory(() => SignInCubit(getIt.get()));
   getIt.registerFactory(() => SignUpCubit(getIt.get()));
   getIt.registerFactory(() => ForgetPasswordCubit(getIt.get()));
+  getIt.registerFactory(() => VerifyEmailCubit(getIt.get()));
+  
   
   getIt.registerFactory(() => GAD7Cubit());
   getIt.registerFactory(() => DoctorsCubit());

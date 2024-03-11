@@ -2,20 +2,20 @@ import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
 import 'package:new_beginnings/src/domain/common/result.dart';
 
-part 'forget_password_state.dart';
-part 'forget_password_cubit.freezed.dart';
+part 'verify_email_state.dart';
+part 'verify_email_cubit.freezed.dart';
 
-class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
-  ForgetPasswordCubit(this.apiRepository) : super(const ForgetPasswordState.initial());
+class VerifyEmailCubit extends Cubit<VerifyEmailState> {
+  VerifyEmailCubit(this.apiRepository) : super(VerifyEmailState.initial());
   ApiRepository apiRepository;
-   Future<void> forgetPassword({required String email, }) async {
+   Future<void> verifyEmail({required String email, }) async {
     emit(const _Loading());
 
     final Result<BaseResponseDto> result =
-        await apiRepository.forgetPassword(email: email);
+        await apiRepository.verifyEmail(email: email);
     result.when(
       success: (data) {
-        emit(_Loaded(data.message!));
+        emit(_Loaded(data.message??"Email send to your account"));
       },
       failed: (error) {
         emit(_Error(error.message));
