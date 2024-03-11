@@ -156,11 +156,16 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ),
             listener: (context, state) => state.maybeWhen(
-              orElse: () {},
+              orElse: () {
+                return null;
+              },
               error: (message) {
                 ToastComponent3(context).showToast(context, message);
+                return null;
               },
-              initial: () {},
+              initial: () {
+                return null;
+              },
               loaded: (token) {
                 ToastComponent2(context).showToast(context,
                     'User Created successfully please check your email');

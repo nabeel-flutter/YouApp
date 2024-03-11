@@ -28,6 +28,10 @@ class AppRouter extends _$AppRouter {
           path: RouteConstants.forgotPasswordRoute,
         ),
         AutoRoute(
+          page: VerifyEmailRoute.page,
+          path: RouteConstants.verifyEmailRoute,
+        ),
+        AutoRoute(
           page: NewPasswordRoute.page,
           path: RouteConstants.newPasswordRoute,
         ),

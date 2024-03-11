@@ -36,6 +36,8 @@ class SoftTechTestApi {
 
   static String kRouteAuthForgetPassword='password/forgot';
 
+  static String kRouteAuthVerifyEmail='resendEmailVerify';
+
   static String kRouteGetProductDetail(int id) => '$kRouteGetProducts/$id';
 
   static String kRouteDeleteMedicalRecord(int id) =>
@@ -319,5 +321,14 @@ class SoftTechTestApi {
     return BaseResponseDto.fromJson({"data": response.data},
         (value) => value );
  
+  }
+
+  Future<BaseResponseDto> verifyEmail({required String email}) async {
+           final response = await dio.post(kRouteAuthVerifyEmail, data: {
+      'email': email
+    });
+    return BaseResponseDto.fromJson({"data": response.data},
+        (value) => value );
+
   }
 }

@@ -405,4 +405,11 @@ class ObjectMapper {
     );
 
   }
+
+  BaseResponseDto toVerifyEmail(BaseResponseDto dto) {
+        return BaseResponseDto(data: dto.data,
+    message: dto.data['message']
+    );
+
+  }
 }
