@@ -8,9 +8,9 @@ class SignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController =
-        TextEditingController(text: 'afloornstage@gmail.com');
+        TextEditingController(text: 'nabeelshakeel966@gmail.com');
     TextEditingController passwordController =
-        TextEditingController(text: "Wikikh909!");
+        TextEditingController(text: "Nabeel@123");
     // TextEditingController emailController =
     //     TextEditingController(text: '');
     // TextEditingController passwordController =
@@ -70,8 +70,8 @@ class SignInForm extends StatelessWidget {
                       return null;
                     },
                     error: (message) async {
-                            ToastComponent3(context).showToast(context, message);
-                  
+                      ToastComponent3(context).showToast(context, message);
+
                       if (message == 'User not verified') {
                         await context.router.push(
                             VerifyEmailRoute(email: emailController.text));
@@ -79,14 +79,13 @@ class SignInForm extends StatelessWidget {
                       return null;
                     },
                     loaded: (token) async {
-                      getIt.get<SharedPreferencesUtil>().setString(
+                    await  getIt.get<SharedPreferencesUtil>().setString(
                           SharedPreferenceConstants.apiAuthToken, token.token);
-                      
-                      getIt.get<AppCubit>().user= UserModel(
-                      accessToken: token.token  
-                      );
-                      return await context.router.pushAndPopUntil(
+                      getIt.get<AppCubit>().user =
+                          UserModel(accessToken: token.token);
+                       await context.router.pushAndPopUntil(
                           predicate: (route) => false, const HomeRoute());
+                          return null;
                     },
                   ),
               builder: (context, state) => state.maybeWhen(
