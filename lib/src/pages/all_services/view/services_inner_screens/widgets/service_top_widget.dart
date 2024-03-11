@@ -16,6 +16,7 @@ class ServiceTopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(
           height: 20,
@@ -31,6 +32,7 @@ class ServiceTopWidget extends StatelessWidget {
         ),
         const SizedBox(height: 30),
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               title!,

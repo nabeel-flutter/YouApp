@@ -1,4 +1,4 @@
-import '../../../../../app/app_export.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class ServiceInfoCard extends StatelessWidget {
   final String title;
@@ -28,6 +28,7 @@ class ServiceInfoCard extends StatelessWidget {
                     children: [
                       Text(
                         title,
+                        textAlign: TextAlign.center,
                         style:
                             Theme.of(context).textTheme.headlineSmall!.copyWith(
                                   fontWeight: FontWeight.w600,
@@ -37,9 +38,10 @@ class ServiceInfoCard extends StatelessWidget {
                       Text(
                         description,
                         textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                              fontWeight: FontWeight.w400,
-                            ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontWeight: FontWeight.w400, height: 1.5),
                       ),
                     ],
                   ),

@@ -165,8 +165,8 @@ class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
                 title: Text(
                   widget.title,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        color: ColorConstants.primaryTextColor,
-                        fontSize: 16,
+                        color: Color(0xff656567),
+                        fontSize: 15,
                         fontWeight: FontWeight.w700,
                       ),
                 ),

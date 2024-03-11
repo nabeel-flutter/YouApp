@@ -15,12 +15,11 @@ class NotificationScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 12.0, horizontal: 6),
+              const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 6),
                   child: Text(
                     "Today",
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
                         color: Colors.black),
@@ -29,16 +28,33 @@ class NotificationScreen extends StatelessWidget {
                 children: notificationList
                     .asMap()
                     .entries
-                    .map((notification) =>
-                        NotificationTileComponent(notification: notification))
+                    .map((notification) => Dismissible(
+                        direction: DismissDirection.endToStart,
+                        background: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 85,
+                            decoration: const BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16)),
+                                color: ColorConstants.redIndicatorColor),
+                            child: const Icon(
+                              Icons.delete,
+                              color: ColorConstants.white,
+                              size: 30,
+                            ),
+                          ),
+                        ),
+                        key: Key(notification.key.toString()),
+                        child: NotificationTileComponent(
+                            notification: notification)))
                     .toList(),
               ),
-              Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 12.0, horizontal: 6),
+              const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 6),
                   child: Text(
                     "Yesterday",
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
                         color: Colors.black),
@@ -47,8 +63,26 @@ class NotificationScreen extends StatelessWidget {
                 children: notificationList
                     .asMap()
                     .entries
-                    .map((notification) =>
-                        NotificationTileComponent(notification: notification))
+                    .map((notification) => Dismissible(
+                        key: Key(notification.key.toString()),
+                        direction: DismissDirection.endToStart,
+                        background: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 85,
+                            decoration: const BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16)),
+                                color: ColorConstants.redIndicatorColor),
+                            child: const Icon(
+                              Icons.delete,
+                              color: ColorConstants.white,
+                              size: 30,
+                            ),
+                          ),
+                        ),
+                        child: NotificationTileComponent(
+                            notification: notification)))
                     .toList(),
               ),
             ],

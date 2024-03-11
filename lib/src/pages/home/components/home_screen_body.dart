@@ -17,6 +17,13 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // List<ServiceModel> services = [
+    //   ServiceModel(
+    //       name: "Psychiatric\nEvaluation", image: AssetsConstants.pscyEvImage),
+    //   ServiceModel(name: "Group Therapy", image: AssetsConstants.pscyEvImage),
+    //   ServiceModel(
+    //       name: "Medication\nManagement", image: AssetsConstants.pscyEvImage),
+    // ];
     return MainScaffold(
         body: SingleChildScrollView(
           child: Padding(
@@ -47,6 +54,46 @@ class HomeScreenBody extends StatelessWidget {
                                   debugPrint("Group Therapy");
                                   context.router.push(
                                     const GTRoute(),
+                                  );
+                                }
+                                if (e.name == "Medication\nManagement") {
+                                  context.router.push(
+                                    const MMRoute(),
+                                  );
+                                }
+                                if (e.name == "Play Therapy") {
+                                  context.router.push(
+                                    const PTRoute(),
+                                  );
+                                }
+                                if (e.name == "Individual Therapy") {
+                                  context.router.push(
+                                    const IDRoute(),
+                                  );
+                                }
+                                if (e.name == "Couple & Family Therapy") {
+                                  context.router.push(
+                                    const CPTRoute(),
+                                  );
+                                }
+                                if (e.name == "Pharmacogenomics") {
+                                  context.router.push(
+                                    const PMRoute(),
+                                  );
+                                }
+                                if (e.name == "Addiction Treatment") {
+                                  context.router.push(
+                                    const ATRoute(),
+                                  );
+                                }
+                                if (e.name == "Telepsychiatry") {
+                                  context.router.push(
+                                    const TPRoute(),
+                                  );
+                                }
+                                if (e.name == "Primary Care") {
+                                  context.router.push(
+                                    const PCRoute(),
                                   );
                                 }
                               },

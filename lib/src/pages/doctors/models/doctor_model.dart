@@ -3,6 +3,7 @@ class Doctor {
   final String specialty;
   final String image;
   final String? description;
+  final String? department;
   final String? rating;
   final String? reviews;
   final String? noOfPatients;
@@ -17,5 +18,6 @@ class Doctor {
     this.reviews,
     this.noOfPatients,
     this.yearsOfExperience,
+    this.department,
   });
 }
