@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:new_beginnings/src/pages/doctors/models/doctor_model.dart';
 
-import 'package:new_beginnings/src/constant/assets_constants.dart';
 
 part 'doctors_state.dart';
 part 'doctors_cubit.freezed.dart';

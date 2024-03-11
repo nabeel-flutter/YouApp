@@ -65,4 +65,22 @@ class ServiceCubit extends Cubit<ServiceState> {
   void getServices() {
     emit(ServiceState.loaded(services));
   }
+
+  @override
+  Future<void> close() {
+    // TODO: implement close
+    return super.close();
+  }
+
+  void searchService(String value) {
+    if (value.isEmpty) {
+      emit(ServiceState.loaded(services));
+    } else {
+      List<ServiceModel> searchResult = services
+          .where((element) =>
+              element.name.toLowerCase().contains(value.toLowerCase()))
+          .toList();
+      emit(ServiceState.loaded(searchResult));
+    }
+  }
 }
