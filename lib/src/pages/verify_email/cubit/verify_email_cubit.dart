@@ -1,8 +1,5 @@
-import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
-import 'package:new_beginnings/src/data/dto/token_dto.dart';
 import 'package:new_beginnings/src/domain/common/result.dart';
 
 part 'verify_email_state.dart';
@@ -18,7 +15,7 @@ class VerifyEmailCubit extends Cubit<VerifyEmailState> {
         await apiRepository.verifyEmail(email: email);
     result.when(
       success: (data) {
-        emit(_Loaded(data.message!));
+        emit(_Loaded(data.message??"Email send to your account"));
       },
       failed: (error) {
         emit(_Error(error.message));

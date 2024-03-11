@@ -1,7 +1,7 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 
-class ForgotPasswordHeader extends StatelessWidget {
-  const ForgotPasswordHeader({Key? key}) : super(key: key);
+class VerifyEmailHeader extends StatelessWidget {
+  const VerifyEmailHeader({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class ForgotPasswordHeader extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             Text(
-              StringConstants.forgotPassword,
+              'Verify Email?',
               style: Theme.of(context)
                   .textTheme
                   .labelLarge!

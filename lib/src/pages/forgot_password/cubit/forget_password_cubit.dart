@@ -1,15 +1,12 @@
-import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
-import 'package:new_beginnings/src/data/dto/token_dto.dart';
 import 'package:new_beginnings/src/domain/common/result.dart';
 
 part 'forget_password_state.dart';
 part 'forget_password_cubit.freezed.dart';
 
 class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
-  ForgetPasswordCubit(this.apiRepository) : super(ForgetPasswordState.initial());
+  ForgetPasswordCubit(this.apiRepository) : super(const ForgetPasswordState.initial());
   ApiRepository apiRepository;
    Future<void> forgetPassword({required String email, }) async {
     emit(const _Loading());

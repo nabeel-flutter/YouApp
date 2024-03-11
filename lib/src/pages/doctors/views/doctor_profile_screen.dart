@@ -99,7 +99,7 @@ class DoctorProfileScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 5),
                           Text(
-                            doctor.speciality,
+                            doctor.specialty,
                             style: Theme.of(context)
                                 .textTheme
                                 .headlineSmall!

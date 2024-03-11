@@ -13,7 +13,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
   final List<Doctor> doctors = [
     Doctor(
       name: "Dr. Alexa Doe",
-      speciality: "Psychiatrist",
+      specialty: "Psychiatrist",
       image: AssetsConstants.doctorDetailImage,
       description:
           "Dr. Alexa Doe is a psychiatrist with 10 years of experience. She has worked with various hospitals and has a good reputation in the field of psychiatry, She has worked with various hospitals and has a good reputation in the field of psychiatry.",
@@ -24,7 +24,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
     ),
     Doctor(
       name: "Dr. John Doe",
-      speciality: "Psychiatrist",
+      specialty: "Psychiatrist",
       image: AssetsConstants.doctorDetailImage,
       description:
           "Dr. John Doe is a psychiatrist with 10 years of experience. He has worked with various hospitals and has a good reputation in the field of psychiatry, He has worked with various hospitals and has a good reputation in the field of psychiatry.",
@@ -35,7 +35,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
     ),
     Doctor(
       name: "Dr. Peter Doe",
-      speciality: "Psychiatrist",
+      specialty: "Psychiatrist",
       image: AssetsConstants.doctorDetailImage,
       description:
           "Dr. Peter Doe is a psychiatrist with 10 years of experience. He has worked with various hospitals and has a good reputation in the field of psychiatry, He has worked with various hospitals and has a good reputation in the field of psychiatry.",
@@ -46,7 +46,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
     ),
     Doctor(
       name: "Dr. Alexa Doe",
-      speciality: "Cardiologist",
+      specialty: "Cardiologist",
       image: AssetsConstants.doctorDetailImage,
       description:
           "Dr. Alexa Doe is a psychiatrist with 10 years of experience. She has worked with various hospitals and has a good reputation in the field of psychiatry, She has worked with various hospitals and has a good reputation in the field of psychiatry.",
@@ -57,7 +57,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
     ),
     Doctor(
       name: "Dr. John Doe",
-      speciality: "Cardiologist",
+      specialty: "Cardiologist",
       image: AssetsConstants.doctorDetailImage,
       description:
           "Dr. John Doe is a psychiatrist with 10 years of experience. He has worked with various hospitals and has a good reputation in the field of psychiatry, He has worked with various hospitals and has a good reputation in the field of psychiatry.",
@@ -68,7 +68,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
     ),
     Doctor(
       name: "Dr. Peter Doe",
-      speciality: "Psychiatrist",
+      specialty: "Psychiatrist",
       image: AssetsConstants.doctorDetailImage,
       description:
           "Dr. Peter Doe is a psychiatrist with 10 years of experience. He has worked with various hospitals and has a good reputation in the field of psychiatry, He has worked with various hospitals and has a good reputation in the field of psychiatry.",
@@ -105,7 +105,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
       emit(DoctorsState.loaded(doctors: doctors));
     } else {
       filteredDoctors =
-          doctors.where((doctor) => doctor.speciality == specialty).toList();
+          doctors.where((doctor) => doctor.specialty == specialty).toList();
       emit(DoctorsState.loaded(doctors: filteredDoctors));
     }
   }
