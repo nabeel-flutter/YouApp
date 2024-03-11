@@ -40,6 +40,8 @@ class ProfileScreen extends StatelessWidget {
                 right: 0,
                 child: UserProfileComponent(
                   profile: true,
+                  username: '',
+                  useremail: '',
                 )),
             Column(
                 mainAxisAlignment: MainAxisAlignment.center,

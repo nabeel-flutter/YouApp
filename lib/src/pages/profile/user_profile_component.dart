@@ -6,7 +6,14 @@ import 'package:new_beginnings/src/app/app_export.dart'; // Ensure your app_expo
 
 class UserProfileComponent extends StatefulWidget {
   final bool? profile;
-  const UserProfileComponent({super.key, this.profile = false});
+  final String username;
+  final String useremail;
+  const UserProfileComponent({
+    super.key,
+    this.profile = false,
+    required this.username,
+    required this.useremail,
+  });
 
   @override
   State<UserProfileComponent> createState() => _UserProfileComponentState();
@@ -93,14 +100,14 @@ class _UserProfileComponentState extends State<UserProfileComponent> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Nabeel Khanjee',
+                    widget.username,
                     style: Theme.of(context)
                         .textTheme
                         .headlineLarge!
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'nabeelshakeel966@gmail.com',
+                    widget.useremail,
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium!
