@@ -41,7 +41,25 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
               },
               title: appointmentCubit.reasonForAppointment,
             ),
-            const ModeOfAppointment(),
+            // const ModeOfAppointment(),
+            ExpandedSelectionWidget(
+                label: "Services",
+                textList: appointmentCubit.servicesList,
+                onTapped: (p0) {
+                  appointmentCubit.selectService(p0);
+                  setState(() {});
+                },
+                title: appointmentCubit.service),
+            appointmentCubit.service == "Individual Counseling"
+                ? ExpandedSelectionWidget(
+                    label: "Timeslot",
+                    textList: appointmentCubit.timeSlotList,
+                    onTapped: (p0) {
+                      appointmentCubit.selectTimeSlot(p0);
+                      setState(() {});
+                    },
+                    title: appointmentCubit.timeSlot)
+                : Container(),
             const SizedBox(height: 20),
             ElevatedButton(
                 onPressed: () {

@@ -1,4 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/domain/model/user.dart';
 import 'package:new_beginnings/src/pages/sign_in/cubit/sign_in_cubit.dart';
 
 class SignInForm extends StatelessWidget {
@@ -7,9 +8,9 @@ class SignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController =
-        TextEditingController(text: 'ayanmughal557@gmail.com');
+        TextEditingController(text: 'afloornstage@gmail.com');
     TextEditingController passwordController =
-        TextEditingController(text: "Smiu@123");
+        TextEditingController(text: "Wikikh909!");
     // TextEditingController emailController =
     //     TextEditingController(text: '');
     // TextEditingController passwordController =
@@ -48,8 +49,8 @@ class SignInForm extends StatelessWidget {
           const SizedBox(height: 10),
           GestureDetector(
             onTap: () {
-              context.router.pushNamed(RouteConstants.forgotPasswordRoute,
-              
+              context.router.pushNamed(
+                RouteConstants.forgotPasswordRoute,
               );
             },
             child: Align(
@@ -69,17 +70,21 @@ class SignInForm extends StatelessWidget {
                       return null;
                     },
                     error: (message) async {
+                            ToastComponent3(context).showToast(context, message);
+                  
                       if (message == 'User not verified') {
-                        ToastComponent3(context).showToast(context, message);
                         await context.router.push(
-                          VerifyEmailRoute(email:  emailController.text)
-                        );
+                            VerifyEmailRoute(email: emailController.text));
                       }
                       return null;
                     },
                     loaded: (token) async {
                       getIt.get<SharedPreferencesUtil>().setString(
                           SharedPreferenceConstants.apiAuthToken, token.token);
+                      
+                      getIt.get<AppCubit>().user= UserModel(
+                      accessToken: token.token  
+                      );
                       return await context.router.pushAndPopUntil(
                           predicate: (route) => false, const HomeRoute());
                     },

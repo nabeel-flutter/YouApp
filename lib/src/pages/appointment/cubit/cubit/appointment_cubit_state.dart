@@ -7,6 +7,8 @@ class AppointmentCubitState with _$AppointmentCubitState {
       _SelectedDate;
   const factory AppointmentCubitState.selectedTime(String? selectedTime) =
       _SelectedTime;
+  const factory AppointmentCubitState.selectedService(String? selectedService) = _SelectedService;     
   const factory AppointmentCubitState.selectedReasonForAppointment(
       String? selectedReason) = _SelectedReasonForAppointment;
+  const factory AppointmentCubitState.selectedTimeSlot(String? selectedTimeSlot) = _SelectedTimeSlot;
 }
