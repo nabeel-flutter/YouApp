@@ -84,7 +84,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                     : context
                         .read<DoctorsCubit>()
                         .doctors
-                        .where((element) => element.specialty == specialty)
+                        .where((element) => element.department == specialty)
                         .map((e) => GestureDetector(
                               onTap: () {
                                 context.router.push(
