@@ -64,7 +64,7 @@ class AppBarcomponent extends StatelessWidget {
                         )
                       ],
             backgroundColor: Colors.transparent,
-            leadingWidth: isBackAppBar ? 50 : 150,
+            leadingWidth: isBackAppBar ? 56 : 150,
             leading: isBackAppBar
                 ? GestureDetector(
                     onTap: () => NavigationUtil.pop(context),
