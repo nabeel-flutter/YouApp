@@ -4,11 +4,13 @@ class TopDoctorsWidget extends StatelessWidget {
   final String title;
   final String subtitle;
   final String? image;
+  final String? description;
   const TopDoctorsWidget(
       {Key? key,
       this.title = "Dr Alexa Johnson",
       this.image,
-      this.subtitle = "Cardiologist"})
+      this.subtitle = "Cardiologist",
+      this.description})
       : super(key: key);
 
   @override
@@ -69,7 +71,9 @@ class TopDoctorsWidget extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      "A comprehensive psychiatric evaluation is essential for diagnosing a spectrum of emotional.",
+                      description!,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             fontWeight: FontWeight.w600,
                             color: ColorConstants.primaryTextColor,

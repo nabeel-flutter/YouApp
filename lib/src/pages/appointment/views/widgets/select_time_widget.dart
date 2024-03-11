@@ -19,7 +19,7 @@ class _SelectTimeWidgetState extends State<SelectTimeWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          StringConstants.timeSlot,
+          "Preferred Time",
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                 fontWeight: FontWeight.w600,
                 fontSize: 16,

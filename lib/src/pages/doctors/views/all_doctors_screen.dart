@@ -78,13 +78,14 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                                 title: e.name,
                                 subtitle: e.specialty,
                                 image: e.image,
+                                description: e.description,
                               ),
                             ))
                         .toList()
                     : context
                         .read<DoctorsCubit>()
                         .doctors
-                        .where((element) => element.specialty == specialty)
+                        .where((element) => element.department == specialty)
                         .map((e) => GestureDetector(
                               onTap: () {
                                 context.router.push(
@@ -95,6 +96,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                                 title: e.name,
                                 subtitle: e.specialty,
                                 image: e.image,
+                                description: e.description,
                               ),
                             ))
                         .toList(),

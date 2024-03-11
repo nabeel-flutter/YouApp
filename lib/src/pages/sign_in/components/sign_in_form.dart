@@ -7,9 +7,9 @@ class SignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController =
-        TextEditingController(text: 'ayanmughal557@gmail.com');
+        TextEditingController(text: 'afloornstage@gmail.com');
     TextEditingController passwordController =
-        TextEditingController(text: "Smiu@123");
+        TextEditingController(text: "Wikikh909!");
     // TextEditingController emailController =
     //     TextEditingController(text: '');
     // TextEditingController passwordController =
@@ -48,8 +48,8 @@ class SignInForm extends StatelessWidget {
           const SizedBox(height: 10),
           GestureDetector(
             onTap: () {
-              context.router.pushNamed(RouteConstants.forgotPasswordRoute,
-              
+              context.router.pushNamed(
+                RouteConstants.forgotPasswordRoute,
               );
             },
             child: Align(
@@ -72,8 +72,7 @@ class SignInForm extends StatelessWidget {
                       if (message == 'User not verified') {
                         ToastComponent3(context).showToast(context, message);
                         await context.router.push(
-                          VerifyEmailRoute(email:  emailController.text)
-                        );
+                            VerifyEmailRoute(email: emailController.text));
                       }
                       return null;
                     },

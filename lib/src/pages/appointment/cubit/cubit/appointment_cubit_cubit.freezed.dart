@@ -21,8 +21,10 @@ mixin _$AppointmentCubitState {
     required TResult Function() initial,
     required TResult Function(DateTime? selectedDate) selectedDate,
     required TResult Function(String? selectedTime) selectedTime,
+    required TResult Function(String? selectedService) selectedService,
     required TResult Function(String? selectedReason)
         selectedReasonForAppointment,
+    required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,7 +32,9 @@ mixin _$AppointmentCubitState {
     TResult? Function()? initial,
     TResult? Function(DateTime? selectedDate)? selectedDate,
     TResult? Function(String? selectedTime)? selectedTime,
+    TResult? Function(String? selectedService)? selectedService,
     TResult? Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,7 +42,9 @@ mixin _$AppointmentCubitState {
     TResult Function()? initial,
     TResult Function(DateTime? selectedDate)? selectedDate,
     TResult Function(String? selectedTime)? selectedTime,
+    TResult Function(String? selectedService)? selectedService,
     TResult Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,8 +53,10 @@ mixin _$AppointmentCubitState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_SelectedDate value) selectedDate,
     required TResult Function(_SelectedTime value) selectedTime,
+    required TResult Function(_SelectedService value) selectedService,
     required TResult Function(_SelectedReasonForAppointment value)
         selectedReasonForAppointment,
+    required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,8 +64,10 @@ mixin _$AppointmentCubitState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SelectedDate value)? selectedDate,
     TResult? Function(_SelectedTime value)? selectedTime,
+    TResult? Function(_SelectedService value)? selectedService,
     TResult? Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
+    TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,8 +75,10 @@ mixin _$AppointmentCubitState {
     TResult Function(_Initial value)? initial,
     TResult Function(_SelectedDate value)? selectedDate,
     TResult Function(_SelectedTime value)? selectedTime,
+    TResult Function(_SelectedService value)? selectedService,
     TResult Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
+    TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,8 +143,10 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function(DateTime? selectedDate) selectedDate,
     required TResult Function(String? selectedTime) selectedTime,
+    required TResult Function(String? selectedService) selectedService,
     required TResult Function(String? selectedReason)
         selectedReasonForAppointment,
+    required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
   }) {
     return initial();
   }
@@ -143,7 +157,9 @@ class _$_Initial implements _Initial {
     TResult? Function()? initial,
     TResult? Function(DateTime? selectedDate)? selectedDate,
     TResult? Function(String? selectedTime)? selectedTime,
+    TResult? Function(String? selectedService)? selectedService,
     TResult? Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
   }) {
     return initial?.call();
   }
@@ -154,7 +170,9 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function(DateTime? selectedDate)? selectedDate,
     TResult Function(String? selectedTime)? selectedTime,
+    TResult Function(String? selectedService)? selectedService,
     TResult Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -169,8 +187,10 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_SelectedDate value) selectedDate,
     required TResult Function(_SelectedTime value) selectedTime,
+    required TResult Function(_SelectedService value) selectedService,
     required TResult Function(_SelectedReasonForAppointment value)
         selectedReasonForAppointment,
+    required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
   }) {
     return initial(this);
   }
@@ -181,8 +201,10 @@ class _$_Initial implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SelectedDate value)? selectedDate,
     TResult? Function(_SelectedTime value)? selectedTime,
+    TResult? Function(_SelectedService value)? selectedService,
     TResult? Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
+    TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
   }) {
     return initial?.call(this);
   }
@@ -193,8 +215,10 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_SelectedDate value)? selectedDate,
     TResult Function(_SelectedTime value)? selectedTime,
+    TResult Function(_SelectedService value)? selectedService,
     TResult Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
+    TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -276,8 +300,10 @@ class _$_SelectedDate implements _SelectedDate {
     required TResult Function() initial,
     required TResult Function(DateTime? selectedDate) selectedDate,
     required TResult Function(String? selectedTime) selectedTime,
+    required TResult Function(String? selectedService) selectedService,
     required TResult Function(String? selectedReason)
         selectedReasonForAppointment,
+    required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
   }) {
     return selectedDate(this.selectedDate);
   }
@@ -288,7 +314,9 @@ class _$_SelectedDate implements _SelectedDate {
     TResult? Function()? initial,
     TResult? Function(DateTime? selectedDate)? selectedDate,
     TResult? Function(String? selectedTime)? selectedTime,
+    TResult? Function(String? selectedService)? selectedService,
     TResult? Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
   }) {
     return selectedDate?.call(this.selectedDate);
   }
@@ -299,7 +327,9 @@ class _$_SelectedDate implements _SelectedDate {
     TResult Function()? initial,
     TResult Function(DateTime? selectedDate)? selectedDate,
     TResult Function(String? selectedTime)? selectedTime,
+    TResult Function(String? selectedService)? selectedService,
     TResult Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
     required TResult orElse(),
   }) {
     if (selectedDate != null) {
@@ -314,8 +344,10 @@ class _$_SelectedDate implements _SelectedDate {
     required TResult Function(_Initial value) initial,
     required TResult Function(_SelectedDate value) selectedDate,
     required TResult Function(_SelectedTime value) selectedTime,
+    required TResult Function(_SelectedService value) selectedService,
     required TResult Function(_SelectedReasonForAppointment value)
         selectedReasonForAppointment,
+    required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
   }) {
     return selectedDate(this);
   }
@@ -326,8 +358,10 @@ class _$_SelectedDate implements _SelectedDate {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SelectedDate value)? selectedDate,
     TResult? Function(_SelectedTime value)? selectedTime,
+    TResult? Function(_SelectedService value)? selectedService,
     TResult? Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
+    TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
   }) {
     return selectedDate?.call(this);
   }
@@ -338,8 +372,10 @@ class _$_SelectedDate implements _SelectedDate {
     TResult Function(_Initial value)? initial,
     TResult Function(_SelectedDate value)? selectedDate,
     TResult Function(_SelectedTime value)? selectedTime,
+    TResult Function(_SelectedService value)? selectedService,
     TResult Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
+    TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
     required TResult orElse(),
   }) {
     if (selectedDate != null) {
@@ -426,8 +462,10 @@ class _$_SelectedTime implements _SelectedTime {
     required TResult Function() initial,
     required TResult Function(DateTime? selectedDate) selectedDate,
     required TResult Function(String? selectedTime) selectedTime,
+    required TResult Function(String? selectedService) selectedService,
     required TResult Function(String? selectedReason)
         selectedReasonForAppointment,
+    required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
   }) {
     return selectedTime(this.selectedTime);
   }
@@ -438,7 +476,9 @@ class _$_SelectedTime implements _SelectedTime {
     TResult? Function()? initial,
     TResult? Function(DateTime? selectedDate)? selectedDate,
     TResult? Function(String? selectedTime)? selectedTime,
+    TResult? Function(String? selectedService)? selectedService,
     TResult? Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
   }) {
     return selectedTime?.call(this.selectedTime);
   }
@@ -449,7 +489,9 @@ class _$_SelectedTime implements _SelectedTime {
     TResult Function()? initial,
     TResult Function(DateTime? selectedDate)? selectedDate,
     TResult Function(String? selectedTime)? selectedTime,
+    TResult Function(String? selectedService)? selectedService,
     TResult Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
     required TResult orElse(),
   }) {
     if (selectedTime != null) {
@@ -464,8 +506,10 @@ class _$_SelectedTime implements _SelectedTime {
     required TResult Function(_Initial value) initial,
     required TResult Function(_SelectedDate value) selectedDate,
     required TResult Function(_SelectedTime value) selectedTime,
+    required TResult Function(_SelectedService value) selectedService,
     required TResult Function(_SelectedReasonForAppointment value)
         selectedReasonForAppointment,
+    required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
   }) {
     return selectedTime(this);
   }
@@ -476,8 +520,10 @@ class _$_SelectedTime implements _SelectedTime {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SelectedDate value)? selectedDate,
     TResult? Function(_SelectedTime value)? selectedTime,
+    TResult? Function(_SelectedService value)? selectedService,
     TResult? Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
+    TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
   }) {
     return selectedTime?.call(this);
   }
@@ -488,8 +534,10 @@ class _$_SelectedTime implements _SelectedTime {
     TResult Function(_Initial value)? initial,
     TResult Function(_SelectedDate value)? selectedDate,
     TResult Function(_SelectedTime value)? selectedTime,
+    TResult Function(_SelectedService value)? selectedService,
     TResult Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
+    TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
     required TResult orElse(),
   }) {
     if (selectedTime != null) {
@@ -505,6 +553,169 @@ abstract class _SelectedTime implements AppointmentCubitState {
   String? get selectedTime;
   @JsonKey(ignore: true)
   _$$_SelectedTimeCopyWith<_$_SelectedTime> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedServiceCopyWith<$Res> {
+  factory _$$_SelectedServiceCopyWith(
+          _$_SelectedService value, $Res Function(_$_SelectedService) then) =
+      __$$_SelectedServiceCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? selectedService});
+}
+
+/// @nodoc
+class __$$_SelectedServiceCopyWithImpl<$Res>
+    extends _$AppointmentCubitStateCopyWithImpl<$Res, _$_SelectedService>
+    implements _$$_SelectedServiceCopyWith<$Res> {
+  __$$_SelectedServiceCopyWithImpl(
+      _$_SelectedService _value, $Res Function(_$_SelectedService) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedService = freezed,
+  }) {
+    return _then(_$_SelectedService(
+      freezed == selectedService
+          ? _value.selectedService
+          : selectedService // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedService implements _SelectedService {
+  const _$_SelectedService(this.selectedService);
+
+  @override
+  final String? selectedService;
+
+  @override
+  String toString() {
+    return 'AppointmentCubitState.selectedService(selectedService: $selectedService)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedService &&
+            (identical(other.selectedService, selectedService) ||
+                other.selectedService == selectedService));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, selectedService);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedServiceCopyWith<_$_SelectedService> get copyWith =>
+      __$$_SelectedServiceCopyWithImpl<_$_SelectedService>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(DateTime? selectedDate) selectedDate,
+    required TResult Function(String? selectedTime) selectedTime,
+    required TResult Function(String? selectedService) selectedService,
+    required TResult Function(String? selectedReason)
+        selectedReasonForAppointment,
+    required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+  }) {
+    return selectedService(this.selectedService);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(DateTime? selectedDate)? selectedDate,
+    TResult? Function(String? selectedTime)? selectedTime,
+    TResult? Function(String? selectedService)? selectedService,
+    TResult? Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+  }) {
+    return selectedService?.call(this.selectedService);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(DateTime? selectedDate)? selectedDate,
+    TResult Function(String? selectedTime)? selectedTime,
+    TResult Function(String? selectedService)? selectedService,
+    TResult Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    required TResult orElse(),
+  }) {
+    if (selectedService != null) {
+      return selectedService(this.selectedService);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SelectedDate value) selectedDate,
+    required TResult Function(_SelectedTime value) selectedTime,
+    required TResult Function(_SelectedService value) selectedService,
+    required TResult Function(_SelectedReasonForAppointment value)
+        selectedReasonForAppointment,
+    required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+  }) {
+    return selectedService(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SelectedDate value)? selectedDate,
+    TResult? Function(_SelectedTime value)? selectedTime,
+    TResult? Function(_SelectedService value)? selectedService,
+    TResult? Function(_SelectedReasonForAppointment value)?
+        selectedReasonForAppointment,
+    TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+  }) {
+    return selectedService?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SelectedDate value)? selectedDate,
+    TResult Function(_SelectedTime value)? selectedTime,
+    TResult Function(_SelectedService value)? selectedService,
+    TResult Function(_SelectedReasonForAppointment value)?
+        selectedReasonForAppointment,
+    TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    required TResult orElse(),
+  }) {
+    if (selectedService != null) {
+      return selectedService(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedService implements AppointmentCubitState {
+  const factory _SelectedService(final String? selectedService) =
+      _$_SelectedService;
+
+  String? get selectedService;
+  @JsonKey(ignore: true)
+  _$$_SelectedServiceCopyWith<_$_SelectedService> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -580,8 +791,10 @@ class _$_SelectedReasonForAppointment implements _SelectedReasonForAppointment {
     required TResult Function() initial,
     required TResult Function(DateTime? selectedDate) selectedDate,
     required TResult Function(String? selectedTime) selectedTime,
+    required TResult Function(String? selectedService) selectedService,
     required TResult Function(String? selectedReason)
         selectedReasonForAppointment,
+    required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
   }) {
     return selectedReasonForAppointment(selectedReason);
   }
@@ -592,7 +805,9 @@ class _$_SelectedReasonForAppointment implements _SelectedReasonForAppointment {
     TResult? Function()? initial,
     TResult? Function(DateTime? selectedDate)? selectedDate,
     TResult? Function(String? selectedTime)? selectedTime,
+    TResult? Function(String? selectedService)? selectedService,
     TResult? Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
   }) {
     return selectedReasonForAppointment?.call(selectedReason);
   }
@@ -603,7 +818,9 @@ class _$_SelectedReasonForAppointment implements _SelectedReasonForAppointment {
     TResult Function()? initial,
     TResult Function(DateTime? selectedDate)? selectedDate,
     TResult Function(String? selectedTime)? selectedTime,
+    TResult Function(String? selectedService)? selectedService,
     TResult Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
     required TResult orElse(),
   }) {
     if (selectedReasonForAppointment != null) {
@@ -618,8 +835,10 @@ class _$_SelectedReasonForAppointment implements _SelectedReasonForAppointment {
     required TResult Function(_Initial value) initial,
     required TResult Function(_SelectedDate value) selectedDate,
     required TResult Function(_SelectedTime value) selectedTime,
+    required TResult Function(_SelectedService value) selectedService,
     required TResult Function(_SelectedReasonForAppointment value)
         selectedReasonForAppointment,
+    required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
   }) {
     return selectedReasonForAppointment(this);
   }
@@ -630,8 +849,10 @@ class _$_SelectedReasonForAppointment implements _SelectedReasonForAppointment {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SelectedDate value)? selectedDate,
     TResult? Function(_SelectedTime value)? selectedTime,
+    TResult? Function(_SelectedService value)? selectedService,
     TResult? Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
+    TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
   }) {
     return selectedReasonForAppointment?.call(this);
   }
@@ -642,8 +863,10 @@ class _$_SelectedReasonForAppointment implements _SelectedReasonForAppointment {
     TResult Function(_Initial value)? initial,
     TResult Function(_SelectedDate value)? selectedDate,
     TResult Function(_SelectedTime value)? selectedTime,
+    TResult Function(_SelectedService value)? selectedService,
     TResult Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
+    TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
     required TResult orElse(),
   }) {
     if (selectedReasonForAppointment != null) {
@@ -661,4 +884,167 @@ abstract class _SelectedReasonForAppointment implements AppointmentCubitState {
   @JsonKey(ignore: true)
   _$$_SelectedReasonForAppointmentCopyWith<_$_SelectedReasonForAppointment>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedTimeSlotCopyWith<$Res> {
+  factory _$$_SelectedTimeSlotCopyWith(
+          _$_SelectedTimeSlot value, $Res Function(_$_SelectedTimeSlot) then) =
+      __$$_SelectedTimeSlotCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? selectedTimeSlot});
+}
+
+/// @nodoc
+class __$$_SelectedTimeSlotCopyWithImpl<$Res>
+    extends _$AppointmentCubitStateCopyWithImpl<$Res, _$_SelectedTimeSlot>
+    implements _$$_SelectedTimeSlotCopyWith<$Res> {
+  __$$_SelectedTimeSlotCopyWithImpl(
+      _$_SelectedTimeSlot _value, $Res Function(_$_SelectedTimeSlot) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedTimeSlot = freezed,
+  }) {
+    return _then(_$_SelectedTimeSlot(
+      freezed == selectedTimeSlot
+          ? _value.selectedTimeSlot
+          : selectedTimeSlot // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedTimeSlot implements _SelectedTimeSlot {
+  const _$_SelectedTimeSlot(this.selectedTimeSlot);
+
+  @override
+  final String? selectedTimeSlot;
+
+  @override
+  String toString() {
+    return 'AppointmentCubitState.selectedTimeSlot(selectedTimeSlot: $selectedTimeSlot)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedTimeSlot &&
+            (identical(other.selectedTimeSlot, selectedTimeSlot) ||
+                other.selectedTimeSlot == selectedTimeSlot));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, selectedTimeSlot);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedTimeSlotCopyWith<_$_SelectedTimeSlot> get copyWith =>
+      __$$_SelectedTimeSlotCopyWithImpl<_$_SelectedTimeSlot>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(DateTime? selectedDate) selectedDate,
+    required TResult Function(String? selectedTime) selectedTime,
+    required TResult Function(String? selectedService) selectedService,
+    required TResult Function(String? selectedReason)
+        selectedReasonForAppointment,
+    required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+  }) {
+    return selectedTimeSlot(this.selectedTimeSlot);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(DateTime? selectedDate)? selectedDate,
+    TResult? Function(String? selectedTime)? selectedTime,
+    TResult? Function(String? selectedService)? selectedService,
+    TResult? Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+  }) {
+    return selectedTimeSlot?.call(this.selectedTimeSlot);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(DateTime? selectedDate)? selectedDate,
+    TResult Function(String? selectedTime)? selectedTime,
+    TResult Function(String? selectedService)? selectedService,
+    TResult Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    required TResult orElse(),
+  }) {
+    if (selectedTimeSlot != null) {
+      return selectedTimeSlot(this.selectedTimeSlot);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_SelectedDate value) selectedDate,
+    required TResult Function(_SelectedTime value) selectedTime,
+    required TResult Function(_SelectedService value) selectedService,
+    required TResult Function(_SelectedReasonForAppointment value)
+        selectedReasonForAppointment,
+    required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+  }) {
+    return selectedTimeSlot(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_SelectedDate value)? selectedDate,
+    TResult? Function(_SelectedTime value)? selectedTime,
+    TResult? Function(_SelectedService value)? selectedService,
+    TResult? Function(_SelectedReasonForAppointment value)?
+        selectedReasonForAppointment,
+    TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+  }) {
+    return selectedTimeSlot?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_SelectedDate value)? selectedDate,
+    TResult Function(_SelectedTime value)? selectedTime,
+    TResult Function(_SelectedService value)? selectedService,
+    TResult Function(_SelectedReasonForAppointment value)?
+        selectedReasonForAppointment,
+    TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    required TResult orElse(),
+  }) {
+    if (selectedTimeSlot != null) {
+      return selectedTimeSlot(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedTimeSlot implements AppointmentCubitState {
+  const factory _SelectedTimeSlot(final String? selectedTimeSlot) =
+      _$_SelectedTimeSlot;
+
+  String? get selectedTimeSlot;
+  @JsonKey(ignore: true)
+  _$$_SelectedTimeSlotCopyWith<_$_SelectedTimeSlot> get copyWith =>
+      throw _privateConstructorUsedError;
 }
