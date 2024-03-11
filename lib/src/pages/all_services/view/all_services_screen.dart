@@ -7,97 +7,115 @@ class AllServicesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PrimaryBackground(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
-        child: Column(
-          children: [
-            //search services
-            const SearchBarWidget(),
-            const SizedBox(height: 20),
-            BlocBuilder<ServiceCubit, ServiceState>(
-              builder: (context, state) => state.maybeWhen(
-                  orElse: () => Container(),
-                  loaded: (services) {
-                    return Expanded(
-                      child: ListView.builder(
-                        itemCount: services.length,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              if (services[index].name ==
-                                  "Psychiatric\nEvaluation") {
-                                context.router.push(
-                                  ServiceInnerRoute(service: services[index]),
-                                );
-                              }
-                              if (services[index].name == "Group Therapy") {
-                                debugPrint("Group Therapy");
-                                context.router.push(
-                                  const GTRoute(),
-                                );
-                              }
-                              if (services[index].name ==
-                                  "Medication\nManagement") {
-                                context.router.push(
-                                  const MMRoute(),
-                                );
-                              }
-                              if (services[index].name == "Play Therapy") {
-                                context.router.push(
-                                  const PTRoute(),
-                                );
-                              }
-                              if (services[index].name ==
-                                  "Individual Therapy") {
-                                context.router.push(
-                                  const IDRoute(),
-                                );
-                              }
-                              if (services[index].name ==
-                                  "Couple & Family Therapy") {
-                                context.router.push(
-                                  const CPTRoute(),
-                                );
-                              }
-                              if (services[index].name == "Pharmacogenomics") {
-                                context.router.push(
-                                  const PMRoute(),
-                                );
-                              }
-                              if (services[index].name ==
-                                  "Addiction Treatment") {
-                                context.router.push(
-                                  const ATRoute(),
-                                );
-                              }
-                              if (services[index].name == "Telepsychiatry") {
-                                context.router.push(
-                                  const TPRoute(),
-                                );
-                              }
-                              if (services[index].name == "Primary Care") {
-                                context.router.push(
-                                  const PCRoute(),
-                                );
-                              }
+    return PopScope(
+      canPop: true,
+      onPopInvoked: (didPop) async {
+        if (didPop) {
+          await BlocProvider.of<ServiceCubit>(context)
+              .close()
+              .then((value) => context.router.pop());
+        }
+      },
+      child: PrimaryBackground(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
+          child: Column(
+            children: [
+              //search services
+              const SearchBarWidget(),
+              const SizedBox(height: 20),
+              BlocProvider<ServiceCubit>(
+                create: (context) =>
+                    BlocProvider.of<ServiceCubit>(context)..getServices(),
+                lazy: true,
+                child: BlocBuilder<ServiceCubit, ServiceState>(
+                  builder: (context, state) => state.maybeWhen(
+                      orElse: () => Container(),
+                      loaded: (services) {
+                        return Expanded(
+                          child: ListView.builder(
+                            itemCount: services.length,
+                            itemBuilder: (context, index) {
+                              return GestureDetector(
+                                onTap: () {
+                                  if (services[index].name ==
+                                      "Psychiatric\nEvaluation") {
+                                    context.router.push(
+                                      ServiceInnerRoute(
+                                          service: services[index]),
+                                    );
+                                  }
+                                  if (services[index].name == "Group Therapy") {
+                                    debugPrint("Group Therapy");
+                                    context.router.push(
+                                      const GTRoute(),
+                                    );
+                                  }
+                                  if (services[index].name ==
+                                      "Medication\nManagement") {
+                                    context.router.push(
+                                      const MMRoute(),
+                                    );
+                                  }
+                                  if (services[index].name == "Play Therapy") {
+                                    context.router.push(
+                                      const PTRoute(),
+                                    );
+                                  }
+                                  if (services[index].name ==
+                                      "Individual Therapy") {
+                                    context.router.push(
+                                      const IDRoute(),
+                                    );
+                                  }
+                                  if (services[index].name ==
+                                      "Couple & Family Therapy") {
+                                    context.router.push(
+                                      const CPTRoute(),
+                                    );
+                                  }
+                                  if (services[index].name ==
+                                      "Pharmacogenomics") {
+                                    context.router.push(
+                                      const PMRoute(),
+                                    );
+                                  }
+                                  if (services[index].name ==
+                                      "Addiction Treatment") {
+                                    context.router.push(
+                                      const ATRoute(),
+                                    );
+                                  }
+                                  if (services[index].name ==
+                                      "Telepsychiatry") {
+                                    context.router.push(
+                                      const TPRoute(),
+                                    );
+                                  }
+                                  if (services[index].name == "Primary Care") {
+                                    context.router.push(
+                                      const PCRoute(),
+                                    );
+                                  }
+                                },
+                                child: ServiceCard(
+                                  title: services[index].name,
+                                  image: services[index].image,
+                                  description: services[index].description,
+                                ),
+                              );
                             },
-                            child: ServiceCard(
-                              title: services[index].name,
-                              image: services[index].image,
-                              description: services[index].description,
-                            ),
-                          );
-                        },
-                      ),
-                    );
-                  }),
-            ),
-          ],
+                          ),
+                        );
+                      }),
+                ),
+              ),
+            ],
+          ),
         ),
+        appbarText: StringConstants.services,
+        isBackAppBar: true,
       ),
-      appbarText: StringConstants.services,
-      isBackAppBar: true,
     );
   }
 }
@@ -107,6 +125,8 @@ class SearchBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController searchController = TextEditingController();
+
     return Container(
       height: 50,
       width: double.infinity,
@@ -124,7 +144,10 @@ class SearchBarWidget extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             Expanded(
-              child: TextField(
+              child: TextFormField(
+                onChanged: (value) => BlocProvider.of<ServiceCubit>(context)
+                  ..searchService(value),
+                controller: searchController,
                 decoration: InputDecoration(
                   suffixIcon: const Icon(
                     Icons.filter_alt_outlined,

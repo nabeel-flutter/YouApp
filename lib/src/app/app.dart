@@ -35,8 +35,8 @@ class App extends StatelessWidget {
               BlocProvider(create: (context) => IsGradientBackgroundCubit()),
               BlocProvider(create: (context) => AppointmentCubit()),
               BlocProvider(create: (context) => DoctorsCubit()),
-              BlocProvider(create: (context) => ServiceCubit()..getServices()),
-              BlocProvider(create: (context) => ServiceCubit()..getServices()),
+              BlocProvider(create: (context) => ServiceCubit(),
+              ),
             ],
             child: MaterialApp.router(
               key: navigationService?.navigatorKey,

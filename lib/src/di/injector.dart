@@ -1,4 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/all_services/cubit/cubit/service_cubit.dart';
 import 'package:new_beginnings/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
 import 'package:new_beginnings/src/pages/forgot_password/cubit/forget_password_cubit.dart';
 import 'package:new_beginnings/src/pages/mental_health/mental_health_inner_pages/gad_7/cubit/gad_7_cubit.dart';
@@ -48,6 +49,7 @@ void _injectBlocsAndCubits() {
   
   getIt.registerFactory(() => GAD7Cubit());
   getIt.registerFactory(() => DoctorsCubit());
+    getIt.registerFactory(() => ServiceCubit());
   getIt.registerLazySingleton(() => AppRouter());
 }
 

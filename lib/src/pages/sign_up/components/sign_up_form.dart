@@ -142,7 +142,7 @@ class _SignUpFormState extends State<SignUpForm> {
                               fontWeight: FontWeight.w700,
                             ),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
