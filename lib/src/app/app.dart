@@ -23,19 +23,20 @@ class App extends StatelessWidget {
               BlocProvider(
                 create: (context) => SignInCubit(getIt.get()),
               ),
-              BlocProvider(create:(context) =>  VerifyEmailCubit(getIt.get())),
+              BlocProvider(create: (context) => VerifyEmailCubit(getIt.get())),
               BlocProvider(
                 create: (context) => SignUpCubit(getIt.get()),
               ),
               BlocProvider(
-                create: (context) =>             ForgetPasswordCubit(getIt.get()),
+                create: (context) => ForgetPasswordCubit(getIt.get()),
               ),
               BlocProvider(create: (context) => AppCubit()),
               BlocProvider(create: (context) => AnimatedDrawerCubit()),
               BlocProvider(create: (context) => IsGradientBackgroundCubit()),
               BlocProvider(create: (context) => AppointmentCubit()),
               BlocProvider(create: (context) => DoctorsCubit()),
-              BlocProvider(create: (context) => ServiceCubit(),
+              BlocProvider(
+                create: (context) => ServiceCubit(),
               ),
             ],
             child: MaterialApp.router(
