@@ -78,6 +78,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                                 title: e.name,
                                 subtitle: e.specialty,
                                 image: e.image,
+                                description: e.description,
                               ),
                             ))
                         .toList()
@@ -95,6 +96,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                                 title: e.name,
                                 subtitle: e.specialty,
                                 image: e.image,
+                                description: e.description,
                               ),
                             ))
                         .toList(),
