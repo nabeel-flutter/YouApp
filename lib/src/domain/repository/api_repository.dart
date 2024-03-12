@@ -94,4 +94,7 @@ abstract class ApiRepository extends Repository {
   Future<Result<BaseResponseDto>>  forgetPassword({required String email});
 
   Future<Result<BaseResponseDto>> verifyEmail({required String email});
+
+  getUser({String? token}) ;
+
 }

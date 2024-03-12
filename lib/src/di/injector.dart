@@ -5,6 +5,7 @@ import 'package:new_beginnings/src/pages/forgot_password/cubit/forget_password_c
 import 'package:new_beginnings/src/pages/mental_health/mental_health_inner_pages/gad_7/cubit/gad_7_cubit.dart';
 import 'package:new_beginnings/src/pages/product_detail/cubit/product_detail_cubit.dart';
 import 'package:new_beginnings/src/pages/products/cubit/products_list_cubit.dart';
+import 'package:new_beginnings/src/pages/profile/cubit/user_profile_cubit.dart';
 import 'package:new_beginnings/src/pages/sign_in/cubit/sign_in_cubit.dart';
 import 'package:new_beginnings/src/pages/sign_up/cubit/sign_up_cubit.dart';
 import 'package:new_beginnings/src/pages/verify_email/cubit/verify_email_cubit.dart';
@@ -45,6 +46,7 @@ void _injectBlocsAndCubits() {
   getIt.registerFactory(() => SignUpCubit(getIt.get()));
   getIt.registerFactory(() => ForgetPasswordCubit(getIt.get()));
   getIt.registerFactory(() => VerifyEmailCubit(getIt.get()));
+  getIt.registerFactory(() => UserProfileCubit(getIt.get()));
   
   
   getIt.registerFactory(() => GAD7Cubit());

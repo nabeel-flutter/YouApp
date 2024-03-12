@@ -13,6 +13,7 @@ import 'package:new_beginnings/src/data/dto/medical_records_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/product_dto.dart';
 import 'package:new_beginnings/src/data/dto/sehat_scan_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/token_dto.dart';
+import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 
 ///
 ///
@@ -37,6 +38,7 @@ class SoftTechTestApi {
   static String kRouteAuthForgetPassword='password/forgot';
 
   static String kRouteAuthVerifyEmail='resendEmailVerify';
+  static String kRouteUserDetail='user';
 
   static String kRouteGetProductDetail(int id) => '$kRouteGetProducts/$id';
 
@@ -329,6 +331,14 @@ class SoftTechTestApi {
     });
     return BaseResponseDto.fromJson({"data": response.data},
         (value) => value );
+
+  }
+
+  
+       Future<BaseResponseDto<UserDetails>> getUser() async {
+           final response = await dio.get(kRouteUserDetail);
+    return BaseResponseDto.fromJson({"data": response.data},
+        (value) => UserDetails.fromJson(value as Map<String, dynamic>) );
 
   }
 }

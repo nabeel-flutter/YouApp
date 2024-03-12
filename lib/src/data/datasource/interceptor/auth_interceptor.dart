@@ -54,7 +54,13 @@ class AuthInterceptor extends InterceptorsWrapper {
   @override
   Future<void> onError(
       DioException err, ErrorInterceptorHandler handler) async {
+        if(err.response?.statusCode == 403 ){
+          NavigationUtil.popAllAndPush(navigationService!.navigatorKey.currentContext!, RouteConstants.signInRoute);
+          getIt.get<SharedPreferencesUtil>().removeValue(SharedPreferenceConstants.apiAuthToken);
+          
+        }
     if (err.response?.statusCode == 401 /* unauthorized */) {
+      
       // await _preferences.clearSession();
     }
 

@@ -6,7 +6,9 @@ class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)  {
+    
+    BlocProvider.of<UserProfileCubit>(context).getUserData();
     return BlocConsumer<UserProfileCubit, UserProfileState>(
       listener: (context, state) {
         // TODO: implement listener
@@ -45,6 +47,8 @@ class ProfileScreen extends StatelessWidget {
                     left: 0,
                     right: 0,
                     child: UserProfileComponent(
+                      useremail: '',
+                      username: '',
                       profile: true,
                     )),
                 Column(
@@ -52,10 +56,8 @@ class ProfileScreen extends StatelessWidget {
                     children: [Spacer(), const UserProfileBottomComponent()]),
               ],
             ),
-            isBackAppBar: false,
-            appbarText: StringConstants.profile);
-      },
-    );
+        isBackAppBar: false,
+        appbarText: StringConstants.profile);});
   }
 }
 

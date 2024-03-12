@@ -19,7 +19,7 @@ mixin _$UserProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(UserModel user) loaded,
+    required TResult Function(UserDetails user) loaded,
     required TResult Function() loading,
     required TResult Function(String message) error,
   }) =>
@@ -27,7 +27,7 @@ mixin _$UserProfileState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(UserModel user)? loaded,
+    TResult? Function(UserDetails user)? loaded,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
   }) =>
@@ -35,7 +35,7 @@ mixin _$UserProfileState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user)? loaded,
+    TResult Function(UserDetails user)? loaded,
     TResult Function()? loading,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -124,7 +124,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(UserModel user) loaded,
+    required TResult Function(UserDetails user) loaded,
     required TResult Function() loading,
     required TResult Function(String message) error,
   }) {
@@ -135,7 +135,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(UserModel user)? loaded,
+    TResult? Function(UserDetails user)? loaded,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
   }) {
@@ -146,7 +146,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user)? loaded,
+    TResult Function(UserDetails user)? loaded,
     TResult Function()? loading,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -204,7 +204,7 @@ abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserModel user});
+  $Res call({UserDetails user});
 }
 
 /// @nodoc
@@ -223,7 +223,7 @@ class __$$_LoadedCopyWithImpl<$Res>
       null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as UserDetails,
     ));
   }
 }
@@ -234,7 +234,7 @@ class _$_Loaded implements _Loaded {
   const _$_Loaded(this.user);
 
   @override
-  final UserModel user;
+  final UserDetails user;
 
   @override
   String toString() {
@@ -262,7 +262,7 @@ class _$_Loaded implements _Loaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(UserModel user) loaded,
+    required TResult Function(UserDetails user) loaded,
     required TResult Function() loading,
     required TResult Function(String message) error,
   }) {
@@ -273,7 +273,7 @@ class _$_Loaded implements _Loaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(UserModel user)? loaded,
+    TResult? Function(UserDetails user)? loaded,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
   }) {
@@ -284,7 +284,7 @@ class _$_Loaded implements _Loaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user)? loaded,
+    TResult Function(UserDetails user)? loaded,
     TResult Function()? loading,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -334,9 +334,9 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements UserProfileState {
-  const factory _Loaded(final UserModel user) = _$_Loaded;
+  const factory _Loaded(final UserDetails user) = _$_Loaded;
 
-  UserModel get user;
+  UserDetails get user;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -380,7 +380,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(UserModel user) loaded,
+    required TResult Function(UserDetails user) loaded,
     required TResult Function() loading,
     required TResult Function(String message) error,
   }) {
@@ -391,7 +391,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(UserModel user)? loaded,
+    TResult? Function(UserDetails user)? loaded,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
   }) {
@@ -402,7 +402,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user)? loaded,
+    TResult Function(UserDetails user)? loaded,
     TResult Function()? loading,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -518,7 +518,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(UserModel user) loaded,
+    required TResult Function(UserDetails user) loaded,
     required TResult Function() loading,
     required TResult Function(String message) error,
   }) {
@@ -529,7 +529,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(UserModel user)? loaded,
+    TResult? Function(UserDetails user)? loaded,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
   }) {
@@ -540,7 +540,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user)? loaded,
+    TResult Function(UserDetails user)? loaded,
     TResult Function()? loading,
     TResult Function(String message)? error,
     required TResult orElse(),
