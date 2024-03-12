@@ -99,8 +99,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 left: 0,
                 right: 0,
                 child: UserProfileComponent(
-                  username: firstnamecontrolller.text,
-                  useremail: emailcontroller.text,
+                  userName: firstnamecontrolller.text,
+                  userEmail: emailcontroller.text,
                 )),
             Padding(
               padding:
