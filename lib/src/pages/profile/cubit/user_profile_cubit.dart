@@ -10,18 +10,17 @@ part 'user_profile_state.dart';
 part 'user_profile_cubit.freezed.dart';
 
 class UserProfileCubit extends Cubit<UserProfileState> {
-    ApiRepository apiRepository;
+  ApiRepository apiRepository;
 
-  UserProfileCubit(this.apiRepository) : super(const UserProfileState.initial());
+  UserProfileCubit(this.apiRepository)
+      : super(const UserProfileState.initial());
 
   Future<void> getUserData() async {
-    
-     final Result<BaseResponseDto<UserDetails>> result=   await  apiRepository.getUser(token : await getIt.get<SharedPreferencesUtil>().getString(SharedPreferenceConstants.apiAuthToken) );
-     result.when(success: (data) => emit(
-      _Loaded(data.data!)
-     ), failed:(error) =>  emit(
-      _Error(error.message)
-     ));
+    emit(const _Loading());
+    final Result<BaseResponseDto<UserDetails>> result =
+        await apiRepository.getUser();
+    result.when(
+        success: (data) => emit(_Loaded(data.data!)),
+        failed: (error) => emit(_Error(error.message)));
   }
-
 }

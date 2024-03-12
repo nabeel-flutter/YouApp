@@ -59,7 +59,7 @@ class ProductsScreen extends StatelessWidget {
                           .read<ProductsListCubit>()
                           .getAllProducts(limit: limit);
                     },
-                    msg: message,
+                    message: message,
                   );
                 },
               ),
@@ -70,40 +70,6 @@ class ProductsScreen extends StatelessWidget {
   }
 }
 
-class ErrorState extends StatelessWidget {
-  const ErrorState({
-    super.key,
-    required this.msg,
-    required this.onTap,
-  });
-
-  final String msg;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        SizedBox(
-          width: MediaQuery.of(context).size.width / 1.5,
-          child: Text(
-            msg,
-            textAlign: TextAlign.center,
-          ),
-        ),
-        const SizedBox(height: 20),
-        SizedBox(
-          width: MediaQuery.of(context).size.width / 3,
-          height: 50,
-          child: ElevatedButton(onPressed: onTap, child: const Text('Retry')),
-        )
-      ],
-    ));
-  }
-}
 
 class LoadedState extends StatelessWidget {
   const LoadedState({

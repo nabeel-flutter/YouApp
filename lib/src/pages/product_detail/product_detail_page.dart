@@ -27,7 +27,7 @@ class ProductDetailScreen extends StatelessWidget {
                         .read<ProductDetailCubit>()
                         .getProductDetail(id: args.id);
                   },
-                  msg: message,
+                  message: message,
                 ),
                 loaded: (product) => Center(
                   child: Column(
