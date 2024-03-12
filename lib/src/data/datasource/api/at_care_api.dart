@@ -36,10 +36,10 @@ class SoftTechTestApi {
 
   static String kRouteAuthSignUp = 'register';
 
-  static String kRouteAuthForgetPassword='password/forgot';
+  static String kRouteAuthForgetPassword = 'password/forgot';
 
-  static String kRouteAuthVerifyEmail='resendEmailVerify';
-  static String kRouteUserDetail='user';
+  static String kRouteAuthVerifyEmail = 'resendEmailVerify';
+  static String kRouteUserDetail = 'user';
 
   static String kRouteGetProductDetail(int id) => '$kRouteGetProducts/$id';
 
@@ -317,30 +317,24 @@ class SoftTechTestApi {
         (value) => TokenDto.fromJson(value as Map<String, dynamic>));
   }
 
-  Future<BaseResponseDto> forgetPassword({required String email,}) async {
-       final response = await dio.post(kRouteAuthForgetPassword, data: {
-      'email': email
-    });
-    return BaseResponseDto.fromJson({"data": response.data},
-        (value) => value );
- 
+  Future<BaseResponseDto> forgetPassword({
+    required String email,
+  }) async {
+    final response =
+        await dio.post(kRouteAuthForgetPassword, data: {'email': email});
+    return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
   }
 
   Future<BaseResponseDto> verifyEmail({required String email}) async {
-           final response = await dio.post(kRouteAuthVerifyEmail, data: {
-      'email': email
-    });
-    return BaseResponseDto.fromJson({"data": response.data},
-        (value) => value );
-
+    final response =
+        await dio.post(kRouteAuthVerifyEmail, data: {'email': email});
+    return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
   }
 
-  
-       Future<BaseResponseDto<UserDetails>> getUser() async {
-           final response = await dio.get(kRouteUserDetail);
+  Future<BaseResponseDto<UserDetails>> getUser() async {
+    final response = await dio.get(kRouteUserDetail);
     return BaseResponseDto.fromJson({"data": response.data},
-        (value) => UserDetails.fromJson(value as Map<String, dynamic>) );
-
+        (value) => UserDetails.fromJson(value as Map<String, dynamic>));
   }
 
       Future<BaseResponseDto<AppointmentDetailsDto>> getAppointmentDetails() async {

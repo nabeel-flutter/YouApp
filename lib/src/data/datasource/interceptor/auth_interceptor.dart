@@ -24,26 +24,28 @@ class AuthInterceptor extends InterceptorsWrapper {
     }
 
     if (requestRequiresAuth) {
-      final userId = await _sharedPreferencesUtil.getUserId();
+      // final userId = await _sharedPreferencesUtil.getUserId();
       final authToken = await getIt<SharedPreferencesUtil>().getString(
         SharedPreferenceConstants.apiAuthToken,
       );
 
       options.headers['Authorization'] = authToken;
-      options.headers['locale'] = BlocProvider.of<AppCubit>(
-                      navigationService!.navigatorKey.currentContext!)
-                  .isUrdu(navigationService!.navigatorKey.currentContext!.locale
-                      .toString()) ==
-              true
-          ? 2
-          : 1;
-      // options.headers['locale'] =2;
-      options.headers['device'] = Platform.isIOS
-          ? AppConstants.iosPlatform
-          : AppConstants.androidPlatform;
+      options.headers['token'] = authToken;
+      
+      // options.headers['locale'] = BlocProvider.of<AppCubit>(
+      //                 navigationService!.navigatorKey.currentContext!)
+      //             .isUrdu(navigationService!.navigatorKey.currentContext!.locale
+      //                 .toString()) ==
+      //         true
+      //     ? 2
+      //     : 1;
+      // // options.headers['locale'] =2;
+      // options.headers['device'] = Platform.isIOS
+      //     ? AppConstants.iosPlatform
+      //     : AppConstants.androidPlatform;
 
-      options.headers['platform'] = 'app';
-      options.headers['user-id'] = userId.isNotEmpty ? userId : '0';
+      // options.headers['platform'] = 'app';
+      // options.headers['user-id'] = userId.isNotEmpty ? userId : '0';
 
       logger.d("header : ${options.headers}");
     }
@@ -55,8 +57,8 @@ class AuthInterceptor extends InterceptorsWrapper {
   Future<void> onError(
       DioException err, ErrorInterceptorHandler handler) async {
         if(err.response?.statusCode == 403 ){
-          NavigationUtil.popAllAndPush(navigationService!.navigatorKey.currentContext!, RouteConstants.signInRoute);
           getIt.get<SharedPreferencesUtil>().removeValue(SharedPreferenceConstants.apiAuthToken);
+          NavigationUtil.popAllAndPush(navigationService!.navigatorKey.currentContext!, RouteConstants.signInRoute);
           
         }
     if (err.response?.statusCode == 401 /* unauthorized */) {
