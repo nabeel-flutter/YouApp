@@ -101,7 +101,9 @@ class DioClientNetwork {
       // this will push a new route and remove all the routes that were present
       // navigatorKey.currentState.pushNamedAndRemoveUntil(
       //     "/login", (Route<dynamic> route) => false);
-    } else if (dioError.response!.statusCode == 403) {}
+    } else if (dioError.response!.statusCode == 403) {
+      
+    }
     return dioError;
   }
 }

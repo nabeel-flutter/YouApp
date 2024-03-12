@@ -20,6 +20,5 @@ Map<String, dynamic> _$TokenDtoToJson(TokenDto instance) {
   }
 
   writeNotNull('token', instance.token);
-  print(instance.token);
   return val;
 }

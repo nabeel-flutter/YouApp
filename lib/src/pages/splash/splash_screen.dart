@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _navigateAfterDelay() {
     Timer(const Duration(seconds: 1), () async {
-      getIt
+    await  getIt
           .get<SharedPreferencesUtil>()
           .getString(SharedPreferenceConstants.apiAuthToken)
           .then((value) async => value == null

@@ -36,6 +36,7 @@ import 'package:new_beginnings/src/domain/model/prescription.dart';
 import 'package:new_beginnings/src/domain/model/shared_with_doctors.dart';
 import 'package:new_beginnings/src/domain/model/subscription.dart';
 import 'package:new_beginnings/src/domain/status/readings_status.dart';
+import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 
 class ObjectMapper {
   final Logger logger;
@@ -411,5 +412,9 @@ class ObjectMapper {
     message: dto.data['message']
     );
 
+  }
+
+  UserDetails toGetUser(BaseResponseDto<UserDetails> dto) {
+    return UserDetails(data: dto.data!.data!);
   }
 }

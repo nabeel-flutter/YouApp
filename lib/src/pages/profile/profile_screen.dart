@@ -1,55 +1,63 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/profile/cubit/user_profile_cubit.dart';
 
 @RoutePage()
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return PrimaryBackground(
-        isAppBar: false,
-        body: Stack(
-          children: [
-            Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                ClipPath(
-                  clipper: BottomConcaveClipper(),
-                  child: Container(
-                      height: 250,
-                      width: double.infinity,
-                      color: Color(0xff0A7E80),
-                      child: Center(
-                        child: Container(
-                          margin: EdgeInsets.only(bottom: 70),
-                          child: Text(
-                            "Profile",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20),
-                          ),
-                        ),
-                      )),
+  Widget build(BuildContext context)  {
+    
+    BlocProvider.of<UserProfileCubit>(context).getUserData();
+    return BlocConsumer<UserProfileCubit, UserProfileState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return PrimaryBackground(
+            isAppBar: false,
+            body: Stack(
+              children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: <Widget>[
+                    ClipPath(
+                      clipper: BottomConcaveClipper(),
+                      child: Container(
+                          height: 250,
+                          width: double.infinity,
+                          color: Color(0xff0A7E80),
+                          child: Center(
+                            child: Container(
+                              margin: EdgeInsets.only(bottom: 70),
+                              child: Text(
+                                "Profile",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
+                            ),
+                          )),
+                    ),
+                  ],
                 ),
+                Positioned(
+                    top: MediaQuery.of(context).size.height / 7,
+                    left: 0,
+                    right: 0,
+                    child: UserProfileComponent(
+                      useremail: '',
+                      username: '',
+                      profile: true,
+                    )),
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Spacer(), const UserProfileBottomComponent()]),
               ],
             ),
-            Positioned(
-                top: MediaQuery.of(context).size.height / 7,
-                left: 0,
-                right: 0,
-                child: UserProfileComponent(
-                  profile: true,
-                  username: '',
-                  useremail: '',
-                )),
-            Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Spacer(), const UserProfileBottomComponent()]),
-          ],
-        ),
         isBackAppBar: false,
-        appbarText: StringConstants.profile);
+        appbarText: StringConstants.profile);});
   }
 }
 

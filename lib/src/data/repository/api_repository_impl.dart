@@ -259,4 +259,19 @@ class ApiRepositoryImpl extends ApiRepository {
     }
   }
   
+  @override
+  Future<Result> getUser({String? token}) async {
+    try {
+      final response = await softTechTestApi.getUser(
+        
+      );
+      return Result.success(objectMapper.toGetUser(response));
+    } on Exception catch (e) {
+      logger.e(e);
+      return Result.failed(objectMapper.toError(e));
+    }
+
+    // TODO: implement getUser
+  }
+  
 }
