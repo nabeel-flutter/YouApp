@@ -4,7 +4,8 @@ part of 'appointment_cubit_cubit.dart';
 class AppointmentCubitState with _$AppointmentCubitState {
   const factory AppointmentCubitState.initial() = _Initial;
   const factory AppointmentCubitState.loading() = _Loading;
-  const factory AppointmentCubitState.loaded() = _Loaded;
+  const factory AppointmentCubitState.loaded(AppointmentDetailsDto appointmentDetails) = _Loaded;
+   const factory AppointmentCubitState.error(String message) = _Error;
   const factory AppointmentCubitState.selectedDate(DateTime? selectedDate) =
       _SelectedDate;
   const factory AppointmentCubitState.selectedTime(String? selectedTime) =

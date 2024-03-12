@@ -1,12 +1,21 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/data/dto/appointment_dto.dart';
+import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
+import 'package:new_beginnings/src/domain/common/result.dart';
+import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
+
+import '../../../profile/model/userdata_model.dart';
 
 part 'appointment_cubit_state.dart';
 part 'appointment_cubit_cubit.freezed.dart';
 
 class AppointmentCubit extends Cubit<AppointmentCubitState> {
-  AppointmentCubit() : super(const AppointmentCubitState.initial());
+  ApiRepository apiRepository;
+  AppointmentCubit(this.apiRepository)
+      : super(const AppointmentCubitState.initial());
   int selectedPaymentMode = 0;
   String timeSlot = 'Select Time Slot';
   String selectedDate1 = DateTime.now().toString().split(' ')[0];
@@ -17,13 +26,7 @@ class AppointmentCubit extends Cubit<AppointmentCubitState> {
     "30 Minutes",
   ];
   String service = 'Select Service';
-  List<String> servicesList = [
-    "Psychiatric Evaluation",
-    "Medication Management",
-    "Individual Counseling",
-    "Primary Care",
-    "PCD Follow Up",
-  ];
+  List<String> servicesList = [];
 
   String reasonForAppointment = 'Preferred Method For Service';
   List<String> reasonForAppointmentList = [
@@ -58,7 +61,14 @@ class AppointmentCubit extends Cubit<AppointmentCubitState> {
 
   Future<void> getAppointmentDetails() async {
     emit(const AppointmentCubitState.loading());
-    emit(const AppointmentCubitState.loaded());
+    final Result<BaseResponseDto<AppointmentDetailsDto>> result =
+        await apiRepository.getAppointmentDetails();
+          result.when(
+        success: (data) {
+           final List<Service> services = data.data!.services;
+          servicesList = services.map((service) => service.name).toList();
+        },
+        failed: (error) => emit(_Error(error.message)));
   }
 
   Future<void> bookAppointment({
