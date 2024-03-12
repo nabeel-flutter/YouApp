@@ -9,6 +9,8 @@ part 'service_cubit.freezed.dart';
 
 class ServiceCubit extends Cubit<ServiceState> {
   ServiceCubit() : super(const ServiceState.initial());
+
+  final TextEditingController searchController = TextEditingController();
   List<ServiceModel> services = [
     ServiceModel(
         name: "Psychiatric\nEvaluation",
@@ -63,13 +65,8 @@ class ServiceCubit extends Cubit<ServiceState> {
   ];
 
   void getServices() {
+     
     emit(ServiceState.loaded(services));
-  }
-
-  @override
-  Future<void> close() {
-    // TODO: implement close
-    return super.close();
   }
 
   void searchService(String value) {
@@ -83,4 +80,5 @@ class ServiceCubit extends Cubit<ServiceState> {
       emit(ServiceState.loaded(searchResult));
     }
   }
+   
 }
