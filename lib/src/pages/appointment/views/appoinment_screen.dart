@@ -32,15 +32,15 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
             const SizedBox(height: 20),
             const PaymentModeSelection(),
             const SizedBox(height: 20),
-            ExpandedSelectionWidget(
-              label: "Preferred Method For Service",
-              textList: appointmentCubit.reasonForAppointmentList,
-              onTapped: (p0) {
-                appointmentCubit.selectReasonForAppointment(p0);
-                setState(() {});
-              },
-              title: appointmentCubit.reasonForAppointment,
-            ),
+            // ExpandedSelectionWidget(
+            //   label: "Preferred Method For Service",
+            //   textList: appointmentCubit.reasonForAppointmentList,
+            //   onTapped: (p0) {
+            //     appointmentCubit.selectReasonForAppointment(p0);
+            //     setState(() {});
+            //   },
+            //   title: appointmentCubit.reasonForAppointment,
+            // ),
             // const ModeOfAppointment(),
             ExpandedSelectionWidget(
                 label: "Services",
