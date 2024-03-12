@@ -75,7 +75,7 @@ class TopDoctorsWidget extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w400,
                             color: ColorConstants.primaryTextColor,
                             fontSize: 10,
                           ),

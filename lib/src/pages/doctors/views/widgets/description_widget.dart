@@ -1,4 +1,4 @@
-import '../../../../app/app_export.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class DescriptionWidget extends StatelessWidget {
   final Doctor doctor;
@@ -24,7 +24,7 @@ class DescriptionWidget extends StatelessWidget {
         Text(
           doctor.description.toString(),
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
                 color: ColorConstants.grey,
                 fontSize: 14,
               ),
