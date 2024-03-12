@@ -11,6 +11,7 @@ import 'package:new_beginnings/src/domain/model/appointment.dart';
 import 'package:new_beginnings/src/domain/model/data_list.dart';
 import 'package:new_beginnings/src/domain/model/docotor.dart';
 import 'package:new_beginnings/src/domain/model/medical_records.dart';
+import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 
 class ApiRepositoryImpl extends ApiRepository {
   final SoftTechTestApi softTechTestApi;
@@ -260,7 +261,7 @@ class ApiRepositoryImpl extends ApiRepository {
   }
   
   @override
-  Future<Result> getUser({String? token}) async {
+  Future<Result<BaseResponseDto<UserDetails>>> getUser({String? token}) async {
     try {
       final response = await softTechTestApi.getUser(
         

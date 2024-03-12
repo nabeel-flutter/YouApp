@@ -8,6 +8,7 @@ import 'package:new_beginnings/src/domain/model/appointment.dart';
 import 'package:new_beginnings/src/domain/model/data_list.dart';
 import 'package:new_beginnings/src/domain/model/docotor.dart';
 import 'package:new_beginnings/src/domain/model/medical_records.dart';
+import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 
 abstract class ApiRepository extends Repository {
   ///
@@ -95,6 +96,6 @@ abstract class ApiRepository extends Repository {
 
   Future<Result<BaseResponseDto>> verifyEmail({required String email});
 
-  getUser({String? token}) ;
+ Future<Result<BaseResponseDto<UserDetails>>>  getUser() ;
 
 }

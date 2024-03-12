@@ -414,7 +414,10 @@ class ObjectMapper {
 
   }
 
-  UserDetails toGetUser(BaseResponseDto<UserDetails> dto) {
-    return UserDetails(data: dto.data!.data!);
+  BaseResponseDto<UserDetails> toGetUser(BaseResponseDto<UserDetails> dto) {
+    return BaseResponseDto<UserDetails>(
+      message: dto.message,
+      status: dto.status,
+      data: UserDetails(data: dto.data!.data));
   }
 }
