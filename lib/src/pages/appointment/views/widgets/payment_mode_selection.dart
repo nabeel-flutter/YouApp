@@ -1,7 +1,9 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 
 class PaymentModeSelection extends StatefulWidget {
-  const PaymentModeSelection({Key? key}) : super(key: key);
+  final void Function(int?)? onValueChanged; // Nullable callback to notify parent widget about the selected value
+
+  const PaymentModeSelection({Key? key, this.onValueChanged}) : super(key: key);
 
   @override
   State<PaymentModeSelection> createState() => _PaymentModeSelectionState();
@@ -18,10 +20,10 @@ class _PaymentModeSelectionState extends State<PaymentModeSelection> {
         Text(
           'Payment Mode',
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                color: ColorConstants.primaryColor,
-              ),
+            fontWeight: FontWeight.w600,
+            fontSize: 16,
+            color: ColorConstants.primaryColor,
+          ),
         ),
         const SizedBox(height: 10),
         Row(
@@ -31,12 +33,12 @@ class _PaymentModeSelectionState extends State<PaymentModeSelection> {
                 setState(() {
                   _selectedValue = 1;
                 });
+                widget.onValueChanged?.call(_selectedValue); // Notify parent about the selected value
               },
               child: Row(
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      
                       shape: BoxShape.circle,
                       color: _selectedValue == 1
                           ? ColorConstants.primaryTextColor
@@ -52,10 +54,10 @@ class _PaymentModeSelectionState extends State<PaymentModeSelection> {
                   Text(
                     StringConstants.insurance,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ],
               ),
@@ -66,6 +68,7 @@ class _PaymentModeSelectionState extends State<PaymentModeSelection> {
                 setState(() {
                   _selectedValue = 2;
                 });
+                widget.onValueChanged?.call(_selectedValue); // Notify parent about the selected value
               },
               child: Row(
                 children: [
@@ -86,10 +89,10 @@ class _PaymentModeSelectionState extends State<PaymentModeSelection> {
                   Text(
                     StringConstants.selfPay,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ],
               ),
@@ -100,8 +103,6 @@ class _PaymentModeSelectionState extends State<PaymentModeSelection> {
     );
   }
 }
-
-
 
 class ModeOfAppointment extends StatefulWidget {
   const ModeOfAppointment({Key? key}) : super(key: key);
@@ -139,7 +140,6 @@ class _ModeOfAppointmentState extends State<ModeOfAppointment> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      
                       shape: BoxShape.circle,
                       color: _selectedValue == 1
                           ? ColorConstants.primaryTextColor

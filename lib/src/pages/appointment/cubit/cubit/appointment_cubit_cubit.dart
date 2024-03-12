@@ -7,7 +7,10 @@ part 'appointment_cubit_cubit.freezed.dart';
 
 class AppointmentCubit extends Cubit<AppointmentCubitState> {
   AppointmentCubit() : super(const AppointmentCubitState.initial());
+  int selectedPaymentMode = 0;
   String timeSlot = 'Select Time Slot';
+  String selectedDate1 = DateTime.now().toString().split(' ')[0];
+  String selectedTime1 = DateTime.now().toString().split(' ')[1];
   List<String> timeSlotList = [
     "60 Minutes",
     "45 Minutes",
@@ -29,7 +32,7 @@ class AppointmentCubit extends Cubit<AppointmentCubitState> {
   ];
 
   void selectDate(DateTime? selectedDate) {
-    debugPrint('selectedDate: $selectedDate');
+    selectedDate1 = selectedDate.toString().split(' ')[0];
     emit(AppointmentCubitState.selectedDate(selectedDate));
   }
 
@@ -39,7 +42,7 @@ class AppointmentCubit extends Cubit<AppointmentCubitState> {
   }
 
   void selectTime(String? selectedTime) {
-    debugPrint('selectedTime: $selectedTime');
+    selectedTime1 = selectedTime!;
     emit(AppointmentCubitState.selectedTime(selectedTime));
   }
 
@@ -51,6 +54,29 @@ class AppointmentCubit extends Cubit<AppointmentCubitState> {
   void selectTimeSlot(String? selectedTimeSlot) {
     timeSlot = selectedTimeSlot!;
     emit(AppointmentCubitState.selectedTimeSlot(selectedTimeSlot));
+  }
 
+  Future<void> getAppointmentDetails() async {
+    emit(const AppointmentCubitState.loading());
+    emit(const AppointmentCubitState.loaded());
+  }
+
+  Future<void> bookAppointment({
+    required String selectedDate,
+    required String selectedTime,
+    required String selectedService,
+    required int selectedPaymentMode,
+    final String? selectedTimeSlot,
+  }) async {
+    debugPrint(
+      'paymentMode: $selectedPaymentMode   selectedDate: $selectedDate, selectedTime: $selectedTime, selectedService: $selectedService, selectedTimeSlot: $selectedTimeSlot',
+    );
+    // emit(const AppointmentCubitState.loading());
+    return;
+  }
+
+  void selectPaymentMode(int? value) {
+    selectedPaymentMode = value!;
+    emit(AppointmentCubitState.selectedPaymentMode(value));
   }
 }
