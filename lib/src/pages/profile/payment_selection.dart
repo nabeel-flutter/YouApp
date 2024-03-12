@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 
 class PaymentSelection extends StatefulWidget {
-  const PaymentSelection({super.key});
+  final String initialPaymentMode; // Add this line
+  final Function(bool isInsured) onSelectionChange;
+  const PaymentSelection(
+      {super.key,
+      required this.initialPaymentMode,
+      required this.onSelectionChange});
 
   @override
   State<PaymentSelection> createState() => _PaymentSelectionState();
@@ -10,6 +15,18 @@ class PaymentSelection extends StatefulWidget {
 
 class _PaymentSelectionState extends State<PaymentSelection> {
   int? _selectedValue;
+
+  @override
+  void initState() {
+    super.initState();
+    // Set the initial value based on the passed initialPaymentMode
+    if (widget.initialPaymentMode.toLowerCase() == "insured") {
+      _selectedValue = 1;
+    } else if (widget.initialPaymentMode.toLowerCase() == "self pay") {
+      _selectedValue = 2;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,8 +45,10 @@ class _PaymentSelectionState extends State<PaymentSelection> {
             InkWell(
               onTap: () {
                 setState(() {
-                  _selectedValue = 1;
+                  _selectedValue = 1; // or 2 for self-pay
                 });
+                widget.onSelectionChange(
+                    true); // true if insured, false otherwise
               },
               child: Row(
                 children: [
@@ -64,6 +83,7 @@ class _PaymentSelectionState extends State<PaymentSelection> {
                 setState(() {
                   _selectedValue = 2;
                 });
+                widget.onSelectionChange(false);
               },
               child: Row(
                 children: [

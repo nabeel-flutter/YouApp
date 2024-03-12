@@ -124,8 +124,10 @@ class _UserProfileComponentState extends State<UserProfileComponent> {
 }
 
 class UserProfileBottomComponent extends StatelessWidget {
+  final VoidCallback onPressed;
   const UserProfileBottomComponent({
     super.key,
+    required this.onPressed,
   });
 
   @override
@@ -147,7 +149,7 @@ class UserProfileBottomComponent extends StatelessWidget {
             Button(
               label: 'Edit Profile',
               onPressed: () {
-                context.router.push(EditProfileRoute());
+                onPressed();
               },
             ),
             SizedBox(

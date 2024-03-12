@@ -44,21 +44,6 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
           child: Column(
             children: [
               ExpandedSelectionWidget(
-                onTapped: (preferredLocation) {
-                  setState(() {
-                    this.preferredLocation = preferredLocation;
-                  });
-                },
-                title: preferredLocation,
-                label: "Preferred Location For Service",
-                textList: const [
-                  '1 W. Centre St Mahanoy, PA 17948',
-                  '18151 W. End Ave Pottsville, PA 17901',
-                  '564 Main St.Stroudsbrug, PA 18360',
-                  '130 White Horse Pike Clementon, NJ 08021'
-                ],
-              ),
-              ExpandedSelectionWidget(
                 onTapped: (methodOfService) {
                   setState(() {
                     this.methodOfService = methodOfService;
