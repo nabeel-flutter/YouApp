@@ -214,33 +214,33 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         },
                         title: city),
                     CustomTextFeild(
-                        feildName: "Address",
+                        feildName: StringConstants.address,
                         hintText: "Enter your Address",
                         controller: addresscontroller),
                     CustomTextFeild(
-                        feildName: "Zip Code",
+                        feildName: StringConstants.zipCode,
                         hintText: "Enter your Zip Code",
                         controller: zipcodecontroller),
                     CustomTextFeild(
-                        feildName: "Email",
+                        feildName: StringConstants.email,
                         hintText: "Enter your Email",
                         controller: emailcontroller),
                     CustomTextFeild(
-                        feildName: "Alternate Phone Number",
+                        feildName: StringConstants.alternatephonenumber,
                         hintText: "Enter your Alternate Phone Number",
                         controller: alternatephonenumcontroller),
                     const PaymentSelection(),
                     const SizedBox(height: 24),
-                    const HeadingText(text: "Insurance Details"),
+                    HeadingText(text: StringConstants.insurancedetails),
                     const SizedBox(
                       height: 20,
                     ),
                     CustomTextFeild(
-                        feildName: "Name of Insurance",
+                        feildName: StringConstants.insuranceName,
                         hintText: "Enter Name of Insurance",
                         controller: nameofinsurancecontroller),
                     CustomTextFeild(
-                        feildName: "Insurance Policy #",
+                        feildName: StringConstants.insurancepolicy,
                         hintText: "Enter Insurance Policy",
                         controller: insurancepolicycontroller),
                     const UploadInsuranceCard(

@@ -31,7 +31,7 @@ class HomeScreenBody extends StatelessWidget {
               children: [
                 const HomeCarouselWidget(),
                 BodyHeading(
-                  title: "Top Services",
+                  title: "Services",
                   onTap: () {
                     context.router.push(const AllServicesRoute());
                   },
@@ -107,7 +107,7 @@ class HomeScreenBody extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 BodyHeading(
-                  title: "Top Doctors",
+                  title: "Doctors",
                   onTap: () {
                     context.router.push(const AllDoctorsRoute());
                   },

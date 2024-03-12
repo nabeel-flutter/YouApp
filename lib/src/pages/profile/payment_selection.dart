@@ -16,7 +16,7 @@ class _PaymentSelectionState extends State<PaymentSelection> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Payment Mode",
+          StringConstants.paymentMode,
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
