@@ -27,21 +27,21 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
             ),
             const SizedBox(height: 20),
             SelectTimeWidget(
+              timeOptions: const [
+                '9:00 AM',
+                '10:00 AM',
+                '11:00 AM',
+                '12:00 PM',
+              ],
               onSelectedTime: appointmentCubit.selectTime,
             ),
             const SizedBox(height: 20),
-            const PaymentModeSelection(),
-            const SizedBox(height: 20),
-            ExpandedSelectionWidget(
-              label: "Preferred Method For Service",
-              textList: appointmentCubit.reasonForAppointmentList,
-              onTapped: (p0) {
-                appointmentCubit.selectReasonForAppointment(p0);
-                setState(() {});
+            PaymentModeSelection(
+              onValueChanged: (value) {
+                appointmentCubit.selectPaymentMode(value);
               },
-              title: appointmentCubit.reasonForAppointment,
             ),
-            // const ModeOfAppointment(),
+            const SizedBox(height: 20),
             ExpandedSelectionWidget(
                 label: "Services",
                 textList: appointmentCubit.servicesList,
@@ -61,18 +61,34 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     title: appointmentCubit.timeSlot)
                 : Container(),
             const SizedBox(height: 20),
-            ElevatedButton(
-                onPressed: () {
-                  context.router.push(const BookAppointmentRoute());
-                },
-                child: Text(
-                  StringConstants.next,
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        color: ColorConstants.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
+            BlocBuilder<AppointmentCubit, AppointmentCubitState>(
+                builder: (context, state) => state.maybeWhen(
+                      orElse: () => ElevatedButton(
+                        onPressed: () {
+                          // appointmentCubit.bookAppointment(
+                          //   selectedPaymentMode:
+                          //       appointmentCubit.selectedPaymentMode,
+                          //   selectedDate: appointmentCubit.selectedDate1,
+                          //   selectedTime: appointmentCubit.selectedTime1,
+                          //   selectedService: appointmentCubit.service,
+                          //   selectedTimeSlot: appointmentCubit.service ==
+                          //           "Individual Counseling"
+                          //       ? appointmentCubit.timeSlot
+                          //       : null,
+                          // );
+                          context.router.push(const BookAppointmentRoute());
+                        },
+                        child: Text(
+                          StringConstants.next,
+                          style:
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    color: ColorConstants.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                        ),
                       ),
-                ))
+                    ))
           ],
         ),
       ),

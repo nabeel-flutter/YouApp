@@ -21,9 +21,10 @@ class TopServicesWidget extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.23,
         width: MediaQuery.of(context).size.width * 0.42,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          color: ColorConstants.white,
+          borderRadius: BorderRadius.circular(11),
           border: Border.all(
-            color: ColorConstants.primaryColor,
+            color: ColorConstants.widgetBgColor,
           ),
         ),
         child: Column(
@@ -37,7 +38,7 @@ class TopServicesWidget extends StatelessWidget {
                 ),
                 border: const Border(
                   bottom: BorderSide(
-                    color: ColorConstants.primaryColor,
+                    color: ColorConstants.widgetBgColor,
                   ),
                 ),
                 image: DecorationImage(

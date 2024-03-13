@@ -36,6 +36,7 @@ import 'package:new_beginnings/src/domain/model/prescription.dart';
 import 'package:new_beginnings/src/domain/model/shared_with_doctors.dart';
 import 'package:new_beginnings/src/domain/model/subscription.dart';
 import 'package:new_beginnings/src/domain/status/readings_status.dart';
+import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
 import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 
 class ObjectMapper {
@@ -377,9 +378,7 @@ class ObjectMapper {
 
   BaseResponseDto<ProductDto> toGetProductDetail(
       BaseResponseDto<ProductDto> dto) {
-    return BaseResponseDto(data: dto.data,
-    message: dto.message
-    );
+    return BaseResponseDto(data: dto.data, message: dto.message);
   }
 
   DataListDto<ProductDto> toGetProducts(DataListDto<ProductDto> dto) {
@@ -388,30 +387,19 @@ class ObjectMapper {
   }
 
   BaseResponseDto<TokenDto> toSignIn(BaseResponseDto<TokenDto> dto) {
-    return BaseResponseDto<TokenDto>(data: dto.data,
-    message: dto.message
-    );
+    return BaseResponseDto<TokenDto>(data: dto.data, message: dto.message);
   }
 
   BaseResponseDto<TokenDto> toSignUp(BaseResponseDto<TokenDto> dto) {
-        return BaseResponseDto<TokenDto>(data: dto.data
-    ,    message: dto.message
-        );
-
+    return BaseResponseDto<TokenDto>(data: dto.data, message: dto.message);
   }
 
   BaseResponseDto toforgetPassword(BaseResponseDto dto) {
-    return BaseResponseDto(data: dto.data,
-    message: dto.data['message']
-    );
-
+    return BaseResponseDto(data: dto.data, message: dto.data['message']);
   }
 
   BaseResponseDto toVerifyEmail(BaseResponseDto dto) {
-        return BaseResponseDto(data: dto.data,
-    message: dto.data['message']
-    );
-
+    return BaseResponseDto(data: dto.data, message: dto.data['message']);
   }
 
   BaseResponseDto<UserDetails> toGetUser(BaseResponseDto<UserDetails> dto) {
@@ -419,5 +407,17 @@ class ObjectMapper {
       message: dto.message,
       status: dto.status,
       data: UserDetails(data: dto.data!.data));
+  }
+
+  BaseResponseDto<AppointmentDetailsDto> toGetAppointmentDetails(
+      BaseResponseDto<AppointmentDetailsDto> dto) {
+    return BaseResponseDto<AppointmentDetailsDto>(
+      message: dto.toString(),
+      data: AppointmentDetailsDto(
+          message: dto.data!.message,
+          success: true,
+          paymentType: dto.data!.paymentType,
+          services: dto.data!.services),
+    );
   }
 }

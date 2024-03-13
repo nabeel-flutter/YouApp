@@ -2,9 +2,13 @@ import 'package:new_beginnings/src/app/app_export.dart';
 
 class SelectTimeWidget extends StatefulWidget {
   final void Function(String?) onSelectedTime;
+  final List<String> timeOptions;
 
-  const SelectTimeWidget({Key? key, required this.onSelectedTime})
-      : super(key: key);
+  const SelectTimeWidget({
+    Key? key,
+    required this.onSelectedTime,
+    required this.timeOptions,
+  }) : super(key: key);
 
   @override
   State<SelectTimeWidget> createState() => _SelectTimeWidgetState();
@@ -30,16 +34,16 @@ class _SelectTimeWidgetState extends State<SelectTimeWidget> {
         Wrap(
           spacing: 5,
           children: List.generate(
-            4,
+            widget.timeOptions.length,
             (index) => ChoiceChip(
               showCheckmark: false,
-              label: const Text('10:00 AM'),
+              label: Text(widget.timeOptions[index]),
               selected: selectedChipIndex == index,
               onSelected: (isSelected) {
                 setState(() {
                   selectedChipIndex = isSelected ? index : null;
                 });
-                widget.onSelectedTime(isSelected ? '10:00 AM' : null);
+                widget.onSelectedTime(isSelected ? widget.timeOptions[index] : null);
               },
               selectedColor: ColorConstants.primaryTextColor,
               labelStyle: Theme.of(context).textTheme.bodySmall!.copyWith(

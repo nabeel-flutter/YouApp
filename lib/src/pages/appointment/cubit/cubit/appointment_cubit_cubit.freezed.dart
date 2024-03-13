@@ -19,66 +19,90 @@ mixin _$AppointmentCubitState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppointmentDetailsDto appointmentDetails) loaded,
+    required TResult Function(String message) error,
     required TResult Function(DateTime? selectedDate) selectedDate,
     required TResult Function(String? selectedTime) selectedTime,
     required TResult Function(String? selectedService) selectedService,
     required TResult Function(String? selectedReason)
         selectedReasonForAppointment,
     required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+    required TResult Function(int? selectedPaymentMode) selectedPaymentMode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult? Function(String message)? error,
     TResult? Function(DateTime? selectedDate)? selectedDate,
     TResult? Function(String? selectedTime)? selectedTime,
     TResult? Function(String? selectedService)? selectedService,
     TResult? Function(String? selectedReason)? selectedReasonForAppointment,
     TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult? Function(int? selectedPaymentMode)? selectedPaymentMode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult Function(String message)? error,
     TResult Function(DateTime? selectedDate)? selectedDate,
     TResult Function(String? selectedTime)? selectedTime,
     TResult Function(String? selectedService)? selectedService,
     TResult Function(String? selectedReason)? selectedReasonForAppointment,
     TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult Function(int? selectedPaymentMode)? selectedPaymentMode,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
     required TResult Function(_SelectedDate value) selectedDate,
     required TResult Function(_SelectedTime value) selectedTime,
     required TResult Function(_SelectedService value) selectedService,
     required TResult Function(_SelectedReasonForAppointment value)
         selectedReasonForAppointment,
     required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+    required TResult Function(_SelectedPaymentMode value) selectedPaymentMode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
     TResult? Function(_SelectedDate value)? selectedDate,
     TResult? Function(_SelectedTime value)? selectedTime,
     TResult? Function(_SelectedService value)? selectedService,
     TResult? Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult? Function(_SelectedPaymentMode value)? selectedPaymentMode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     TResult Function(_SelectedDate value)? selectedDate,
     TResult Function(_SelectedTime value)? selectedTime,
     TResult Function(_SelectedService value)? selectedService,
     TResult Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult Function(_SelectedPaymentMode value)? selectedPaymentMode,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,12 +165,16 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppointmentDetailsDto appointmentDetails) loaded,
+    required TResult Function(String message) error,
     required TResult Function(DateTime? selectedDate) selectedDate,
     required TResult Function(String? selectedTime) selectedTime,
     required TResult Function(String? selectedService) selectedService,
     required TResult Function(String? selectedReason)
         selectedReasonForAppointment,
     required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+    required TResult Function(int? selectedPaymentMode) selectedPaymentMode,
   }) {
     return initial();
   }
@@ -155,11 +183,15 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult? Function(String message)? error,
     TResult? Function(DateTime? selectedDate)? selectedDate,
     TResult? Function(String? selectedTime)? selectedTime,
     TResult? Function(String? selectedService)? selectedService,
     TResult? Function(String? selectedReason)? selectedReasonForAppointment,
     TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult? Function(int? selectedPaymentMode)? selectedPaymentMode,
   }) {
     return initial?.call();
   }
@@ -168,11 +200,15 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult Function(String message)? error,
     TResult Function(DateTime? selectedDate)? selectedDate,
     TResult Function(String? selectedTime)? selectedTime,
     TResult Function(String? selectedService)? selectedService,
     TResult Function(String? selectedReason)? selectedReasonForAppointment,
     TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult Function(int? selectedPaymentMode)? selectedPaymentMode,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -185,12 +221,16 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
     required TResult Function(_SelectedDate value) selectedDate,
     required TResult Function(_SelectedTime value) selectedTime,
     required TResult Function(_SelectedService value) selectedService,
     required TResult Function(_SelectedReasonForAppointment value)
         selectedReasonForAppointment,
     required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+    required TResult Function(_SelectedPaymentMode value) selectedPaymentMode,
   }) {
     return initial(this);
   }
@@ -199,12 +239,16 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
     TResult? Function(_SelectedDate value)? selectedDate,
     TResult? Function(_SelectedTime value)? selectedTime,
     TResult? Function(_SelectedService value)? selectedService,
     TResult? Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult? Function(_SelectedPaymentMode value)? selectedPaymentMode,
   }) {
     return initial?.call(this);
   }
@@ -213,12 +257,16 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     TResult Function(_SelectedDate value)? selectedDate,
     TResult Function(_SelectedTime value)? selectedTime,
     TResult Function(_SelectedService value)? selectedService,
     TResult Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult Function(_SelectedPaymentMode value)? selectedPaymentMode,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -230,6 +278,527 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements AppointmentCubitState {
   const factory _Initial() = _$_Initial;
+}
+
+/// @nodoc
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$AppointmentCubitStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Loading implements _Loading {
+  const _$_Loading();
+
+  @override
+  String toString() {
+    return 'AppointmentCubitState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppointmentDetailsDto appointmentDetails) loaded,
+    required TResult Function(String message) error,
+    required TResult Function(DateTime? selectedDate) selectedDate,
+    required TResult Function(String? selectedTime) selectedTime,
+    required TResult Function(String? selectedService) selectedService,
+    required TResult Function(String? selectedReason)
+        selectedReasonForAppointment,
+    required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+    required TResult Function(int? selectedPaymentMode) selectedPaymentMode,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function(DateTime? selectedDate)? selectedDate,
+    TResult? Function(String? selectedTime)? selectedTime,
+    TResult? Function(String? selectedService)? selectedService,
+    TResult? Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult? Function(int? selectedPaymentMode)? selectedPaymentMode,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult Function(String message)? error,
+    TResult Function(DateTime? selectedDate)? selectedDate,
+    TResult Function(String? selectedTime)? selectedTime,
+    TResult Function(String? selectedService)? selectedService,
+    TResult Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult Function(int? selectedPaymentMode)? selectedPaymentMode,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_SelectedDate value) selectedDate,
+    required TResult Function(_SelectedTime value) selectedTime,
+    required TResult Function(_SelectedService value) selectedService,
+    required TResult Function(_SelectedReasonForAppointment value)
+        selectedReasonForAppointment,
+    required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+    required TResult Function(_SelectedPaymentMode value) selectedPaymentMode,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_SelectedDate value)? selectedDate,
+    TResult? Function(_SelectedTime value)? selectedTime,
+    TResult? Function(_SelectedService value)? selectedService,
+    TResult? Function(_SelectedReasonForAppointment value)?
+        selectedReasonForAppointment,
+    TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult? Function(_SelectedPaymentMode value)? selectedPaymentMode,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_SelectedDate value)? selectedDate,
+    TResult Function(_SelectedTime value)? selectedTime,
+    TResult Function(_SelectedService value)? selectedService,
+    TResult Function(_SelectedReasonForAppointment value)?
+        selectedReasonForAppointment,
+    TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult Function(_SelectedPaymentMode value)? selectedPaymentMode,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading implements AppointmentCubitState {
+  const factory _Loading() = _$_Loading;
+}
+
+/// @nodoc
+abstract class _$$_LoadedCopyWith<$Res> {
+  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
+      __$$_LoadedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AppointmentDetailsDto appointmentDetails});
+}
+
+/// @nodoc
+class __$$_LoadedCopyWithImpl<$Res>
+    extends _$AppointmentCubitStateCopyWithImpl<$Res, _$_Loaded>
+    implements _$$_LoadedCopyWith<$Res> {
+  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? appointmentDetails = null,
+  }) {
+    return _then(_$_Loaded(
+      null == appointmentDetails
+          ? _value.appointmentDetails
+          : appointmentDetails // ignore: cast_nullable_to_non_nullable
+              as AppointmentDetailsDto,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Loaded implements _Loaded {
+  const _$_Loaded(this.appointmentDetails);
+
+  @override
+  final AppointmentDetailsDto appointmentDetails;
+
+  @override
+  String toString() {
+    return 'AppointmentCubitState.loaded(appointmentDetails: $appointmentDetails)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Loaded &&
+            (identical(other.appointmentDetails, appointmentDetails) ||
+                other.appointmentDetails == appointmentDetails));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, appointmentDetails);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppointmentDetailsDto appointmentDetails) loaded,
+    required TResult Function(String message) error,
+    required TResult Function(DateTime? selectedDate) selectedDate,
+    required TResult Function(String? selectedTime) selectedTime,
+    required TResult Function(String? selectedService) selectedService,
+    required TResult Function(String? selectedReason)
+        selectedReasonForAppointment,
+    required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+    required TResult Function(int? selectedPaymentMode) selectedPaymentMode,
+  }) {
+    return loaded(appointmentDetails);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function(DateTime? selectedDate)? selectedDate,
+    TResult? Function(String? selectedTime)? selectedTime,
+    TResult? Function(String? selectedService)? selectedService,
+    TResult? Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult? Function(int? selectedPaymentMode)? selectedPaymentMode,
+  }) {
+    return loaded?.call(appointmentDetails);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult Function(String message)? error,
+    TResult Function(DateTime? selectedDate)? selectedDate,
+    TResult Function(String? selectedTime)? selectedTime,
+    TResult Function(String? selectedService)? selectedService,
+    TResult Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult Function(int? selectedPaymentMode)? selectedPaymentMode,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(appointmentDetails);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_SelectedDate value) selectedDate,
+    required TResult Function(_SelectedTime value) selectedTime,
+    required TResult Function(_SelectedService value) selectedService,
+    required TResult Function(_SelectedReasonForAppointment value)
+        selectedReasonForAppointment,
+    required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+    required TResult Function(_SelectedPaymentMode value) selectedPaymentMode,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_SelectedDate value)? selectedDate,
+    TResult? Function(_SelectedTime value)? selectedTime,
+    TResult? Function(_SelectedService value)? selectedService,
+    TResult? Function(_SelectedReasonForAppointment value)?
+        selectedReasonForAppointment,
+    TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult? Function(_SelectedPaymentMode value)? selectedPaymentMode,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_SelectedDate value)? selectedDate,
+    TResult Function(_SelectedTime value)? selectedTime,
+    TResult Function(_SelectedService value)? selectedService,
+    TResult Function(_SelectedReasonForAppointment value)?
+        selectedReasonForAppointment,
+    TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult Function(_SelectedPaymentMode value)? selectedPaymentMode,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loaded implements AppointmentCubitState {
+  const factory _Loaded(final AppointmentDetailsDto appointmentDetails) =
+      _$_Loaded;
+
+  AppointmentDetailsDto get appointmentDetails;
+  @JsonKey(ignore: true)
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$_ErrorCopyWithImpl<$Res>
+    extends _$AppointmentCubitStateCopyWithImpl<$Res, _$_Error>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$_Error(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Error implements _Error {
+  const _$_Error(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'AppointmentCubitState.error(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Error &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppointmentDetailsDto appointmentDetails) loaded,
+    required TResult Function(String message) error,
+    required TResult Function(DateTime? selectedDate) selectedDate,
+    required TResult Function(String? selectedTime) selectedTime,
+    required TResult Function(String? selectedService) selectedService,
+    required TResult Function(String? selectedReason)
+        selectedReasonForAppointment,
+    required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+    required TResult Function(int? selectedPaymentMode) selectedPaymentMode,
+  }) {
+    return error(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function(DateTime? selectedDate)? selectedDate,
+    TResult? Function(String? selectedTime)? selectedTime,
+    TResult? Function(String? selectedService)? selectedService,
+    TResult? Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult? Function(int? selectedPaymentMode)? selectedPaymentMode,
+  }) {
+    return error?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult Function(String message)? error,
+    TResult Function(DateTime? selectedDate)? selectedDate,
+    TResult Function(String? selectedTime)? selectedTime,
+    TResult Function(String? selectedService)? selectedService,
+    TResult Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult Function(int? selectedPaymentMode)? selectedPaymentMode,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_SelectedDate value) selectedDate,
+    required TResult Function(_SelectedTime value) selectedTime,
+    required TResult Function(_SelectedService value) selectedService,
+    required TResult Function(_SelectedReasonForAppointment value)
+        selectedReasonForAppointment,
+    required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+    required TResult Function(_SelectedPaymentMode value) selectedPaymentMode,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_SelectedDate value)? selectedDate,
+    TResult? Function(_SelectedTime value)? selectedTime,
+    TResult? Function(_SelectedService value)? selectedService,
+    TResult? Function(_SelectedReasonForAppointment value)?
+        selectedReasonForAppointment,
+    TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult? Function(_SelectedPaymentMode value)? selectedPaymentMode,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_SelectedDate value)? selectedDate,
+    TResult Function(_SelectedTime value)? selectedTime,
+    TResult Function(_SelectedService value)? selectedService,
+    TResult Function(_SelectedReasonForAppointment value)?
+        selectedReasonForAppointment,
+    TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult Function(_SelectedPaymentMode value)? selectedPaymentMode,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Error implements AppointmentCubitState {
+  const factory _Error(final String message) = _$_Error;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -298,12 +867,16 @@ class _$_SelectedDate implements _SelectedDate {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppointmentDetailsDto appointmentDetails) loaded,
+    required TResult Function(String message) error,
     required TResult Function(DateTime? selectedDate) selectedDate,
     required TResult Function(String? selectedTime) selectedTime,
     required TResult Function(String? selectedService) selectedService,
     required TResult Function(String? selectedReason)
         selectedReasonForAppointment,
     required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+    required TResult Function(int? selectedPaymentMode) selectedPaymentMode,
   }) {
     return selectedDate(this.selectedDate);
   }
@@ -312,11 +885,15 @@ class _$_SelectedDate implements _SelectedDate {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult? Function(String message)? error,
     TResult? Function(DateTime? selectedDate)? selectedDate,
     TResult? Function(String? selectedTime)? selectedTime,
     TResult? Function(String? selectedService)? selectedService,
     TResult? Function(String? selectedReason)? selectedReasonForAppointment,
     TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult? Function(int? selectedPaymentMode)? selectedPaymentMode,
   }) {
     return selectedDate?.call(this.selectedDate);
   }
@@ -325,11 +902,15 @@ class _$_SelectedDate implements _SelectedDate {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult Function(String message)? error,
     TResult Function(DateTime? selectedDate)? selectedDate,
     TResult Function(String? selectedTime)? selectedTime,
     TResult Function(String? selectedService)? selectedService,
     TResult Function(String? selectedReason)? selectedReasonForAppointment,
     TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult Function(int? selectedPaymentMode)? selectedPaymentMode,
     required TResult orElse(),
   }) {
     if (selectedDate != null) {
@@ -342,12 +923,16 @@ class _$_SelectedDate implements _SelectedDate {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
     required TResult Function(_SelectedDate value) selectedDate,
     required TResult Function(_SelectedTime value) selectedTime,
     required TResult Function(_SelectedService value) selectedService,
     required TResult Function(_SelectedReasonForAppointment value)
         selectedReasonForAppointment,
     required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+    required TResult Function(_SelectedPaymentMode value) selectedPaymentMode,
   }) {
     return selectedDate(this);
   }
@@ -356,12 +941,16 @@ class _$_SelectedDate implements _SelectedDate {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
     TResult? Function(_SelectedDate value)? selectedDate,
     TResult? Function(_SelectedTime value)? selectedTime,
     TResult? Function(_SelectedService value)? selectedService,
     TResult? Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult? Function(_SelectedPaymentMode value)? selectedPaymentMode,
   }) {
     return selectedDate?.call(this);
   }
@@ -370,12 +959,16 @@ class _$_SelectedDate implements _SelectedDate {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     TResult Function(_SelectedDate value)? selectedDate,
     TResult Function(_SelectedTime value)? selectedTime,
     TResult Function(_SelectedService value)? selectedService,
     TResult Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult Function(_SelectedPaymentMode value)? selectedPaymentMode,
     required TResult orElse(),
   }) {
     if (selectedDate != null) {
@@ -460,12 +1053,16 @@ class _$_SelectedTime implements _SelectedTime {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppointmentDetailsDto appointmentDetails) loaded,
+    required TResult Function(String message) error,
     required TResult Function(DateTime? selectedDate) selectedDate,
     required TResult Function(String? selectedTime) selectedTime,
     required TResult Function(String? selectedService) selectedService,
     required TResult Function(String? selectedReason)
         selectedReasonForAppointment,
     required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+    required TResult Function(int? selectedPaymentMode) selectedPaymentMode,
   }) {
     return selectedTime(this.selectedTime);
   }
@@ -474,11 +1071,15 @@ class _$_SelectedTime implements _SelectedTime {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult? Function(String message)? error,
     TResult? Function(DateTime? selectedDate)? selectedDate,
     TResult? Function(String? selectedTime)? selectedTime,
     TResult? Function(String? selectedService)? selectedService,
     TResult? Function(String? selectedReason)? selectedReasonForAppointment,
     TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult? Function(int? selectedPaymentMode)? selectedPaymentMode,
   }) {
     return selectedTime?.call(this.selectedTime);
   }
@@ -487,11 +1088,15 @@ class _$_SelectedTime implements _SelectedTime {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult Function(String message)? error,
     TResult Function(DateTime? selectedDate)? selectedDate,
     TResult Function(String? selectedTime)? selectedTime,
     TResult Function(String? selectedService)? selectedService,
     TResult Function(String? selectedReason)? selectedReasonForAppointment,
     TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult Function(int? selectedPaymentMode)? selectedPaymentMode,
     required TResult orElse(),
   }) {
     if (selectedTime != null) {
@@ -504,12 +1109,16 @@ class _$_SelectedTime implements _SelectedTime {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
     required TResult Function(_SelectedDate value) selectedDate,
     required TResult Function(_SelectedTime value) selectedTime,
     required TResult Function(_SelectedService value) selectedService,
     required TResult Function(_SelectedReasonForAppointment value)
         selectedReasonForAppointment,
     required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+    required TResult Function(_SelectedPaymentMode value) selectedPaymentMode,
   }) {
     return selectedTime(this);
   }
@@ -518,12 +1127,16 @@ class _$_SelectedTime implements _SelectedTime {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
     TResult? Function(_SelectedDate value)? selectedDate,
     TResult? Function(_SelectedTime value)? selectedTime,
     TResult? Function(_SelectedService value)? selectedService,
     TResult? Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult? Function(_SelectedPaymentMode value)? selectedPaymentMode,
   }) {
     return selectedTime?.call(this);
   }
@@ -532,12 +1145,16 @@ class _$_SelectedTime implements _SelectedTime {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     TResult Function(_SelectedDate value)? selectedDate,
     TResult Function(_SelectedTime value)? selectedTime,
     TResult Function(_SelectedService value)? selectedService,
     TResult Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult Function(_SelectedPaymentMode value)? selectedPaymentMode,
     required TResult orElse(),
   }) {
     if (selectedTime != null) {
@@ -622,12 +1239,16 @@ class _$_SelectedService implements _SelectedService {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppointmentDetailsDto appointmentDetails) loaded,
+    required TResult Function(String message) error,
     required TResult Function(DateTime? selectedDate) selectedDate,
     required TResult Function(String? selectedTime) selectedTime,
     required TResult Function(String? selectedService) selectedService,
     required TResult Function(String? selectedReason)
         selectedReasonForAppointment,
     required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+    required TResult Function(int? selectedPaymentMode) selectedPaymentMode,
   }) {
     return selectedService(this.selectedService);
   }
@@ -636,11 +1257,15 @@ class _$_SelectedService implements _SelectedService {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult? Function(String message)? error,
     TResult? Function(DateTime? selectedDate)? selectedDate,
     TResult? Function(String? selectedTime)? selectedTime,
     TResult? Function(String? selectedService)? selectedService,
     TResult? Function(String? selectedReason)? selectedReasonForAppointment,
     TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult? Function(int? selectedPaymentMode)? selectedPaymentMode,
   }) {
     return selectedService?.call(this.selectedService);
   }
@@ -649,11 +1274,15 @@ class _$_SelectedService implements _SelectedService {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult Function(String message)? error,
     TResult Function(DateTime? selectedDate)? selectedDate,
     TResult Function(String? selectedTime)? selectedTime,
     TResult Function(String? selectedService)? selectedService,
     TResult Function(String? selectedReason)? selectedReasonForAppointment,
     TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult Function(int? selectedPaymentMode)? selectedPaymentMode,
     required TResult orElse(),
   }) {
     if (selectedService != null) {
@@ -666,12 +1295,16 @@ class _$_SelectedService implements _SelectedService {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
     required TResult Function(_SelectedDate value) selectedDate,
     required TResult Function(_SelectedTime value) selectedTime,
     required TResult Function(_SelectedService value) selectedService,
     required TResult Function(_SelectedReasonForAppointment value)
         selectedReasonForAppointment,
     required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+    required TResult Function(_SelectedPaymentMode value) selectedPaymentMode,
   }) {
     return selectedService(this);
   }
@@ -680,12 +1313,16 @@ class _$_SelectedService implements _SelectedService {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
     TResult? Function(_SelectedDate value)? selectedDate,
     TResult? Function(_SelectedTime value)? selectedTime,
     TResult? Function(_SelectedService value)? selectedService,
     TResult? Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult? Function(_SelectedPaymentMode value)? selectedPaymentMode,
   }) {
     return selectedService?.call(this);
   }
@@ -694,12 +1331,16 @@ class _$_SelectedService implements _SelectedService {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     TResult Function(_SelectedDate value)? selectedDate,
     TResult Function(_SelectedTime value)? selectedTime,
     TResult Function(_SelectedService value)? selectedService,
     TResult Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult Function(_SelectedPaymentMode value)? selectedPaymentMode,
     required TResult orElse(),
   }) {
     if (selectedService != null) {
@@ -789,12 +1430,16 @@ class _$_SelectedReasonForAppointment implements _SelectedReasonForAppointment {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppointmentDetailsDto appointmentDetails) loaded,
+    required TResult Function(String message) error,
     required TResult Function(DateTime? selectedDate) selectedDate,
     required TResult Function(String? selectedTime) selectedTime,
     required TResult Function(String? selectedService) selectedService,
     required TResult Function(String? selectedReason)
         selectedReasonForAppointment,
     required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+    required TResult Function(int? selectedPaymentMode) selectedPaymentMode,
   }) {
     return selectedReasonForAppointment(selectedReason);
   }
@@ -803,11 +1448,15 @@ class _$_SelectedReasonForAppointment implements _SelectedReasonForAppointment {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult? Function(String message)? error,
     TResult? Function(DateTime? selectedDate)? selectedDate,
     TResult? Function(String? selectedTime)? selectedTime,
     TResult? Function(String? selectedService)? selectedService,
     TResult? Function(String? selectedReason)? selectedReasonForAppointment,
     TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult? Function(int? selectedPaymentMode)? selectedPaymentMode,
   }) {
     return selectedReasonForAppointment?.call(selectedReason);
   }
@@ -816,11 +1465,15 @@ class _$_SelectedReasonForAppointment implements _SelectedReasonForAppointment {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult Function(String message)? error,
     TResult Function(DateTime? selectedDate)? selectedDate,
     TResult Function(String? selectedTime)? selectedTime,
     TResult Function(String? selectedService)? selectedService,
     TResult Function(String? selectedReason)? selectedReasonForAppointment,
     TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult Function(int? selectedPaymentMode)? selectedPaymentMode,
     required TResult orElse(),
   }) {
     if (selectedReasonForAppointment != null) {
@@ -833,12 +1486,16 @@ class _$_SelectedReasonForAppointment implements _SelectedReasonForAppointment {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
     required TResult Function(_SelectedDate value) selectedDate,
     required TResult Function(_SelectedTime value) selectedTime,
     required TResult Function(_SelectedService value) selectedService,
     required TResult Function(_SelectedReasonForAppointment value)
         selectedReasonForAppointment,
     required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+    required TResult Function(_SelectedPaymentMode value) selectedPaymentMode,
   }) {
     return selectedReasonForAppointment(this);
   }
@@ -847,12 +1504,16 @@ class _$_SelectedReasonForAppointment implements _SelectedReasonForAppointment {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
     TResult? Function(_SelectedDate value)? selectedDate,
     TResult? Function(_SelectedTime value)? selectedTime,
     TResult? Function(_SelectedService value)? selectedService,
     TResult? Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult? Function(_SelectedPaymentMode value)? selectedPaymentMode,
   }) {
     return selectedReasonForAppointment?.call(this);
   }
@@ -861,12 +1522,16 @@ class _$_SelectedReasonForAppointment implements _SelectedReasonForAppointment {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     TResult Function(_SelectedDate value)? selectedDate,
     TResult Function(_SelectedTime value)? selectedTime,
     TResult Function(_SelectedService value)? selectedService,
     TResult Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult Function(_SelectedPaymentMode value)? selectedPaymentMode,
     required TResult orElse(),
   }) {
     if (selectedReasonForAppointment != null) {
@@ -952,12 +1617,16 @@ class _$_SelectedTimeSlot implements _SelectedTimeSlot {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppointmentDetailsDto appointmentDetails) loaded,
+    required TResult Function(String message) error,
     required TResult Function(DateTime? selectedDate) selectedDate,
     required TResult Function(String? selectedTime) selectedTime,
     required TResult Function(String? selectedService) selectedService,
     required TResult Function(String? selectedReason)
         selectedReasonForAppointment,
     required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+    required TResult Function(int? selectedPaymentMode) selectedPaymentMode,
   }) {
     return selectedTimeSlot(this.selectedTimeSlot);
   }
@@ -966,11 +1635,15 @@ class _$_SelectedTimeSlot implements _SelectedTimeSlot {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult? Function(String message)? error,
     TResult? Function(DateTime? selectedDate)? selectedDate,
     TResult? Function(String? selectedTime)? selectedTime,
     TResult? Function(String? selectedService)? selectedService,
     TResult? Function(String? selectedReason)? selectedReasonForAppointment,
     TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult? Function(int? selectedPaymentMode)? selectedPaymentMode,
   }) {
     return selectedTimeSlot?.call(this.selectedTimeSlot);
   }
@@ -979,11 +1652,15 @@ class _$_SelectedTimeSlot implements _SelectedTimeSlot {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult Function(String message)? error,
     TResult Function(DateTime? selectedDate)? selectedDate,
     TResult Function(String? selectedTime)? selectedTime,
     TResult Function(String? selectedService)? selectedService,
     TResult Function(String? selectedReason)? selectedReasonForAppointment,
     TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult Function(int? selectedPaymentMode)? selectedPaymentMode,
     required TResult orElse(),
   }) {
     if (selectedTimeSlot != null) {
@@ -996,12 +1673,16 @@ class _$_SelectedTimeSlot implements _SelectedTimeSlot {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
     required TResult Function(_SelectedDate value) selectedDate,
     required TResult Function(_SelectedTime value) selectedTime,
     required TResult Function(_SelectedService value) selectedService,
     required TResult Function(_SelectedReasonForAppointment value)
         selectedReasonForAppointment,
     required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+    required TResult Function(_SelectedPaymentMode value) selectedPaymentMode,
   }) {
     return selectedTimeSlot(this);
   }
@@ -1010,12 +1691,16 @@ class _$_SelectedTimeSlot implements _SelectedTimeSlot {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
     TResult? Function(_SelectedDate value)? selectedDate,
     TResult? Function(_SelectedTime value)? selectedTime,
     TResult? Function(_SelectedService value)? selectedService,
     TResult? Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult? Function(_SelectedPaymentMode value)? selectedPaymentMode,
   }) {
     return selectedTimeSlot?.call(this);
   }
@@ -1024,12 +1709,16 @@ class _$_SelectedTimeSlot implements _SelectedTimeSlot {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
     TResult Function(_SelectedDate value)? selectedDate,
     TResult Function(_SelectedTime value)? selectedTime,
     TResult Function(_SelectedService value)? selectedService,
     TResult Function(_SelectedReasonForAppointment value)?
         selectedReasonForAppointment,
     TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult Function(_SelectedPaymentMode value)? selectedPaymentMode,
     required TResult orElse(),
   }) {
     if (selectedTimeSlot != null) {
@@ -1046,5 +1735,193 @@ abstract class _SelectedTimeSlot implements AppointmentCubitState {
   String? get selectedTimeSlot;
   @JsonKey(ignore: true)
   _$$_SelectedTimeSlotCopyWith<_$_SelectedTimeSlot> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SelectedPaymentModeCopyWith<$Res> {
+  factory _$$_SelectedPaymentModeCopyWith(_$_SelectedPaymentMode value,
+          $Res Function(_$_SelectedPaymentMode) then) =
+      __$$_SelectedPaymentModeCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int? selectedPaymentMode});
+}
+
+/// @nodoc
+class __$$_SelectedPaymentModeCopyWithImpl<$Res>
+    extends _$AppointmentCubitStateCopyWithImpl<$Res, _$_SelectedPaymentMode>
+    implements _$$_SelectedPaymentModeCopyWith<$Res> {
+  __$$_SelectedPaymentModeCopyWithImpl(_$_SelectedPaymentMode _value,
+      $Res Function(_$_SelectedPaymentMode) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedPaymentMode = freezed,
+  }) {
+    return _then(_$_SelectedPaymentMode(
+      freezed == selectedPaymentMode
+          ? _value.selectedPaymentMode
+          : selectedPaymentMode // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SelectedPaymentMode implements _SelectedPaymentMode {
+  const _$_SelectedPaymentMode(this.selectedPaymentMode);
+
+  @override
+  final int? selectedPaymentMode;
+
+  @override
+  String toString() {
+    return 'AppointmentCubitState.selectedPaymentMode(selectedPaymentMode: $selectedPaymentMode)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SelectedPaymentMode &&
+            (identical(other.selectedPaymentMode, selectedPaymentMode) ||
+                other.selectedPaymentMode == selectedPaymentMode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, selectedPaymentMode);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SelectedPaymentModeCopyWith<_$_SelectedPaymentMode> get copyWith =>
+      __$$_SelectedPaymentModeCopyWithImpl<_$_SelectedPaymentMode>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppointmentDetailsDto appointmentDetails) loaded,
+    required TResult Function(String message) error,
+    required TResult Function(DateTime? selectedDate) selectedDate,
+    required TResult Function(String? selectedTime) selectedTime,
+    required TResult Function(String? selectedService) selectedService,
+    required TResult Function(String? selectedReason)
+        selectedReasonForAppointment,
+    required TResult Function(String? selectedTimeSlot) selectedTimeSlot,
+    required TResult Function(int? selectedPaymentMode) selectedPaymentMode,
+  }) {
+    return selectedPaymentMode(this.selectedPaymentMode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function(DateTime? selectedDate)? selectedDate,
+    TResult? Function(String? selectedTime)? selectedTime,
+    TResult? Function(String? selectedService)? selectedService,
+    TResult? Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult? Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult? Function(int? selectedPaymentMode)? selectedPaymentMode,
+  }) {
+    return selectedPaymentMode?.call(this.selectedPaymentMode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppointmentDetailsDto appointmentDetails)? loaded,
+    TResult Function(String message)? error,
+    TResult Function(DateTime? selectedDate)? selectedDate,
+    TResult Function(String? selectedTime)? selectedTime,
+    TResult Function(String? selectedService)? selectedService,
+    TResult Function(String? selectedReason)? selectedReasonForAppointment,
+    TResult Function(String? selectedTimeSlot)? selectedTimeSlot,
+    TResult Function(int? selectedPaymentMode)? selectedPaymentMode,
+    required TResult orElse(),
+  }) {
+    if (selectedPaymentMode != null) {
+      return selectedPaymentMode(this.selectedPaymentMode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_SelectedDate value) selectedDate,
+    required TResult Function(_SelectedTime value) selectedTime,
+    required TResult Function(_SelectedService value) selectedService,
+    required TResult Function(_SelectedReasonForAppointment value)
+        selectedReasonForAppointment,
+    required TResult Function(_SelectedTimeSlot value) selectedTimeSlot,
+    required TResult Function(_SelectedPaymentMode value) selectedPaymentMode,
+  }) {
+    return selectedPaymentMode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_SelectedDate value)? selectedDate,
+    TResult? Function(_SelectedTime value)? selectedTime,
+    TResult? Function(_SelectedService value)? selectedService,
+    TResult? Function(_SelectedReasonForAppointment value)?
+        selectedReasonForAppointment,
+    TResult? Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult? Function(_SelectedPaymentMode value)? selectedPaymentMode,
+  }) {
+    return selectedPaymentMode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_SelectedDate value)? selectedDate,
+    TResult Function(_SelectedTime value)? selectedTime,
+    TResult Function(_SelectedService value)? selectedService,
+    TResult Function(_SelectedReasonForAppointment value)?
+        selectedReasonForAppointment,
+    TResult Function(_SelectedTimeSlot value)? selectedTimeSlot,
+    TResult Function(_SelectedPaymentMode value)? selectedPaymentMode,
+    required TResult orElse(),
+  }) {
+    if (selectedPaymentMode != null) {
+      return selectedPaymentMode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedPaymentMode implements AppointmentCubitState {
+  const factory _SelectedPaymentMode(final int? selectedPaymentMode) =
+      _$_SelectedPaymentMode;
+
+  int? get selectedPaymentMode;
+  @JsonKey(ignore: true)
+  _$$_SelectedPaymentModeCopyWith<_$_SelectedPaymentMode> get copyWith =>
       throw _privateConstructorUsedError;
 }
