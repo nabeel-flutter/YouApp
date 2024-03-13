@@ -9,13 +9,15 @@ class AllServicesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     context.read<ServiceCubit>().getServices();
     return PrimaryBackground(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
+      body: Container(
         child: Column(
           children: [
             //search services
-            const SearchBarWidget(),
-            const SizedBox(height: 20),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+              child: SearchBarWidget(),
+            ),
+            // const SizedBox(height: 20),
             BlocBuilder<ServiceCubit, ServiceState>(
               builder: (context, state) => state.maybeWhen(
                   orElse: () => Container(),
@@ -24,69 +26,74 @@ class AllServicesScreen extends StatelessWidget {
                       child: ListView.builder(
                         itemCount: services.length,
                         itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              if (services[index].name ==
-                                  "Psychiatric\nEvaluation") {
-                                context.router.push(
-                                  ServiceInnerRoute(service: services[index]),
-                                );
-                              }
-                              if (services[index].name == "Group Therapy") {
-                                debugPrint("Group Therapy");
-                                context.router.push(
-                                  const GTRoute(),
-                                );
-                              }
-                              if (services[index].name ==
-                                  "Medication\nManagement") {
-                                context.router.push(
-                                  const MMRoute(),
-                                );
-                              }
-                              if (services[index].name == "Play Therapy") {
-                                context.router.push(
-                                  const PTRoute(),
-                                );
-                              }
-                              if (services[index].name ==
-                                  "Individual Therapy") {
-                                context.router.push(
-                                  const IDRoute(),
-                                );
-                              }
-                              if (services[index].name ==
-                                  "Couple & Family Therapy") {
-                                context.router.push(
-                                  const CPTRoute(),
-                                );
-                              }
-                              if (services[index].name == "Pharmacogenomics") {
-                                context.router.push(
-                                  const PMRoute(),
-                                );
-                              }
-                              if (services[index].name ==
-                                  "Addiction Treatment") {
-                                context.router.push(
-                                  const ATRoute(),
-                                );
-                              }
-                              if (services[index].name == "Telepsychiatry") {
-                                context.router.push(
-                                  const TPRoute(),
-                                );
-                              }
-                              if (services[index].name == "Primary Care") {
-                                context.router.push(
-                                  const PCRoute(),
-                                );
-                              }
-                            },
-                            child: ServiceCard(
-                              title: services[index].name,
-                              image: services[index].image,
-                              description: services[index].description,
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20.0, vertical: 10),
+                            child: GestureDetector(
+                              onTap: () {
+                                if (services[index].name ==
+                                    "Psychiatric\nEvaluation") {
+                                  context.router.push(
+                                    ServiceInnerRoute(service: services[index]),
+                                  );
+                                }
+                                if (services[index].name == "Group Therapy") {
+                                  debugPrint("Group Therapy");
+                                  context.router.push(
+                                    const GTRoute(),
+                                  );
+                                }
+                                if (services[index].name ==
+                                    "Medication\nManagement") {
+                                  context.router.push(
+                                    const MMRoute(),
+                                  );
+                                }
+                                if (services[index].name == "Play Therapy") {
+                                  context.router.push(
+                                    const PTRoute(),
+                                  );
+                                }
+                                if (services[index].name ==
+                                    "Individual Therapy") {
+                                  context.router.push(
+                                    const IDRoute(),
+                                  );
+                                }
+                                if (services[index].name ==
+                                    "Couple & Family Therapy") {
+                                  context.router.push(
+                                    const CPTRoute(),
+                                  );
+                                }
+                                if (services[index].name ==
+                                    "Pharmacogenomics") {
+                                  context.router.push(
+                                    const PMRoute(),
+                                  );
+                                }
+                                if (services[index].name ==
+                                    "Addiction Treatment") {
+                                  context.router.push(
+                                    const ATRoute(),
+                                  );
+                                }
+                                if (services[index].name == "Telepsychiatry") {
+                                  context.router.push(
+                                    const TPRoute(),
+                                  );
+                                }
+                                if (services[index].name == "Primary Care") {
+                                  context.router.push(
+                                    const PCRoute(),
+                                  );
+                                }
+                              },
+                              child: ServiceCard(
+                                title: services[index].name,
+                                image: services[index].image,
+                                description: services[index].description,
+                              ),
                             ),
                           );
                         },
@@ -94,7 +101,7 @@ class AllServicesScreen extends StatelessWidget {
                     );
                   }),
             ),
-            const SizedBox(height: 20)
+            // const SizedBox(height: 20)
           ],
         ),
       ),
@@ -164,67 +171,63 @@ class ServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10.0),
-      child: Container(
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height * 0.13,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: ColorConstants.black.withOpacity(0.2),
-              spreadRadius: 0,
-              blurRadius: 19,
-              offset: const Offset(4, 8),
+    return Container(
+      width: double.infinity,
+      height: MediaQuery.of(context).size.height * 0.13,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: ColorConstants.black.withOpacity(0.2),
+            spreadRadius: 0,
+            blurRadius: 19,
+            offset: const Offset(4, 8), // changes position of shadow
+          ),
+        ],
+        color: ColorConstants.white.withOpacity(0.65),
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset(
+                image!,
+                height: MediaQuery.of(context).size.height * 0.13,
+                width: MediaQuery.of(context).size.width * 0.3,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(width: 10), // Add spacing between image and text
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    title,
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                          fontWeight: FontWeight.w600,
+                          color: ColorConstants.primaryTextColor,
+                          fontSize: 16,
+                        ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    description!,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          fontWeight: FontWeight.w400,
+                          color: ColorConstants.primaryTextColor,
+                          fontSize: 10,
+                        ),
+                  ),
+                ],
+              ),
             ),
           ],
-          color: ColorConstants.white.withOpacity(0.65),
-          borderRadius: BorderRadius.circular(18),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
-          child: Row(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  image!,
-                  height: MediaQuery.of(context).size.height * 0.13,
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              const SizedBox(width: 10), // Add spacing between image and text
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      title,
-                      style:
-                          Theme.of(context).textTheme.headlineSmall!.copyWith(
-                                fontWeight: FontWeight.w600,
-                                color: ColorConstants.primaryTextColor,
-                                fontSize: 16,
-                              ),
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      description!,
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            fontWeight: FontWeight.w600,
-                            color: ColorConstants.primaryTextColor,
-                            fontSize: 10,
-                          ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );

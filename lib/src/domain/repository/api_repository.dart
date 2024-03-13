@@ -8,6 +8,7 @@ import 'package:new_beginnings/src/domain/model/appointment.dart';
 import 'package:new_beginnings/src/domain/model/data_list.dart';
 import 'package:new_beginnings/src/domain/model/docotor.dart';
 import 'package:new_beginnings/src/domain/model/medical_records.dart';
+import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
 import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 
 abstract class ApiRepository extends Repository {
@@ -81,6 +82,8 @@ abstract class ApiRepository extends Repository {
 
   Future<Result<BaseResponseDto<ProductDto>>> getProductDetails(int id);
 
+  Future<Result<BaseResponseDto<AppointmentDetailsDto>>> getAppointmentDetails();
+
   Future<Result<BaseResponseDto<TokenDto>>> signIn(
       {required String email, required String password});
 
@@ -92,7 +95,7 @@ abstract class ApiRepository extends Repository {
       required String confirmPassword,
       required String password});
 
-  Future<Result<BaseResponseDto>>  forgetPassword({required String email});
+  Future<Result<BaseResponseDto>> forgetPassword({required String email});
 
   Future<Result<BaseResponseDto>> verifyEmail({required String email});
 

@@ -20,9 +20,9 @@ class _HomeCarouselWidgetState extends State<HomeCarouselWidget> {
         children: [
           CarouselSlider(
             options: CarouselOptions(
-              height: 200,
+              height: MediaQuery.of(context).size.height * 0.25,
               aspectRatio: 16 / 19,
-              viewportFraction: 1,
+              viewportFraction: 1.0,
               initialPage: _currentIndex,
               enableInfiniteScroll: true,
               reverse: false,

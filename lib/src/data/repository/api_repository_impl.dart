@@ -11,6 +11,7 @@ import 'package:new_beginnings/src/domain/model/appointment.dart';
 import 'package:new_beginnings/src/domain/model/data_list.dart';
 import 'package:new_beginnings/src/domain/model/docotor.dart';
 import 'package:new_beginnings/src/domain/model/medical_records.dart';
+import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
 import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 
 class ApiRepositoryImpl extends ApiRepository {
@@ -234,9 +235,10 @@ class ApiRepositoryImpl extends ApiRepository {
       return Result.failed(objectMapper.toError(e));
     }
   }
-  
+
   @override
-  Future<Result<BaseResponseDto>> forgetPassword({required String email}) async {
+  Future<Result<BaseResponseDto>> forgetPassword(
+      {required String email}) async {
     try {
       final response = await softTechTestApi.forgetPassword(
         email: email,
@@ -247,6 +249,7 @@ class ApiRepositoryImpl extends ApiRepository {
       return Result.failed(objectMapper.toError(e));
     }
   }
+
   @override
   Future<Result<BaseResponseDto>> verifyEmail({required String email}) async {
     try {
@@ -259,13 +262,11 @@ class ApiRepositoryImpl extends ApiRepository {
       return Result.failed(objectMapper.toError(e));
     }
   }
-  
+
   @override
   Future<Result<BaseResponseDto<UserDetails>>> getUser({String? token}) async {
     try {
-      final response = await softTechTestApi.getUser(
-        
-      );
+      final response = await softTechTestApi.getUser();
       return Result.success(objectMapper.toGetUser(response));
     } on Exception catch (e) {
       logger.e(e);
@@ -274,5 +275,15 @@ class ApiRepositoryImpl extends ApiRepository {
 
     // TODO: implement getUser
   }
-  
+
+  @override
+  Future<Result<BaseResponseDto<AppointmentDetailsDto>>> getAppointmentDetails() async {
+   try {
+      final response = await softTechTestApi.getAppointmentDetails();
+      return Result.success(objectMapper.toGetAppointmentDetails(response));
+    } on Exception catch (e) {
+      logger.e(e);
+      return Result.failed(objectMapper.toError(e));
+    }
+  }
 }

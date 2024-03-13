@@ -35,7 +35,7 @@ class App extends StatelessWidget {
               BlocProvider(create: (context) => AppCubit()),
               BlocProvider(create: (context) => AnimatedDrawerCubit()),
               BlocProvider(create: (context) => IsGradientBackgroundCubit()),
-              BlocProvider(create: (context) => AppointmentCubit()),
+              BlocProvider(create: (context) => AppointmentCubit(getIt.get())),
               BlocProvider(create: (context) => DoctorsCubit()),
               BlocProvider(
                 create: (context) => ServiceCubit(),
