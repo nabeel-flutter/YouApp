@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 
 class GenderSelection extends StatefulWidget {
-  const GenderSelection({super.key});
+  final String initialPaymentMode; // Add this line
+
+  const GenderSelection({
+    super.key,
+    required this.initialPaymentMode,
+  });
 
   @override
   State<GenderSelection> createState() => _GenderSelectionState();
@@ -10,6 +15,18 @@ class GenderSelection extends StatefulWidget {
 
 class _GenderSelectionState extends State<GenderSelection> {
   int? _selectedValue;
+  void initState() {
+    super.initState();
+    // Set the initial value based on the passed initialPaymentMode
+    if (widget.initialPaymentMode.toLowerCase() == "Male") {
+      _selectedValue = 1;
+    } else if (widget.initialPaymentMode.toLowerCase() == "Female") {
+      _selectedValue = 2;
+    } else if (widget.initialPaymentMode.toLowerCase() == "Other") {
+      _selectedValue = 3;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
