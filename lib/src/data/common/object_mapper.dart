@@ -420,4 +420,8 @@ class ObjectMapper {
           services: dto.data!.services),
     );
   }
+
+  BaseResponseDto toUpdateUser(BaseResponseDto dto) {
+    return  BaseResponseDto(data: dto.data, message: dto.data['message']);
+  }
 }

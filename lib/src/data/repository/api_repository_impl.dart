@@ -277,10 +277,35 @@ class ApiRepositoryImpl extends ApiRepository {
   }
 
   @override
-  Future<Result<BaseResponseDto<AppointmentDetailsDto>>> getAppointmentDetails() async {
-   try {
+  Future<Result<BaseResponseDto<AppointmentDetailsDto>>>
+      getAppointmentDetails() async {
+    try {
       final response = await softTechTestApi.getAppointmentDetails();
       return Result.success(objectMapper.toGetAppointmentDetails(response));
+    } on Exception catch (e) {
+      logger.e(e);
+      return Result.failed(objectMapper.toError(e));
+    }
+  }
+
+  @override
+  Future<Result<BaseResponseDto>> updateUser({
+    String? firstName,
+    String? lastName,
+    String? email,
+    String? phone,
+    File? insuranceCardFront,
+    File? insuranceCardBack,
+  }) async {
+    try {
+      final response = await softTechTestApi.updateUser(
+          firstName: firstName!,
+          lastName: lastName!,
+          email: email!,
+          phone: phone!,
+          insuranceCardFrontImage: insuranceCardFront,
+          insuranceCardBackImage: insuranceCardBack);
+      return Result.success(objectMapper.toUpdateUser(response));
     } on Exception catch (e) {
       logger.e(e);
       return Result.failed(objectMapper.toError(e));

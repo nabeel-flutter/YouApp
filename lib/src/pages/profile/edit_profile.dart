@@ -1,6 +1,7 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/profile/cubit/user_profile_cubit.dart';
 import 'package:new_beginnings/src/pages/profile/editscreen_body.dart';
+import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 @RoutePage()
@@ -14,6 +15,7 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
+  @override
   Widget build(BuildContext context) {
     BlocProvider.of<UserProfileCubit>(context).getUserData();
 
@@ -35,7 +37,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     context.read<UserProfileCubit>().getUserData();
                   },
                 ),
-            loading: () => Skeletonizer(child: EditScreenBody()),
+            loading: () => const Skeletonizer(child: EditScreenBody()),
             loaded: (user) => EditScreenBody(
                   userDetails: user,
                 )));
