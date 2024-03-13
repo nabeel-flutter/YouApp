@@ -57,7 +57,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
     firstnamecontrolller.text = widget.userDetails!.data!.firstName ?? '';
     lastnamecontroller.text = widget.userDetails!.data!.lastName ?? '';
     emailcontroller.text = widget.userDetails!.data!.email ?? '';
-    suffixcontroller.text = widget.userDetails!.data!.paymentType ?? "";
+    suffixcontroller.text = widget.userDetails!.data!.suffix ?? "";
     dobcontroller.text = widget.userDetails!.data!.birthDate ?? "";
     ssncontroller.text = widget.userDetails!.data!.ssn ?? " ";
     addresscontroller.text =
@@ -84,9 +84,8 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                 left: 0,
                 right: 0,
                 child: UserProfileComponent(
-                  userName: firstnamecontrolller.text +
-                      "  " +
-                      lastnamecontroller.text,
+                  userName:
+                      "${firstnamecontrolller.text}${lastnamecontroller.text}",
                   userEmail: emailcontroller.text,
                 )),
             Padding(
@@ -132,45 +131,55 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                       label: "Country",
                       textList: const ["USA", "Canada", "Mexico"],
                       onTapped: (selectedCountry) {
-                        // Handle the selection (e.g., update the state or make an API call)
                         setState(() {
-                          // Assuming you have a mechanism to update the userDetails with the new selection
                           this.country = selectedCountry;
                         });
                       },
-                      title: widget.userDetails?.data?.geoLocation?.country ??
-                          "Select Country",
+                      title: widget.userDetails?.data?.geoLocation?.country
+                                  ?.isNotEmpty ==
+                              true
+                          ? widget.userDetails!.data!.geoLocation!.country!
+                          : "Select your country",
                     ),
                     ExpandedSelectionWidget(
-                        label: "State",
-                        textList: const [
-                          "California",
-                          "Texas",
-                          "Florida",
-                          "Massachusetts"
-                        ],
-                        onTapped: (state) {
-                          setState(() {
-                            this.state = state;
-                          });
-                        },
-                        title: widget.userDetails?.data?.geoLocation?.country ??
-                            state),
+                      label: "State",
+                      textList: const [
+                        "California",
+                        "Texas",
+                        "Florida",
+                        "Massachusetts"
+                      ],
+                      onTapped: (selectedState) {
+                        setState(() {
+                          this.state = selectedState;
+                        });
+                      },
+                      // Make sure to provide a non-nullable string by using ?? with a non-nullable default value
+                      title: widget.userDetails?.data?.geoLocation?.state
+                                  ?.isNotEmpty ==
+                              true
+                          ? widget.userDetails!.data!.geoLocation!.state!
+                          : "Select your state",
+                    ),
                     ExpandedSelectionWidget(
-                        label: "City",
-                        textList: const [
-                          "New York City",
-                          "Los Angeles",
-                          "Chicago",
-                          "Houston",
-                        ],
-                        onTapped: (city) {
-                          setState(() {
-                            this.city = city;
-                          });
-                        },
-                        title: widget.userDetails?.data?.geoLocation?.country ??
-                            city),
+                      label: "City",
+                      textList: const [
+                        "New York City",
+                        "Los Angeles",
+                        "Chicago",
+                        "Houston",
+                      ],
+                      onTapped: (city) {
+                        setState(() {
+                          this.city = city;
+                        });
+                      },
+                      title: widget.userDetails?.data?.geoLocation?.city
+                                  ?.isNotEmpty ==
+                              true
+                          ? widget.userDetails!.data!.geoLocation!.city!
+                          : "Select your city",
+                    ),
                     CustomTextFeild(
                         feildName: StringConstants.address,
                         hintText: "Enter your Address",
@@ -230,8 +239,11 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                           this.preferredLocation = preferredLocation;
                         });
                       },
-                      title: widget.userDetails?.data?.preferredLocation ??
-                          preferredLocation,
+                      title: widget.userDetails?.data?.preferredLocation
+                                  ?.isNotEmpty ==
+                              true
+                          ? widget.userDetails!.data!.preferredLocation!
+                          : "Select Preferred Location For Service",
                       label: "Preferred Location For Service",
                       textList: const [
                         '1 W. Centre St Mahanoy, PA 17948',
