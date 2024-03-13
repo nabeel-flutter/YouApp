@@ -40,6 +40,7 @@ class SoftTechTestApi {
 
   static String kRouteAuthVerifyEmail = 'resendEmailVerify';
   static String kRouteUserDetail = 'user';
+  static String kRouteUpdateUserDetail = 'user/edit';
   static String kRouteGetAppointmentDetails = 'check_appointment_condition';
 
   static String kRouteGetProductDetail(int id) => '$kRouteGetProducts/$id';
@@ -344,5 +345,29 @@ class SoftTechTestApi {
         {"data": response.data},
         (value) =>
             AppointmentDetailsDto.fromJson(value as Map<String, dynamic>));
+  }
+
+  Future<BaseResponseDto> updateUser({
+    String? firstName,
+    String? lastName,
+    String? phone,
+    String? email,
+    File? insuranceCardFrontImage,
+    File? insuranceCardBackImage,
+    String? insuranceName,
+    String? insurancePoilcyNumber,
+  }) async {
+    final formData = FormData.fromMap({
+      'firstName': firstName,
+      'lastName': lastName,
+      'phone': phone,
+      'email': email,
+      'insurance_card_front': insuranceCardFrontImage,
+      'insurance_card_back': insuranceCardBackImage,
+      'insuranceName': insuranceName,
+      'insurancePolicy': insurancePoilcyNumber
+    });
+    final response = await dio.put(kRouteUpdateUserDetail, data: formData);
+    return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
   }
 }
