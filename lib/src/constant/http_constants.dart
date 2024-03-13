@@ -1,7 +1,7 @@
 class HttpConstants {
-  static const String baseUrlArticle = 'https://6c52-2407-aa80-14-88b2-904e-2db5-3b0b-c1d0.ngrok-free.app/api/v1/';
-  static const String base = 'https://6c52-2407-aa80-14-88b2-904e-2db5-3b0b-c1d0.ngrok-free.app/api/v1/';
-  static const String urlBase = 'https://6c52-2407-aa80-14-88b2-904e-2db5-3b0b-c1d0.ngrok-free.app/api/v1/';
+  static const String baseUrlArticle = 'https://0584-2407-aa80-14-8b4b-44b2-8688-a7bc-14e8.ngrok-free.app/api/v1/';
+  static const String base = 'https://0584-2407-aa80-14-8b4b-44b2-8688-a7bc-14e8.ngrok-free.app/api/v1/';
+  static const String urlBase = 'https://0584-2407-aa80-14-8b4b-44b2-8688-a7bc-14e8.ngrok-free.app/api/v1/';
   static const String downloadRecipt = 'payment-receipt-download';
   static const String token = 'get/token';
   static const String login = 'login';
