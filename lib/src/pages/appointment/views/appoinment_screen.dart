@@ -16,6 +16,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   @override
   Widget build(BuildContext context) {
     final appointmentCubit = context.read<AppointmentCubit>();
+    appointmentCubit.getAppointmentDetails();
     return PrimaryBackground(
       appbarText: StringConstants.bookAppointment,
       body: Padding(
@@ -42,24 +43,57 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
               },
             ),
             const SizedBox(height: 20),
+            BlocConsumer<AppointmentCubit, AppointmentCubitState>(
+                listener: (context, state) => state.maybeWhen(
+                      orElse: () {
+                        return null;
+                      },
+                      error: (message) =>
+                          ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(message),
+                        ),
+                      ),
+                    ),
+                builder: (context, state) => state.maybeWhen(
+                      selectedService: (selectedService) =>
+                          ExpandedSelectionWidget(
+                        label: "Service",
+                        textList: appointmentCubit.servicesList,
+                        onTapped: (p0) {
+                          appointmentCubit.selectService(p0);
+                          setState(() {});
+                        },
+                        title: appointmentCubit.service,
+                      ),
+                      loaded: (data) => ExpandedSelectionWidget(
+                        label: "Service",
+                        textList: data.services.map((e) => e.name).toList(),
+                        onTapped: (p0) {
+                          appointmentCubit.selectService(p0);
+                        },
+                        title: appointmentCubit.service,
+                      ),
+                      loading: () =>
+                          const Center(child: CircularProgressIndicator()),
+                      orElse: () => ExpandedSelectionWidget(
+                        label: "Service",
+                        textList: appointmentCubit.servicesList,
+                        onTapped: (p0) {
+                          appointmentCubit.selectService(p0);
+                          setState(() {});
+                        },
+                        title: appointmentCubit.service,
+                      ),
+                    )),
             ExpandedSelectionWidget(
-                label: "Services",
-                textList: appointmentCubit.servicesList,
+                label: "Timeslot",
+                textList: appointmentCubit.timeSlotList,
                 onTapped: (p0) {
-                  appointmentCubit.selectService(p0);
+                  appointmentCubit.selectTimeSlot(p0);
                   setState(() {});
                 },
-                title: appointmentCubit.service),
-            appointmentCubit.service == "Individual Counseling"
-                ? ExpandedSelectionWidget(
-                    label: "Timeslot",
-                    textList: appointmentCubit.timeSlotList,
-                    onTapped: (p0) {
-                      appointmentCubit.selectTimeSlot(p0);
-                      setState(() {});
-                    },
-                    title: appointmentCubit.timeSlot)
-                : Container(),
+                title: appointmentCubit.timeSlot),
             const SizedBox(height: 20),
             BlocBuilder<AppointmentCubit, AppointmentCubitState>(
                 builder: (context, state) => state.maybeWhen(

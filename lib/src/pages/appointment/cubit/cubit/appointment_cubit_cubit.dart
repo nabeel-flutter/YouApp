@@ -7,7 +7,7 @@ import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
 import 'package:new_beginnings/src/domain/common/result.dart';
 import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
 
-import '../../../profile/model/userdata_model.dart';
+import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 
 part 'appointment_cubit_state.dart';
 part 'appointment_cubit_cubit.freezed.dart';
@@ -63,10 +63,9 @@ class AppointmentCubit extends Cubit<AppointmentCubitState> {
     emit(const AppointmentCubitState.loading());
     final Result<BaseResponseDto<AppointmentDetailsDto>> result =
         await apiRepository.getAppointmentDetails();
-          result.when(
+    result.when(
         success: (data) {
-           final List<Service> services = data.data!.services;
-          servicesList = services.map((service) => service.name).toList();
+         emit(_Loaded(data.data!));
         },
         failed: (error) => emit(_Error(error.message)));
   }
