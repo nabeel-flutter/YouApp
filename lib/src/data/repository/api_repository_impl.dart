@@ -311,4 +311,31 @@ class ApiRepositoryImpl extends ApiRepository {
       return Result.failed(objectMapper.toError(e));
     }
   }
+
+  @override
+  Future<Result<BaseResponseDto>> bookAppointment(
+      {required String appointmenDate,
+      required String method,
+      required String paymentType,
+      required String requestType,
+      required String serviceName,
+      required String timeSlot,
+      required String technologyType,
+      required int price}) async {
+    try {
+      final response = await softTechTestApi.bookAppointment(
+          appointmenDate: appointmenDate,
+          method: method,
+          paymentType: paymentType,
+          requestType: requestType,
+          serviceName: serviceName,
+          timeSlot: timeSlot,
+          technologyType: technologyType,
+          price: price);
+      return Result.success(objectMapper.toBookAppointment(response));
+    } on Exception catch (e) {
+      logger.e(e);
+      return Result.failed(objectMapper.toError(e));
+    }
+  }
 }

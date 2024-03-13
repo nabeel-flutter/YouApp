@@ -110,4 +110,15 @@ abstract class ApiRepository extends Repository {
     File? insuranceCardFront,
     File? insuranceCardBack,
   });
+
+  Future<Result<BaseResponseDto>> bookAppointment({
+    required String appointmenDate,
+    required String paymentType,
+    required String requestType,
+    required String serviceName,
+    required String timeSlot,
+    required String technologyType,
+    required int price,
+    required String method,
+  });
 }

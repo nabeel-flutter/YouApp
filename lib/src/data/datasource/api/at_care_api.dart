@@ -43,6 +43,8 @@ class SoftTechTestApi {
   static String kRouteUpdateUserDetail = 'user/edit';
   static String kRouteGetAppointmentDetails = 'check_appointment_condition';
 
+  static String kRouteCreateAppointment = 'appointment';
+
   static String kRouteGetProductDetail(int id) => '$kRouteGetProducts/$id';
 
   static String kRouteDeleteMedicalRecord(int id) =>
@@ -368,6 +370,28 @@ class SoftTechTestApi {
       'insurancePolicy': insurancePoilcyNumber
     });
     final response = await dio.put(kRouteUpdateUserDetail, data: formData);
+    return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
+  }
+
+  Future<BaseResponseDto> bookAppointment(
+    {required String appointmenDate,
+    required String method,
+    required String paymentType,
+    required String requestType,
+    required String serviceName,
+    required String timeSlot,
+    required String technologyType,
+    required int price}) async {
+    final response = await dio.post(kRouteCreateAppointment, data: {
+      'appointmentDate': appointmenDate,
+      'method': method,
+      'paymentType': paymentType,
+      'request': requestType,
+      'serviceName': serviceName,
+      'timeSlot': timeSlot,
+      'type': technologyType,
+      'price': price
+    });
     return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
   }
 }

@@ -1,28 +1,33 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/appointment/cubit/book_appointment/cubit/book_appointment_cubit.dart';
+import 'package:new_beginnings/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
 
 @RoutePage()
 class BookAppointmentScreen extends StatefulWidget {
-  const BookAppointmentScreen({super.key, 
-   this.slot, required this.service, required this.paymentMethod, required this.date, required this.time});
+  const BookAppointmentScreen(
+      {super.key,
+      this.slot,
+      required this.service,
+      required this.paymentMethod,
+      required this.date,
+      required this.time});
   final Slot? slot;
   final Service service;
   final String paymentMethod;
-  final String date ;
-  final String time ;
-
-
+  final String date;
+  final String time;
 
   @override
   State<BookAppointmentScreen> createState() => _BookAppointmentScreenState();
 }
 
 class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
-  String preferredLocation = "Preferred Location For Service";
-  String methodOfService = "Preferred Method Of Service";
-  String technologyAvailable = "Type of Technology Available to You";
-  String appointmentRequest = "Appointment Request";
+  String? _methodOfService;
+  String? _technologyAvailable;
+  String? _appointmentRequest;
   @override
   Widget build(BuildContext context) {
+    debugPrint(widget.date);
     return MainScaffold(
       appBar: const AppBarcomponent(
         isTitleTowLines: false,
@@ -34,8 +39,31 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
         padding: const EdgeInsets.only(left: 40, bottom: 20),
         child: ElevatedButton(
           onPressed: () {
-            
-            // context.router.push(const BookAppointmentRoute());
+            if (_methodOfService == null) {
+              ToastComponent3(context)
+                  .showToast(context, 'Please select method of service');
+            } else if (_technologyAvailable == null) {
+              ToastComponent3(context)
+                  .showToast(context, 'Please select technology available');
+            } else if (_appointmentRequest == null) {
+              ToastComponent3(context)
+                  .showToast(context, 'Please select appointment request');
+            } else {
+              context.read<BookAppointmentCubit>().bookAppointment(
+                    serviceName: widget.service.name,
+                    timeSlot: widget.slot != null
+                        ? widget.slot!.time
+                        : "Not Available",
+                    date: "${widget.date}T${widget.time}",
+                    paymentType: widget.paymentMethod,
+                    price: widget.slot != null
+                        ? widget.slot!.price
+                        : widget.service.slots.first.price,
+                    method: _methodOfService ?? "No Preference",
+                    technologyType: _technologyAvailable ?? "No Preference",
+                    requestType: _appointmentRequest ?? "No Preference",
+                  );
+            }
           },
           child: Text(
             'Done',
@@ -52,17 +80,13 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              widget.slot!=null? Text(widget.slot!.price.toString()):
-              Text(widget.service.slots.first.price.toString())
-              
-              ,
               ExpandedSelectionWidget(
                 onTapped: (methodOfService) {
                   setState(() {
-                    this.methodOfService = methodOfService;
+                    _methodOfService = methodOfService;
                   });
                 },
-                title: methodOfService,
+                title: _methodOfService ?? "Preferred Method Of Service",
                 label: "Please Select Your Preferred Method Of Service",
                 textList: const [
                   'I would prefer on-site behavioral health services',
@@ -73,10 +97,10 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
               ExpandedSelectionWidget(
                 onTapped: (technologyAvailable) {
                   setState(() {
-                    this.technologyAvailable = technologyAvailable;
+                    _technologyAvailable = technologyAvailable;
                   });
                 },
-                title: technologyAvailable,
+                title: _technologyAvailable ?? "Type of Technology Available",
                 label: "Please Select the type of Technology Available to you",
                 textList: const [
                   'I have access to internet at my home or at an accessible location',
@@ -87,10 +111,10 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
               ExpandedSelectionWidget(
                 onTapped: (appointmentRequest) {
                   setState(() {
-                    this.appointmentRequest = appointmentRequest;
+                    _appointmentRequest = appointmentRequest;
                   });
                 },
-                title: appointmentRequest,
+                title: _appointmentRequest ?? "Appointment Request",
                 label: "Please Select Appointment Request",
                 textList: const [
                   'I am a new patient requesting behavioral health services',
@@ -103,110 +127,6 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class ExpandedSelectionWidget extends StatefulWidget {
-  final String label;
-  final List<String> textList;
-  String title; // Make title mutable by removing the `final` keyword
-  final Function(String) onTapped;
-
-  ExpandedSelectionWidget({
-    super.key,
-    required this.label,
-    required this.textList,
-    required this.onTapped,
-    required this.title,
-  });
-
-  @override
-  State<ExpandedSelectionWidget> createState() =>
-      _ExpandedSelectionWidgetState();
-}
-
-class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
-  late String currentTitle;
-
-  bool expanded = false;
-  ExpansionTileController expandedController = ExpansionTileController();
-
-  @override
-  void initState() {
-    super.initState();
-    currentTitle =
-        widget.title; // Initialize currentTitle with the widget's initial title
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            widget.label,
-            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  color: ColorConstants.primaryTextColor,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
-          ),
-          const SizedBox(
-            height: 10.0,
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: Color(0xff80BCBD).withOpacity(0.2),
-              borderRadius: BorderRadius.circular(8.0),
-              border: Border.all(
-                color: ColorConstants.primaryColor,
-              ),
-            ),
-            child: ExpansionTile(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              backgroundColor: ColorConstants.white,
-              title: Text(
-                currentTitle, // Use currentTitle for dynamic updates
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: Color(0xff656567),
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                    ),
-              ),
-              initiallyExpanded: false,
-              controller: expandedController,
-              onExpansionChanged: (expanded) {},
-              children: [
-                ...widget.textList.map(
-                  (location) => ListTile(
-                    onTap: () {
-                      setState(() {
-                        currentTitle =
-                            location; // Update the currentTitle on selection
-                      });
-                      widget.onTapped(location);
-                      expandedController.collapse();
-                    },
-                    title: Text(
-                      location,
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: ColorConstants.greenish,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
       ),
     );
   }
