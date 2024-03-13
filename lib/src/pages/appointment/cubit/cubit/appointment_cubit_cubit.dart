@@ -63,9 +63,9 @@ class AppointmentCubit extends Cubit<AppointmentCubitState> {
     emit(const AppointmentCubitState.loading());
     final Result<BaseResponseDto<AppointmentDetailsDto>> result =
         await apiRepository.getAppointmentDetails();
-          result.when(
+    result.when(
         success: (data) {
-           final List<Service> services = data.data!.services;
+          final List<Service> services = data.data!.services;
           servicesList = services.map((service) => service.name).toList();
         },
         failed: (error) => emit(_Error(error.message)));

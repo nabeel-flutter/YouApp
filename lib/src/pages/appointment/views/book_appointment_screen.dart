@@ -98,14 +98,16 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
 class ExpandedSelectionWidget extends StatefulWidget {
   final String label;
   final List<String> textList;
-  final String title;
+  String title; // Make title mutable by removing the `final` keyword
   final Function(String) onTapped;
-  const ExpandedSelectionWidget(
-      {super.key,
-      required this.label,
-      required this.textList,
-      required this.onTapped,
-      required this.title});
+
+  ExpandedSelectionWidget({
+    super.key,
+    required this.label,
+    required this.textList,
+    required this.onTapped,
+    required this.title,
+  });
 
   @override
   State<ExpandedSelectionWidget> createState() =>
@@ -113,9 +115,18 @@ class ExpandedSelectionWidget extends StatefulWidget {
 }
 
 class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
-  bool expanded = false;
+  late String currentTitle;
 
+  bool expanded = false;
   ExpansionTileController expandedController = ExpansionTileController();
+
+  @override
+  void initState() {
+    super.initState();
+    currentTitle =
+        widget.title; // Initialize currentTitle with the widget's initial title
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -143,39 +154,44 @@ class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
               ),
             ),
             child: ExpansionTile(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                backgroundColor: ColorConstants.white,
-                title: Text(
-                  widget.title,
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        color: Color(0xff656567),
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
-                      ),
-                ),
-                initiallyExpanded: false,
-                controller: expandedController,
-                onExpansionChanged: (expanded) {},
-                children: [
-                  ...widget.textList.map(
-                    (location) => ListTile(
-                      onTap: () {
-                        widget.onTapped(location);
-                        expandedController.collapse();
-                      },
-                      title: Text(
-                        location,
-                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                              color: ColorConstants.greenish,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
-                      ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              backgroundColor: ColorConstants.white,
+              title: Text(
+                currentTitle, // Use currentTitle for dynamic updates
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      color: Color(0xff656567),
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
                     ),
-                  )
-                ]),
+              ),
+              initiallyExpanded: false,
+              controller: expandedController,
+              onExpansionChanged: (expanded) {},
+              children: [
+                ...widget.textList.map(
+                  (location) => ListTile(
+                    onTap: () {
+                      setState(() {
+                        currentTitle =
+                            location; // Update the currentTitle on selection
+                      });
+                      widget.onTapped(location);
+                      expandedController.collapse();
+                    },
+                    title: Text(
+                      location,
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            color: ColorConstants.greenish,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           )
         ],
       ),
