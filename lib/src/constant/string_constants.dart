@@ -513,6 +513,7 @@ class StringConstants {
   static String get zipCode => _getLang('zipCode');
 
   static String get insurance => _getLang('insurance');
+  static String get insurancedetails => _getLang('insurancedetails');
   static String get insured => _getLang('insured');
 
   static String get male => _getLang('male');
@@ -662,6 +663,8 @@ class StringConstants {
 
   static String get email => _getLang('email');
 
+  static String get alternatephonenumber => _getLang('alternatephonenumber');
+
   static String get password => _getLang('password');
 
   static String get forgot => _getLang('forgot');
@@ -684,6 +687,8 @@ class StringConstants {
       _getLang('telehealthAppointments');
 
   static String get ePrescriptions => _getLang('ePrescriptions');
+  //user edit screen
+  static String get insurancepolicy => _getLang("insurancepolicy");
 
   static String _getLang(String s) {
     return languageSelector(s);

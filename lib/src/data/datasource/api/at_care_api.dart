@@ -40,6 +40,7 @@ class SoftTechTestApi {
 
   static String kRouteAuthVerifyEmail = 'resendEmailVerify';
   static String kRouteUserDetail = 'user';
+  static String kRouteGetAppointmentDetails = 'check_appointment_condition';
 
   static String kRouteGetProductDetail(int id) => '$kRouteGetProducts/$id';
 
@@ -337,12 +338,11 @@ class SoftTechTestApi {
         (value) => UserDetails.fromJson(value as Map<String, dynamic>));
   }
 
-      Future<BaseResponseDto<AppointmentDetailsDto>> getAppointmentDetails() async {
-           final response = await dio.get(kRouteUserDetail);
-    return BaseResponseDto.fromJson({"data": response.data},
-        (value) => AppointmentDetailsDto.fromJson(value as Map<String, dynamic>) );
-
+  Future<BaseResponseDto<AppointmentDetailsDto>> getAppointmentDetails() async {
+    final response = await dio.get(kRouteGetAppointmentDetails);
+    return BaseResponseDto.fromJson(
+        {"data": response.data},
+        (value) =>
+            AppointmentDetailsDto.fromJson(value as Map<String, dynamic>));
   }
-  
-
 }

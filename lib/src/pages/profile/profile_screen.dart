@@ -22,7 +22,7 @@ class ProfileScreen extends StatelessWidget {
                     context.read<UserProfileCubit>().getUserData();
                   },
                 ),
-            loading: () => Skeletonizer(child: ProfileScreenBody()),
+            loading: () => const Skeletonizer(child: ProfileScreenBody()),
             loaded: (user) => ProfileScreenBody(user: user)));
   }
 }
@@ -45,15 +45,15 @@ class ErrorState extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             "Something Wrong",
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
           Text(message),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          ElevatedButton(onPressed: onTap, child: Text("Retry"))
+          ElevatedButton(onPressed: onTap, child: const Text("Retry"))
         ],
       )),
     );
@@ -80,11 +80,11 @@ class ProfileScreenBody extends StatelessWidget {
                   child: Container(
                       height: 250,
                       width: double.infinity,
-                      color: Color(0xff0A7E80),
+                      color: const Color(0xff0A7E80),
                       child: Center(
                         child: Container(
-                          margin: EdgeInsets.only(bottom: 70),
-                          child: Text(
+                          margin: const EdgeInsets.only(bottom: 70),
+                          child: const Text(
                             "Profile",
                             style: TextStyle(
                                 color: Colors.white,
@@ -108,9 +108,14 @@ class ProfileScreenBody extends StatelessWidget {
                       user != null ? '${user!.data!.email}' : "User Name",
                   profile: true,
                 )),
-            Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Spacer(), const UserProfileBottomComponent()]),
+            Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              const Spacer(),
+              UserProfileBottomComponent(
+                onPressed: () {
+                  context.router.push(const EditProfileRoute());
+                },
+              )
+            ]),
           ],
         ),
         isBackAppBar: false,
