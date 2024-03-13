@@ -2,7 +2,15 @@ import 'package:new_beginnings/src/app/app_export.dart';
 
 @RoutePage()
 class BookAppointmentScreen extends StatefulWidget {
-  const BookAppointmentScreen({super.key});
+  const BookAppointmentScreen({super.key, 
+   this.slot, required this.service, required this.paymentMethod, required this.date, required this.time});
+  final Slot? slot;
+  final Service service;
+  final String paymentMethod;
+  final String date ;
+  final String time ;
+
+
 
   @override
   State<BookAppointmentScreen> createState() => _BookAppointmentScreenState();
@@ -26,6 +34,7 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
         padding: const EdgeInsets.only(left: 40, bottom: 20),
         child: ElevatedButton(
           onPressed: () {
+            
             // context.router.push(const BookAppointmentRoute());
           },
           child: Text(
@@ -43,6 +52,10 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              widget.slot!=null? Text(widget.slot!.price.toString()):
+              Text(widget.service.slots.first.price.toString())
+              
+              ,
               ExpandedSelectionWidget(
                 onTapped: (methodOfService) {
                   setState(() {

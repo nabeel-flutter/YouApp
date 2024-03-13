@@ -1,3 +1,6 @@
+
+export 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
+
 export 'package:new_beginnings/src/pages/verify_email/verify_email_screen.dart';
 export 'package:auto_route/auto_route.dart';
 export 'package:new_beginnings/src/route/app_router.dart';
@@ -130,7 +133,6 @@ export 'package:new_beginnings/src/theme/switch_theme.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'dart:io';
 
-export 'package:new_beginnings/src/pages/appointment/cubit/cubit/appointment_cubit_cubit.dart';
 export 'package:new_beginnings/src/pages/profile/edit_profile.dart';
 
 export 'package:new_beginnings/src/pages/doctors/models/doctor_model.dart';

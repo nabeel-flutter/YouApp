@@ -1,4 +1,6 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/core/date_time.dart';
+import 'package:new_beginnings/src/pages/appointment/cubit/appointnent_details/appointment_cubit_cubit.dart';
 import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
 
 import 'package:new_beginnings/src/pages/appointment/views/widgets/select_date_widget.dart';
@@ -21,6 +23,10 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
 
   Slot? _selectedTimeSlot;
 
+  String? _selectedTime;
+
+  DateTime? _selectedDate;
+
   @override
   Widget build(BuildContext context) {
     final appointmentCubit = context.read<AppointmentCubit>();
@@ -38,18 +44,31 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
             SelectTimeWidget(
               timeOptions: const [
                 '9:00 AM',
+                '9:30 AM',
                 '10:00 AM',
+                '10:30 PM',
                 '11:00 AM',
+                '11:30 AM',
                 '12:00 PM',
+                '12:30 PM',
+                '1:00 PM',
+                '1:30 PM',
+                '2:00 PM',
+                '2:30 PM',
+                '3:00 PM',
+                '3:30 PM',
+                '4:00 PM',
+                '4:30 PM',
+                '5:00 PM',
+                '5:30 PM',
               ],
               onSelectedTime: appointmentCubit.selectTime,
             ),
             const SizedBox(height: 20),
             BlocConsumer<AppointmentCubit, AppointmentCubitState>(
               listener: (context, state) => state.maybeWhen(
-                orElse: () {
-                  return null;
-                },
+                orElse: () => null,
+                selectedDate: (selectedDate) => _selectedDate = selectedDate,
                 selectedService: (selectedService) {
                   _selectedTimeSlot = null;
                   return _selectedService = _appointmentDetails!.services
@@ -58,7 +77,9 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                 selectedTimeSlot: (selectedTimeSlot) => _selectedTimeSlot =
                     _selectedService!.slots.firstWhere(
                         (element) => element.time == selectedTimeSlot),
+                selectedTime: (selectedTime) => _selectedTime = selectedTime,
                 loaded: (appointmentDetails) {
+                  _selectedService = null;
                   return _appointmentDetails = appointmentDetails;
                 },
                 error: (message) => ScaffoldMessenger.of(context).showSnackBar(
@@ -101,10 +122,12 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                             onTapped: (p0) {
                               appointmentCubit.selectService(p0);
                             },
-                            title: appointmentCubit.service,
+                            title: _selectedService != null
+                                ? _selectedService!.name
+                                : "Tap to select",
                           ),
                           if (_selectedService != null)
-                            _selectedService!.slots.length != 1
+                            _selectedService!.slots.length > 1
                                 ? ExpandedSelectionWidget(
                                     label: "Timeslot",
                                     textList: _selectedService!.slots
@@ -154,7 +177,30 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                 //       ? appointmentCubit.timeSlot
                 //       : null,
                 // );
-                context.router.push(const BookAppointmentRoute());
+                if (_selectedDate == null) {
+                  ToastComponent3(context)
+                      .showToast(context, 'Please select date');
+                } else if (_selectedService == null) {
+                  ToastComponent3(context)
+                      .showToast(context, 'Please select service');
+                } else if (_selectedService!.slots.length > 1 && _selectedTimeSlot==null )  {
+                  ToastComponent3(context)
+                      .showToast(context, 'Please select time slot');
+                } 
+                 else if (_selectedTime==null) {
+                  ToastComponent3(context)
+                      .showToast(context, 'Please select preferred appointment time');
+                } 
+                
+                else {
+                  context.router.push(BookAppointmentRoute(
+                      service: _selectedService!,
+                      slot: _selectedTimeSlot,
+                      paymentMethod: _appointmentDetails!.paymentType,
+                      date: DateTimeUtil()
+                          .formatDate(_selectedDate!, 'yyyy-mm-dd'),
+                      time: _selectedTime!));
+                }
               },
               child: Text(
                 StringConstants.next,
