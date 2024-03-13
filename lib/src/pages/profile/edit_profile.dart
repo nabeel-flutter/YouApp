@@ -1,94 +1,119 @@
-import 'dart:convert';
-
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/profile/cubit/user_profile_cubit.dart';
 import 'package:new_beginnings/src/pages/profile/edit_profile_components.dart';
 import 'package:new_beginnings/src/pages/profile/gender_selection.dart';
 import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 import 'package:new_beginnings/src/pages/profile/payment_selection.dart';
-import 'package:http/http.dart' as http;
+import 'package:skeletonizer/skeletonizer.dart';
 
 @RoutePage()
 class EditProfileScreen extends StatefulWidget {
-  const EditProfileScreen({super.key});
+  const EditProfileScreen({
+    super.key,
+  });
 
   @override
   State<EditProfileScreen> createState() => _EditProfileScreenState();
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
+  Widget build(BuildContext context) {
+    BlocProvider.of<UserProfileCubit>(context).getUserData();
+
+    return BlocConsumer<UserProfileCubit, UserProfileState>(
+        listener: (context, state) {
+          // TODO: implement listener
+          state.maybeWhen(
+            orElse: () => Container(),
+            loaded: (user) {
+              print(user.data!.paymentType);
+            },
+          );
+        },
+        builder: (context, state) => state.maybeWhen(
+            orElse: () => Container(),
+            error: (message) => ErrorState(
+                  message: message,
+                  onTap: () {
+                    context.read<UserProfileCubit>().getUserData();
+                  },
+                ),
+            loading: () => Skeletonizer(child: EditScreenBody()),
+            loaded: (user) => EditScreenBody(
+                  userDetails: user,
+                )));
+  }
+}
+
+class EditScreenBody extends StatefulWidget {
+  final UserDetails? userDetails;
+
+  EditScreenBody({super.key, this.userDetails});
+
+  @override
+  State<EditScreenBody> createState() => _EditScreenBodyState();
+}
+
+class _EditScreenBodyState extends State<EditScreenBody> {
+  bool _isInsured = true; // Add this line
+
   String state = 'California';
+
   String country = 'USA';
+  String preferredLocation = "Preferred Location For Service";
+
   String city = 'New York';
   TextEditingController firstnamecontrolller = TextEditingController();
+
   TextEditingController lastnamecontroller = TextEditingController();
+
   TextEditingController suffixcontroller = TextEditingController();
+
   TextEditingController dobcontroller = TextEditingController();
+
   TextEditingController ssncontroller = TextEditingController();
+
   TextEditingController addresscontroller = TextEditingController();
+
   TextEditingController zipcodecontroller = TextEditingController();
+
   TextEditingController emailcontroller = TextEditingController();
+
   TextEditingController alternatephonenumcontroller = TextEditingController();
+
   TextEditingController nameofinsurancecontroller = TextEditingController();
+
   TextEditingController insurancepolicycontroller = TextEditingController();
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    getUserDetails();
-  }
-
-  Future<void> getUserDetails() async {
-    var url = Uri.parse(
-        'http://ec2-54-164-108-167.compute-1.amazonaws.com:7000/api/v1/user');
-
-    // This is your session ID cookie. Replace the value with your actual session ID.
-    String sessionId =
-        'connect.sid=s%3AYG-TIONIidwhKEXgIZwwqzfAlNZZKZEl.gFHO1xjPp31PAdpZ2DYJv%2BWw1m%2FgjILaYlzfxqYUBaY;token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWMyMDI0NTM4ZTQ1M2E5YWIwMTg0OSIsImlhdCI6MTcxMDE0ODY1MiwiZXhwIjoxNzEwMzIxNDUyfQ.dLnV94RV9tB4_HFm1zV6irNnWqTW3rOIdv0f0XM0DM4';
-
-    Map<String, String> headers = {
-      'Cookie': sessionId,
-    };
-
-    try {
-      var response = await http.get(url, headers: headers);
-
-      if (response.statusCode == 200) {
-        final jsonResponse = json.decode(response.body);
-        UserDetails userDetails = UserDetails.fromJson(jsonResponse);
-        setState(() {
-          firstnamecontrolller.text = userDetails.data?.firstName ?? '';
-          lastnamecontroller.text = userDetails.data?.lastName ?? '';
-          emailcontroller.text = userDetails.data?.email ?? "";
-          suffixcontroller.text = userDetails.data?.suffix ?? "";
-          dobcontroller.text = userDetails.data?.birthDate ?? "";
-          ssncontroller.text = userDetails.data?.ssn ?? "";
-          addresscontroller.text = userDetails.data?.geoLocation?.address ?? "";
-          zipcodecontroller.text = userDetails.data?.geoLocation?.zip ?? "";
-          alternatephonenumcontroller.text =
-              userDetails.data?.alternatePhone ?? "";
-          insurancepolicycontroller.text =
-              userDetails.data?.insuranceDetails?.insuranceName ?? "";
-          insurancepolicycontroller.text =
-              userDetails.data?.insuranceDetails?.insurancePolicy ?? "";
-        });
-        print('User Details: ${response.body}');
-      } else {
-        print(
-            'Failed to load user details with status code: ${response.statusCode}');
-        if (response.statusCode == 401) {
-          // Handle unauthorized error
-          print('Unauthorized: ${response.body}');
-        }
-      }
-    } catch (e) {
-      print('Error fetching user details: $e');
+    if (widget.userDetails != null) {
+      updateControllers();
     }
   }
 
+  void updateControllers() {
+    firstnamecontrolller.text = widget.userDetails!.data!.firstName ?? '';
+    lastnamecontroller.text = widget.userDetails!.data!.lastName ?? '';
+    emailcontroller.text = widget.userDetails!.data!.email ?? '';
+    suffixcontroller.text = widget.userDetails!.data!.paymentType ?? "";
+    dobcontroller.text = widget.userDetails!.data!.birthDate ?? "";
+    ssncontroller.text = widget.userDetails!.data!.ssn ?? " ";
+    addresscontroller.text =
+        widget.userDetails!.data!.geoLocation!.address ?? "";
+    zipcodecontroller.text = widget.userDetails!.data!.geoLocation!.zip ?? "";
+    alternatephonenumcontroller.text =
+        widget.userDetails!.data!.alternatePhone ?? "";
+    nameofinsurancecontroller.text =
+        widget.userDetails!.data!.insuranceDetails!.insuranceName ?? "";
+    insurancepolicycontroller.text =
+        widget.userDetails!.data!.insuranceDetails!.insurancePolicy ?? "";
+  }
+
+  @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-
     return PrimaryBackground(
         isAppBar: false,
         body: SingleChildScrollView(
@@ -99,7 +124,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 left: 0,
                 right: 0,
                 child: UserProfileComponent(
-                  userName: firstnamecontrolller.text,
+                  userName: firstnamecontrolller.text +
+                      "  " +
+                      lastnamecontroller.text,
                   userEmail: emailcontroller.text,
                 )),
             Padding(
@@ -214,48 +241,82 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         },
                         title: city),
                     CustomTextFeild(
-                        feildName: "Address",
+                        feildName: StringConstants.address,
                         hintText: "Enter your Address",
                         controller: addresscontroller),
                     CustomTextFeild(
-                        feildName: "Zip Code",
+                        feildName: StringConstants.zipCode,
                         hintText: "Enter your Zip Code",
                         controller: zipcodecontroller),
                     CustomTextFeild(
-                        feildName: "Email",
+                        feildName: StringConstants.email,
                         hintText: "Enter your Email",
                         controller: emailcontroller),
                     CustomTextFeild(
-                        feildName: "Alternate Phone Number",
+                        feildName: StringConstants.alternatephonenumber,
                         hintText: "Enter your Alternate Phone Number",
                         controller: alternatephonenumcontroller),
-                    const PaymentSelection(),
+                    PaymentSelection(
+                      initialPaymentMode:
+                          widget.userDetails?.data?.paymentType ?? "",
+                      onSelectionChange: (bool isInsured) {
+                        setState(() {
+                          _isInsured = isInsured;
+                        });
+                      },
+                    ),
                     const SizedBox(height: 24),
-                    const HeadingText(text: "Insurance Details"),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextFeild(
-                        feildName: "Name of Insurance",
-                        hintText: "Enter Name of Insurance",
-                        controller: nameofinsurancecontroller),
-                    CustomTextFeild(
-                        feildName: "Insurance Policy #",
-                        hintText: "Enter Insurance Policy",
-                        controller: insurancepolicycontroller),
-                    const UploadInsuranceCard(
-                      text: 'Upload front side of Card',
-                    ),
-                    const UploadInsuranceCard(
-                      text: 'Upload back side of Card',
-                      showlabeltext: false,
+                    _isInsured
+                        ? Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              HeadingText(
+                                  text: StringConstants.insurancedetails),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              CustomTextFeild(
+                                  feildName: StringConstants.insuranceName,
+                                  hintText: "Enter Name of Insurance",
+                                  controller: nameofinsurancecontroller),
+                              CustomTextFeild(
+                                  feildName: "Insurance Policy",
+                                  hintText: "Enter Insurance Policy",
+                                  controller: insurancepolicycontroller),
+                              const UploadInsuranceCard(
+                                text: 'Upload front side of Card',
+                              ),
+                              const UploadInsuranceCard(
+                                text: 'Upload back side of Card',
+                                showlabeltext: false,
+                              ),
+                            ],
+                          )
+                        : Container(),
+                    ExpandedSelectionWidget(
+                      onTapped: (preferredLocation) {
+                        setState(() {
+                          this.preferredLocation = preferredLocation;
+                        });
+                      },
+                      title: preferredLocation,
+                      label: "Preferred Location For Service",
+                      textList: const [
+                        '1 W. Centre St Mahanoy, PA 17948',
+                        '18151 W. End Ave Pottsville, PA 17901',
+                        '564 Main St.Stroudsbrug, PA 18360',
+                        '130 White Horse Pike Clementon, NJ 08021'
+                      ],
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Button(
                       label: 'Save',
-                      onPressed: () {},
+                      onPressed: () {
+                        BlocProvider.of<UserProfileCubit>(context)
+                            .getUserData();
+                      },
                     ),
                     const SizedBox(
                       height: 10,
