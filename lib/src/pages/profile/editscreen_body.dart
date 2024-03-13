@@ -8,7 +8,7 @@ import 'package:new_beginnings/src/pages/profile/payment_selection.dart';
 class EditScreenBody extends StatefulWidget {
   final UserDetails? userDetails;
 
-  EditScreenBody({super.key, this.userDetails});
+  const EditScreenBody({super.key, this.userDetails});
 
   @override
   State<EditScreenBody> createState() => _EditScreenBodyState();
@@ -44,6 +44,9 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   TextEditingController nameofinsurancecontroller = TextEditingController();
 
   TextEditingController insurancepolicycontroller = TextEditingController();
+
+  File? insuranceCardFront;
+  File? insuranceCardBack;
 
   @override
   void initState() {
@@ -85,7 +88,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                 right: 0,
                 child: UserProfileComponent(
                   userName:
-                      "${firstnamecontrolller.text}${lastnamecontroller.text}",
+                      "${firstnamecontrolller.text}  ${lastnamecontroller.text}",
                   userEmail: emailcontroller.text,
                 )),
             Padding(
@@ -132,7 +135,8 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                       textList: const ["USA", "Canada", "Mexico"],
                       onTapped: (selectedCountry) {
                         setState(() {
-                          this.country = selectedCountry;
+                          // Assuming you have a mechanism to update the userDetails with the new selection
+                          country = selectedCountry;
                         });
                       },
                       title: widget.userDetails?.data?.geoLocation?.country
@@ -223,10 +227,16 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                                   feildName: "Insurance Policy",
                                   hintText: "Enter Insurance Policy",
                                   controller: insurancepolicycontroller),
-                              const UploadInsuranceCard(
+                              UploadInsuranceCard(
+                                onFileSelected: (file) {
+                                  insuranceCardFront = file;
+                                },
                                 text: 'Upload front side of Card',
                               ),
-                              const UploadInsuranceCard(
+                              UploadInsuranceCard(
+                                onFileSelected: (file) {
+                                  insuranceCardBack = file;
+                                },
                                 text: 'Upload back side of Card',
                                 showlabeltext: false,
                               ),
@@ -258,9 +268,13 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     Button(
                       label: 'Save',
                       onPressed: () {
-                        print(country);
-                        BlocProvider.of<UserProfileCubit>(context)
-                            .getUserData();
+                        BlocProvider.of<UserProfileCubit>(context).updateUser(
+                          email: emailcontroller.text,
+                          firstName: firstnamecontrolller.text,
+                          lastName: lastnamecontroller.text,
+                          insuranceCardFront: insuranceCardFront,
+                          insuranceCardBack: insuranceCardBack,
+                        );
                       },
                     ),
                     const SizedBox(

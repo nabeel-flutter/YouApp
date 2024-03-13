@@ -38,15 +38,15 @@ class EditScreenTopComponent extends StatelessWidget {
                             child: const Icon(
                               Icons.arrow_back_ios_new,
                               size: 14,
-                              color: const Color(0xff0A7E80),
+                              color: Color(0xff0A7E80),
                             )),
                       ),
-                      Expanded(
+                      const Expanded(
                         child: Text(
                           "Edit Profile",
                           textAlign: TextAlign
                               .center, // Center the text within its expanded space.
-                          style: const TextStyle(
+                          style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 20),
@@ -90,11 +90,13 @@ class HeadingText extends StatelessWidget {
 class UploadInsuranceCard extends StatefulWidget {
   final bool? showlabeltext;
   final String text;
+  final Function(File?) onFileSelected; // Callback to pass the selected file to the parent widget
 
   const UploadInsuranceCard({
     Key? key,
     required this.text,
     this.showlabeltext = true,
+    required this.onFileSelected, // Provide callback to handle file selection
   }) : super(key: key);
 
   @override
@@ -116,6 +118,7 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
         _fileName = pickedFile.name;
         _fileSize = _formatBytes(pickedFile.size, 2);
       });
+      widget.onFileSelected(_file); // Pass the selected file to the parent widget
     }
   }
 
@@ -124,9 +127,7 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
     if (bytes <= 0) return "0 B";
     const suffixes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
     var i = (math.log(bytes) / math.log(1024)).floor();
-    return ((bytes / math.pow(1024, i)).toStringAsFixed(decimals)) +
-        ' ' +
-        suffixes[i];
+    return '${(bytes / math.pow(1024, i)).toStringAsFixed(decimals)} ${suffixes[i]}';
   }
 
   @override
@@ -137,12 +138,13 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (widget.showlabeltext ?? true)
-            Text(
+            const Text(
               "Upload Images of Insurance Card",
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Color(0xff403B3B)),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: Color(0xff403B3B),
+              ),
             ),
           const SizedBox(height: 12),
           Container(
@@ -168,12 +170,13 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
                 ),
                 _file == null
                     ? Text(widget.text)
-                    : Container(
+                    : SizedBox(
                         width: 280,
                         child: Text(
-                          _fileName! + " ($_fileSize)",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )),
+                          "${_fileName!} ($_fileSize)",
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
                 const Spacer(),
                 _file == null
                     ? Padding(
@@ -194,6 +197,7 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
     );
   }
 }
+
 
 class CustomTextFeild extends StatelessWidget {
   final String feildName;
@@ -247,7 +251,7 @@ class CustomTextFeild extends StatelessWidget {
             ),
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  color: Color(0xff656567),
+                  color: const Color(0xff656567),
                   fontSize: 15,
                   fontWeight: FontWeight.w700,
                 ),

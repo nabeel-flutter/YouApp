@@ -20,7 +20,33 @@ class UserProfileCubit extends Cubit<UserProfileState> {
     final Result<BaseResponseDto<UserDetails>> result =
         await apiRepository.getUser();
     result.when(
-        success: (data) => emit(_Loaded(data.data!)),
+        success: (data) {
+          emit(_Loaded(data.data!));
+        },
+        failed: (error) => emit(_Error(error.message)));
+  }
+
+  Future<void> updateUser({
+    String? email,
+    String? firstName,
+    String? lastName,
+    File? insuranceCardFront,
+    File? insuranceCardBack,
+  }) async {
+    emit(const _Loading());
+    await apiRepository.updateUser(
+        insuranceCardBack: insuranceCardBack,
+        insuranceCardFront: insuranceCardFront,
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        phone: "");
+    final Result<BaseResponseDto<UserDetails>> result =
+        await apiRepository.getUser();
+    result.when(
+        success: (data) {
+          emit(_Loaded(data.data!));
+        },
         failed: (error) => emit(_Error(error.message)));
   }
 }

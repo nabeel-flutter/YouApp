@@ -23,9 +23,9 @@ class _UserProfileComponentState extends State<UserProfileComponent> {
   File? _image; // This will hold the image file
 
   Future<void> _pickImage() async {
-    final ImagePicker _picker = ImagePicker();
+    final ImagePicker picker = ImagePicker();
     // Pick an image
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       // Update the state to display the new image
       setState(() {
@@ -51,7 +51,8 @@ class _UserProfileComponentState extends State<UserProfileComponent> {
                   width: 150,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
-                    border: Border.all(width: 5, color: Color(0xff80BCBD)),
+                    border:
+                        Border.all(width: 5, color: const Color(0xff80BCBD)),
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
@@ -111,7 +112,7 @@ class _UserProfileComponentState extends State<UserProfileComponent> {
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium!
-                        .copyWith(color: Color(0xff0A7E80)),
+                        .copyWith(color: const Color(0xff0A7E80)),
                   )
                 ],
               ),
@@ -135,8 +136,8 @@ class UserProfileBottomComponent extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 250,
-      decoration: BoxDecoration(
-          borderRadius: const BorderRadius.only(
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
               topLeft: Radius.circular(18), topRight: Radius.circular(18)),
           gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -152,10 +153,10 @@ class UserProfileBottomComponent extends StatelessWidget {
                 onPressed();
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Logoutbutton()
+            const Logoutbutton()
           ],
         ),
       ),
@@ -194,7 +195,7 @@ class Logoutbutton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xffD80404),
+          backgroundColor: const Color(0xffD80404),
         ),
         onPressed: () {
           getIt
