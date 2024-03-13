@@ -82,7 +82,8 @@ abstract class ApiRepository extends Repository {
 
   Future<Result<BaseResponseDto<ProductDto>>> getProductDetails(int id);
 
-  Future<Result<BaseResponseDto<AppointmentDetailsDto>>> getAppointmentDetails();
+  Future<Result<BaseResponseDto<AppointmentDetailsDto>>>
+      getAppointmentDetails();
 
   Future<Result<BaseResponseDto<TokenDto>>> signIn(
       {required String email, required String password});
@@ -99,6 +100,14 @@ abstract class ApiRepository extends Repository {
 
   Future<Result<BaseResponseDto>> verifyEmail({required String email});
 
- Future<Result<BaseResponseDto<UserDetails>>>  getUser() ;
+  Future<Result<BaseResponseDto<UserDetails>>> getUser();
 
+  Future<Result<BaseResponseDto>> updateUser({
+    String? firstName,
+    String? lastName,
+    String? email,
+    String? phone,
+    File? insuranceCardFront,
+    File? insuranceCardBack,
+  });
 }

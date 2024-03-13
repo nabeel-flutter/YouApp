@@ -51,7 +51,7 @@ class AppointmentCubit extends Cubit<AppointmentCubitState> {
 
   void selectService(String? selectedService) {
     service = selectedService!;
-    selectedService= selectedService;
+    selectedService = selectedService;
     emit(AppointmentCubitState.selectedService(selectedService));
   }
 
@@ -66,7 +66,7 @@ class AppointmentCubit extends Cubit<AppointmentCubitState> {
         await apiRepository.getAppointmentDetails();
     result.when(
         success: (data) {
-         emit(_Loaded(data.data!));
+          emit(_Loaded(data.data!));
         },
         failed: (error) => emit(_Error(error.message)));
   }
