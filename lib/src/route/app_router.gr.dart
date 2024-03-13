@@ -34,9 +34,17 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     BookAppointmentRoute.name: (routeData) {
+      final args = routeData.argsAs<BookAppointmentRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const BookAppointmentScreen(),
+        child: BookAppointmentScreen(
+          key: args.key,
+          slot: args.slot,
+          service: args.service,
+          paymentMethod: args.paymentMethod,
+          date: args.date,
+          time: args.time,
+        ),
       );
     },
     CPTRoute.name: (routeData) {
@@ -230,16 +238,60 @@ class AllServicesRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [BookAppointmentScreen]
-class BookAppointmentRoute extends PageRouteInfo<void> {
-  const BookAppointmentRoute({List<PageRouteInfo>? children})
-      : super(
+class BookAppointmentRoute extends PageRouteInfo<BookAppointmentRouteArgs> {
+  BookAppointmentRoute({
+    Key? key,
+    Slot? slot,
+    required Service service,
+    required String paymentMethod,
+    required String date,
+    required String time,
+    List<PageRouteInfo>? children,
+  }) : super(
           BookAppointmentRoute.name,
+          args: BookAppointmentRouteArgs(
+            key: key,
+            slot: slot,
+            service: service,
+            paymentMethod: paymentMethod,
+            date: date,
+            time: time,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'BookAppointmentRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<BookAppointmentRouteArgs> page =
+      PageInfo<BookAppointmentRouteArgs>(name);
+}
+
+class BookAppointmentRouteArgs {
+  const BookAppointmentRouteArgs({
+    this.key,
+    this.slot,
+    required this.service,
+    required this.paymentMethod,
+    required this.date,
+    required this.time,
+  });
+
+  final Key? key;
+
+  final Slot? slot;
+
+  final Service service;
+
+  final String paymentMethod;
+
+  final String date;
+
+  final String time;
+
+  @override
+  String toString() {
+    return 'BookAppointmentRouteArgs{key: $key, slot: $slot, service: $service, paymentMethod: $paymentMethod, date: $date, time: $time}';
+  }
 }
 
 /// generated route for
