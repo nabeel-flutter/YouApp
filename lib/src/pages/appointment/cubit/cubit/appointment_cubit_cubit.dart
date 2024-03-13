@@ -51,6 +51,7 @@ class AppointmentCubit extends Cubit<AppointmentCubitState> {
 
   void selectService(String? selectedService) {
     service = selectedService!;
+    selectedService= selectedService;
     emit(AppointmentCubitState.selectedService(selectedService));
   }
 
