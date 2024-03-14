@@ -51,6 +51,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
 
   File? insuranceCardFront;
   File? insuranceCardBack;
+  File? avatar;
 
   TextEditingController phoneNumberController = TextEditingController();
 
@@ -97,6 +98,9 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                   userName:
                       "${firstNameController.text}  ${lastNameController.text}",
                   userEmail: emailController.text,
+                  onImageSelected: (File) {
+                    avatar = File;
+                  },
                 )),
             Padding(
               padding:
@@ -296,6 +300,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                         debugPrint(
                             "selected  paymentmode value :  $selectedPaymentValue");
                         BlocProvider.of<UserProfileCubit>(context).updateUser(
+                          avatar: avatar,
                           email: emailController.text,
                           address: addressController.text,
                           alternatePhone: alternatePhoneNumController.text,
