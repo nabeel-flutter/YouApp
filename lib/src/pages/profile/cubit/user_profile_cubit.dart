@@ -32,6 +32,7 @@ class UserProfileCubit extends Cubit<UserProfileState> {
     String? lastName,
     File? insuranceCardFront,
     File? insuranceCardBack,
+  required  String paymentType
   }) async {
     emit(const _Loading());
     await apiRepository.updateUser(
@@ -40,6 +41,7 @@ class UserProfileCubit extends Cubit<UserProfileState> {
         email: email,
         firstName: firstName,
         lastName: lastName,
+        paymentType: paymentType,
         phone: "");
     final Result<BaseResponseDto<UserDetails>> result =
         await apiRepository.getUser();

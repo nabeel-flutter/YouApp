@@ -109,5 +109,6 @@ abstract class ApiRepository extends Repository {
     String? phone,
     File? insuranceCardFront,
     File? insuranceCardBack,
+    String paymentType
   });
 }

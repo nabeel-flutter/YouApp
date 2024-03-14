@@ -296,6 +296,8 @@ class ApiRepositoryImpl extends ApiRepository {
     String? phone,
     File? insuranceCardFront,
     File? insuranceCardBack,
+     String? paymentType
+
   }) async {
     try {
       final response = await softTechTestApi.updateUser(
@@ -304,7 +306,9 @@ class ApiRepositoryImpl extends ApiRepository {
           email: email!,
           phone: phone!,
           insuranceCardFrontImage: insuranceCardFront,
-          insuranceCardBackImage: insuranceCardBack);
+          insuranceCardBackImage: insuranceCardBack,
+          paymentType: paymentType!
+          );
       return Result.success(objectMapper.toUpdateUser(response));
     } on Exception catch (e) {
       logger.e(e);
