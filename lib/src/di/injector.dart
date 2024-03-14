@@ -100,7 +100,6 @@ Future<void> _initializeData({bool enableLogging = true}) async {
   // add interceptor
   final interceptor = AuthInterceptor(
     getIt.get(),
-    getIt.get(),
   );
   dio.interceptors.add(interceptor);
 

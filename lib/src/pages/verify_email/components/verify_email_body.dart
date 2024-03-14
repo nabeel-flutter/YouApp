@@ -1,5 +1,4 @@
 import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/forgot_password/cubit/forget_password_cubit.dart';
 import 'package:new_beginnings/src/pages/verify_email/cubit/verify_email_cubit.dart';
 
 class VerifyEmailBody extends StatelessWidget {
