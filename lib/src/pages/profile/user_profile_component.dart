@@ -1,6 +1,6 @@
-
 import 'package:image_picker/image_picker.dart';
 import 'package:new_beginnings/src/app/app_export.dart'; // Ensure your app_export.dart file exports the required dependencies
+
 class UserProfileComponent extends StatefulWidget {
   final bool? profile;
   final String userName;
