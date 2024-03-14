@@ -1,6 +1,6 @@
 import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/verify_email/components/verift_email_body.dart';
-import 'package:new_beginnings/src/pages/verify_email/components/verift_email_header.dart';
+import 'package:new_beginnings/src/pages/verify_email/components/verify_email_body.dart';
+import 'package:new_beginnings/src/pages/verify_email/components/verify_email_header.dart';
 
 @RoutePage()
 class VerifyEmailScreen extends StatelessWidget {
@@ -12,11 +12,11 @@ class VerifyEmailScreen extends StatelessWidget {
     return  MainScaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             children: [
-              SizedBox(height: 40),
-              VerifyEmailHeader(),
+              const SizedBox(height: 40),
+              const VerifyEmailHeader(),
               VerifyEmailBody(email : email),
             ],
           ),

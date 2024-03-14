@@ -37,7 +37,7 @@ import 'package:new_beginnings/src/domain/model/shared_with_doctors.dart';
 import 'package:new_beginnings/src/domain/model/subscription.dart';
 import 'package:new_beginnings/src/domain/status/readings_status.dart';
 import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
-import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
+import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 
 class ObjectMapper {
   final Logger logger;

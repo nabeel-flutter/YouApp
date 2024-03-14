@@ -6,7 +6,7 @@ part 'verify_email_state.dart';
 part 'verify_email_cubit.freezed.dart';
 
 class VerifyEmailCubit extends Cubit<VerifyEmailState> {
-  VerifyEmailCubit(this.apiRepository) : super(VerifyEmailState.initial());
+  VerifyEmailCubit(this.apiRepository) : super(const VerifyEmailState.initial());
   ApiRepository apiRepository;
    Future<void> verifyEmail({required String email, }) async {
     emit(const _Loading());

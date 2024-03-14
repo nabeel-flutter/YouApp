@@ -14,7 +14,7 @@ import 'package:new_beginnings/src/data/dto/product_dto.dart';
 import 'package:new_beginnings/src/data/dto/sehat_scan_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/token_dto.dart';
 import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
-import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
+import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 
 ///
 ///
@@ -358,30 +358,41 @@ class SoftTechTestApi {
     File? insuranceCardBackImage,
     String? insuranceName,
     String? insurancePoilcyNumber,
+    required String paymentType,
   }) async {
     final formData = FormData.fromMap({
       'firstName': firstName,
       'lastName': lastName,
       'phone': phone,
       'email': email,
-      'insurance_card_front': insuranceCardFrontImage,
-      'insurance_card_back': insuranceCardBackImage,
-      'insuranceName': insuranceName,
-      'insurancePolicy': insurancePoilcyNumber
+      'paymentType': paymentType,
+      'frontPic': insuranceCardFrontImage != null
+          ? MultipartFile.fromFile(insuranceCardFrontImage.path,
+              filename: '$insuranceName-front',
+              contentType: MediaType('image', insuranceCardFrontImage.path))
+          : null,
+      'backPic': insuranceCardBackImage != null
+          ? MultipartFile.fromFile(insuranceCardBackImage.path,
+              filename: '$insuranceName-back',
+              contentType: MediaType('image', insuranceCardBackImage.path))
+          : null,
+      'insuranceName': paymentType == "insurance" ? insuranceName : null,
+      'insurancePolicy':
+          paymentType == "insurance" ? insurancePoilcyNumber : null
     });
     final response = await dio.put(kRouteUpdateUserDetail, data: formData);
     return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
   }
 
   Future<BaseResponseDto> bookAppointment(
-    {required String appointmenDate,
-    required String method,
-    required String paymentType,
-    required String requestType,
-    required String serviceName,
-    required String timeSlot,
-    required String technologyType,
-    required int price}) async {
+      {required String appointmenDate,
+      required String method,
+      required String paymentType,
+      required String requestType,
+      required String serviceName,
+      required String timeSlot,
+      required String technologyType,
+      required int price}) async {
     final response = await dio.post(kRouteCreateAppointment, data: {
       'appointmentDate': appointmenDate,
       'method': method,

@@ -1,7 +1,5 @@
-import 'dart:io';
-import 'package:flutter/material.dart';
+
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:new_beginnings/src/app/app_export.dart'; // Ensure your app_export.dart file exports the required dependencies
 
 class UserProfileComponent extends StatefulWidget {
@@ -156,7 +154,7 @@ class UserProfileBottomComponent extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const Logoutbutton()
+            const LogoutButton()
           ],
         ),
       ),
@@ -186,8 +184,8 @@ class Button extends StatelessWidget {
   }
 }
 
-class Logoutbutton extends StatelessWidget {
-  const Logoutbutton({
+class LogoutButton extends StatelessWidget {
+  const LogoutButton({
     super.key,
   });
 

@@ -4,10 +4,8 @@ class AuthInterceptor extends InterceptorsWrapper {
   static const requiresAuth = 'requiresAuthentication';
 
   final Logger logger;
-  final SharedPreferencesUtil _sharedPreferencesUtil;
   AuthInterceptor(
     this.logger,
-    this._sharedPreferencesUtil,
   );
 
   @override

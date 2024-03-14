@@ -12,7 +12,7 @@ import 'package:new_beginnings/src/domain/model/data_list.dart';
 import 'package:new_beginnings/src/domain/model/docotor.dart';
 import 'package:new_beginnings/src/domain/model/medical_records.dart';
 import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
-import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
+import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 
 class ApiRepositoryImpl extends ApiRepository {
   final SoftTechTestApi softTechTestApi;
@@ -296,6 +296,8 @@ class ApiRepositoryImpl extends ApiRepository {
     String? phone,
     File? insuranceCardFront,
     File? insuranceCardBack,
+     String? paymentType
+
   }) async {
     try {
       final response = await softTechTestApi.updateUser(
@@ -304,7 +306,9 @@ class ApiRepositoryImpl extends ApiRepository {
           email: email!,
           phone: phone!,
           insuranceCardFrontImage: insuranceCardFront,
-          insuranceCardBackImage: insuranceCardBack);
+          insuranceCardBackImage: insuranceCardBack,
+          paymentType: paymentType!
+          );
       return Result.success(objectMapper.toUpdateUser(response));
     } on Exception catch (e) {
       logger.e(e);
