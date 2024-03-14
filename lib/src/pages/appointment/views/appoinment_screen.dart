@@ -9,6 +9,8 @@ import 'package:new_beginnings/src/pages/appointment/views/widgets/select_time_w
 import 'package:new_beginnings/src/pages/appointment/views/widgets/payment_mode_selection.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import 'package:new_beginnings/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
+
 class AppointmentScreen extends StatefulWidget {
   const AppointmentScreen({super.key});
 
@@ -183,23 +185,21 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                 } else if (_selectedService == null) {
                   ToastComponent3(context)
                       .showToast(context, 'Please select service');
-                } else if (_selectedService!.slots.length > 1 && _selectedTimeSlot==null )  {
+                } else if (_selectedService!.slots.length > 1 &&
+                    _selectedTimeSlot == null) {
                   ToastComponent3(context)
                       .showToast(context, 'Please select time slot');
-                } 
-                 else if (_selectedTime==null) {
-                  ToastComponent3(context)
-                      .showToast(context, 'Please select preferred appointment time');
-                } 
-                
-                else {
+                } else if (_selectedTime == null) {
+                  ToastComponent3(context).showToast(
+                      context, 'Please select preferred appointment time');
+                } else {
                   context.router.push(BookAppointmentRoute(
                       service: _selectedService!,
                       slot: _selectedTimeSlot,
                       paymentMethod: _appointmentDetails!.paymentType,
-                      date: DateTimeUtil()
-                          .formatDate(_selectedDate!, 'yyyy-mm-dd'),
-                      time: _selectedTime!));
+                      date: _selectedDate.toString().substring(0, 10),
+                      time: DateTimeUtil()
+                          .convertTo24HourFormat(_selectedTime!)));
                 }
               },
               child: Text(

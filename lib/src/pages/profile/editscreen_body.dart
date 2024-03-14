@@ -5,6 +5,8 @@ import 'package:new_beginnings/src/pages/profile/gender_selection.dart';
 import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 import 'package:new_beginnings/src/pages/profile/payment_selection.dart';
 
+import '../appointment/views/widgets/expanded_selection_widget.dart';
+
 class EditScreenBody extends StatefulWidget {
   final UserDetails? userDetails;
 
