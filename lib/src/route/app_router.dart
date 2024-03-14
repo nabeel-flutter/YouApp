@@ -91,5 +91,8 @@ class AppRouter extends _$AppRouter {
           page: DoctorProfileRoute.page,
           path: RouteConstants.doctorProfileRoute,
         ),
+        AutoRoute(
+          page: PaymentWebViewRoute.page,
+        ),
       ];
 }

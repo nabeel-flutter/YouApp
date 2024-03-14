@@ -51,6 +51,9 @@ class _EditScreenBodyState extends State<EditScreenBody> {
 
   File? insuranceCardFront;
   File? insuranceCardBack;
+  File? avatar;
+
+  TextEditingController phoneNumberController = TextEditingController();
 
   @override
   void initState() {
@@ -70,6 +73,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
     addressController.text =
         widget.userDetails!.data!.geoLocation!.address ?? "";
     zipCodeController.text = widget.userDetails!.data!.geoLocation!.zip ?? "";
+    phoneNumberController.text = widget.userDetails!.data!.phone ?? "";
     alternatePhoneNumController.text =
         widget.userDetails!.data!.alternatePhone ?? "";
     nameOfInsuranceController.text =
@@ -94,6 +98,9 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                   userName:
                       "${firstNameController.text}  ${lastNameController.text}",
                   userEmail: emailController.text,
+                  onImageSelected: (File) {
+                    avatar = File;
+                  },
                 )),
             Padding(
               padding:
@@ -207,8 +214,12 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                         fieldName: StringConstants.email,
                         hintText: "Enter your Email",
                         controller: emailController),
-                    CustomTextField(
-                        fieldName: StringConstants.alternatephonenumber,
+                    CustomTextFeild(
+                        feildName: 'Phone Number',
+                        hintText: "Enter Phone Number",
+                        controller: phoneNumberController),
+                    CustomTextFeild(
+                        feildName: StringConstants.alternatephonenumber,
                         hintText: "Enter your Alternate Phone Number",
                         controller: alternatePhoneNumController),
                     PaymentSelection(
@@ -284,10 +295,28 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     Button(
                       label: 'Save',
                       onPressed: () {
+                        debugPrint(
+                            "selected gender value :  $selectedGenderValue");
+                        debugPrint(
+                            "selected  paymentmode value :  $selectedPaymentValue");
                         BlocProvider.of<UserProfileCubit>(context).updateUser(
+                          avatar: avatar,
                           email: emailController.text,
+                          address: addressController.text,
+                          alternatePhone: alternatePhoneNumController.text,
                           firstName: firstNameController.text,
                           lastName: lastNameController.text,
+                          city: city,
+                          state: state,
+                          country: country,
+                          dob: dobController.text,
+                          zipCode: zipCodeController.text,
+                          gender: selectedGenderValue,
+                          ssn: ssnController.text,
+                          insuranceName: nameOfInsuranceController.text,
+                          insurancePoilcyNumber: insurancePolicyController.text,
+                          prefferdLocation: preferredLocation,
+                          phone: phoneNumberController.text,
                           paymentType: _isInsured ? "insured" : "selfPay",
                           insuranceCardFront: insuranceCardFront,
                           insuranceCardBack: insuranceCardBack,
