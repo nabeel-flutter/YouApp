@@ -9,101 +9,98 @@ class AllServicesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     context.read<ServiceCubit>().getServices();
     return PrimaryBackground(
-      body: Container(
-        child: Column(
-          children: [
-            //search services
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-              child: SearchBarWidget(),
-            ),
-            // const SizedBox(height: 20),
-            BlocBuilder<ServiceCubit, ServiceState>(
-              builder: (context, state) => state.maybeWhen(
-                  orElse: () => Container(),
-                  loaded: (services) {
-                    return Expanded(
-                      child: ListView.builder(
-                        itemCount: services.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20.0, vertical: 10),
-                            child: GestureDetector(
-                              onTap: () {
-                                if (services[index].name ==
-                                    "Psychiatric\nEvaluation") {
-                                  context.router.push(
-                                    ServiceInnerRoute(service: services[index]),
-                                  );
-                                }
-                                if (services[index].name == "Group Therapy") {
-                                  debugPrint("Group Therapy");
-                                  context.router.push(
-                                    const GTRoute(),
-                                  );
-                                }
-                                if (services[index].name ==
-                                    "Medication\nManagement") {
-                                  context.router.push(
-                                    const MMRoute(),
-                                  );
-                                }
-                                if (services[index].name == "Play Therapy") {
-                                  context.router.push(
-                                    const PTRoute(),
-                                  );
-                                }
-                                if (services[index].name ==
-                                    "Individual Therapy") {
-                                  context.router.push(
-                                    const IDRoute(),
-                                  );
-                                }
-                                if (services[index].name ==
-                                    "Couple & Family Therapy") {
-                                  context.router.push(
-                                    const CPTRoute(),
-                                  );
-                                }
-                                if (services[index].name ==
-                                    "Pharmacogenomics") {
-                                  context.router.push(
-                                    const PMRoute(),
-                                  );
-                                }
-                                if (services[index].name ==
-                                    "Addiction Treatment") {
-                                  context.router.push(
-                                    const ATRoute(),
-                                  );
-                                }
-                                if (services[index].name == "Telepsychiatry") {
-                                  context.router.push(
-                                    const TPRoute(),
-                                  );
-                                }
-                                if (services[index].name == "Primary Care") {
-                                  context.router.push(
-                                    const PCRoute(),
-                                  );
-                                }
-                              },
-                              child: ServiceCard(
-                                title: services[index].name,
-                                image: services[index].image,
-                                description: services[index].description,
-                              ),
+      body: Column(
+        children: [
+          //search services
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+            child: SearchBarWidget(),
+          ),
+          // const SizedBox(height: 20),
+          BlocBuilder<ServiceCubit, ServiceState>(
+            builder: (context, state) => state.maybeWhen(
+                orElse: () => Container(),
+                loaded: (services) {
+                  return Expanded(
+                    child: ListView.builder(
+                      itemCount: services.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10),
+                          child: GestureDetector(
+                            onTap: () {
+                              if (services[index].name ==
+                                  "Psychiatric\nEvaluation") {
+                                context.router.push(
+                                  ServiceInnerRoute(service: services[index]),
+                                );
+                              }
+                              if (services[index].name == "Group Therapy") {
+                                debugPrint("Group Therapy");
+                                context.router.push(
+                                  const GTRoute(),
+                                );
+                              }
+                              if (services[index].name ==
+                                  "Medication\nManagement") {
+                                context.router.push(
+                                  const MMRoute(),
+                                );
+                              }
+                              if (services[index].name == "Play Therapy") {
+                                context.router.push(
+                                  const PTRoute(),
+                                );
+                              }
+                              if (services[index].name ==
+                                  "Individual Therapy") {
+                                context.router.push(
+                                  const IDRoute(),
+                                );
+                              }
+                              if (services[index].name ==
+                                  "Couple & Family Therapy") {
+                                context.router.push(
+                                  const CPTRoute(),
+                                );
+                              }
+                              if (services[index].name == "Pharmacogenomics") {
+                                context.router.push(
+                                  const PMRoute(),
+                                );
+                              }
+                              if (services[index].name ==
+                                  "Addiction Treatment") {
+                                context.router.push(
+                                  const ATRoute(),
+                                );
+                              }
+                              if (services[index].name == "Telepsychiatry") {
+                                context.router.push(
+                                  const TPRoute(),
+                                );
+                              }
+                              if (services[index].name == "Primary Care") {
+                                context.router.push(
+                                  const PCRoute(),
+                                );
+                              }
+                            },
+                            child: ServiceCard(
+                              title: services[index].name,
+                              image: services[index].image,
+                              description: services[index].description,
                             ),
-                          );
-                        },
-                      ),
-                    );
-                  }),
-            ),
-            // const SizedBox(height: 20)
-          ],
-        ),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                }),
+          ),
+          // const SizedBox(height: 20)
+        ],
       ),
       appbarText: StringConstants.services,
       isBackAppBar: true,

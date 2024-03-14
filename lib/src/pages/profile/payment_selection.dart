@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 
 class PaymentSelection extends StatefulWidget {
@@ -36,12 +35,12 @@ class _PaymentSelectionState extends State<PaymentSelection> {
       children: [
         Text(
           StringConstants.paymentMode,
-          style: TextStyle(
+          style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
               color: Color(0xff403B3B)),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Row(
           children: [
             InkWell(

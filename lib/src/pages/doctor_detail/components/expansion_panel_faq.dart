@@ -28,7 +28,7 @@ class _ExpansionPanelFaqsState extends State<ExpansionPanelFaqs> {
           expandedHeaderPadding: EdgeInsets.zero,
           expandIconColor: Theme.of(context).scaffoldBackgroundColor,
           dividerColor: ColorConstants.black,
-          children: [
+          children: const [
             // ExpansionPanel(
             //   hasIcon: false,
             //   backgroundColor: !getThemeStateIsLight()

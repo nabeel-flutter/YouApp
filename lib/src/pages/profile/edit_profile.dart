@@ -23,9 +23,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           // TODO: implement listener
           state.maybeWhen(
             orElse: () => Container(),
-            loaded: (user) {
-              print(user.data!.paymentType);
-            },
+            loaded: (user) {},
           );
         },
         builder: (context, state) => state.maybeWhen(
