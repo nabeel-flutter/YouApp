@@ -1,13 +1,6 @@
-import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/data/dto/appointment_dto.dart';
 import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
 import 'package:new_beginnings/src/domain/common/result.dart';
-import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
-
-import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 
 part 'appointment_cubit_state.dart';
 part 'appointment_cubit_cubit.freezed.dart';

@@ -19,25 +19,25 @@ mixin _$BookAppointmentState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
+    required TResult Function(BaseResponseDto<dynamic> data) loaded,
     required TResult Function() loading,
-    required TResult Function() errorl,
+    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
+    TResult? Function(BaseResponseDto<dynamic> data)? loaded,
     TResult? Function()? loading,
-    TResult? Function()? errorl,
+    TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
+    TResult Function(BaseResponseDto<dynamic> data)? loaded,
     TResult Function()? loading,
-    TResult Function()? errorl,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ mixin _$BookAppointmentState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) errorl,
+    required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,7 +54,7 @@ mixin _$BookAppointmentState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? errorl,
+    TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,7 +62,7 @@ mixin _$BookAppointmentState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? errorl,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,9 +125,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
+    required TResult Function(BaseResponseDto<dynamic> data) loaded,
     required TResult Function() loading,
-    required TResult Function() errorl,
+    required TResult Function(String message) error,
   }) {
     return initial();
   }
@@ -136,9 +136,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
+    TResult? Function(BaseResponseDto<dynamic> data)? loaded,
     TResult? Function()? loading,
-    TResult? Function()? errorl,
+    TResult? Function(String message)? error,
   }) {
     return initial?.call();
   }
@@ -147,9 +147,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
+    TResult Function(BaseResponseDto<dynamic> data)? loaded,
     TResult Function()? loading,
-    TResult Function()? errorl,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -164,7 +164,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) errorl,
+    required TResult Function(_Error value) error,
   }) {
     return initial(this);
   }
@@ -175,7 +175,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? errorl,
+    TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
   }
@@ -186,7 +186,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? errorl,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -204,6 +204,8 @@ abstract class _Initial implements BookAppointmentState {
 abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BaseResponseDto<dynamic> data});
 }
 
 /// @nodoc
@@ -212,60 +214,84 @@ class __$$_LoadedCopyWithImpl<$Res>
     implements _$$_LoadedCopyWith<$Res> {
   __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_Loaded(
+      null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as BaseResponseDto<dynamic>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded();
+  const _$_Loaded(this.data);
+
+  @override
+  final BaseResponseDto<dynamic> data;
 
   @override
   String toString() {
-    return 'BookAppointmentState.loaded()';
+    return 'BookAppointmentState.loaded(data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loaded);
+        (other.runtimeType == runtimeType &&
+            other is _$_Loaded &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
+    required TResult Function(BaseResponseDto<dynamic> data) loaded,
     required TResult Function() loading,
-    required TResult Function() errorl,
+    required TResult Function(String message) error,
   }) {
-    return loaded();
+    return loaded(data);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
+    TResult? Function(BaseResponseDto<dynamic> data)? loaded,
     TResult? Function()? loading,
-    TResult? Function()? errorl,
+    TResult? Function(String message)? error,
   }) {
-    return loaded?.call();
+    return loaded?.call(data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
+    TResult Function(BaseResponseDto<dynamic> data)? loaded,
     TResult Function()? loading,
-    TResult Function()? errorl,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded();
+      return loaded(data);
     }
     return orElse();
   }
@@ -276,7 +302,7 @@ class _$_Loaded implements _Loaded {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) errorl,
+    required TResult Function(_Error value) error,
   }) {
     return loaded(this);
   }
@@ -287,7 +313,7 @@ class _$_Loaded implements _Loaded {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? errorl,
+    TResult? Function(_Error value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -298,7 +324,7 @@ class _$_Loaded implements _Loaded {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? errorl,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -309,7 +335,12 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements BookAppointmentState {
-  const factory _Loaded() = _$_Loaded;
+  const factory _Loaded(final BaseResponseDto<dynamic> data) = _$_Loaded;
+
+  BaseResponseDto<dynamic> get data;
+  @JsonKey(ignore: true)
+  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -350,9 +381,9 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
+    required TResult Function(BaseResponseDto<dynamic> data) loaded,
     required TResult Function() loading,
-    required TResult Function() errorl,
+    required TResult Function(String message) error,
   }) {
     return loading();
   }
@@ -361,9 +392,9 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
+    TResult? Function(BaseResponseDto<dynamic> data)? loaded,
     TResult? Function()? loading,
-    TResult? Function()? errorl,
+    TResult? Function(String message)? error,
   }) {
     return loading?.call();
   }
@@ -372,9 +403,9 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
+    TResult Function(BaseResponseDto<dynamic> data)? loaded,
     TResult Function()? loading,
-    TResult Function()? errorl,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -389,7 +420,7 @@ class _$_Loading implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) errorl,
+    required TResult Function(_Error value) error,
   }) {
     return loading(this);
   }
@@ -400,7 +431,7 @@ class _$_Loading implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? errorl,
+    TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
   }
@@ -411,7 +442,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? errorl,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -429,6 +460,8 @@ abstract class _Loading implements BookAppointmentState {
 abstract class _$$_ErrorCopyWith<$Res> {
   factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
       __$$_ErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -437,60 +470,84 @@ class __$$_ErrorCopyWithImpl<$Res>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$_Error(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Error implements _Error {
-  const _$_Error();
+  const _$_Error(this.message);
+
+  @override
+  final String message;
 
   @override
   String toString() {
-    return 'BookAppointmentState.errorl()';
+    return 'BookAppointmentState.error(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Error);
+        (other.runtimeType == runtimeType &&
+            other is _$_Error &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
+    required TResult Function(BaseResponseDto<dynamic> data) loaded,
     required TResult Function() loading,
-    required TResult Function() errorl,
+    required TResult Function(String message) error,
   }) {
-    return errorl();
+    return error(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
+    TResult? Function(BaseResponseDto<dynamic> data)? loaded,
     TResult? Function()? loading,
-    TResult? Function()? errorl,
+    TResult? Function(String message)? error,
   }) {
-    return errorl?.call();
+    return error?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
+    TResult Function(BaseResponseDto<dynamic> data)? loaded,
     TResult Function()? loading,
-    TResult Function()? errorl,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
-    if (errorl != null) {
-      return errorl();
+    if (error != null) {
+      return error(message);
     }
     return orElse();
   }
@@ -501,9 +558,9 @@ class _$_Error implements _Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Error value) errorl,
+    required TResult Function(_Error value) error,
   }) {
-    return errorl(this);
+    return error(this);
   }
 
   @override
@@ -512,9 +569,9 @@ class _$_Error implements _Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Error value)? errorl,
+    TResult? Function(_Error value)? error,
   }) {
-    return errorl?.call(this);
+    return error?.call(this);
   }
 
   @override
@@ -523,16 +580,21 @@ class _$_Error implements _Error {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Error value)? errorl,
+    TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
-    if (errorl != null) {
-      return errorl(this);
+    if (error != null) {
+      return error(this);
     }
     return orElse();
   }
 }
 
 abstract class _Error implements BookAppointmentState {
-  const factory _Error() = _$_Error;
+  const factory _Error(final String message) = _$_Error;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      throw _privateConstructorUsedError;
 }

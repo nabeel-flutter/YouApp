@@ -424,4 +424,8 @@ class ObjectMapper {
   BaseResponseDto toUpdateUser(BaseResponseDto dto) {
     return  BaseResponseDto(data: dto.data, message: dto.data['message']);
   }
+
+  BaseResponseDto toBookAppointment(BaseResponseDto dto) {
+    return BaseResponseDto(data: dto.data, message: dto.data['message']);
+  }
 }
