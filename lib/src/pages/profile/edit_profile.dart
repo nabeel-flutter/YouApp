@@ -1,7 +1,6 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/profile/cubit/user_profile_cubit.dart';
 import 'package:new_beginnings/src/pages/profile/editscreen_body.dart';
-import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 @RoutePage()
@@ -24,9 +23,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           // TODO: implement listener
           state.maybeWhen(
             orElse: () => Container(),
-            loaded: (user) {
-              print(user.data!.paymentType);
-            },
+            loaded: (user) {},
           );
         },
         builder: (context, state) => state.maybeWhen(
