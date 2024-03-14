@@ -1,5 +1,4 @@
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/material.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'dart:math' as math;
 
@@ -90,13 +89,13 @@ class HeadingText extends StatelessWidget {
 class UploadInsuranceCard extends StatefulWidget {
   final bool? showlabeltext;
   final String text;
-  final Function(File?) onFileSelected; // Callback to pass the selected file to the parent widget
+  final Function(File?) onFileSelected;
 
   const UploadInsuranceCard({
     Key? key,
     required this.text,
     this.showlabeltext = true,
-    required this.onFileSelected, // Provide callback to handle file selection
+    required this.onFileSelected,
   }) : super(key: key);
 
   @override
@@ -112,17 +111,16 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
     final FilePickerResult? result = await FilePicker.platform.pickFiles();
     if (result != null) {
       final PlatformFile pickedFile = result.files.first;
-      // Update the state to display the new file
+
       setState(() {
         _file = File(pickedFile.path!);
         _fileName = pickedFile.name;
         _fileSize = _formatBytes(pickedFile.size, 2);
       });
-      widget.onFileSelected(_file); // Pass the selected file to the parent widget
+      widget.onFileSelected(_file);
     }
   }
 
-  // Function to format file size
   String _formatBytes(int bytes, int decimals) {
     if (bytes <= 0) return "0 B";
     const suffixes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
@@ -198,14 +196,13 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
   }
 }
 
-
-class CustomTextFeild extends StatelessWidget {
-  final String feildName;
+class CustomTextField extends StatelessWidget {
+  final String fieldName;
   final String hintText;
   final TextEditingController controller;
-  const CustomTextFeild({
+  const CustomTextField({
     super.key,
-    required this.feildName,
+    required this.fieldName,
     required this.hintText,
     required this.controller,
   });
@@ -217,7 +214,7 @@ class CustomTextFeild extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Text(
-          feildName,
+          fieldName,
           style: const TextStyle(
             color: ColorConstants.primaryTextColor,
             fontSize: 16,

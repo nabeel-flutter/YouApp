@@ -11,10 +11,13 @@ class ForgotPasswordBody extends StatelessWidget {
     TextEditingController email = TextEditingController();
     return BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
       listener: (context, state) {
-         state.maybeWhen(orElse: () => Container(),
-         error: (message) => ToastComponent3(context).showToast(context, message),
-         loaded: (message) => ToastComponent2(context).showToast(context, message),
-         );
+        state.maybeWhen(
+          orElse: () => Container(),
+          error: (message) =>
+              ToastComponent3(context).showToast(context, message),
+          loaded: (message) =>
+              ToastComponent2(context).showToast(context, message),
+        );
       },
       builder: (context, state) {
         return Form(
@@ -31,7 +34,7 @@ class ForgotPasswordBody extends StatelessWidget {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       BlocProvider.of<ForgetPasswordCubit>(context)
-                        ..forgetPassword(email: email.text);
+                          .forgetPassword(email: email.text);
                     }
 
                     // context.router.push(const OTPRoute());
@@ -63,7 +66,7 @@ class ForgotPasswordBody extends StatelessWidget {
             .copyWith(color: ColorConstants.subTextColor),
         children: [
           TextSpan(
-            text: StringConstants.LogIn,
+            text: StringConstants.login,
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!

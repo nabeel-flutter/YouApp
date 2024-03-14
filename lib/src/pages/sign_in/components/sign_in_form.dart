@@ -78,11 +78,13 @@ class SignInForm extends StatelessWidget {
                       return null;
                     },
                     loaded: (token) async {
-                    await  getIt.get<SharedPreferencesUtil>().setString(
-                          SharedPreferenceConstants.apiAuthToken, token.token).then((value) =>   context.router.pushAndPopUntil(
-                          predicate: (route) => false, const HomeRoute())
-                      );
-                          return null;
+                      await getIt
+                          .get<SharedPreferencesUtil>()
+                          .setString(SharedPreferenceConstants.apiAuthToken,
+                              token.token)
+                          .then((value) => context.router.pushAndPopUntil(
+                              predicate: (route) => false, const HomeRoute()));
+                      return null;
                     },
                   ),
               builder: (context, state) => state.maybeWhen(
@@ -123,7 +125,7 @@ class SignInForm extends StatelessWidget {
                             email: emailController.text,
                             password: passwordController.text);
                       },
-                      child: Text(StringConstants.LogIn,
+                      child: Text(StringConstants.login,
                           style:
                               Theme.of(context).textTheme.bodyLarge!.copyWith(
                                     color: ColorConstants.white,
@@ -144,7 +146,7 @@ class SignInForm extends StatelessWidget {
                               }
                             },
                             child: Text(
-                              StringConstants.LogIn,
+                              StringConstants.login,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge!
@@ -180,7 +182,7 @@ class SignInForm extends StatelessWidget {
                         }
                       },
                       child: Text(
-                        StringConstants.LogIn,
+                        StringConstants.login,
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               color: ColorConstants.white,
                               fontSize: 16,

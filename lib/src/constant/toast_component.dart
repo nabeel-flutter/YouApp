@@ -108,8 +108,8 @@ class ToastComponent3 {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Row(
-              children: const [
+            const Row(
+              children: [
                 Icon(
                   Icons.info,
                   color: ColorConstants.redIndicatorColor,

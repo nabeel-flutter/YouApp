@@ -1,4 +1,4 @@
-import '../../../../app/app_export.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class BodyHeading extends StatelessWidget {
   final String title;

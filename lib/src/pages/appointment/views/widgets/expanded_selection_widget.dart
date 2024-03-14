@@ -1,4 +1,4 @@
-import '../../../../app/app_export.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class ExpandedSelectionWidget extends StatefulWidget {
   final String label;
@@ -6,7 +6,7 @@ class ExpandedSelectionWidget extends StatefulWidget {
   final String title; // Make title mutable by removing the `final` keyword
   final Function(String) onTapped;
 
-  ExpandedSelectionWidget({
+  const ExpandedSelectionWidget({
     super.key,
     required this.label,
     required this.textList,
@@ -52,7 +52,7 @@ class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
           ),
           Container(
             decoration: BoxDecoration(
-              color: Color(0xff80BCBD).withOpacity(0.2),
+              color: const Color(0xff80BCBD).withOpacity(0.2),
               borderRadius: BorderRadius.circular(8.0),
               border: Border.all(
                 color: ColorConstants.primaryColor,
@@ -66,7 +66,7 @@ class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
               title: Text(
                 currentTitle, // Use currentTitle for dynamic updates
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: Color(0xff656567),
+                      color: const Color(0xff656567),
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
                     ),
