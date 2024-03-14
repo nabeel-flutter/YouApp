@@ -3,7 +3,7 @@ import 'package:new_beginnings/src/pages/verify_email/cubit/verify_email_cubit.d
 
 class VerifyEmailBody extends StatelessWidget {
   const VerifyEmailBody({Key? key, required this.email}) : super(key: key);
-final String email;
+  final String email;
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
@@ -11,13 +11,15 @@ final String email;
     TextEditingController email = TextEditingController();
     return BlocConsumer<VerifyEmailCubit, VerifyEmailState>(
       listener: (context, state) {
-         state.maybeWhen(orElse: () => Container(),
-         error: (message) => ToastComponent3(context).showToast(context, message),
-         loaded: (message) {
-           ToastComponent2(context).showToast(context, message);
-           context.popRoute();
-         },
-         );
+        state.maybeWhen(
+          orElse: () => Container(),
+          error: (message) =>
+              ToastComponent3(context).showToast(context, message),
+          loaded: (message) {
+            ToastComponent2(context).showToast(context, message);
+            context.popRoute();
+          },
+        );
       },
       builder: (context, state) {
         return Form(
@@ -33,8 +35,8 @@ final String email;
               ElevatedButton(
                   onPressed: () async {
                     if (formKey.currentState!.validate()) {
-                     await BlocProvider.of<VerifyEmailCubit>(context)
-                        .verifyEmail(email: email.text);
+                      await BlocProvider.of<VerifyEmailCubit>(context)
+                          .verifyEmail(email: email.text);
                     }
 
                     // context.router.push(const OTPRoute());
@@ -66,7 +68,7 @@ final String email;
             .copyWith(color: ColorConstants.subTextColor),
         children: [
           TextSpan(
-            text: StringConstants.LogIn,
+            text: StringConstants.login,
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!

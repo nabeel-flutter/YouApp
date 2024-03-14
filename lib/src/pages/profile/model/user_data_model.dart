@@ -6,12 +6,12 @@ class UserDetails {
 
   UserDetails.fromJson(Map<String, dynamic> json) {
     success = json['success'];
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['success'] = success;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -66,36 +66,36 @@ class Data {
     preferredLocation = json['preferredLocation'];
     suffix = json['suffix'];
     geoLocation = json['geoLocation'] != null
-        ? new GeoLocation.fromJson(json['geoLocation'])
+        ? GeoLocation.fromJson(json['geoLocation'])
         : null;
     insuranceDetails = json['insuranceDetails'] != null
-        ? new InsuranceDetails.fromJson(json['insuranceDetails'])
+        ? InsuranceDetails.fromJson(json['insuranceDetails'])
         : null;
     role = json['role'];
     insuranceId = json['insuranceId'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['firstName'] = this.firstName;
-    data['lastName'] = this.lastName;
-    data['email'] = this.email;
-    data['phone'] = this.phone;
-    data['avatar'] = this.avatar;
-    data['alternatePhone'] = this.alternatePhone;
-    data['ssn'] = this.ssn;
-    data['birthDate'] = this.birthDate;
-    data['paymentType'] = this.paymentType;
-    data['preferredLocation'] = this.preferredLocation;
-    data['suffix'] = this.suffix;
-    if (this.geoLocation != null) {
-      data['geoLocation'] = this.geoLocation!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['firstName'] = firstName;
+    data['lastName'] = lastName;
+    data['email'] = email;
+    data['phone'] = phone;
+    data['avatar'] = avatar;
+    data['alternatePhone'] = alternatePhone;
+    data['ssn'] = ssn;
+    data['birthDate'] = birthDate;
+    data['paymentType'] = paymentType;
+    data['preferredLocation'] = preferredLocation;
+    data['suffix'] = suffix;
+    if (geoLocation != null) {
+      data['geoLocation'] = geoLocation!.toJson();
     }
-    if (this.insuranceDetails != null) {
-      data['insuranceDetails'] = this.insuranceDetails!.toJson();
+    if (insuranceDetails != null) {
+      data['insuranceDetails'] = insuranceDetails!.toJson();
     }
-    data['role'] = this.role;
-    data['insuranceId'] = this.insuranceId;
+    data['role'] = role;
+    data['insuranceId'] = insuranceId;
     return data;
   }
 }
@@ -118,12 +118,12 @@ class GeoLocation {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['address'] = this.address;
-    data['country'] = this.country;
-    data['state'] = this.state;
-    data['city'] = this.city;
-    data['zip'] = this.zip;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['address'] = address;
+    data['country'] = country;
+    data['state'] = state;
+    data['city'] = city;
+    data['zip'] = zip;
     return data;
   }
 }
@@ -145,11 +145,11 @@ class InsuranceDetails {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['insuranceName'] = this.insuranceName;
-    data['insurancePolicy'] = this.insurancePolicy;
-    data['frontPic'] = this.frontPic;
-    data['backPic'] = this.backPic;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['insuranceName'] = insuranceName;
+    data['insurancePolicy'] = insurancePolicy;
+    data['frontPic'] = frontPic;
+    data['backPic'] = backPic;
     return data;
   }
 }

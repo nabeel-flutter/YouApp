@@ -78,7 +78,7 @@ class AppBarcomponent extends StatelessWidget {
                         child: const Icon(
                           Icons.arrow_back_ios_new,
                           size: 14,
-                          color: const Color(0xff0A7E80),
+                          color: Color(0xff0A7E80),
                         )),
                   )
                 : Padding(

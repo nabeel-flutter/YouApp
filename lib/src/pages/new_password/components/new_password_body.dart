@@ -73,7 +73,7 @@ class NewPasswordBody extends StatelessWidget {
             .copyWith(color: ColorConstants.subTextColor),
         children: [
           TextSpan(
-            text: StringConstants.LogIn,
+            text: StringConstants.login,
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!

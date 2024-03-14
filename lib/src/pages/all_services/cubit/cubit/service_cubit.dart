@@ -1,8 +1,4 @@
-import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/all_services/models/services_model.dart';
 
 part 'service_state.dart';
 part 'service_cubit.freezed.dart';
@@ -65,7 +61,6 @@ class ServiceCubit extends Cubit<ServiceState> {
   ];
 
   void getServices() {
-     
     emit(ServiceState.loaded(services));
   }
 
@@ -80,5 +75,4 @@ class ServiceCubit extends Cubit<ServiceState> {
       emit(ServiceState.loaded(searchResult));
     }
   }
-   
 }

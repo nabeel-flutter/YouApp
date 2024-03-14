@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 
 class GenderSelection extends StatefulWidget {
@@ -17,6 +16,7 @@ class GenderSelection extends StatefulWidget {
 
 class _GenderSelectionState extends State<GenderSelection> {
   int? _selectedValue;
+  @override
   void initState() {
     super.initState();
     // Set the initial value based on the passed initialPaymentMode
@@ -34,14 +34,14 @@ class _GenderSelectionState extends State<GenderSelection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           "Gender",
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
               color: Color(0xff403B3B)),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Row(
           children: [
             InkWell(

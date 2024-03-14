@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 
@@ -6,7 +5,7 @@ class HomeCarouselWidget extends StatefulWidget {
   const HomeCarouselWidget({Key? key}) : super(key: key);
 
   @override
-  _HomeCarouselWidgetState createState() => _HomeCarouselWidgetState();
+  State<HomeCarouselWidget> createState() => _HomeCarouselWidgetState();
 }
 
 class _HomeCarouselWidgetState extends State<HomeCarouselWidget> {

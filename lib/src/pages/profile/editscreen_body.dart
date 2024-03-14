@@ -109,24 +109,24 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     const SizedBox(
                       height: 20,
                     ),
-                    CustomTextFeild(
-                        feildName: "First Name",
+                    CustomTextField(
+                        fieldName: "First Name",
                         hintText: "Enter your First Name",
                         controller: firstNameController),
-                    CustomTextFeild(
-                        feildName: "Last Name",
+                    CustomTextField(
+                        fieldName: "Last Name",
                         hintText: "Enter your Last Name",
                         controller: lastNameController),
-                    CustomTextFeild(
-                        feildName: "Suffix",
+                    CustomTextField(
+                        fieldName: "Suffix",
                         hintText: "Enter your Suffix",
                         controller: suffixController),
-                    CustomTextFeild(
-                        feildName: "Date of Birth",
+                    CustomTextField(
+                        fieldName: "Date of Birth",
                         hintText: "Enter your Date of Birth",
                         controller: dobController),
-                    CustomTextFeild(
-                        feildName: "SSN",
+                    CustomTextField(
+                        fieldName: "SSN",
                         hintText: "Enter your SSN",
                         controller: ssnController),
                     GenderSelection(
@@ -195,20 +195,20 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                           ? widget.userDetails!.data!.geoLocation!.city!
                           : "Select your city",
                     ),
-                    CustomTextFeild(
-                        feildName: StringConstants.address,
+                    CustomTextField(
+                        fieldName: StringConstants.address,
                         hintText: "Enter your Address",
                         controller: addressController),
-                    CustomTextFeild(
-                        feildName: StringConstants.zipCode,
+                    CustomTextField(
+                        fieldName: StringConstants.zipCode,
                         hintText: "Enter your Zip Code",
                         controller: zipCodeController),
-                    CustomTextFeild(
-                        feildName: StringConstants.email,
+                    CustomTextField(
+                        fieldName: StringConstants.email,
                         hintText: "Enter your Email",
                         controller: emailController),
-                    CustomTextFeild(
-                        feildName: StringConstants.alternatephonenumber,
+                    CustomTextField(
+                        fieldName: StringConstants.alternatephonenumber,
                         hintText: "Enter your Alternate Phone Number",
                         controller: alternatePhoneNumController),
                     PaymentSelection(
@@ -235,12 +235,12 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                               const SizedBox(
                                 height: 20,
                               ),
-                              CustomTextFeild(
-                                  feildName: StringConstants.insuranceName,
+                              CustomTextField(
+                                  fieldName: StringConstants.insuranceName,
                                   hintText: "Enter Name of Insurance",
                                   controller: nameOfInsuranceController),
-                              CustomTextFeild(
-                                  feildName: "Insurance Policy",
+                              CustomTextField(
+                                  fieldName: "Insurance Policy",
                                   hintText: "Enter Insurance Policy",
                                   controller: insurancePolicyController),
                               UploadInsuranceCard(
@@ -284,14 +284,11 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     Button(
                       label: 'Save',
                       onPressed: () {
-                        print("selected gender value :  $selectedGenderValue");
-                        print(
-                            "selected  paymentmode value :  $selectedPaymentValue");
                         BlocProvider.of<UserProfileCubit>(context).updateUser(
                           email: emailController.text,
                           firstName: firstNameController.text,
                           lastName: lastNameController.text,
-                          paymentType: _isInsured?"insured":"selfPay",
+                          paymentType: _isInsured ? "insured" : "selfPay",
                           insuranceCardFront: insuranceCardFront,
                           insuranceCardBack: insuranceCardBack,
                         );

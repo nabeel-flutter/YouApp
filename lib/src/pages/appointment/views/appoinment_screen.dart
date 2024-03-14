@@ -1,7 +1,6 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/core/date_time.dart';
 import 'package:new_beginnings/src/pages/appointment/cubit/appointnent_details/appointment_cubit_cubit.dart';
-import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
 
 import 'package:new_beginnings/src/pages/appointment/views/widgets/select_date_widget.dart';
 import 'package:new_beginnings/src/pages/appointment/views/widgets/select_time_widget.dart';

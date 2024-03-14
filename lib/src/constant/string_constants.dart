@@ -51,6 +51,7 @@ class StringConstants {
 
   static String selfPay = _getLang('selfPay');
 
+  // ignore: prefer_typing_uninitialized_variables
   static var reasonForAppointment;
 
   static String facetoFace = _getLang('facetoFace');
@@ -669,7 +670,7 @@ class StringConstants {
 
   static String get forgot => _getLang('forgot');
 
-  static String get LogIn => _getLang('logIn');
+  static String get login => _getLang('logIn');
 
   static String get newAccount => _getLang('newAccount');
 

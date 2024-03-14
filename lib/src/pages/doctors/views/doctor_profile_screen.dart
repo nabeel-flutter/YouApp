@@ -1,5 +1,4 @@
 import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/doctors/models/doctor_model.dart';
 import 'package:new_beginnings/src/pages/doctors/views/widgets/description_widget.dart';
 
 import 'package:new_beginnings/src/pages/doctors/views/widgets/doctor_statistics_widget.dart';
@@ -78,6 +77,7 @@ class DoctorProfileScreen extends StatelessWidget {
                                   ),
                                   const SizedBox(width: 5),
                                   Text(
+                                    // ignore: prefer_interpolation_to_compose_strings
                                     doctor.rating.toString() +
                                         " " +
                                         '(' +
