@@ -1,6 +1,6 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/profile/cubit/user_profile_cubit.dart';
-import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
+import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 @RoutePage()

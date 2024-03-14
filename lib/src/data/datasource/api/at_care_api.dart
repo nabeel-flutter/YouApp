@@ -14,7 +14,7 @@ import 'package:new_beginnings/src/data/dto/product_dto.dart';
 import 'package:new_beginnings/src/data/dto/sehat_scan_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/token_dto.dart';
 import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
-import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
+import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 
 ///
 ///

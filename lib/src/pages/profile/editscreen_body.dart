@@ -2,10 +2,10 @@ import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/profile/cubit/user_profile_cubit.dart';
 import 'package:new_beginnings/src/pages/profile/edit_profile_components.dart';
 import 'package:new_beginnings/src/pages/profile/gender_selection.dart';
-import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
+import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 import 'package:new_beginnings/src/pages/profile/payment_selection.dart';
 
-import '../appointment/views/widgets/expanded_selection_widget.dart';
+import 'package:new_beginnings/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
 
 class EditScreenBody extends StatefulWidget {
   final UserDetails? userDetails;
@@ -25,27 +25,27 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   String preferredLocation = "Preferred Location For Service";
 
   String city = 'New York';
-  TextEditingController firstnamecontrolller = TextEditingController();
+  TextEditingController firstNameController = TextEditingController();
 
-  TextEditingController lastnamecontroller = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
 
-  TextEditingController suffixcontroller = TextEditingController();
+  TextEditingController suffixController = TextEditingController();
 
-  TextEditingController dobcontroller = TextEditingController();
+  TextEditingController dobController = TextEditingController();
 
-  TextEditingController ssncontroller = TextEditingController();
+  TextEditingController ssnController = TextEditingController();
 
-  TextEditingController addresscontroller = TextEditingController();
+  TextEditingController addressController = TextEditingController();
 
-  TextEditingController zipcodecontroller = TextEditingController();
+  TextEditingController zipCodeController = TextEditingController();
 
-  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController emailController = TextEditingController();
 
-  TextEditingController alternatephonenumcontroller = TextEditingController();
+  TextEditingController alternatePhoneNumController = TextEditingController();
 
-  TextEditingController nameofinsurancecontroller = TextEditingController();
+  TextEditingController nameOfInsuranceController = TextEditingController();
 
-  TextEditingController insurancepolicycontroller = TextEditingController();
+  TextEditingController insurancePolicyController = TextEditingController();
 
   File? insuranceCardFront;
   File? insuranceCardBack;
@@ -59,20 +59,20 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   }
 
   void updateControllers() {
-    firstnamecontrolller.text = widget.userDetails!.data!.firstName ?? '';
-    lastnamecontroller.text = widget.userDetails!.data!.lastName ?? '';
-    emailcontroller.text = widget.userDetails!.data!.email ?? '';
-    suffixcontroller.text = widget.userDetails!.data!.suffix ?? "";
-    dobcontroller.text = widget.userDetails!.data!.birthDate ?? "";
-    ssncontroller.text = widget.userDetails!.data!.ssn ?? " ";
-    addresscontroller.text =
+    firstNameController.text = widget.userDetails!.data!.firstName ?? '';
+    lastNameController.text = widget.userDetails!.data!.lastName ?? '';
+    emailController.text = widget.userDetails!.data!.email ?? '';
+    suffixController.text = widget.userDetails!.data!.suffix ?? "";
+    dobController.text = widget.userDetails!.data!.birthDate ?? "";
+    ssnController.text = widget.userDetails!.data!.ssn ?? " ";
+    addressController.text =
         widget.userDetails!.data!.geoLocation!.address ?? "";
-    zipcodecontroller.text = widget.userDetails!.data!.geoLocation!.zip ?? "";
-    alternatephonenumcontroller.text =
+    zipCodeController.text = widget.userDetails!.data!.geoLocation!.zip ?? "";
+    alternatePhoneNumController.text =
         widget.userDetails!.data!.alternatePhone ?? "";
-    nameofinsurancecontroller.text =
+    nameOfInsuranceController.text =
         widget.userDetails!.data!.insuranceDetails!.insuranceName ?? "";
-    insurancepolicycontroller.text =
+    insurancePolicyController.text =
         widget.userDetails!.data!.insuranceDetails!.insurancePolicy ?? "";
   }
 
@@ -90,8 +90,8 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                 right: 0,
                 child: UserProfileComponent(
                   userName:
-                      "${firstnamecontrolller.text}  ${lastnamecontroller.text}",
-                  userEmail: emailcontroller.text,
+                      "${firstNameController.text}  ${lastNameController.text}",
+                  userEmail: emailController.text,
                 )),
             Padding(
               padding:
@@ -110,23 +110,23 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     CustomTextFeild(
                         feildName: "First Name",
                         hintText: "Enter your First Name",
-                        controller: firstnamecontrolller),
+                        controller: firstNameController),
                     CustomTextFeild(
                         feildName: "Last Name",
                         hintText: "Enter your Last Name",
-                        controller: lastnamecontroller),
+                        controller: lastNameController),
                     CustomTextFeild(
                         feildName: "Suffix",
                         hintText: "Enter your Suffix",
-                        controller: suffixcontroller),
+                        controller: suffixController),
                     CustomTextFeild(
                         feildName: "Date of Birth",
                         hintText: "Enter your Date of Birth",
-                        controller: dobcontroller),
+                        controller: dobController),
                     CustomTextFeild(
                         feildName: "SSN",
                         hintText: "Enter your SSN",
-                        controller: ssncontroller),
+                        controller: ssnController),
                     GenderSelection(
                       initialPaymentMode:
                           widget.userDetails?.data?.paymentType ?? "",
@@ -157,7 +157,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                       ],
                       onTapped: (selectedState) {
                         setState(() {
-                          this.state = selectedState;
+                          state = selectedState;
                         });
                       },
                       // Make sure to provide a non-nullable string by using ?? with a non-nullable default value
@@ -189,19 +189,19 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     CustomTextFeild(
                         feildName: StringConstants.address,
                         hintText: "Enter your Address",
-                        controller: addresscontroller),
+                        controller: addressController),
                     CustomTextFeild(
                         feildName: StringConstants.zipCode,
                         hintText: "Enter your Zip Code",
-                        controller: zipcodecontroller),
+                        controller: zipCodeController),
                     CustomTextFeild(
                         feildName: StringConstants.email,
                         hintText: "Enter your Email",
-                        controller: emailcontroller),
+                        controller: emailController),
                     CustomTextFeild(
                         feildName: StringConstants.alternatephonenumber,
                         hintText: "Enter your Alternate Phone Number",
-                        controller: alternatephonenumcontroller),
+                        controller: alternatePhoneNumController),
                     PaymentSelection(
                       initialPaymentMode:
                           widget.userDetails?.data?.paymentType ?? "",
@@ -224,11 +224,11 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                               CustomTextFeild(
                                   feildName: StringConstants.insuranceName,
                                   hintText: "Enter Name of Insurance",
-                                  controller: nameofinsurancecontroller),
+                                  controller: nameOfInsuranceController),
                               CustomTextFeild(
                                   feildName: "Insurance Policy",
                                   hintText: "Enter Insurance Policy",
-                                  controller: insurancepolicycontroller),
+                                  controller: insurancePolicyController),
                               UploadInsuranceCard(
                                 onFileSelected: (file) {
                                   insuranceCardFront = file;
@@ -271,9 +271,9 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                       label: 'Save',
                       onPressed: () {
                         BlocProvider.of<UserProfileCubit>(context).updateUser(
-                          email: emailcontroller.text,
-                          firstName: firstnamecontrolller.text,
-                          lastName: lastnamecontroller.text,
+                          email: emailController.text,
+                          firstName: firstNameController.text,
+                          lastName: lastNameController.text,
                           paymentType: _isInsured?"insured":"selfPay",
                           insuranceCardFront: insuranceCardFront,
                           insuranceCardBack: insuranceCardBack,
@@ -283,7 +283,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     const SizedBox(
                       height: 10,
                     ),
-                    const Logoutbutton(),
+                    const LogoutButton(),
                     const SizedBox(
                       height: 30,
                     )

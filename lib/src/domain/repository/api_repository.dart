@@ -9,7 +9,7 @@ import 'package:new_beginnings/src/domain/model/data_list.dart';
 import 'package:new_beginnings/src/domain/model/docotor.dart';
 import 'package:new_beginnings/src/domain/model/medical_records.dart';
 import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
-import 'package:new_beginnings/src/pages/profile/model/userdata_model.dart';
+import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 
 abstract class ApiRepository extends Repository {
   ///
