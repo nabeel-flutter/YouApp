@@ -3,10 +3,12 @@ import 'package:new_beginnings/src/app/app_export.dart';
 
 class GenderSelection extends StatefulWidget {
   final String initialPaymentMode; // Add this line
+  final Function(String) onGenderSelect; // Add this line
 
   const GenderSelection({
     super.key,
     required this.initialPaymentMode,
+    required this.onGenderSelect,
   });
 
   @override
@@ -46,6 +48,7 @@ class _GenderSelectionState extends State<GenderSelection> {
               onTap: () {
                 setState(() {
                   _selectedValue = 1;
+                  widget.onGenderSelect("Male");
                 });
               },
               child: Row(
@@ -80,6 +83,7 @@ class _GenderSelectionState extends State<GenderSelection> {
               onTap: () {
                 setState(() {
                   _selectedValue = 2;
+                  widget.onGenderSelect("Female");
                 });
               },
               child: Row(
@@ -114,6 +118,7 @@ class _GenderSelectionState extends State<GenderSelection> {
               onTap: () {
                 setState(() {
                   _selectedValue = 3;
+                  widget.onGenderSelect("Other");
                 });
               },
               child: Row(
