@@ -252,7 +252,7 @@ class CustomTextField extends StatelessWidget {
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   color: const Color(0xff656567),
-                  fontSize: 15,
+                  fontSize: 14,
                   fontWeight: FontWeight.w700,
                 ),
           ),
@@ -264,6 +264,7 @@ class CustomTextField extends StatelessWidget {
     );
   }
 }
+
 class DateSelectionWidget extends StatefulWidget {
   final void Function(String?) onDateSelected;
 
@@ -321,22 +322,21 @@ class _DateSelectionWidgetState extends State<DateSelectionWidget> {
             ),
             child: Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                const Padding(
+                  padding: EdgeInsets.only(left: 8.0),
                   child: Icon(
                     Icons.calendar_today,
                     color: ColorConstants.greenish,
                     size: 28,
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Text(
                   selectedDateText,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                    color: Color(0xff403B3B),
-                    height: 1.5,
+                    fontSize: 14,
+                    color: Color(0xff656567),
                   ),
                 ),
               ],
