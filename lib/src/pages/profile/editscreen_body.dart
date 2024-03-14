@@ -274,6 +274,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                           email: emailcontroller.text,
                           firstName: firstnamecontrolller.text,
                           lastName: lastnamecontroller.text,
+                          paymentType: _isInsured?"insured":"selfPay",
                           insuranceCardFront: insuranceCardFront,
                           insuranceCardBack: insuranceCardBack,
                         );

@@ -358,14 +358,22 @@ class SoftTechTestApi {
     File? insuranceCardBackImage,
     String? insuranceName,
     String? insurancePoilcyNumber,
+   required  String  paymentType,
   }) async {
     final formData = FormData.fromMap({
       'firstName': firstName,
       'lastName': lastName,
       'phone': phone,
       'email': email,
-      'insurance_card_front': insuranceCardFrontImage,
-      'insurance_card_back': insuranceCardBackImage,
+      'paymentType': 'insured',
+      'frontPic': MultipartFile.fromFile(
+          insuranceCardFrontImage!.path,
+          filename: '$insuranceName-front',
+          contentType: MediaType('image', insuranceCardFrontImage.path)),
+      'backPic': MultipartFile.fromFile(
+          insuranceCardBackImage!.path,
+          filename: '$insuranceName-back',
+          contentType: MediaType('image', insuranceCardBackImage.path)),
       'insuranceName': insuranceName,
       'insurancePolicy': insurancePoilcyNumber
     });
