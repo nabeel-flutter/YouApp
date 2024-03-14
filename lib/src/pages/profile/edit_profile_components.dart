@@ -199,12 +199,14 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
 class CustomTextField extends StatelessWidget {
   final String fieldName;
   final String hintText;
+  final TextInputType? keyboardType;
   final TextEditingController controller;
   const CustomTextField({
     super.key,
     required this.fieldName,
     required this.hintText,
     required this.controller,
+    this.keyboardType,
   });
 
   @override
@@ -224,6 +226,7 @@ class CustomTextField extends StatelessWidget {
         const SizedBox(height: 8),
         TextField(
           controller: controller,
+          keyboardType: keyboardType ?? TextInputType.none,
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.symmetric(
                 vertical: 21.0, horizontal: 10), // Adjust the vertical p
@@ -257,6 +260,89 @@ class CustomTextField extends StatelessWidget {
         const SizedBox(
           height: 14,
         )
+      ],
+    );
+  }
+}
+class DateSelectionWidget extends StatefulWidget {
+  final void Function(String?) onDateSelected;
+
+  const DateSelectionWidget({Key? key, required this.onDateSelected})
+      : super(key: key);
+
+  @override
+  _DateSelectionWidgetState createState() => _DateSelectionWidgetState();
+}
+
+class _DateSelectionWidgetState extends State<DateSelectionWidget> {
+  String selectedDateText = "Select your date of birth";
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+    if (picked != null) {
+      setState(() {
+        selectedDateText = DateFormat('yyyy-MM-dd').format(picked);
+      });
+      widget.onDateSelected(selectedDateText);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          "Date of Birth",
+          style: TextStyle(
+            color: ColorConstants.primaryTextColor,
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        const SizedBox(height: 8),
+        GestureDetector(
+          onTap: () => _selectDate(context),
+          child: Container(
+            width: double.infinity,
+            height: 65,
+            decoration: BoxDecoration(
+              color: const Color(0xff80BCBD).withOpacity(0.2),
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                color: ColorConstants.primaryColor,
+                width: 1.0,
+              ),
+            ),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Icon(
+                    Icons.calendar_today,
+                    color: ColorConstants.greenish,
+                    size: 28,
+                  ),
+                ),
+                SizedBox(width: 10),
+                Text(
+                  selectedDateText,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Color(0xff403B3B),
+                    height: 1.5,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
