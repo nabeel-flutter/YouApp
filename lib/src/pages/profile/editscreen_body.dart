@@ -52,6 +52,8 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   File? insuranceCardFront;
   File? insuranceCardBack;
 
+  TextEditingController phoneNumberController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -70,6 +72,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
     addressController.text =
         widget.userDetails!.data!.geoLocation!.address ?? "";
     zipCodeController.text = widget.userDetails!.data!.geoLocation!.zip ?? "";
+    phoneNumberController.text = widget.userDetails!.data!.phone ?? "";
     alternatePhoneNumController.text =
         widget.userDetails!.data!.alternatePhone ?? "";
     nameOfInsuranceController.text =
@@ -208,6 +211,10 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                         hintText: "Enter your Email",
                         controller: emailController),
                     CustomTextFeild(
+                        feildName: 'Phone Number',
+                        hintText: "Enter Phone Number",
+                        controller: phoneNumberController),
+                    CustomTextFeild(
                         feildName: StringConstants.alternatephonenumber,
                         hintText: "Enter your Alternate Phone Number",
                         controller: alternatePhoneNumController),
@@ -284,14 +291,28 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     Button(
                       label: 'Save',
                       onPressed: () {
-                        print("selected gender value :  $selectedGenderValue");
-                        print(
+                        debugPrint(
+                            "selected gender value :  $selectedGenderValue");
+                        debugPrint(
                             "selected  paymentmode value :  $selectedPaymentValue");
                         BlocProvider.of<UserProfileCubit>(context).updateUser(
                           email: emailController.text,
+                          address: addressController.text,
+                          alternatePhone: alternatePhoneNumController.text,
                           firstName: firstNameController.text,
                           lastName: lastNameController.text,
-                          paymentType: _isInsured?"insured":"selfPay",
+                          city: city,
+                          state: state,
+                          country: country,
+                          dob: dobController.text,
+                          zipCode: zipCodeController.text,
+                          gender: selectedGenderValue,
+                          ssn: ssnController.text,
+                          insuranceName: nameOfInsuranceController.text,
+                          insurancePoilcyNumber: insurancePolicyController.text,
+                          prefferdLocation: preferredLocation,
+                          phone: phoneNumberController.text,
+                          paymentType: _isInsured ? "insured" : "selfPay",
                           insuranceCardFront: insuranceCardFront,
                           insuranceCardBack: insuranceCardBack,
                         );

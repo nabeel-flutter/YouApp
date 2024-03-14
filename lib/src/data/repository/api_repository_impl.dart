@@ -289,26 +289,49 @@ class ApiRepositoryImpl extends ApiRepository {
   }
 
   @override
-  Future<Result<BaseResponseDto>> updateUser({
-    String? firstName,
-    String? lastName,
-    String? email,
-    String? phone,
-    File? insuranceCardFront,
-    File? insuranceCardBack,
-     String? paymentType
-
-  }) async {
+  Future<Result<BaseResponseDto>> updateUser(
+      {String? firstName,
+      String? lastName,
+      String? email,
+      String? phone,
+      String? alternateNumber,
+      File? avatar,
+      String? country,
+      String? state,
+      String? city,
+      String? zipCode,
+      String? address,
+      String? dob,
+      String? gender,
+      String? ssn,
+      String? prefferdLocation,
+      File? insuranceCardFront,
+      File? insuranceCardBack,
+      String? insuranceName,
+      String? insurancePolicyNumber,
+      String? paymentType}) async {
     try {
       final response = await softTechTestApi.updateUser(
           firstName: firstName!,
           lastName: lastName!,
           email: email!,
           phone: phone!,
+          address: address,
+          alternatePhone: alternateNumber,
+          avatar: avatar,
+          city: city,
+          country: country,
+          dob: dob,
+          gender: gender,
+          prefferdLocation: prefferdLocation,
+          ssn: ssn,
+          state: state,
+          zipCode: zipCode,
           insuranceCardFrontImage: insuranceCardFront,
           insuranceCardBackImage: insuranceCardBack,
-          paymentType: paymentType!
-          );
+          insuranceName: insuranceName,
+          insurancePoilcyNumber: insurancePolicyNumber,
+          paymentType: paymentType!);
       return Result.success(objectMapper.toUpdateUser(response));
     } on Exception catch (e) {
       logger.e(e);
