@@ -34,12 +34,12 @@ class SuccessDialog extends StatelessWidget {
                     text: 'Okay',
                     onTap: () {
                       Navigator.pop(context);
-                      AlertDialogComponent.showDialogComponent(
-                          alertDialog: const AlertDialog(
-                              insetPadding: EdgeInsets.all(16),
-                              contentPadding: EdgeInsets.zero,
-                              content: BookingConfirmationDialog()),
-                          context: context);
+                      // AlertDialogComponent.showDialogComponent(
+                      //     alertDialog: const AlertDialog(
+                      //         insetPadding: EdgeInsets.all(16),
+                      //         contentPadding: EdgeInsets.zero,
+                      //         content: BookingConfirmationDialog()),
+                      //     context: context);
                     }),
               )
             ]));
