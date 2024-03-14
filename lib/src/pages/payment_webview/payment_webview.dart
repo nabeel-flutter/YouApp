@@ -1,17 +1,13 @@
-
-
 import 'dart:collection';
 
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 
-
 @RoutePage()
 class PaymentWebViewScreen extends StatefulWidget {
   final String uri;
 
-  const PaymentWebViewScreen({Key? key, required this.uri})
-      : super(key: key);
+  const PaymentWebViewScreen({Key? key, required this.uri}) : super(key: key);
 
   @override
   State<PaymentWebViewScreen> createState() => _PaymentWebViewScreenState();
@@ -51,12 +47,27 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
       // decodeData =
       //     '${navigationAction.request.url.toString().split('?d=').last}';
       final url = navigationAction.request.url.toString();
+              Navigator.pop(context);
 
-      
+      if (url.contains('success')) {
+        AlertDialogComponent.showDialogComponent(
+            alertDialog: const AlertDialog(
+                insetPadding: EdgeInsets.all(16),
+                contentPadding: EdgeInsets.zero,
+                content: SuccessDialog()),
+            context: context);
+      }else{
+        AlertDialogComponent.showDialogComponent(
+            alertDialog: const AlertDialog(
+                insetPadding: EdgeInsets.all(16),
+                contentPadding: EdgeInsets.zero,
+                content: FailedDialog()),
+            context: context);
+   
+      }
     } catch (e) {
-      NavigationUtil.pop(context);
+      context.router.pop();
       ToastComponent3(context).showToast(context, e.toString());
-      
     }
 
     return NavigationActionPolicy.ALLOW;
@@ -107,7 +118,7 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
         key: webViewKey,
         shouldOverrideUrlLoading: shouldOverrideUrl,
         initialUrlRequest: URLRequest(
-            url: WebUri(widget.uri),
+          url: WebUri(widget.uri),
         ),
         initialUserScripts: UnmodifiableListView<UserScript>([]),
         initialOptions: options,

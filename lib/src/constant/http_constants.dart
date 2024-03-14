@@ -1,9 +1,11 @@
 class HttpConstants {
+  static const bool isProduction = true;
   static const String baseUrlArticle =
       'https://13be-111-88-87-28.ngrok-free.app/api/v1/';
   static const String base = 'https://13be-111-88-87-28.ngrok-free.app/api/v1/';
-  static const String urlBase =
-      'https://13be-111-88-87-28.ngrok-free.app/api/v1/';
+  static const String urlBase = isProduction
+      ? "http://ec2-54-164-108-167.compute-1.amazonaws.com:7000/api/v1"
+      : 'https://13be-111-88-87-28.ngrok-free.app/api/v1/';
   static const String downloadRecipt = 'payment-receipt-download';
   static const String token = 'get/token';
   static const String login = 'login';
