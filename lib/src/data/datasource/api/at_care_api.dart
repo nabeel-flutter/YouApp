@@ -366,11 +366,11 @@ class SoftTechTestApi {
       'phone': phone,
       'email': email,
       'paymentType': 'insured',
-      'insurance_card_front': MultipartFile.fromFile(
+      'frontPic': MultipartFile.fromFile(
           insuranceCardFrontImage!.path,
           filename: '$insuranceName-front',
           contentType: MediaType('image', insuranceCardFrontImage.path)),
-      'insurance_card_back': MultipartFile.fromFile(
+      'backPic': MultipartFile.fromFile(
           insuranceCardBackImage!.path,
           filename: '$insuranceName-back',
           contentType: MediaType('image', insuranceCardBackImage.path)),
