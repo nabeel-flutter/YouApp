@@ -1,10 +1,9 @@
 class HttpConstants {
   static const String baseUrlArticle =
-      'https://a601-2407-aa80-14-8b4b-44b2-8688-a7bc-14e8.ngrok-free.app/api/v1/';
-  static const String base =
-      'https://a601-2407-aa80-14-8b4b-44b2-8688-a7bc-14e8.ngrok-free.app/api/v1/';
+      'https://13be-111-88-87-28.ngrok-free.app/api/v1/';
+  static const String base = 'https://13be-111-88-87-28.ngrok-free.app/api/v1/';
   static const String urlBase =
-      'https://a601-2407-aa80-14-8b4b-44b2-8688-a7bc-14e8.ngrok-free.app/api/v1/';
+      'https://13be-111-88-87-28.ngrok-free.app/api/v1/';
   static const String downloadRecipt = 'payment-receipt-download';
   static const String token = 'get/token';
   static const String login = 'login';
