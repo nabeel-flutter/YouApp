@@ -141,6 +141,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const PTScreen(),
       );
     },
+    PaymentWebViewRoute.name: (routeData) {
+      final args = routeData.argsAs<PaymentWebViewRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: PaymentWebViewScreen(
+          key: args.key,
+          uri: args.uri,
+        ),
+      );
+    },
     ProfileRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -526,6 +536,44 @@ class PTRoute extends PageRouteInfo<void> {
   static const String name = 'PTRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PaymentWebViewScreen]
+class PaymentWebViewRoute extends PageRouteInfo<PaymentWebViewRouteArgs> {
+  PaymentWebViewRoute({
+    Key? key,
+    required String uri,
+    List<PageRouteInfo>? children,
+  }) : super(
+          PaymentWebViewRoute.name,
+          args: PaymentWebViewRouteArgs(
+            key: key,
+            uri: uri,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'PaymentWebViewRoute';
+
+  static const PageInfo<PaymentWebViewRouteArgs> page =
+      PageInfo<PaymentWebViewRouteArgs>(name);
+}
+
+class PaymentWebViewRouteArgs {
+  const PaymentWebViewRouteArgs({
+    this.key,
+    required this.uri,
+  });
+
+  final Key? key;
+
+  final String uri;
+
+  @override
+  String toString() {
+    return 'PaymentWebViewRouteArgs{key: $key, uri: $uri}';
+  }
 }
 
 /// generated route for
