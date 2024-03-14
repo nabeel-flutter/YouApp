@@ -75,58 +75,76 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ExpandedSelectionWidget(
-                onTapped: (methodOfService) {
-                  setState(() {
-                    _methodOfService = methodOfService;
-                  });
-                },
-                title: _methodOfService ?? "Preferred Method Of Service",
-                label: "Please Select Your Preferred Method Of Service",
-                textList: const [
-                  'I would prefer on-site behavioral health services',
-                  'I would prefer telehealth (remote) behavioral health services',
-                  'I do not have preference for the type of behavioral health services I receive',
+      body: BlocConsumer<BookAppointmentCubit, BookAppointmentState>(
+        listener: (context, state) {
+          state.maybeWhen(
+            orElse: () => Container(),
+            loading: () => null,
+            loaded: (data) async {
+              await context.router
+                  .push(PaymentWebViewRoute(uri: data.data['paymentLink']));
+            },
+          );
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  ExpandedSelectionWidget(
+                    onTapped: (methodOfService) {
+                      setState(() {
+                        _methodOfService = methodOfService;
+                      });
+                    },
+                    title: _methodOfService ?? "Preferred Method Of Service",
+                    label: "Please Select Your Preferred Method Of Service",
+                    textList: const [
+                      'I would prefer on-site behavioral health services',
+                      'I would prefer telehealth (remote) behavioral health services',
+                      'I do not have preference for the type of behavioral health services I receive',
+                    ],
+                  ),
+                  ExpandedSelectionWidget(
+                    onTapped: (technologyAvailable) {
+                      setState(() {
+                        _technologyAvailable = technologyAvailable;
+                      });
+                    },
+                    title:
+                        _technologyAvailable ?? "Type of Technology Available",
+                    label:
+                        "Please Select the type of Technology Available to you",
+                    textList: const [
+                      'I have access to internet at my home or at an accessible location',
+                      'I have a smart phone capable of adding the telehealth app for video conferencing',
+                      'I do not have reliable internet or a smart phone',
+                    ],
+                  ),
+                  ExpandedSelectionWidget(
+                    onTapped: (appointmentRequest) {
+                      setState(() {
+                        _appointmentRequest = appointmentRequest;
+                      });
+                    },
+                    title: _appointmentRequest ?? "Appointment Request",
+                    label: "Please Select Appointment Request",
+                    textList: const [
+                      'I am a new patient requesting behavioral health services',
+                      'I am referring a patient for behavioral health services',
+                      'I am an existing patient requesting to schedule an appointment',
+                      'I am an existing patient requesting to cancel and reschedule an appointment',
+                      'I am an existing patient and have a medication related question or concern'
+                    ],
+                  ),
                 ],
               ),
-              ExpandedSelectionWidget(
-                onTapped: (technologyAvailable) {
-                  setState(() {
-                    _technologyAvailable = technologyAvailable;
-                  });
-                },
-                title: _technologyAvailable ?? "Type of Technology Available",
-                label: "Please Select the type of Technology Available to you",
-                textList: const [
-                  'I have access to internet at my home or at an accessible location',
-                  'I have a smart phone capable of adding the telehealth app for video conferencing',
-                  'I do not have reliable internet or a smart phone',
-                ],
-              ),
-              ExpandedSelectionWidget(
-                onTapped: (appointmentRequest) {
-                  setState(() {
-                    _appointmentRequest = appointmentRequest;
-                  });
-                },
-                title: _appointmentRequest ?? "Appointment Request",
-                label: "Please Select Appointment Request",
-                textList: const [
-                  'I am a new patient requesting behavioral health services',
-                  'I am referring a patient for behavioral health services',
-                  'I am an existing patient requesting to schedule an appointment',
-                  'I am an existing patient requesting to cancel and reschedule an appointment',
-                  'I am an existing patient and have a medication related question or concern'
-                ],
-              ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
