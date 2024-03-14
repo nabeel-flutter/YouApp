@@ -27,62 +27,51 @@ class UserProfileCubit extends Cubit<UserProfileState> {
       {String? email,
       String? firstName,
       String? lastName,
+      String? phone,
+      String? alternatePhone,
+      File? avatar,
+      String? country,
+      String? state,
+      String? city,
+      String? zipCode,
+      String? address,
+      String? dob,
+      String? gender,
+      String? ssn,
+      String? prefferdLocation,
       File? insuranceCardFront,
       File? insuranceCardBack,
-      required String paymentType,
-      File? avatar,
-      required String address,
-      required String alternate}) async {
-    Future<void> updateUser(
-        {String? email,
-        String? firstName,
-        String? lastName,
-        String? phone,
-        String? alternatePhone,
-        File? avatar,
-        String? country,
-        String? state,
-        String? city,
-        String? zipCode,
-        String? address,
-        String? dob,
-        String? gender,
-        String? ssn,
-        String? prefferdLocation,
-        File? insuranceCardFront,
-        File? insuranceCardBack,
-        String? insuranceName,
-        String? insurancePoilcyNumber,
-        required String paymentType}) async {
-      emit(const _Loading());
-      await apiRepository.updateUser(
-          insuranceCardBack: insuranceCardBack,
-          insuranceCardFront: insuranceCardFront,
-          address: address,
-          alternateNumber: alternatePhone,
-          avatar: avatar,
-          city: city,
-          country: country,
-          dob: dob,
-          gender: gender,
-          insuranceName: insuranceName,
-          insurancePolicyNumber: insurancePoilcyNumber,
-          prefferdLocation: prefferdLocation,
-          ssn: ssn,
-          state: state,
-          zipCode: zipCode,
-          email: email,
-          firstName: firstName,
-          lastName: lastName,
-          paymentType: paymentType,
-          phone: phone);
-      final Result<BaseResponseDto<UserDetails>> result =
-          await apiRepository.getUser();
-      result.when(
-          success: (data) {
-            emit(_Loaded(data.data!));
-          },
-          failed: (error) => emit(_Error(error.message)));
-    }
+      String? insuranceName,
+      String? insurancePoilcyNumber,
+      required String paymentType}) async {
+    emit(const _Loading());
+    await apiRepository.updateUser(
+        insuranceCardBack: insuranceCardBack,
+        insuranceCardFront: insuranceCardFront,
+        address: address,
+        alternateNumber: alternatePhone,
+        avatar: avatar,
+        city: city,
+        country: country,
+        dob: dob,
+        gender: gender,
+        insuranceName: insuranceName,
+        insurancePolicyNumber: insurancePoilcyNumber,
+        prefferdLocation: prefferdLocation,
+        ssn: ssn,
+        state: state,
+        zipCode: zipCode,
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        paymentType: paymentType,
+        phone: phone);
+    final Result<BaseResponseDto<UserDetails>> result =
+        await apiRepository.getUser();
+    result.when(
+        success: (data) {
+          emit(_Loaded(data.data!));
+        },
+        failed: (error) => emit(_Error(error.message)));
   }
 }

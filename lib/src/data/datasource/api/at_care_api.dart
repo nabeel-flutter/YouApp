@@ -401,9 +401,8 @@ class SoftTechTestApi {
               filename: '$insuranceName-back',
               contentType: MediaType('image', insuranceCardBackImage.path))
           : null,
-      'insuranceName': paymentType == "insurance" ? insuranceName : null,
-      'insurancePolicy':
-          paymentType == "insurance" ? insurancePoilcyNumber : null
+      'insuranceName': paymentType == "insured" ? insuranceName : null,
+      'insurancePolicy': paymentType == "insured" ? insurancePoilcyNumber : null
     });
     final response = await dio.put(kRouteUpdateUserDetail, data: formData);
     return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
