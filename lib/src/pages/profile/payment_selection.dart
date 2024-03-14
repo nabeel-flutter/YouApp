@@ -24,7 +24,7 @@ class _PaymentSelectionState extends State<PaymentSelection> {
     // Set the initial value based on the passed initialPaymentMode
     if (widget.initialPaymentMode.toLowerCase() == "insured") {
       _selectedValue = 1;
-    } else if (widget.initialPaymentMode.toLowerCase() == "self pay") {
+    } else if (widget.initialPaymentMode.toLowerCase() == "selfPay") {
       _selectedValue = 2;
     }
   }
@@ -36,19 +36,19 @@ class _PaymentSelectionState extends State<PaymentSelection> {
       children: [
         Text(
           StringConstants.paymentMode,
-          style: TextStyle(
+          style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
               color: Color(0xff403B3B)),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Row(
           children: [
             InkWell(
               onTap: () {
                 setState(() {
                   _selectedValue = 1; // or 2 for self-pay
-                  widget.onPaymentSelect("Insured");
+                  widget.onPaymentSelect("insured");
                 });
                 widget.onSelectionChange(
                     true); // true if insured, false otherwise
@@ -85,7 +85,7 @@ class _PaymentSelectionState extends State<PaymentSelection> {
               onTap: () {
                 setState(() {
                   _selectedValue = 2;
-                  widget.onPaymentSelect("Self Pay");
+                  widget.onPaymentSelect("selfPay");
                 });
                 widget.onSelectionChange(false);
               },

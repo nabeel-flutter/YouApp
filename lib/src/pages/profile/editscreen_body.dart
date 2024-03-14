@@ -293,36 +293,52 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                       height: 10,
                     ),
                     Button(
-                      label: 'Save',
-                      onPressed: () {
-                        debugPrint(
-                            "selected gender value :  $selectedGenderValue");
-                        debugPrint(
-                            "selected  paymentmode value :  $selectedPaymentValue");
-                        BlocProvider.of<UserProfileCubit>(context).updateUser(
-                          avatar: avatar,
-                          email: emailController.text,
-                          address: addressController.text,
-                          alternatePhone: alternatePhoneNumController.text,
-                          firstName: firstNameController.text,
-                          lastName: lastNameController.text,
-                          city: city,
-                          state: state,
-                          country: country,
-                          dob: dobController.text,
-                          zipCode: zipCodeController.text,
-                          gender: selectedGenderValue,
-                          ssn: ssnController.text,
-                          insuranceName: nameOfInsuranceController.text,
-                          insurancePoilcyNumber: insurancePolicyController.text,
-                          prefferdLocation: preferredLocation,
-                          phone: phoneNumberController.text,
-                          paymentType: _isInsured ? "insured" : "selfPay",
-                          insuranceCardFront: insuranceCardFront,
-                          insuranceCardBack: insuranceCardBack,
-                        );
-                      },
-                    ),
+                        label: 'Save',
+                        onPressed: () {
+                          if (selectedPaymentValue.isEmpty) {
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(const SnackBar(
+                              content: Text('Please select payment type'),
+                            ));
+                            return;
+                          } else if (selectedPaymentValue == "insured" &&
+                              (nameOfInsuranceController.text.isEmpty ||
+                                  insurancePolicyController.text.isEmpty ||
+                                  insuranceCardFront == null ||
+                                  insuranceCardBack == null)) {
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(const SnackBar(
+                              content:
+                                  Text('Please fill all the insurance details'),
+                            ));
+                            return;
+                          } else {
+                            BlocProvider.of<UserProfileCubit>(context)
+                                .updateUser(
+                              avatar: avatar,
+                              email: emailController.text,
+                              address: addressController.text,
+                              alternatePhone: alternatePhoneNumController.text,
+                              firstName: firstNameController.text,
+                              lastName: lastNameController.text,
+                              city: city,
+                              state: state,
+                              country: country,
+                              dob: dobController.text,
+                              zipCode: zipCodeController.text,
+                              gender: selectedGenderValue,
+                              ssn: ssnController.text,
+                              prefferdLocation: preferredLocation,
+                              phone: phoneNumberController.text,
+                              paymentType: selectedPaymentValue,
+                              insuranceCardBack: insuranceCardBack,
+                              insuranceCardFront: insuranceCardFront,
+                              insuranceName: nameOfInsuranceController.text,
+                              insurancePoilcyNumber:
+                                  insurancePolicyController.text,
+                            );
+                          }
+                        }),
                     const SizedBox(
                       height: 10,
                     ),
