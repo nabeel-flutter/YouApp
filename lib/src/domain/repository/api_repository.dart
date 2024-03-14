@@ -107,8 +107,21 @@ abstract class ApiRepository extends Repository {
     String? lastName,
     String? email,
     String? phone,
+    String? alternateNumber,
     File? insuranceCardFront,
     File? insuranceCardBack,
+    String? insuranceName,
+    String? insurancePolicyNumber,
+    File? avatar,
+    String? country,
+    String? state,
+    String? city,
+    String? zipCode,
+    String? address,
+    String? dob,
+    String? gender,
+    String? ssn,
+    String? prefferdLocation,
     String paymentType
   });
 

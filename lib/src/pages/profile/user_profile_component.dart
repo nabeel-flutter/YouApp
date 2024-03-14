@@ -1,17 +1,18 @@
 
 import 'package:image_picker/image_picker.dart';
 import 'package:new_beginnings/src/app/app_export.dart'; // Ensure your app_export.dart file exports the required dependencies
-
 class UserProfileComponent extends StatefulWidget {
   final bool? profile;
   final String userName;
   final String userEmail;
+  final Function(File)? onImageSelected; // Callback function
   const UserProfileComponent({
-    super.key,
+    Key? key,
     this.profile = false,
     required this.userName,
     required this.userEmail,
-  });
+    this.onImageSelected, // Initialize the callback
+  }) : super(key: key);
 
   @override
   State<UserProfileComponent> createState() => _UserProfileComponentState();
@@ -29,6 +30,10 @@ class _UserProfileComponentState extends State<UserProfileComponent> {
       setState(() {
         _image = File(image.path);
       });
+      // Call the callback function and pass the selected image file
+      if (widget.onImageSelected != null) {
+        widget.onImageSelected!(_image!);
+      }
     }
   }
 
