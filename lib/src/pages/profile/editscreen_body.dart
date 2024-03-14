@@ -20,6 +20,8 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   bool _isInsured = true; // Add this line
 
   String state = 'California';
+  String selectedGenderValue = "";
+  String selectedPaymentValue = "";
 
   String country = 'USA';
   String preferredLocation = "Preferred Location For Service";
@@ -130,6 +132,14 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     GenderSelection(
                       initialPaymentMode:
                           widget.userDetails?.data?.paymentType ?? "",
+                      onGenderSelect: (selectedGender) {
+                        // Logic to handle the selected gender
+                        // For example, store the selectedGender in a variable
+                        setState(() {
+                          // Assuming you have a variable to store the selected gender
+                          selectedGenderValue = selectedGender;
+                        });
+                      },
                     ),
                     const SizedBox(height: 24),
                     ExpandedSelectionWidget(
@@ -160,7 +170,6 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                           this.state = selectedState;
                         });
                       },
-                      // Make sure to provide a non-nullable string by using ?? with a non-nullable default value
                       title: widget.userDetails?.data?.geoLocation?.state
                                   ?.isNotEmpty ==
                               true
@@ -208,6 +217,11 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                       onSelectionChange: (bool isInsured) {
                         setState(() {
                           _isInsured = isInsured;
+                        });
+                      },
+                      onPaymentSelect: (paymentvalue) {
+                        setState(() {
+                          selectedPaymentValue = paymentvalue;
                         });
                       },
                     ),
@@ -270,6 +284,9 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     Button(
                       label: 'Save',
                       onPressed: () {
+                        print("selected gender value :  $selectedGenderValue");
+                        print(
+                            "selected  paymentmode value :  $selectedPaymentValue");
                         BlocProvider.of<UserProfileCubit>(context).updateUser(
                           email: emailcontroller.text,
                           firstName: firstnamecontrolller.text,

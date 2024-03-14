@@ -4,10 +4,12 @@ import 'package:new_beginnings/src/app/app_export.dart';
 class PaymentSelection extends StatefulWidget {
   final String initialPaymentMode; // Add this line
   final Function(bool isInsured) onSelectionChange;
+  final Function(String) onPaymentSelect; // Add this line
   const PaymentSelection(
       {super.key,
       required this.initialPaymentMode,
-      required this.onSelectionChange});
+      required this.onSelectionChange,
+      required this.onPaymentSelect});
 
   @override
   State<PaymentSelection> createState() => _PaymentSelectionState();
@@ -46,6 +48,7 @@ class _PaymentSelectionState extends State<PaymentSelection> {
               onTap: () {
                 setState(() {
                   _selectedValue = 1; // or 2 for self-pay
+                  widget.onPaymentSelect("Insured");
                 });
                 widget.onSelectionChange(
                     true); // true if insured, false otherwise
@@ -82,6 +85,7 @@ class _PaymentSelectionState extends State<PaymentSelection> {
               onTap: () {
                 setState(() {
                   _selectedValue = 2;
+                  widget.onPaymentSelect("Self Pay");
                 });
                 widget.onSelectionChange(false);
               },
