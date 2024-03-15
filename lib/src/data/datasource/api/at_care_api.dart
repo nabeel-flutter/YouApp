@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 // ignore: depend_on_referenced_packages
 import 'package:http_parser/http_parser.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/data/dto/appointments_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
 import 'package:new_beginnings/src/data/dto/dashboard_overview_dto.dart';
@@ -371,6 +372,20 @@ class SoftTechTestApi {
     String? insurancePoilcyNumber,
     required String paymentType,
   }) async {
+ MultipartFile? insuranceCardFrontImage0=  insuranceCardFrontImage != null
+          ? await MultipartFile.fromFile(
+              insuranceCardFrontImage.absolute.path,
+              filename: insuranceCardFrontImage.absolute.path.split('/').last,
+              
+            )
+          : null;
+ MultipartFile? insuranceCardBackImage0=  insuranceCardBackImage != null
+          ? await MultipartFile.fromFile(
+              insuranceCardBackImage.absolute.path,
+              filename: insuranceCardBackImage.absolute.path.split('/').last,
+              
+            )
+          : null;
     final formData = FormData.fromMap({
       'firstName': firstName,
       'lastName': lastName,
@@ -392,27 +407,22 @@ class SoftTechTestApi {
       'ssn': ssn,
       'preferredLocation': prefferdLocation,
       'paymentType': paymentType,
-      "frontPic": insuranceCardFrontImage != null
-          ? await MultipartFile.fromFile(
-              insuranceCardFrontImage.absolute.path,
-              filename: insuranceCardFrontImage.absolute.path.split('/').last,
-              
-            )
-          : null,
-      "backPic": insuranceCardBackImage != null
-          ? await MultipartFile.fromFile(
-              insuranceCardBackImage.absolute.path,
-              filename: insuranceCardBackImage.absolute.path.split('/').last,
-            )
-          : null,
+      "frontPic": insuranceCardFrontImage0,
+      "backPic": insuranceCardBackImage0,
       'insuranceName': paymentType == "insured" ? insuranceName : null,
       'insurancePolicy': paymentType == "insured" ? insurancePoilcyNumber : null
     });
-    final response = await dio.put(
-      kRouteUpdateUserDetail,
-      data: formData,
-    );
-
+    final String? token;
+    token = await getIt
+        .get<SharedPreferencesUtil>()
+        .getString(SharedPreferenceConstants.apiAuthToken);
+    final response = await dio.put(kRouteUpdateUserDetail,
+        data: formData,
+        options: Options(headers: {
+          "accept": "*/*",
+          "token": token,
+          "Content-Type": "multipart/form-data"
+        }));
 
     return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
   }
