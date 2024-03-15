@@ -64,8 +64,8 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   }
 
   void updateControllers() {
-   _isInsured = widget.userDetails?.data?.paymentType=='insured';
-   selectedPaymentValue = widget.userDetails?.data?.paymentType??'';
+    _isInsured = widget.userDetails?.data?.paymentType == 'insured';
+    selectedPaymentValue = widget.userDetails?.data?.paymentType ?? '';
     firstNameController.text = widget.userDetails!.data!.firstName ?? '';
     lastNameController.text = widget.userDetails!.data!.lastName ?? '';
     emailController.text = widget.userDetails!.data!.email ?? '';
@@ -238,6 +238,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     CustomTextField(
                         fieldName: StringConstants.email,
                         hintText: "Enter your Email",
+                        isEnabled: false,
                         keyboardType: TextInputType.emailAddress,
                         controller: emailController),
                     CustomTextField(
@@ -275,7 +276,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                                 height: 20,
                               ),
                               CustomTextField(
-                                keyboardType: TextInputType.name,
+                                  keyboardType: TextInputType.name,
                                   fieldName: StringConstants.insuranceName,
                                   hintText: "Enter Name of Insurance",
                                   controller: nameOfInsuranceController),

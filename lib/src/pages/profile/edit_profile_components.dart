@@ -203,12 +203,14 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextInputType? keyboardType;
   final TextEditingController controller;
+  final bool isEnabled;
   const CustomTextField({
     super.key,
     required this.fieldName,
     required this.hintText,
     required this.controller,
     this.keyboardType,
+    this.isEnabled = true 
   });
 
   @override
@@ -227,6 +229,7 @@ class CustomTextField extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         TextField(
+          enabled: isEnabled,
           cursorColor: ColorConstants.primaryColor,
           controller: controller,
           keyboardType: keyboardType ?? TextInputType.text,
