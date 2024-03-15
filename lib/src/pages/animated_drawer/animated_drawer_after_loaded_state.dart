@@ -20,6 +20,7 @@ class _AnimatedDrawerAfterLoadedStateState
     return Scaffold(
       body: PageView(
         controller: context.read<AnimatedDrawerCubit>().pageController,
+        physics: const NeverScrollableScrollPhysics(),
         children: const [
           HomeScreenBody(),
           AppointmentScreen(),

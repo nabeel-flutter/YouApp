@@ -20,7 +20,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   bool _isInsured = true; // Add this line
 
   String state = 'California';
-  String selectedGenderValue = "";
+  String? selectedGenderValue;
   String selectedPaymentValue = "";
 
   String country = 'USA';
@@ -128,10 +128,21 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                         fieldName: "Suffix",
                         hintText: "Enter your Suffix",
                         controller: suffixController),
-                    CustomTextField(
-                        fieldName: "Date of Birth",
-                        hintText: "Enter your Date of Birth",
-                        controller: dobController),
+                    // CustomTextField(
+                    //     fieldName: "Date of Birth",
+                    //     hintText: "Enter your Date of Birth",
+                    //     controller: dobController),
+                    DateSelectionWidget(
+                      onDateSelected: (selectedDate) {
+                        setState(() {
+                          dobController.text = selectedDate!;
+                        });
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+
                     CustomTextField(
                         fieldName: "SSN",
                         hintText: "Enter your SSN",
@@ -205,18 +216,27 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     CustomTextField(
                         fieldName: StringConstants.address,
                         hintText: "Enter your Address",
+                        keyboardType: TextInputType.streetAddress,
                         controller: addressController),
                     CustomTextField(
                         fieldName: StringConstants.zipCode,
                         hintText: "Enter your Zip Code",
+                        keyboardType: TextInputType.number,
                         controller: zipCodeController),
                     CustomTextField(
                         fieldName: StringConstants.email,
                         hintText: "Enter your Email",
+                        keyboardType: TextInputType.emailAddress,
                         controller: emailController),
+                    CustomTextField(
+                        fieldName: "Phone Number",
+                        hintText: "Enter your Phone Number",
+                        keyboardType: TextInputType.number,
+                        controller: phoneNumberController),
                     CustomTextField(
                         fieldName: StringConstants.alternatephonenumber,
                         hintText: "Enter your Alternate Phone Number",
+                        keyboardType: TextInputType.number,
                         controller: alternatePhoneNumController),
                     PaymentSelection(
                       initialPaymentMode:
@@ -312,26 +332,28 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                             BlocProvider.of<UserProfileCubit>(context)
                                 .updateUser(
                               avatar: avatar,
-                              email: emailController.text,
+                              email: emailController.text.trim(),
                               address: addressController.text,
-                              alternatePhone: alternatePhoneNumController.text,
-                              firstName: firstNameController.text,
-                              lastName: lastNameController.text,
+                              alternatePhone:
+                                  alternatePhoneNumController.text.trim(),
+                              firstName: firstNameController.text.trim(),
+                              lastName: lastNameController.text.trim(),
                               city: city,
                               state: state,
                               country: country,
-                              dob: dobController.text,
-                              zipCode: zipCodeController.text,
+                              dob: dobController.text.trim(),
+                              zipCode: zipCodeController.text.trim(),
                               gender: selectedGenderValue,
-                              ssn: ssnController.text,
+                              ssn: ssnController.text.trim(),
                               prefferdLocation: preferredLocation,
-                              phone: phoneNumberController.text,
+                              phone: phoneNumberController.text.trim(),
                               paymentType: selectedPaymentValue,
                               insuranceCardBack: insuranceCardBack,
                               insuranceCardFront: insuranceCardFront,
-                              insuranceName: nameOfInsuranceController.text,
+                              insuranceName:
+                                  nameOfInsuranceController.text.trim(),
                               insurancePoilcyNumber:
-                                  insurancePolicyController.text,
+                                  insurancePolicyController.text.trim(),
                             );
                           }
                         }),
