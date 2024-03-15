@@ -142,6 +142,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     //     hintText: "Enter your Date of Birth",
                     //     controller: dobController),
                     DateSelectionWidget(
+                      initialDate: widget.userDetails?.data?.birthDate,
                       onDateSelected: (selectedDate) {
                         setState(() {
                           dobController.text = selectedDate!;
@@ -158,8 +159,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                         hintText: "Enter your SSN",
                         controller: ssnController),
                     GenderSelection(
-                      initialPaymentMode:
-                          widget.userDetails?.data?.paymentType ?? "",
+                      initialSelction: widget.userDetails?.data?.gender ?? "",
                       onGenderSelect: (selectedGender) {
                         // Logic to handle the selected gender
                         // For example, store the selectedGender in a variable
