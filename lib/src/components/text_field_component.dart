@@ -33,7 +33,7 @@ class TextFormFieldComponent extends StatefulWidget {
 }
 
 class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
-  bool showPassword = false;
+  bool showPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -66,8 +66,8 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
                       });
                     },
                     icon: Icon(showPassword
-                        ? Icons.visibility
-                        : Icons.visibility_off_outlined))
+                        ? Icons.visibility_off_outlined
+                        : Icons.visibility))
                 : widget.suffixIcon,
             focusColor: getThemeColor(context),
             filled: true,
@@ -104,10 +104,8 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
 
   String? validator({required TextInputType textInputType, String? value}) {
     if (value == null || value.isEmpty) {
-      return widget.errorText ?? 'Please enter some text';
-    }
-else
-    if (textInputType == TextInputType.emailAddress) {
+      return widget.errorText ?? 'Please enter valid info';
+    } else if (textInputType == TextInputType.emailAddress) {
       const pattern = r"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'"
           r'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-'
           r'\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*'
@@ -131,14 +129,12 @@ else
           return null;
         }
       }
-    } 
-     else if (textInputType == TextInputType.name) {
-      if(value.length<4){
+    } else if (textInputType == TextInputType.name) {
+      if (value.length < 4) {
         return 'Name is too short';
       }
-    } 
-    
-    
+    }
+
     return null;
   }
 }

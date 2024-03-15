@@ -31,18 +31,7 @@ class SignInForm extends StatelessWidget {
           TextFormFieldComponent(
             textInputType: TextInputType.visiblePassword,
             hintText: "Enter Password",
-            isPassword: context.read<SignInCubit>().isPasswordVisible,
-            suffixIcon: IconButton(
-              icon: Icon(
-                context.read<SignInCubit>().isPasswordVisible
-                    ? Icons.visibility_off
-                    : Icons.visibility,
-                color: ColorConstants.greyText,
-              ),
-              onPressed: () {
-                context.read<SignInCubit>().isPasswordVisible;
-              },
-            ),
+            isPassword: true,
             controller: passwordController,
           ),
           const SizedBox(height: 10),
