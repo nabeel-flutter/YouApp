@@ -378,8 +378,9 @@ class SoftTechTestApi {
       'alternatePhone': alternatePhone,
       'email': email,
       'avatar': avatar != null
-          ? MultipartFile.fromFile(avatar.path,
-              filename: 'avatar', contentType: MediaType('image', avatar.path))
+          ? await MultipartFile.fromFile(avatar.absolute.path,
+              filename: avatar.absolute.path.split('/').last,
+              contentType: MediaType('image', avatar.path))
           : null,
       'country': country,
       'state': state,
@@ -391,20 +392,28 @@ class SoftTechTestApi {
       'ssn': ssn,
       'preferredLocation': prefferdLocation,
       'paymentType': paymentType,
-      'frontPic': insuranceCardFrontImage != null
-          ? MultipartFile.fromFile(insuranceCardFrontImage.path,
-              filename: '$insuranceName-front',
-              contentType: MediaType('image', insuranceCardFrontImage.path))
+      "frontPic": insuranceCardFrontImage != null
+          ? await MultipartFile.fromFile(
+              insuranceCardFrontImage.absolute.path,
+              filename: insuranceCardFrontImage.absolute.path.split('/').last,
+              
+            )
           : null,
-      'backPic': insuranceCardBackImage != null
-          ? MultipartFile.fromFile(insuranceCardBackImage.path,
-              filename: '$insuranceName-back',
-              contentType: MediaType('image', insuranceCardBackImage.path))
+      "backPic": insuranceCardBackImage != null
+          ? await MultipartFile.fromFile(
+              insuranceCardBackImage.absolute.path,
+              filename: insuranceCardBackImage.absolute.path.split('/').last,
+            )
           : null,
       'insuranceName': paymentType == "insured" ? insuranceName : null,
       'insurancePolicy': paymentType == "insured" ? insurancePoilcyNumber : null
     });
-    final response = await dio.put(kRouteUpdateUserDetail, data: formData);
+    final response = await dio.put(
+      kRouteUpdateUserDetail,
+      data: formData,
+    );
+
+
     return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
   }
 

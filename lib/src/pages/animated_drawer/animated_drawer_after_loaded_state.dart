@@ -1,4 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/my_logs/my_logs.dart';
 
 class AnimatedDrawerAfterLoadedState extends StatefulWidget {
   const AnimatedDrawerAfterLoadedState({
@@ -25,6 +26,7 @@ class _AnimatedDrawerAfterLoadedStateState
           HomeScreenBody(),
           AppointmentScreen(),
           ProfileScreen(),
+          MyLogs()
         ],
       ),
       bottomNavigationBar:
