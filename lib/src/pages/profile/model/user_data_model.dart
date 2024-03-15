@@ -31,6 +31,7 @@ class Data {
   String? paymentType;
   String? preferredLocation;
   String? suffix;
+  String? gender;
   GeoLocation? geoLocation;
   InsuranceDetails? insuranceDetails;
   String? role;
@@ -44,6 +45,7 @@ class Data {
       this.avatar,
       this.alternatePhone,
       this.ssn,
+      this.gender,
       this.birthDate,
       this.paymentType,
       this.preferredLocation,
@@ -65,6 +67,7 @@ class Data {
     paymentType = json['paymentType'];
     preferredLocation = json['preferredLocation'];
     suffix = json['suffix'];
+    gender = json['gender'];
     geoLocation = json['geoLocation'] != null
         ? GeoLocation.fromJson(json['geoLocation'])
         : null;
@@ -88,6 +91,7 @@ class Data {
     data['paymentType'] = paymentType;
     data['preferredLocation'] = preferredLocation;
     data['suffix'] = suffix;
+    data['gender'] = gender;
     if (geoLocation != null) {
       data['geoLocation'] = geoLocation!.toJson();
     }
