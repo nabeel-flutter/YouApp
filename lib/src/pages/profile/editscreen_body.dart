@@ -64,6 +64,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   }
 
   void updateControllers() {
+    
     firstNameController.text = widget.userDetails!.data!.firstName ?? '';
     lastNameController.text = widget.userDetails!.data!.lastName ?? '';
     emailController.text = widget.userDetails!.data!.email ?? '';
@@ -119,12 +120,14 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     CustomTextField(
                         fieldName: "First Name",
                         hintText: "Enter your First Name",
-                        controller: firstNameController),
-                    CustomTextField(
+                        controller: firstNameController,
+                        keyboardType: TextInputType.name,
+                        ),
+                    CustomTextField(keyboardType: TextInputType.name,
                         fieldName: "Last Name",
                         hintText: "Enter your Last Name",
                         controller: lastNameController),
-                    CustomTextField(
+                    CustomTextField(keyboardType: TextInputType.name,
                         fieldName: "Suffix",
                         hintText: "Enter your Suffix",
                         controller: suffixController),
@@ -143,7 +146,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                       height: 20,
                     ),
 
-                    CustomTextField(
+                    CustomTextField(keyboardType: TextInputType.phone,
                         fieldName: "SSN",
                         hintText: "Enter your SSN",
                         controller: ssnController),
