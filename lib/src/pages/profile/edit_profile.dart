@@ -28,12 +28,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         },
         builder: (context, state) => state.maybeWhen(
             orElse: () => Container(),
-            error: (message) => ErrorState(
-                  message: message,
-                  onTap: () {
-                    context.read<UserProfileCubit>().getUserData();
-                  },
-                ),
+            error: (message) => Material(
+              child: ErrorState(
+                    message: message,
+                    onTap: () {
+                      context.read<UserProfileCubit>().getUserData();
+                    },
+                  ),
+            ),
             loading: () => const Skeletonizer(child: EditScreenBody()),
             loaded: (user) => EditScreenBody(
                   userDetails: user,
