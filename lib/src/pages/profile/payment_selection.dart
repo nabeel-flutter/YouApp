@@ -23,7 +23,7 @@ class _PaymentSelectionState extends State<PaymentSelection> {
     // Set the initial value based on the passed initialPaymentMode
     if (widget.initialPaymentMode.toLowerCase() == "insured") {
       _selectedValue = 1;
-    } else if (widget.initialPaymentMode.toLowerCase() == "selfPay") {
+    } else if (widget.initialPaymentMode.toLowerCase() == "selfpay") {
       _selectedValue = 2;
     }
   }
