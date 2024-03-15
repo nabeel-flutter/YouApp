@@ -96,8 +96,9 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                 left: 0,
                 right: 0,
                 child: UserProfileComponent(
+                  image : widget.userDetails!=null? widget.userDetails!.data!.avatar!.isNotEmpty?widget.userDetails!.data!.avatar:null:null,
                   userName:
-                      "${firstNameController.text}  ${lastNameController.text}",
+                      "${firstNameController.text} ${lastNameController.text}",
                   userEmail: emailController.text,
                   onImageSelected: (File) {
                     avatar = File;

@@ -396,6 +396,7 @@ class SoftTechTestApi {
           ? await MultipartFile.fromFile(
               insuranceCardFrontImage.absolute.path,
               filename: insuranceCardFrontImage.absolute.path.split('/').last,
+              
             )
           : null,
       "backPic": insuranceCardBackImage != null
@@ -410,12 +411,8 @@ class SoftTechTestApi {
     final response = await dio.put(
       kRouteUpdateUserDetail,
       data: formData,
-      options: Options(
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      ),
     );
+
 
     return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
   }

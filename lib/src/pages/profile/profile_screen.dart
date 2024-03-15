@@ -101,6 +101,9 @@ class ProfileScreenBody extends StatelessWidget {
                 left: 0,
                 right: 0,
                 child: UserProfileComponent(
+                  image: user != null
+                      ?user!.data!.avatar!.isNotEmpty?user!.data!.avatar:null
+                      : null,
                   userName: user != null
                       ? '${user!.data!.firstName} ${user!.data!.lastName}'
                       : 'User Email',
