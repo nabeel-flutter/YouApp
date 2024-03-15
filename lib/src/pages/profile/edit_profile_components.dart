@@ -167,12 +167,14 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
                   ),
                 ),
                 _file == null
-                    ? Text(widget.text)
-                    : SizedBox(
-                        width: 280,
+                    ? Text(
+                        widget.text,
+                      )
+                    : Flexible(
                         child: Text(
                           "${_fileName!} ($_fileSize)",
-                          style: const TextStyle(fontWeight: FontWeight.bold),
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(fontWeight: FontWeight.w400),
                         ),
                       ),
                 const Spacer(),
@@ -225,8 +227,9 @@ class CustomTextField extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         TextField(
+          cursorColor: ColorConstants.primaryColor,
           controller: controller,
-          keyboardType: keyboardType ?? TextInputType.none,
+          keyboardType: keyboardType ?? TextInputType.text,
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.symmetric(
                 vertical: 21.0, horizontal: 10), // Adjust the vertical p
@@ -267,16 +270,27 @@ class CustomTextField extends StatelessWidget {
 
 class DateSelectionWidget extends StatefulWidget {
   final void Function(String?) onDateSelected;
+  final String? initialDate; // Add this line
 
-  const DateSelectionWidget({Key? key, required this.onDateSelected})
-      : super(key: key);
+  const DateSelectionWidget({
+    Key? key,
+    required this.onDateSelected,
+    this.initialDate, // Add this line
+  }) : super(key: key);
 
   @override
   _DateSelectionWidgetState createState() => _DateSelectionWidgetState();
 }
 
 class _DateSelectionWidgetState extends State<DateSelectionWidget> {
-  String selectedDateText = "Select your date of birth";
+  late String selectedDateText; // Change this line
+
+  @override
+  void initState() {
+    super.initState();
+    // Set the initial selectedDateText based on the initialDate passed from the parent widget
+    selectedDateText = widget.initialDate ?? "Select your date of birth";
+  }
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(

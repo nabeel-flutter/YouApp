@@ -1,12 +1,12 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 
 class GenderSelection extends StatefulWidget {
-  final String initialPaymentMode; // Add this line
+  final String initialSelction; // Add this line
   final Function(String) onGenderSelect; // Add this line
 
   const GenderSelection({
     super.key,
-    required this.initialPaymentMode,
+    required this.initialSelction,
     required this.onGenderSelect,
   });
 
@@ -20,11 +20,11 @@ class _GenderSelectionState extends State<GenderSelection> {
   void initState() {
     super.initState();
     // Set the initial value based on the passed initialPaymentMode
-    if (widget.initialPaymentMode.toLowerCase() == "Male") {
+    if (widget.initialSelction == "Male") {
       _selectedValue = 1;
-    } else if (widget.initialPaymentMode.toLowerCase() == "Female") {
+    } else if (widget.initialSelction == "Female") {
       _selectedValue = 2;
-    } else if (widget.initialPaymentMode.toLowerCase() == "Other") {
+    } else if (widget.initialSelction == "Other") {
       _selectedValue = 3;
     }
   }

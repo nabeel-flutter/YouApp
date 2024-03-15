@@ -121,6 +121,7 @@ abstract class ApiRepository extends Repository {
     String? dob,
     String? gender,
     String? ssn,
+    String? suffix,
     String? prefferdLocation,
     String paymentType
   });

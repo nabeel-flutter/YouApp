@@ -97,7 +97,11 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                 left: 0,
                 right: 0,
                 child: UserProfileComponent(
-                  image : widget.userDetails!=null? widget.userDetails!.data!.avatar!.isNotEmpty?widget.userDetails!.data!.avatar:null:null,
+                  image: widget.userDetails != null
+                      ? widget.userDetails!.data!.avatar!.isNotEmpty
+                          ? widget.userDetails!.data!.avatar
+                          : null
+                      : null,
                   userName:
                       "${firstNameController.text} ${lastNameController.text}",
                   userEmail: emailController.text,
@@ -120,16 +124,18 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                       height: 20,
                     ),
                     CustomTextField(
-                        fieldName: "First Name",
-                        hintText: "Enter your First Name",
-                        controller: firstNameController,
+                      fieldName: "First Name",
+                      hintText: "Enter your First Name",
+                      controller: firstNameController,
+                      keyboardType: TextInputType.name,
+                    ),
+                    CustomTextField(
                         keyboardType: TextInputType.name,
-                        ),
-                    CustomTextField(keyboardType: TextInputType.name,
                         fieldName: "Last Name",
                         hintText: "Enter your Last Name",
                         controller: lastNameController),
-                    CustomTextField(keyboardType: TextInputType.name,
+                    CustomTextField(
+                        keyboardType: TextInputType.name,
                         fieldName: "Suffix",
                         hintText: "Enter your Suffix",
                         controller: suffixController),
@@ -138,6 +144,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     //     hintText: "Enter your Date of Birth",
                     //     controller: dobController),
                     DateSelectionWidget(
+                      initialDate: widget.userDetails?.data?.birthDate,
                       onDateSelected: (selectedDate) {
                         setState(() {
                           dobController.text = selectedDate!;
@@ -148,13 +155,13 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                       height: 20,
                     ),
 
-                    CustomTextField(keyboardType: TextInputType.phone,
+                    CustomTextField(
+                        keyboardType: TextInputType.phone,
                         fieldName: "SSN",
                         hintText: "Enter your SSN",
                         controller: ssnController),
                     GenderSelection(
-                      initialPaymentMode:
-                          widget.userDetails?.data?.paymentType ?? "",
+                      initialSelction: widget.userDetails?.data?.gender ?? "",
                       onGenderSelect: (selectedGender) {
                         // Logic to handle the selected gender
                         // For example, store the selectedGender in a variable
@@ -352,6 +359,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                               zipCode: zipCodeController.text.trim(),
                               gender: selectedGenderValue,
                               ssn: ssnController.text.trim(),
+                              suffix: suffixController.text.trim(),
                               prefferdLocation: preferredLocation,
                               phone: phoneNumberController.text.trim(),
                               paymentType: selectedPaymentValue,
