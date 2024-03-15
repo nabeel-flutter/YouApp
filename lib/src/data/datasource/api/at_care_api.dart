@@ -364,6 +364,7 @@ class SoftTechTestApi {
     String? dob,
     String? gender,
     String? ssn,
+    String? suffix,
     String? prefferdLocation,
     File? insuranceCardFrontImage,
     File? insuranceCardBackImage,
@@ -390,13 +391,13 @@ class SoftTechTestApi {
       'birthDate': dob,
       'gender': gender,
       'ssn': ssn,
+      'suffix': suffix,
       'preferredLocation': prefferdLocation,
       'paymentType': paymentType,
       "frontPic": insuranceCardFrontImage != null
           ? await MultipartFile.fromFile(
               insuranceCardFrontImage.absolute.path,
               filename: insuranceCardFrontImage.absolute.path.split('/').last,
-              
             )
           : null,
       "backPic": insuranceCardBackImage != null
@@ -412,7 +413,6 @@ class SoftTechTestApi {
       kRouteUpdateUserDetail,
       data: formData,
     );
-
 
     return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
   }
