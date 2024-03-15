@@ -24,7 +24,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   String selectedPaymentValue = "";
 
   String country = 'USA';
-  String preferredLocation = "Preferred Location For Service";
+  String? preferredLocation;
 
   String city = 'New York';
   TextEditingController firstNameController = TextEditingController();
@@ -163,10 +163,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     GenderSelection(
                       initialSelction: widget.userDetails?.data?.gender ?? "",
                       onGenderSelect: (selectedGender) {
-                        // Logic to handle the selected gender
-                        // For example, store the selectedGender in a variable
                         setState(() {
-                          // Assuming you have a variable to store the selected gender
                           selectedGenderValue = selectedGender;
                         });
                       },
@@ -358,10 +355,12 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                               country: country,
                               dob: dobController.text.trim(),
                               zipCode: zipCodeController.text.trim(),
-                              gender: selectedGenderValue,
+                              gender: selectedGenderValue ??
+                                  widget.userDetails!.data!.gender,
                               ssn: ssnController.text.trim(),
                               suffix: suffixController.text.trim(),
-                              prefferdLocation: preferredLocation,
+                              prefferdLocation: preferredLocation ??
+                                  widget.userDetails!.data!.preferredLocation,
                               phone: phoneNumberController.text.trim(),
                               paymentType: selectedPaymentValue,
                               insuranceCardBack: insuranceCardBack,
