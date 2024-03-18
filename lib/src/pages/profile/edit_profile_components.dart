@@ -90,12 +90,14 @@ class UploadInsuranceCard extends StatefulWidget {
   final bool? showlabeltext;
   final String text;
   final Function(File?) onFileSelected;
+  final String? image;
 
   const UploadInsuranceCard({
     Key? key,
     required this.text,
     this.showlabeltext = true,
     required this.onFileSelected,
+    this.image,
   }) : super(key: key);
 
   @override
@@ -132,7 +134,68 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: _pickFile,
-      child: Column(
+      child: 
+      _file!=null?
+      Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (widget.showlabeltext ?? true)
+        
+            const Text(
+              "Uploaded Images of Insurance Card",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: Color(0xff403B3B),
+              ),
+            ),
+            SizedBox(height: 12),
+          Container(
+            decoration: BoxDecoration(
+              color: const Color(0xff80BCBD).withOpacity(0.2),
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                color: ColorConstants.greenish, // Set border color here
+                width: 2.0, // Set border width here
+              ),
+            ),
+            child: Image.file(_file!)),
+        ],
+      )
+      :
+      
+      widget.image!=null?
+           Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (widget.showlabeltext ?? true)
+        
+            const Text(
+              "Uploaded Images of Insurance Card",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: Color(0xff403B3B),
+              ),
+            ),
+            SizedBox(height: 12),
+          Container(
+            decoration: BoxDecoration(
+              color: const Color(0xff80BCBD).withOpacity(0.2),
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                color: ColorConstants.greenish, // Set border color here
+                width: 2.0, // Set border width here
+              ),
+            ),
+            child: Image.network(widget.image!)),
+        ],
+      )
+   
+      :
+        Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (widget.showlabeltext ?? true)
@@ -160,7 +223,7 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0, top: 8),
-                  child: Image.asset(
+                  child:  Image.asset(
                     AssetsConstants.uploadimageicon,
                     width: 50,
                     height: 50,
@@ -170,7 +233,10 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
                     ? Text(
                         widget.text,
                       )
-                    : Flexible(
+                    : 
+                    
+                    
+                     Flexible(
                         child: Text(
                           "${_fileName!} ($_fileSize)",
                           overflow: TextOverflow.ellipsis,
@@ -204,14 +270,13 @@ class CustomTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextEditingController controller;
   final bool isEnabled;
-  const CustomTextField({
-    super.key,
-    required this.fieldName,
-    required this.hintText,
-    required this.controller,
-    this.keyboardType,
-    this.isEnabled = true 
-  });
+  const CustomTextField(
+      {super.key,
+      required this.fieldName,
+      required this.hintText,
+      required this.controller,
+      this.keyboardType,
+      this.isEnabled = true});
 
   @override
   Widget build(BuildContext context) {

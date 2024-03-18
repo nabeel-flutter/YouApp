@@ -1,6 +1,6 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=E:\Downloads\flutter_windows_3.3.1-stable\flutter
-FLUTTER_APPLICATION_PATH=E:\Projects\nb-frontend-app
+FLUTTER_ROOT=C:\Users\Nabeel\flutter
+FLUTTER_APPLICATION_PATH=D:\User\Nabeel\FlutterProjects\nb-frontend-app
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=1.0.0
