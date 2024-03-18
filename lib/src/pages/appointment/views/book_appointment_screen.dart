@@ -42,8 +42,19 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
             orElse: () => Container(),
             loading: () => null,
             loaded: (data) async {
-              await context.router
+              if(data.data['paymentLink']==null){
+              AlertDialogComponent.showDialogComponent(
+                alertDialog: const AlertDialog(
+                    insetPadding: EdgeInsets.all(16),
+                    contentPadding: EdgeInsets.zero,
+                    content: SuccessDialog(isInsured: true,)),
+                context: context);
+             
+                }else{
+    await context.router
                   .push(PaymentWebViewRoute(uri: data.data['paymentLink']));
+          
+              }
             },
           );
           // TODO: implement listener
