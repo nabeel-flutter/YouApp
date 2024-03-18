@@ -72,6 +72,112 @@ class SlidingCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView();
+    return const SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          BottomSwipeCards(
+            title: 'Abnormal',
+            heading: "Ultra Rapid Metabolizers (UM)",
+            description:
+                '''Increased risk of toxicity from a prodrug due to excessive formation of active metabolites. Consider reducing the starting dose and monitor for ADE.
+Increased risk of treatment failure from no prodrugs, consider starting at a higher dose and monitor for lack of efficancy.''',
+          ),
+          BottomSwipeCards(
+            title: 'Normal',
+            heading: "Extensive Metabolizers (EM)",
+            description: '''Normal drug metabolism should be expected.''',
+          ),
+          BottomSwipeCards(
+            title: 'Abnormal',
+            heading: "Poor Metabolizers (PM)",
+            description:
+                '''Unlikely to benefit from a prodrug, consider an alternative drug.
+Increased risk of toxicity from non-prodrugs, consider reducing the starting dose and monitor for ADE.''',
+          ),
+          BottomSwipeCards(
+            title: 'Abnormal',
+            heading: "Intermediate Metabolizers (IM)",
+            description:
+                '''Avoid inhibitors, which would functionally result in poor metabolizer ability.
+Inducers may improve metabolism Inconclusive and varied data, often a reduced dose is suggested with close monitoring for ADE.''',
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class BottomSwipeCards extends StatelessWidget {
+  final String title;
+  final String heading;
+  final String description;
+  const BottomSwipeCards({
+    super.key,
+    required this.title,
+    required this.heading,
+    required this.description,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 20.0),
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.38,
+        width: MediaQuery.of(context).size.width * 0.7,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(22),
+          color: ColorConstants.green,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.04,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: ColorConstants.white,
+                ),
+                child: Center(
+                    child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: ColorConstants.green,
+                        fontSize: 20,
+                      ),
+                )),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                heading,
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: ColorConstants.yellowIndicatorColor,
+                      fontSize: 20,
+                    ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Expanded(
+                child: Text(
+                  description,
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: ColorConstants.white,
+                      ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
