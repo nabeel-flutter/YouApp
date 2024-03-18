@@ -4,6 +4,8 @@ import 'package:new_beginnings/src/pages/profile/edit_profile_components.dart';
 import 'package:new_beginnings/src/pages/profile/gender_selection.dart';
 import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 import 'package:new_beginnings/src/pages/profile/payment_selection.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:http/http.dart' as http;
 
 import 'package:new_beginnings/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
 
@@ -63,7 +65,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
     }
   }
 
-  void updateControllers() {
+  Future<void> updateControllers() async {
     _isInsured = widget.userDetails?.data?.paymentType == 'insured';
     selectedPaymentValue = widget.userDetails?.data?.paymentType ?? '';
     firstNameController.text = widget.userDetails!.data!.firstName ?? '';
@@ -82,6 +84,11 @@ class _EditScreenBodyState extends State<EditScreenBody> {
         widget.userDetails!.data!.insuranceDetails!.insuranceName ?? "";
     insurancePolicyController.text =
         widget.userDetails!.data!.insuranceDetails!.insurancePolicy ?? "";
+    avatar = await saveImage(widget.userDetails!.data!.avatar);
+    insuranceCardFront =
+        await saveImage(widget.userDetails!.data!.insuranceDetails!.frontPic);
+    insuranceCardBack = await saveImage(// Add this line
+        widget.userDetails!.data!.insuranceDetails!.backPic);
   }
 
   @override
@@ -283,13 +290,21 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                                   hintText: "Enter Insurance Policy",
                                   controller: insurancePolicyController),
                               UploadInsuranceCard(
+                                image:widget.userDetails!=null? widget.userDetails!.data!
+                                        .insuranceDetails!.frontPic!.isNotEmpty
+                                    ? widget.userDetails!.data!.insuranceDetails!.frontPic
+                                    : null:null,
                                 onFileSelected: (file) {
                                   insuranceCardFront = file;
                                 },
                                 text: 'Upload front side of Card',
                               ),
                               UploadInsuranceCard(
-                                onFileSelected: (file) {
+                                  image:widget.userDetails!=null? widget.userDetails!.data!
+                                        .insuranceDetails!.backPic!.isNotEmpty
+                                    ? widget.userDetails!.data!.insuranceDetails!.backPic
+                                    : null:null,
+                             onFileSelected: (file) {
                                   insuranceCardBack = file;
                                 },
                                 text: 'Upload back side of Card',
@@ -385,5 +400,25 @@ class _EditScreenBodyState extends State<EditScreenBody> {
         ),
         isBackAppBar: false,
         appbarText: StringConstants.edit);
+  }
+
+  Future<File?> saveImage(String? avatar) async {
+    if (avatar == null) {
+      return null;
+    } else {
+      var response = await http.get(Uri.parse(avatar));
+      if (response.statusCode == 200) {
+        // Get the temporary directory path
+        Directory tempDir = await getTemporaryDirectory();
+        String tempPath = tempDir.path;
+
+        // Create a temporary file
+        File tempFile = File('$tempPath/temp_image.jpg');
+        await tempFile.writeAsBytes(response.bodyBytes);
+
+        return tempFile;
+      }
+    }
+    return null;
   }
 }

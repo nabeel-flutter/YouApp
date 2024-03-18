@@ -54,7 +54,9 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
             alertDialog: const AlertDialog(
                 insetPadding: EdgeInsets.all(16),
                 contentPadding: EdgeInsets.zero,
-                content: SuccessDialog()),
+                content: SuccessDialog(
+                  isInsured: false,
+                )),
             context: context);
       }else{
         AlertDialogComponent.showDialogComponent(

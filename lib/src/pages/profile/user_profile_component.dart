@@ -6,6 +6,7 @@ class UserProfileComponent extends StatefulWidget {
   final String userName;
   final String userEmail;
   final String? image;
+  final bool isEditable;
 
   final Function(File)? onImageSelected; // Callback function
   const UserProfileComponent({
@@ -13,6 +14,7 @@ class UserProfileComponent extends StatefulWidget {
     this.profile = false,
     required this.userName,
     required this.userEmail,
+    this.isEditable = true,
     this.onImageSelected,
     this.image, // Initialize the callback
   }) : super(key: key);
@@ -76,28 +78,29 @@ class _UserProfileComponentState extends State<UserProfileComponent> {
                   ),
                 ),
                 // Button to pick an image
-                Padding(
-                  padding: const EdgeInsets.only(right: 4.0),
-                  child: GestureDetector(
-                    onTap: _pickImage, // Call the image picker function
-                    child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: ColorConstants.greenish,
-                            border: Border.all(
-                                width: 4,
-                                color: darken(getThemeColor(context), 0.2))),
-                        child: widget.profile!
-                            ? Image.asset(
-                                "assets/images/cameraicon.png",
-                              )
-                            : Image.asset(
-                                "assets/images/upload_gallery.png",
-                              )),
-                  ),
-                )
+                if (widget.isEditable)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 4.0),
+                    child: GestureDetector(
+                      onTap: _pickImage, // Call the image picker function
+                      child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: ColorConstants.greenish,
+                              border: Border.all(
+                                  width: 4,
+                                  color: darken(getThemeColor(context), 0.2))),
+                          child: widget.profile!
+                              ? Image.asset(
+                                  "assets/images/cameraicon.png",
+                                )
+                              : Image.asset(
+                                  "assets/images/upload_gallery.png",
+                                )),
+                    ),
+                  )
               ],
             ),
             // User name and email
@@ -120,7 +123,10 @@ class _UserProfileComponentState extends State<UserProfileComponent> {
                         .textTheme
                         .bodyMedium!
                         .copyWith(color: const Color(0xff0A7E80)),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 40,
+                  ),
                 ],
               ),
             )
@@ -189,7 +195,12 @@ class Button extends StatelessWidget {
         onPressed: () {
           onPressed();
         },
-        child: Text(label));
+        child: Text(label,
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: ColorConstants.white,
+                )));
   }
 }
 
@@ -211,6 +222,13 @@ class LogoutButton extends StatelessWidget {
               .then((value) async => await context.router.pushAndPopUntil(
                   predicate: (route) => false, const SignInRoute()));
         },
-        child: Text(StringConstants.logout));
+        child: Text(
+          'Logout',
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+                color: ColorConstants.white,
+              ),
+        ));
   }
 }

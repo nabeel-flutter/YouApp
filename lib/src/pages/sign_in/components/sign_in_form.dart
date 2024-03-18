@@ -7,9 +7,9 @@ class SignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController =
-        TextEditingController(text: 'nabeelshakeel966@gmail.com');
+        TextEditingController(text: '');
     TextEditingController passwordController =
-        TextEditingController(text: "Nabeel@123");
+        TextEditingController(text: "");
     // TextEditingController emailController =
     //     TextEditingController(text: '');
     // TextEditingController passwordController =
