@@ -6,6 +6,7 @@ class UserProfileComponent extends StatefulWidget {
   final String userName;
   final String userEmail;
   final String? image;
+
   final bool isEditable;
 
   final Function(File)? onImageSelected; // Callback function
