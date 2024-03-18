@@ -101,6 +101,7 @@ class ProfileScreenBody extends StatelessWidget {
                 left: 0,
                 right: 0,
                 child: UserProfileComponent(
+                  isEditable: false,
                   image: user != null
                       ? user!.data!.avatar!.isNotEmpty
                           ? user!.data!.avatar
