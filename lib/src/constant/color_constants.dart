@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ColorConstants {
-  static const Color yellowIndicatorColor = Color(0xFFFDC13A);
+  static const Color yellowIndicatorColor = Color(0xfff7c339);
   static const Color black = Color(0xff000000);
   static const Color white = Color(0xFFFFFFFF);
   static const Color bgColorLight = Color(0xffF6FDFD);
@@ -11,7 +11,7 @@ class ColorConstants {
   static const Color primaryColor = Color(0xff0A7E80);
   static const Color primaryTextColor = Color(0xff023E3F);
   static const Color widgetBgColor = Color(0xff80BCBD);
-  static const Color green = Color(0xFF59E583);
+  static const Color green = Color(0xFF337B4D);
   static const Color greenIndicatorColor = Color(0xFF59E584);
   static const Color redIndicatorColor = Color.fromRGBO(239, 89, 89, 1);
   static const Color yellowGolden = Color(0xFFE8E753);
