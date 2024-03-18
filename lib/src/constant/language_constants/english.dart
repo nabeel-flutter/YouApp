@@ -1,5 +1,8 @@
 class EnglishConstant {
   static Map<String, String> englishLabels = {
+    '  Personal Details': 'Personal Details',
+    'logOut': 'Logout',
+    'Edit Profile': 'Edit Profile',
     'insurancedetails': "Insurance Details",
     'alternatephonenumber': "Alternate Phone",
     'insured': 'Insured',

@@ -5,15 +5,16 @@ class UserProfileComponent extends StatefulWidget {
   final bool? profile;
   final String userName;
   final String userEmail;
-  final String? image ;
-  
+  final String? image;
+
   final Function(File)? onImageSelected; // Callback function
   const UserProfileComponent({
     Key? key,
     this.profile = false,
     required this.userName,
     required this.userEmail,
-    this.onImageSelected, this.image, // Initialize the callback
+    this.onImageSelected,
+    this.image, // Initialize the callback
   }) : super(key: key);
 
   @override
@@ -64,7 +65,8 @@ class _UserProfileComponentState extends State<UserProfileComponent> {
                     // Display the selected image or a placeholder
                     child: _image == null
                         ? Image.network(
-                            widget.image?? 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80',
+                            widget.image ??
+                                'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80',
                             fit: BoxFit.fill,
                           )
                         : Image.file(
@@ -153,7 +155,7 @@ class UserProfileBottomComponent extends StatelessWidget {
         child: Column(
           children: [
             Button(
-              label: 'Edit Profile',
+              label: StringConstants.editprofile,
               onPressed: () {
                 onPressed();
               },
@@ -209,6 +211,6 @@ class LogoutButton extends StatelessWidget {
               .then((value) async => await context.router.pushAndPopUntil(
                   predicate: (route) => false, const SignInRoute()));
         },
-        child: const Text('Logout'));
+        child: Text(StringConstants.logout));
   }
 }

@@ -412,6 +412,7 @@ class StringConstants {
   static String get personalSafety => _getLang('personalSafety');
 
   static String get tablet => _getLang('tablet');
+  static String get editprofile => _getLang('Edit Profile');
 
   static String get hrs => _getLang('hrs');
 
@@ -671,6 +672,7 @@ class StringConstants {
   static String get forgot => _getLang('forgot');
 
   static String get login => _getLang('logIn');
+  static String get logout => _getLang('logOut');
 
   static String get newAccount => _getLang('newAccount');
 
@@ -690,6 +692,7 @@ class StringConstants {
   static String get ePrescriptions => _getLang('ePrescriptions');
   //user edit screen
   static String get insurancepolicy => _getLang("insurancepolicy");
+  static String get personaldetails => _getLang("Personal Details");
 
   static String _getLang(String s) {
     return languageSelector(s);

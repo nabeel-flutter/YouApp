@@ -84,8 +84,8 @@ class ProfileScreenBody extends StatelessWidget {
                       child: Center(
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 70),
-                          child: const Text(
-                            "Profile",
+                          child: Text(
+                            StringConstants.profile,
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -102,7 +102,9 @@ class ProfileScreenBody extends StatelessWidget {
                 right: 0,
                 child: UserProfileComponent(
                   image: user != null
-                      ?user!.data!.avatar!.isNotEmpty?user!.data!.avatar:null
+                      ? user!.data!.avatar!.isNotEmpty
+                          ? user!.data!.avatar
+                          : null
                       : null,
                   userName: user != null
                       ? '${user!.data!.firstName} ${user!.data!.lastName}'
