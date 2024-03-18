@@ -410,18 +410,9 @@ class SoftTechTestApi {
       'insuranceName': paymentType == "insured" ? insuranceName : null,
       'insurancePolicy': paymentType == "insured" ? insurancePoilcyNumber : null
       
-    });
-    final String? token;
-    token = await getIt
-        .get<SharedPreferencesUtil>()
-        .getString(SharedPreferenceConstants.apiAuthToken);
-    final response = await dio.put(kRouteUpdateUserDetail,
+    }); final response = await dio.put(kRouteUpdateUserDetail,
         data: formData,
-        options: Options(headers: {
-          "accept": "*/*",
-          "token": token,
-          "Content-Type": "multipart/form-data"
-        }));
+        );
 
     return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
   }
