@@ -19,8 +19,8 @@ class SuccessDialog extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color(0xFF0A7E80), // darker teal color for the top
-                Color(0xFF76c8c6)
+                const Color(0xFF0A7E80), // darker teal color for the top
+                const Color(0xFF76c8c6)
                     .withOpacity(0.8) // lighter teal color for the bottom
               ],
             )),
@@ -47,7 +47,7 @@ class SuccessDialog extends StatelessWidget {
                 width: MediaQuery.of(context).size.width / 2.5,
                 child: BottomNavBarAppointmentBookScreen(
                     fgColor: Colors.white,
-                    bgColor: Color(0xff023E3F),
+                    bgColor: const Color(0xff023E3F),
                     text: 'Okay',
                     onTap: () {
                       Navigator.pop(context);

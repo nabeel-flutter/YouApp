@@ -21,6 +21,8 @@ class AssetsConstants {
       'assets/images/upcomming_appointment_card_doctor_image.png';
   static const String successDialogImage =
       'assets/images/success_dialog_image.png';
+  static const String paymnetProcessingDialog =
+      'assets/images/payment_loading.png';
   static const String failedDialogImage =
       'assets/images/failed_dioalog_image.png';
   static const String splashLogo = 'assets/images/splash_logo.svg';
