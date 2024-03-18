@@ -290,21 +290,35 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                                   hintText: "Enter Insurance Policy",
                                   controller: insurancePolicyController),
                               UploadInsuranceCard(
-                                image:widget.userDetails!=null? widget.userDetails!.data!
-                                        .insuranceDetails!.frontPic!.isNotEmpty
-                                    ? widget.userDetails!.data!.insuranceDetails!.frontPic
-                                    : null:null,
+                                image: widget.userDetails != null
+                                    ? widget
+                                            .userDetails!
+                                            .data!
+                                            .insuranceDetails!
+                                            .frontPic!
+                                            .isNotEmpty
+                                        ? widget.userDetails!.data!
+                                            .insuranceDetails!.frontPic
+                                        : null
+                                    : null,
                                 onFileSelected: (file) {
                                   insuranceCardFront = file;
                                 },
                                 text: 'Upload front side of Card',
                               ),
                               UploadInsuranceCard(
-                                  image:widget.userDetails!=null? widget.userDetails!.data!
-                                        .insuranceDetails!.backPic!.isNotEmpty
-                                    ? widget.userDetails!.data!.insuranceDetails!.backPic
-                                    : null:null,
-                             onFileSelected: (file) {
+                                image: widget.userDetails != null
+                                    ? widget
+                                            .userDetails!
+                                            .data!
+                                            .insuranceDetails!
+                                            .backPic!
+                                            .isNotEmpty
+                                        ? widget.userDetails!.data!
+                                            .insuranceDetails!.backPic
+                                        : null
+                                    : null,
+                                onFileSelected: (file) {
                                   insuranceCardBack = file;
                                 },
                                 text: 'Upload back side of Card',
