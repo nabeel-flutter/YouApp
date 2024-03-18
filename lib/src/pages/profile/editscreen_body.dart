@@ -124,8 +124,8 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const SizedBox(height: 5),
-                    const HeadingText(
-                      text: "Personal Details",
+                    HeadingText(
+                      text: StringConstants.personaldetails,
                     ),
                     const SizedBox(
                       height: 20,
