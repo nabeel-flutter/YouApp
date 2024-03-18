@@ -66,21 +66,6 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   }
 
   Future<void> updateControllers() async {
-    // Download images concurrently
-    List<Future<File?>> imageDownloadFutures = [
-      saveImage(widget.userDetails!.data!.avatar),
-      saveImage(widget.userDetails!.data!.insuranceDetails!.frontPic),
-      saveImage(widget.userDetails!.data!.insuranceDetails!.backPic),
-      // Add more saveImage calls for other images if needed
-    ];
-
-    List<File?> downloadedImages = await Future.wait(imageDownloadFutures);
-
-    // Assign downloaded images to variables
-    avatar = downloadedImages[0];
-    insuranceCardFront = downloadedImages[1];
-    insuranceCardBack = downloadedImages[2];
-
     _isInsured = widget.userDetails?.data?.paymentType == 'insured';
     selectedPaymentValue = widget.userDetails?.data?.paymentType ?? '';
     firstNameController.text = widget.userDetails!.data!.firstName ?? '';
@@ -99,11 +84,20 @@ class _EditScreenBodyState extends State<EditScreenBody> {
         widget.userDetails!.data!.insuranceDetails!.insuranceName ?? "";
     insurancePolicyController.text =
         widget.userDetails!.data!.insuranceDetails!.insurancePolicy ?? "";
-    avatar = await saveImage(widget.userDetails!.data!.avatar);
-    insuranceCardFront =
-        await saveImage(widget.userDetails!.data!.insuranceDetails!.frontPic);
-    insuranceCardBack = await saveImage(// Add this line
-        widget.userDetails!.data!.insuranceDetails!.backPic);
+    // Download images concurrently
+    List<Future<File?>> imageDownloadFutures = [
+      saveImage(widget.userDetails!.data!.avatar),
+      saveImage(widget.userDetails!.data!.insuranceDetails!.frontPic),
+      saveImage(widget.userDetails!.data!.insuranceDetails!.backPic),
+      // Add more saveImage calls for other images if needed
+    ];
+
+    List<File?> downloadedImages = await Future.wait(imageDownloadFutures);
+
+    // Assign downloaded images to variables
+    avatar = downloadedImages[0];
+    insuranceCardFront = downloadedImages[1];
+    insuranceCardBack = downloadedImages[2];
   }
 
   @override
@@ -454,7 +448,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
       return tempFile;
     } else {
       // Handle error if image download fails
-      print('Failed to download image: $imageUrl');
+
       return null;
     }
   }
