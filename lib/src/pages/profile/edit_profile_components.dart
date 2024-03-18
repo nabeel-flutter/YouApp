@@ -134,132 +134,128 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: _pickFile,
-      child: 
-      _file!=null?
-      Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (widget.showlabeltext ?? true)
-        
-            const Text(
-              "Uploaded Images of Insurance Card",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                color: Color(0xff403B3B),
-              ),
-            ),
-            SizedBox(height: 12),
-          Container(
-            decoration: BoxDecoration(
-              color: const Color(0xff80BCBD).withOpacity(0.2),
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(
-                color: ColorConstants.greenish, // Set border color here
-                width: 2.0, // Set border width here
-              ),
-            ),
-            child: Image.file(_file!)),
-        ],
-      )
-      :
-      
-      widget.image!=null?
-           Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (widget.showlabeltext ?? true)
-        
-            const Text(
-              "Uploaded Images of Insurance Card",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                color: Color(0xff403B3B),
-              ),
-            ),
-            SizedBox(height: 12),
-          Container(
-            decoration: BoxDecoration(
-              color: const Color(0xff80BCBD).withOpacity(0.2),
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(
-                color: ColorConstants.greenish, // Set border color here
-                width: 2.0, // Set border width here
-              ),
-            ),
-            child: Image.network(widget.image!)),
-        ],
-      )
-   
-      :
-        Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (widget.showlabeltext ?? true)
-            const Text(
-              "Upload Images of Insurance Card",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                color: Color(0xff403B3B),
-              ),
-            ),
-          const SizedBox(height: 12),
-          Container(
-            width: double.infinity,
-            height: 65,
-            decoration: BoxDecoration(
-              color: const Color(0xff80BCBD).withOpacity(0.2),
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(
-                color: ColorConstants.greenish, // Set border color here
-                width: 2.0, // Set border width here
-              ),
-            ),
-            child: Row(
+      child: _file != null
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0, top: 8),
-                  child:  Image.asset(
-                    AssetsConstants.uploadimageicon,
-                    width: 50,
-                    height: 50,
+                if (widget.showlabeltext ?? true)
+                  const Text(
+                    "Uploaded Images of Insurance Card",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Color(0xff403B3B),
+                    ),
                   ),
-                ),
-                _file == null
-                    ? Text(
-                        widget.text,
-                      )
-                    : 
-                    
-                    
-                     Flexible(
-                        child: Text(
-                          "${_fileName!} ($_fileSize)",
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(fontWeight: FontWeight.w400),
+                const SizedBox(height: 10),
+                Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xff80BCBD).withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: ColorConstants.greenish, // Set border color here
+                        width: 2.0, // Set border width here
+                      ),
+                    ),
+                    child: Image.file(_file!)),
+              ],
+            )
+          : widget.image != null
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (widget.showlabeltext ?? true)
+                      const Text(
+                        "Uploaded Images of Insurance Card\n(Click image to change)",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color(0xff403B3B),
                         ),
                       ),
-                const Spacer(),
-                _file == null
-                    ? Padding(
-                        padding: const EdgeInsets.only(right: 12.0),
-                        child: Image.asset(
-                          AssetsConstants.uploadicon,
-                          width: 25,
-                          height: 25,
+                    const SizedBox(height: 10),
+                    Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xff80BCBD).withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            color: ColorConstants
+                                .greenish, // Set border color here
+                            width: 2.0, // Set border width here
+                          ),
                         ),
-                      )
-                    : Container()
-              ],
-            ),
-          ),
-          const SizedBox(height: 14),
-        ],
-      ),
+                        child: Image.network(
+                          widget.image!,
+                          fit: BoxFit.cover,
+                        )),
+                  ],
+                )
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (widget.showlabeltext ?? true)
+                      const Text(
+                        "Upload Images of Insurance Card",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color(0xff403B3B),
+                        ),
+                      ),
+                    const SizedBox(height: 10),
+                    Container(
+                      width: double.infinity,
+                      height: 65,
+                      decoration: BoxDecoration(
+                        color: const Color(0xff80BCBD).withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color:
+                              ColorConstants.greenish, // Set border color here
+                          width: 2.0, // Set border width here
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0, top: 8),
+                            child: Image.asset(
+                              AssetsConstants.uploadimageicon,
+                              width: 50,
+                              height: 50,
+                            ),
+                          ),
+                          _file == null
+                              ? Text(
+                                  widget.text,
+                                )
+                              : Flexible(
+                                  child: Text(
+                                    "${_fileName!} ($_fileSize)",
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ),
+                          const Spacer(),
+                          _file == null
+                              ? Padding(
+                                  padding: const EdgeInsets.only(right: 10.0),
+                                  child: Image.asset(
+                                    AssetsConstants.uploadicon,
+                                    width: 25,
+                                    height: 25,
+                                  ),
+                                )
+                              : Container()
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 14),
+                  ],
+                ),
     );
   }
 }

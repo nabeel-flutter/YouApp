@@ -66,6 +66,21 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   }
 
   Future<void> updateControllers() async {
+    // Download images concurrently
+    List<Future<File?>> imageDownloadFutures = [
+      saveImage(widget.userDetails!.data!.avatar),
+      saveImage(widget.userDetails!.data!.insuranceDetails!.frontPic),
+      saveImage(widget.userDetails!.data!.insuranceDetails!.backPic),
+      // Add more saveImage calls for other images if needed
+    ];
+
+    List<File?> downloadedImages = await Future.wait(imageDownloadFutures);
+
+    // Assign downloaded images to variables
+    avatar = downloadedImages[0];
+    insuranceCardFront = downloadedImages[1];
+    insuranceCardBack = downloadedImages[2];
+
     _isInsured = widget.userDetails?.data?.paymentType == 'insured';
     selectedPaymentValue = widget.userDetails?.data?.paymentType ?? '';
     firstNameController.text = widget.userDetails!.data!.firstName ?? '';
@@ -175,7 +190,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                         });
                       },
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 20),
                     ExpandedSelectionWidget(
                       label: "Country",
                       textList: const ["USA", "Canada", "Mexico"],
@@ -269,7 +284,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                         });
                       },
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 20),
                     _isInsured
                         ? Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -289,6 +304,9 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                                   keyboardType: TextInputType.name,
                                   hintText: "Enter Insurance Policy",
                                   controller: insurancePolicyController),
+                              const SizedBox(
+                                height: 20,
+                              ),
                               UploadInsuranceCard(
                                 image: widget.userDetails != null
                                     ? widget
@@ -327,6 +345,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                             ],
                           )
                         : Container(),
+                    const SizedBox(height: 20),
                     ExpandedSelectionWidget(
                       onTapped: (preferredLocation) {
                         setState(() {
@@ -416,23 +435,27 @@ class _EditScreenBodyState extends State<EditScreenBody> {
         appbarText: StringConstants.edit);
   }
 
-  Future<File?> saveImage(String? avatar) async {
-    if (avatar == null) {
+  Future<File?> saveImage(String? imageUrl) async {
+    if (imageUrl == null) {
       return null;
-    } else {
-      var response = await http.get(Uri.parse(avatar));
-      if (response.statusCode == 200) {
-        // Get the temporary directory path
-        Directory tempDir = await getTemporaryDirectory();
-        String tempPath = tempDir.path;
-
-        // Create a temporary file
-        File tempFile = File('$tempPath/temp_image.jpg');
-        await tempFile.writeAsBytes(response.bodyBytes);
-
-        return tempFile;
-      }
     }
-    return null;
+
+    var response = await http.get(Uri.parse(imageUrl));
+    if (response.statusCode == 200) {
+      // Get the temporary directory path
+      Directory tempDir = await getTemporaryDirectory();
+      String tempPath = tempDir.path;
+
+      String fileName = imageUrl.split('/').last;
+
+      File tempFile = File('$tempPath/$fileName');
+      await tempFile.writeAsBytes(response.bodyBytes);
+
+      return tempFile;
+    } else {
+      // Handle error if image download fails
+      print('Failed to download image: $imageUrl');
+      return null;
+    }
   }
 }
