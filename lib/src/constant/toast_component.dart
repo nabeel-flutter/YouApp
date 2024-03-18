@@ -54,7 +54,7 @@ class ToastComponent2 {
                 message,
                 maxLines: 5,
                 overflow: TextOverflow.clip,
-                style: TextStyle(
+                style: const TextStyle(
                   color: ColorConstants.primaryColor,
                   fontWeight: FontWeight.bold,
 
@@ -128,7 +128,7 @@ class ToastComponent3 {
                 message,
                 maxLines: 5,
                 overflow: TextOverflow.clip,
-                style: TextStyle(
+                style: const TextStyle(
                   color: ColorConstants.redIndicatorColor,
                   fontWeight: FontWeight.bold,
                 

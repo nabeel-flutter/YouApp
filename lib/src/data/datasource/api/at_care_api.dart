@@ -1,7 +1,5 @@
 // ignore: depend_on_referenced_packages
-import 'dart:io';
 
-import 'package:dio/dio.dart';
 // ignore: depend_on_referenced_packages
 import 'package:http_parser/http_parser.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
@@ -14,7 +12,6 @@ import 'package:new_beginnings/src/data/dto/medical_records_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/product_dto.dart';
 import 'package:new_beginnings/src/data/dto/sehat_scan_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/token_dto.dart';
-import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
 import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 
 ///
@@ -373,31 +370,30 @@ class SoftTechTestApi {
     String? insurancePoilcyNumber,
     required String paymentType,
   }) async {
- MultipartFile? insuranceCardFrontImage0=  insuranceCardFrontImage != null
-          ? await MultipartFile.fromFile(
-              insuranceCardFrontImage.absolute.path,
-              filename: insuranceCardFrontImage.absolute.path.split('/').last,
-              
-            )
-          : null;
- MultipartFile? insuranceCardBackImage0=  insuranceCardBackImage != null
-          ? await MultipartFile.fromFile(
-              insuranceCardBackImage.absolute.path,
-              filename: insuranceCardBackImage.absolute.path.split('/').last,
-              
-            )
-          : null;
+    MultipartFile? insuranceCardFrontImage0 = insuranceCardFrontImage != null
+        ? await MultipartFile.fromFile(insuranceCardFrontImage.absolute.path,
+            filename: insuranceCardFrontImage.absolute.path.split('/').last,
+            contentType:
+                MediaType('image', insuranceCardFrontImage.absolute.path.split('.').last))
+        : null;
+    MultipartFile? insuranceCardBackImage0 = insuranceCardBackImage != null
+        ? await MultipartFile.fromFile(insuranceCardBackImage.absolute.path,
+            filename: insuranceCardBackImage.absolute.path.split('/').last,
+            contentType:
+                MediaType('image', insuranceCardBackImage.absolute.path.split('.').last))
+        : null;
+    MultipartFile? avatar0 = avatar != null
+        ? await MultipartFile.fromFile(avatar.absolute.path,
+            filename: avatar.absolute.path.split('/').last,
+            contentType: MediaType('image', avatar.absolute.path.split('.').last))
+        : null;
     final formData = FormData.fromMap({
       'firstName': firstName,
       'lastName': lastName,
       'phone': phone,
       'alternatePhone': alternatePhone,
       'email': email,
-      'avatar': avatar != null
-          ? await MultipartFile.fromFile(avatar.absolute.path,
-              filename: avatar.absolute.path.split('/').last,
-              contentType: MediaType('image', avatar.path))
-          : null,
+      'avatar': avatar0,
       'country': country,
       'state': state,
       'city': city,
@@ -413,6 +409,7 @@ class SoftTechTestApi {
       "backPic": insuranceCardBackImage0,
       'insuranceName': paymentType == "insured" ? insuranceName : null,
       'insurancePolicy': paymentType == "insured" ? insurancePoilcyNumber : null
+      
     });
     final String? token;
     token = await getIt
