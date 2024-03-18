@@ -5,15 +5,18 @@ class UserProfileComponent extends StatefulWidget {
   final bool? profile;
   final String userName;
   final String userEmail;
-  final String? image ;
-  
+  final String? image;
+  final bool isEditable;
+
   final Function(File)? onImageSelected; // Callback function
   const UserProfileComponent({
     Key? key,
     this.profile = false,
     required this.userName,
     required this.userEmail,
-    this.onImageSelected, this.image, // Initialize the callback
+    this.isEditable = true,
+    this.onImageSelected,
+    this.image, // Initialize the callback
   }) : super(key: key);
 
   @override
@@ -64,7 +67,8 @@ class _UserProfileComponentState extends State<UserProfileComponent> {
                     // Display the selected image or a placeholder
                     child: _image == null
                         ? Image.network(
-                            widget.image?? 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80',
+                            widget.image ??
+                                'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80',
                             fit: BoxFit.fill,
                           )
                         : Image.file(
@@ -74,28 +78,29 @@ class _UserProfileComponentState extends State<UserProfileComponent> {
                   ),
                 ),
                 // Button to pick an image
-                Padding(
-                  padding: const EdgeInsets.only(right: 4.0),
-                  child: GestureDetector(
-                    onTap: _pickImage, // Call the image picker function
-                    child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: ColorConstants.greenish,
-                            border: Border.all(
-                                width: 4,
-                                color: darken(getThemeColor(context), 0.2))),
-                        child: widget.profile!
-                            ? Image.asset(
-                                "assets/images/cameraicon.png",
-                              )
-                            : Image.asset(
-                                "assets/images/upload_gallery.png",
-                              )),
-                  ),
-                )
+                if (widget.isEditable)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 4.0),
+                    child: GestureDetector(
+                      onTap: _pickImage, // Call the image picker function
+                      child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: ColorConstants.greenish,
+                              border: Border.all(
+                                  width: 4,
+                                  color: darken(getThemeColor(context), 0.2))),
+                          child: widget.profile!
+                              ? Image.asset(
+                                  "assets/images/cameraicon.png",
+                                )
+                              : Image.asset(
+                                  "assets/images/upload_gallery.png",
+                                )),
+                    ),
+                  )
               ],
             ),
             // User name and email
@@ -118,7 +123,10 @@ class _UserProfileComponentState extends State<UserProfileComponent> {
                         .textTheme
                         .bodyMedium!
                         .copyWith(color: const Color(0xff0A7E80)),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 40,
+                  ),
                 ],
               ),
             )
@@ -187,7 +195,12 @@ class Button extends StatelessWidget {
         onPressed: () {
           onPressed();
         },
-        child: Text(label));
+        child: Text(label,
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: ColorConstants.white,
+                )));
   }
 }
 
@@ -209,6 +222,13 @@ class LogoutButton extends StatelessWidget {
               .then((value) async => await context.router.pushAndPopUntil(
                   predicate: (route) => false, const SignInRoute()));
         },
-        child: const Text('Logout'));
+        child: Text(
+          'Logout',
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+                color: ColorConstants.white,
+              ),
+        ));
   }
 }
