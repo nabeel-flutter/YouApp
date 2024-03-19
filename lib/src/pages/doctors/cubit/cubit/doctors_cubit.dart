@@ -34,7 +34,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
     Doctor(
         name: "Rizwan Malik",
         specialty: "MD- Medical Director & Project Advisor",
-        image: "assets/images/rizwanMailkPic.png",
+        image: "assets/images/rizwanMalikPic.png",
         description:
             '''Dr. Rizwan Malik is a board-certified adult, child & adolescent psychiatrist who has been trained to see children, adolescents and adults struggling with various mental or psychiatric and behavioral problems. After completing his medical school Dr. Malik pursued his further training in psychiatry in Washington DC. After completing his residency training at St. Elizabeths Hospital in in Washington DC, he did fellowship and specialization in child and adolescent psychiatry at Albert Einstein College of medicine New York affiliated program.
 Over the last 20 years, Dr. Malik has served in various positions and has been the medical director of the hospital and has done administrative psychiatry and at the same time has worked in public and private sector in various outpatient clinics and hospitals treating children and adults with various psychiatric disorders such as ADHD, autism, anxiety disorders, bipolar disorders depressive disorders, substance use disorders, sexual disorders and disorders related to child abuse neglect and learning disorders, just to name a few. Dr. Malik is also an expert in treating autism in children now called as ASD (autism spectrum disorder).''',

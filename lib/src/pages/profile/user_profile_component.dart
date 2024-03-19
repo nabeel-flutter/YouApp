@@ -9,16 +9,13 @@ class UserProfileComponent extends StatefulWidget {
 
   final bool isEditable;
 
-
   final Function(File)? onImageSelected; // Callback function
   const UserProfileComponent({
     Key? key,
     this.profile = false,
     required this.userName,
     required this.userEmail,
-
     this.isEditable = true,
-
     this.onImageSelected,
     this.image, // Initialize the callback
   }) : super(key: key);
@@ -226,7 +223,6 @@ class LogoutButton extends StatelessWidget {
               .then((value) async => await context.router.pushAndPopUntil(
                   predicate: (route) => false, const SignInRoute()));
         },
-
         child: Text(
           'Logout',
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
@@ -235,6 +231,5 @@ class LogoutButton extends StatelessWidget {
                 color: ColorConstants.white,
               ),
         ));
-
   }
 }

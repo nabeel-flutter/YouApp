@@ -15,9 +15,7 @@ List<AppNotification> notificationList = [
     decs: 'Your timing for next appointment has been changed.',
     image: AssetsConstants.timechnagedicon,
     isNew: true,
-
-    title: 'Timming Changed',
-
+    title: 'Timing Changed',
   ),
   AppNotification(
     date: '4:15 PM',
