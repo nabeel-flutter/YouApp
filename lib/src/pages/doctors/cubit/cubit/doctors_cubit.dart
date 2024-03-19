@@ -9,6 +9,18 @@ class DoctorsCubit extends Cubit<DoctorsState> {
   DoctorsCubit() : super(const DoctorsState.initial());
 
   final List<Doctor> doctors = [
+       Doctor(
+        name: "Nadeem Basheer",
+        specialty: "Chef Executive Officer",
+        image: "assets/images/nadeemPic.png",
+        description:
+            "Nadeem Bashir is the Chief Executive Officer of New Beginnings Integrated Healthcare. He oversees NB Centers'  strategies and operations across a network of 10 sites in 6 states. Mr. Bashir is deeply committed to advancing  healthcare, especially in mental health. His leadership skills and experience in healthcare settings underscore his impact  and strategic approach. He has initiated several mental health care delivery enhancement initiatives, leveraging  technology to improve patient outcomes and increase access to care. Prior to his role at New Beginnings Integrated Healthcare, Mr. Bashir worked as an Information Technology executive for  22 years, supporting high-performance contracts with some of the world's leading aerospace and defense technology  companies. Nadeem's dedication to improving the healthcare industry goes beyond his professional endeavors. He is a vocal  advocate for mental health awareness and actively supports initiatives aimed at enhancing mental health care access  and quality. Nadeem holds a bachelor's degree in Electrical Engineering from The City University of New York and a master's degree  in Human Relations from the University of Oklahoma. These degrees further enhance his ability to understand and  navigate complex business environments.",
+        rating: "4.2",
+        reviews: "290+",
+        noOfPatients: "678+",
+        yearsOfExperience: "8+",
+        department: "Management"),
+ 
     Doctor(
         name: "Dr. Raheel Siddiqui",
         specialty: "DSc President",
@@ -19,7 +31,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
         reviews: "200",
         noOfPatients: "2000",
         yearsOfExperience: "10",
-        department: "Leadership Department"),
+        department: "Management"),
     Doctor(
         name: "Alissa Emerich",
         specialty: "MS - Director of Clinical Training",
@@ -30,7 +42,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
         reviews: "300+",
         noOfPatients: "658+",
         yearsOfExperience: "11+",
-        department: "Leadership Department"),
+        department: "Management"),
     Doctor(
         name: "Rizwan Malik",
         specialty: "MD- Medical Director & Project Advisor",
@@ -42,7 +54,7 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         reviews: "280+",
         noOfPatients: "658+",
         yearsOfExperience: "11+",
-        department: "Leadership Department"),
+        department: "Management"),
     Doctor(
         name: "Lori Bickwoski",
         specialty: "Provider & Medical Care Manager",
@@ -53,7 +65,7 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         reviews: "300+",
         noOfPatients: "658+",
         yearsOfExperience: "11+",
-        department: "Leadership Department"),
+        department: "Management"),
     Doctor(
         name: "Sean Lyons",
         specialty: "BA, LSW, MSW",
@@ -120,22 +132,11 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         noOfPatients: "678+",
         yearsOfExperience: "8+",
         department: "Therapist"),
-    Doctor(
-        name: "Nadeem Basheer",
-        specialty: "Chef Executive Officer",
-        image: "assets/images/nadeemPic.png",
-        description:
-            "Nadeem Bashir is the Chief Executive Officer of New Beginnings Integrated Healthcare. He oversees NB Centers'  strategies and operations across a network of 10 sites in 6 states. Mr. Bashir is deeply committed to advancing  healthcare, especially in mental health. His leadership skills and experience in healthcare settings underscore his impact  and strategic approach. He has initiated several mental health care delivery enhancement initiatives, leveraging  technology to improve patient outcomes and increase access to care. Prior to his role at New Beginnings Integrated Healthcare, Mr. Bashir worked as an Information Technology executive for  22 years, supporting high-performance contracts with some of the world's leading aerospace and defense technology  companies. Nadeem's dedication to improving the healthcare industry goes beyond his professional endeavors. He is a vocal  advocate for mental health awareness and actively supports initiatives aimed at enhancing mental health care access  and quality. Nadeem holds a bachelor's degree in Electrical Engineering from The City University of New York and a master's degree  in Human Relations from the University of Oklahoma. These degrees further enhance his ability to understand and  navigate complex business environments.",
-        rating: "4.2",
-        reviews: "290+",
-        noOfPatients: "678+",
-        yearsOfExperience: "8+",
-        department: "Leadership Department"),
   ];
   List<Doctor> filteredDoctors = [];
   List<String> specaialty = [
     "All",
-    "Leadership Department",
+    "Management",
     "Psychiatric Department",
     "Psychiatric Nurse Practitioners",
     "Therapist",

@@ -17,7 +17,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
   @override
   Widget build(BuildContext context) {
     return PrimaryBackground(
-        appbarText: 'All Doctors',
+        appbarText: specialty=="All"?"Team Members": specialty,
         isBackAppBar: true,
         body: SingleChildScrollView(
           child: Padding(
