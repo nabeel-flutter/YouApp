@@ -18,7 +18,7 @@ class DoctorProfileScreen extends StatelessWidget {
             children: [
               //top doctor widget
               Container(
-                height: MediaQuery.of(context).size.height * 0.35,
+                height: MediaQuery.of(context).size.height * 0.5,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   boxShadow: [
@@ -44,7 +44,7 @@ class DoctorProfileScreen extends StatelessWidget {
                         ),
                         image: DecorationImage(
                           image: AssetImage(doctor.image),
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fill,
                         ),
                       )),
                     ),
