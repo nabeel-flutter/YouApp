@@ -149,7 +149,7 @@ export 'package:new_beginnings/src/constant/font_constants.dart';
 export 'package:new_beginnings/src/pages/home/components/home_title_component.dart';
 export 'package:new_beginnings/src/pages/profile/health_profile_list.dart';
 export 'package:new_beginnings/src/pages/profile/expansion_panel_list_component.dart';
-export 'package:new_beginnings/src/pages/profile/user_profile_component.dart';
+
 export 'package:new_beginnings/src/pages/change_language/components/language_list.dart';
 export 'package:new_beginnings/src/pages/setting/components/app_tile_component.dart';
 export 'package:new_beginnings/src/pages/setting/components/text_component_setting_main.dart';
