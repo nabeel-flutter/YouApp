@@ -11,6 +11,8 @@ class DoctorProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PrimaryBackground(
+      isAppBar: true,
+      appbarText: doctor.department,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
@@ -82,7 +84,7 @@ class DoctorProfileScreen extends StatelessWidget {
                                         " " +
                                         '(' +
                                         doctor.reviews.toString() +
-                                        "Reviews" +
+                                        " Reviews" +
                                         ')',
                                     style: Theme.of(context)
                                         .textTheme
@@ -129,7 +131,6 @@ class DoctorProfileScreen extends StatelessWidget {
           ),
         ),
       ),
-      appbarText: StringConstants.doctorProfile,
       isBackAppBar: true,
     );
   }
