@@ -3,7 +3,7 @@ import 'package:new_beginnings/src/app/app_export.dart';
 class ExpandedSelectionWidget extends StatefulWidget {
   final String label;
   final List<String> textList;
-  final String title; // Make title mutable by removing the `final` keyword
+  final String title; 
   final Function(String) onTapped;
 
   const ExpandedSelectionWidget({

@@ -82,7 +82,7 @@ class DoctorProfileScreen extends StatelessWidget {
                                         " " +
                                         '(' +
                                         doctor.reviews.toString() +
-                                        "Reviews" +
+                                        " Reviews" +
                                         ')',
                                     style: Theme.of(context)
                                         .textTheme
