@@ -26,6 +26,7 @@ class StatisticsWidget extends StatelessWidget {
         StatisticIcon(
           icon: AssetsConstants.ratingIconDoctor,
           title: doctor.rating.toString(),
+          isRating: true,
           subtitle: StringConstants.rating,
         ),
         StatisticIcon(
@@ -42,11 +43,13 @@ class StatisticIcon extends StatelessWidget {
   final String icon;
   final String title;
   final String subtitle;
+  final bool isRating;
   const StatisticIcon({
     super.key,
     this.icon = AssetsConstants.noOfPatientsIcon,
     required this.title,
     this.subtitle = "patients",
+    this.isRating = false,
   });
 
   @override
@@ -54,12 +57,19 @@ class StatisticIcon extends StatelessWidget {
     return Column(children: [
       SvgPicture.asset(icon),
       const SizedBox(height: 10),
-      Text("$title+",
-          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                fontWeight: FontWeight.w600,
-                color: ColorConstants.primaryTextColor,
-                fontSize: 16,
-              )),
+      isRating == true
+          ? Text(title,
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: ColorConstants.primaryTextColor,
+                    fontSize: 16,
+                  ))
+          : Text("$title+",
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: ColorConstants.primaryTextColor,
+                    fontSize: 16,
+                  )),
       const SizedBox(height: 5),
       Text(subtitle,
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
