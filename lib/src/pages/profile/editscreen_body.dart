@@ -1,9 +1,15 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/profile/cubit/user_profile_cubit.dart';
-import 'package:new_beginnings/src/pages/profile/edit_profile_components.dart';
-import 'package:new_beginnings/src/pages/profile/gender_selection.dart';
+
 import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
-import 'package:new_beginnings/src/pages/profile/payment_selection.dart';
+import 'package:new_beginnings/src/pages/profile/widgets/custom_textfeild_widget.dart';
+import 'package:new_beginnings/src/pages/profile/widgets/date_selection_widget.dart';
+import 'package:new_beginnings/src/pages/profile/widgets/gender_selection_widget.dart';
+import 'package:new_beginnings/src/pages/profile/widgets/heading_text_widget.dart';
+import 'package:new_beginnings/src/pages/profile/widgets/payment_selection.dart';
+import 'package:new_beginnings/src/pages/profile/widgets/top_component_widget.dart';
+import 'package:new_beginnings/src/pages/profile/widgets/uploadinsurance_widget.dart';
+import 'package:new_beginnings/src/pages/profile/widgets/user_profile_component.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
@@ -279,66 +285,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                       },
                     ),
                     const SizedBox(height: 20),
-                    _isInsured
-                        ? Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              HeadingText(
-                                  text: StringConstants.insurancedetails),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              CustomTextField(
-                                  keyboardType: TextInputType.name,
-                                  fieldName: StringConstants.insuranceName,
-                                  hintText: "Enter Name of Insurance",
-                                  controller: nameOfInsuranceController),
-                              CustomTextField(
-                                  fieldName: "Insurance Policy",
-                                  keyboardType: TextInputType.name,
-                                  hintText: "Enter Insurance Policy",
-                                  controller: insurancePolicyController),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              UploadInsuranceCard(
-                                image: widget.userDetails != null
-                                    ? widget
-                                            .userDetails!
-                                            .data!
-                                            .insuranceDetails!
-                                            .frontPic!
-                                            .isNotEmpty
-                                        ? widget.userDetails!.data!
-                                            .insuranceDetails!.frontPic
-                                        : null
-                                    : null,
-                                onFileSelected: (file) {
-                                  insuranceCardFront = file;
-                                },
-                                text: 'Upload front side of Card',
-                              ),
-                              UploadInsuranceCard(
-                                image: widget.userDetails != null
-                                    ? widget
-                                            .userDetails!
-                                            .data!
-                                            .insuranceDetails!
-                                            .backPic!
-                                            .isNotEmpty
-                                        ? widget.userDetails!.data!
-                                            .insuranceDetails!.backPic
-                                        : null
-                                    : null,
-                                onFileSelected: (file) {
-                                  insuranceCardBack = file;
-                                },
-                                text: 'Upload back side of Card',
-                                showlabeltext: false,
-                              ),
-                            ],
-                          )
-                        : Container(),
+                    _isInsured ? newMethod() : Container(),
                     const SizedBox(height: 20),
                     ExpandedSelectionWidget(
                       onTapped: (preferredLocation) {
@@ -427,6 +374,54 @@ class _EditScreenBodyState extends State<EditScreenBody> {
         ),
         isBackAppBar: false,
         appbarText: StringConstants.edit);
+  }
+
+  Column newMethod() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        HeadingText(text: StringConstants.insurancedetails),
+        const SizedBox(
+          height: 20,
+        ),
+        CustomTextField(
+            keyboardType: TextInputType.name,
+            fieldName: StringConstants.insuranceName,
+            hintText: "Enter Name of Insurance",
+            controller: nameOfInsuranceController),
+        CustomTextField(
+            fieldName: "Insurance Policy",
+            keyboardType: TextInputType.name,
+            hintText: "Enter Insurance Policy",
+            controller: insurancePolicyController),
+        const SizedBox(
+          height: 20,
+        ),
+        UploadInsuranceCard(
+          image: widget.userDetails != null
+              ? widget.userDetails!.data!.insuranceDetails!.frontPic!.isNotEmpty
+                  ? widget.userDetails!.data!.insuranceDetails!.frontPic
+                  : null
+              : null,
+          onFileSelected: (file) {
+            insuranceCardFront = file;
+          },
+          text: 'Upload front side of Card',
+        ),
+        UploadInsuranceCard(
+          image: widget.userDetails != null
+              ? widget.userDetails!.data!.insuranceDetails!.backPic!.isNotEmpty
+                  ? widget.userDetails!.data!.insuranceDetails!.backPic
+                  : null
+              : null,
+          onFileSelected: (file) {
+            insuranceCardBack = file;
+          },
+          text: 'Upload back side of Card',
+          showlabeltext: false,
+        ),
+      ],
+    );
   }
 
   Future<File?> saveImage(String? imageUrl) async {
