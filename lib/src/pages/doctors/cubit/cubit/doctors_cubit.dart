@@ -10,7 +10,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
 
   final List<Doctor> doctors = [
     Doctor(
-        name: "Nadeem Basheer",
+        name: "Nadeem Bashir",
         specialty: "Chef Executive Officer",
         image: "assets/images/nadeemPic.png",
         description:
