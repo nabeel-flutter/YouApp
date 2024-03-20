@@ -87,7 +87,7 @@ class ProfileScreenBody extends StatelessWidget {
                           margin: const EdgeInsets.only(bottom: 70),
                           child: Text(
                             StringConstants.profile,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20),
