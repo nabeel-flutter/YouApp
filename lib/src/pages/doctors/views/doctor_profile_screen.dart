@@ -23,13 +23,14 @@ class DoctorProfileScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: ColorConstants.black.withOpacity(0.2),
+                      color: ColorConstants.primaryTextColor.withOpacity(0.2),
                       spreadRadius: 0,
                       blurRadius: 16,
                       offset: const Offset(0, 6),
                     ),
                   ],
                   color: ColorConstants.white,
+                  border: Border.all(color: ColorConstants.primaryTextColor),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
