@@ -111,20 +111,20 @@ flavorizr:
   flavors:
     prod:
       app:
-        name: "Soft Tech Test"
+        name: "New Beginnings"
       android:
-        applicationId: "com.softTech.softTechTest.android"
+        applicationId: "com.newBeginnings.new_beginnings.android"
       ios:
-        bundleId: "com.softTech.softTechTest.ios"
+        bundleId: "com.newBeginnings.new_beginnings.ios"
       macos:
         bundleId: "com.softTech.softTechTest.mac"
     staging:
       app:
-        name: "Soft Tech Test Staging"
+        name: "New Beginnings Staging"
       android:
-        applicationId: "com.softTech.softTechTest.android"
+        applicationId: "com.newBeginnings.new_beginnings.android"
       ios:
-        bundleId: "com.softTech.softTechTest.ios"
+        bundleId: "com.newBeginnings.new_beginnings.ios"
       macos:
         bundleId: "com.softTech.softTechTest.mac"
 
