@@ -33,7 +33,7 @@ android {
     productFlavors {
         prod {
             dimension "flavor-type"
-        applicationId "com.softtech.sefttech_test.android"
+        applicationId "com.newBeginnings.new_beginnings.android"
             resValue "string", "app_name", "Soft Tech Test"
         }
         staging {
