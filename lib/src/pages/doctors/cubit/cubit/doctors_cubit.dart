@@ -133,7 +133,7 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         department: "Therapist"),
     Doctor(
         name: "Amanda Hoover",
-        specialty: "Mental Health",
+        specialty: "Clinical Mental Health Counseling ",
         image: "assets/images/amandaPic.png",
         description:
             '''Over the past 18 years within the mental health field, Amanda has carried extensive caseloads in working to develop her own personal niche while continuing to incorporate therapeutic approaches within her sessions. Amanda uses holistic and integrative approaches where clients can explore their challenges and collaboratively work together towards health and healing. She believes that no single approach is the right one for every individual and has been trained in a range of evidence-based practices. 
