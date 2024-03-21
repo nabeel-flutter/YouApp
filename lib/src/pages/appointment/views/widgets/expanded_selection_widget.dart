@@ -3,7 +3,7 @@ import 'package:new_beginnings/src/app/app_export.dart';
 class ExpandedSelectionWidget extends StatefulWidget {
   final String label;
   final List<String> textList;
-  final String title; 
+  final String title;
   final Function(String) onTapped;
 
   const ExpandedSelectionWidget({
@@ -66,7 +66,7 @@ class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
               title: Text(
                 currentTitle, // Use currentTitle for dynamic updates
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: const Color(0xff656567),
+                      color: ColorConstants.hintTextColor,
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
                     ),
