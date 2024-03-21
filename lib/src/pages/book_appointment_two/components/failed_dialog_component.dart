@@ -33,7 +33,7 @@ class FailedDialog extends StatelessWidget {
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                       color: darken(getThemeColor(context), 0.3),
                       fontFamily: FontConstants.gilroySemiBold)),
-              Container(
+              SizedBox(
                 width: 260,
                 child: Text(
                     'Unfortunately we have an issue with your payment, try again later ',

@@ -17,14 +17,18 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
   final GlobalKey webViewKey = GlobalKey();
 
   InAppWebViewController? webViewController;
+  // ignore: deprecated_member_use
   InAppWebViewGroupOptions options = InAppWebViewGroupOptions(
+    // ignore: deprecated_member_use
     crossPlatform: InAppWebViewOptions(
       useShouldOverrideUrlLoading: true,
       mediaPlaybackRequiresUserGesture: false,
     ),
+    // ignore: deprecated_member_use
     android: AndroidInAppWebViewOptions(
       useHybridComposition: true,
     ),
+    // ignore: deprecated_member_use
     ios: IOSInAppWebViewOptions(
       allowsInlineMediaPlayback: true,
     ),
@@ -47,7 +51,7 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
       // decodeData =
       //     '${navigationAction.request.url.toString().split('?d=').last}';
       final url = navigationAction.request.url.toString();
-              Navigator.pop(context);
+      Navigator.pop(context);
 
       if (url.contains('success')) {
         AlertDialogComponent.showDialogComponent(
@@ -58,14 +62,13 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
                   isInsured: false,
                 )),
             context: context);
-      }else{
+      } else {
         AlertDialogComponent.showDialogComponent(
             alertDialog: const AlertDialog(
                 insetPadding: EdgeInsets.all(16),
                 contentPadding: EdgeInsets.zero,
                 content: FailedDialog()),
             context: context);
-   
       }
     } catch (e) {
       context.router.pop();
@@ -80,6 +83,7 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
     contextMenu = ContextMenu(
       menuItems: [
         ContextMenuItem(
+          // ignore: deprecated_member_use
           androidId: 1,
           iosId: "1",
           title: "Special",
