@@ -57,6 +57,7 @@ class ServiceTopWidget extends StatelessWidget {
         Text(description!,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   fontWeight: FontWeight.w400,
+                  height: 1.5,
                 ))
       ],
     );
