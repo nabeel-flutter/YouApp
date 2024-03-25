@@ -1,5 +1,18 @@
 class AssetsConstants {
   //Images
+  static String nadeemPic = 'assets/images/nadeemPic.png';
+  static String docRaheelPic = 'assets/images/docRaheelPic.png';
+  static String docAlissaPic = 'assets/images/docAlissaPic.png';
+  static String rizwanMalikPic = 'assets/images/rizwanMalikPic.png';
+  static String loriPic = 'assets/images/loriPic.png';
+  static String williamPic = 'assets/images/williamPic.png';
+  static String seanPic = 'assets/images/seanPic.png';
+  static String charlesPic = 'assets/images/charlesPic.png';
+  static String jamesPic = 'assets/images/jamesPic.png';
+  static String nancyPic = 'assets/images/nancyPic.png';
+  static String kimberlyPic = 'assets/images/kimberlyPic.png';
+  static String jamiePic = 'assets/images/jamiePic.png';
+  static String amandaPic = 'assets/images/amandaPic.png';
   static String newappointmenticon = 'assets/images/new_appointment.png';
   static String timechnagedicon = 'assets/images/time_changed.png';
   static String paymentreceivedicon = 'assets/images/payment_received.png';
