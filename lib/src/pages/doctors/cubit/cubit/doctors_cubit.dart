@@ -19,7 +19,8 @@ class DoctorsCubit extends Cubit<DoctorsState> {
         reviews: "290",
         noOfPatients: "678",
         yearsOfExperience: "8",
-        department: "Management"),
+        department: "Executive Management"),
+    //add COO when provided
     Doctor(
         name: "Dr. Raheel Siddiqui",
         specialty: "DSc President",
@@ -30,7 +31,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
         reviews: "200",
         noOfPatients: "2000",
         yearsOfExperience: "10",
-        department: "Management"),
+        department: "Executive Management"),
     Doctor(
         name: "Alissa Emerich",
         specialty: "MS - Director of Clinical Training",
@@ -66,6 +67,18 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         yearsOfExperience: "11",
         department: "Management"),
     Doctor(
+        name: "Dr. William Belfar",
+        specialty: "Clinical Mental Health Counseling",
+        image: "assets/images/williamPic.png",
+        description:
+            "Dr. William S. Belfar, born in Brooklyn, New York, in 1963, commenced his academic journey with a degree in electrical engineering from SUNY at Stony Brook in May 1986. Transitioning to medicine, he earned his MD from New York University School of Medicine in May 1990. Dr. Belfar pursued specialized training, completing Neurology Residency at Boston University Medical Center in June 1994, followed by Psychiatry Residency at Johns Hopkins University Medical Center in June 1997. Further honing his expertise, he completed a fellowship in Forensic Psychiatry at the Albert Einstein College of Medicine in June 1998. Dr. Belfar is a board-certified psychiatrist recognized for his excellence in providing high-quality care, particularly in forensic psychiatry, garnering respect and recognition in his field.",
+        rating: "4.0",
+        reviews: "300",
+        noOfPatients: "658",
+        yearsOfExperience: "11",
+        department: "Management"),
+
+    Doctor(
         name: "Sean Lyons",
         specialty: "BA, LSW, MSW",
         image: "assets/images/seanPic.png",
@@ -75,7 +88,7 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         reviews: "300",
         noOfPatients: "658",
         yearsOfExperience: "11",
-        department: "Therapist"),
+        department: "Provider"),
     Doctor(
         name: "Dr. Charles Jin",
         specialty: "MD- Medical Director",
@@ -86,7 +99,7 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         reviews: "280",
         noOfPatients: "1000",
         yearsOfExperience: "11",
-        department: "Psychiatric Department"),
+        department: "Providers"),
     Doctor(
         name: "James Walsh",
         specialty: "Phd- Clinical Director",
@@ -97,7 +110,7 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         reviews: "300",
         noOfPatients: "650",
         yearsOfExperience: "11",
-        department: "Therapist"),
+        department: "Providers"),
     Doctor(
         name: "Nancy Allen",
         specialty: "MS,CRNP",
@@ -108,7 +121,7 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         reviews: "270",
         noOfPatients: "658",
         yearsOfExperience: "3",
-        department: "Psychiatric Nurse Practitioners"),
+        department: "Providers"),
     Doctor(
         name: "Kimberly Fleming",
         specialty: "Mental Health Therapist",
@@ -119,7 +132,7 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         reviews: "290",
         noOfPatients: "1200",
         yearsOfExperience: "11",
-        department: "Therapist"),
+        department: "Providers"),
     Doctor(
         name: "Jamie Evans",
         specialty: "LCSW",
@@ -130,10 +143,10 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         reviews: "290",
         noOfPatients: "678",
         yearsOfExperience: "8",
-        department: "Therapist"),
+        department: "Providers"),
     Doctor(
         name: "Amanda Hoover",
-        specialty: "Clinical Mental Health Counseling ",
+        specialty: "Clinical Mental Health Counseling",
         image: "assets/images/amandaPic.png",
         description:
             '''Over the past 18 years within the mental health field, Amanda has carried extensive caseloads in working to develop her own personal niche while continuing to incorporate therapeutic approaches within her sessions. Amanda uses holistic and integrative approaches where clients can explore their challenges and collaboratively work together towards health and healing. She believes that no single approach is the right one for every individual and has been trained in a range of evidence-based practices. 
@@ -143,16 +156,14 @@ Located in rural, central Pennsylvania, Amanda has a MS in Elementary Education,
         reviews: "290",
         noOfPatients: "678",
         yearsOfExperience: "18",
-        department: "Mental Health"),
+        department: "Providers"),
   ];
   List<Doctor> filteredDoctors = [];
   List<String> specaialty = [
     "All",
+    "Executive Management",
     "Management",
-    "Psychiatric Department",
-    "Psychiatric Nurse Practitioners",
-    "Therapist",
-    "Mental Health"
+    "Providers",
   ];
 
   // void getDoctors() {
