@@ -127,6 +127,7 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
           url: WebUri(widget.uri),
         ),
         initialUserScripts: UnmodifiableListView<UserScript>([]),
+        // ignore: deprecated_member_use
         initialOptions: options,
       ),
     );

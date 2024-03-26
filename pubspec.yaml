@@ -30,9 +30,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dialog_flowtter: ^0.2.0-nullsafety.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+   
   cupertino_icons: ^1.0.2
   flutter_flavorizr: ^2.2.1
   google_fonts: ^5.1.0
@@ -71,6 +73,8 @@ dependencies:
   skeletonizer: ^1.1.0
   flutter_inappwebview: ^6.0.0
   path_provider: ^2.1.2
+  flutter_tts: ^4.0.2
+  
 
 dev_dependencies:
   build_runner: ^2.4.6
@@ -150,6 +154,7 @@ flutter:
     - assets/images/
     - assets/icon/
     - assets/translations/
+    - assets/credentials/dialog_flow_auth.json
 
   #   - images/a_dot_ham.jpeg
 
