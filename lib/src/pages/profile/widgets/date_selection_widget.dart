@@ -80,10 +80,9 @@ class _DateSelectionWidgetState extends State<DateSelectionWidget> {
                 Text(
                   selectedDateText,
                   style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                    color: Color(0xff656567),
-                  ),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: ColorConstants.hintTextColor),
                 ),
               ],
             ),

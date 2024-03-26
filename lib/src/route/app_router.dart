@@ -94,5 +94,11 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: PaymentWebViewRoute.page,
         ),
+        AutoRoute(
+          page: PrivacyPolicyRoute.page,
+        ),
+        AutoRoute(
+          page: TermsConditionsRoute.page,
+        ),
       ];
 }

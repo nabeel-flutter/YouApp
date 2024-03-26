@@ -2,7 +2,8 @@ import 'package:new_beginnings/src/app/app_export.dart';
 
 class SuccessDialog extends StatelessWidget {
   const SuccessDialog({
-    super.key, required this.isInsured,
+    super.key,
+    required this.isInsured,
   });
   final bool isInsured;
 
@@ -30,14 +31,14 @@ class SuccessDialog extends StatelessWidget {
             children: [
               Image.asset(AssetsConstants.successDialogImage,
                   width: 156, height: 156),
-              Text(isInsured?"Request Generated" :'Payment Success!',
+              Text(isInsured ? "Request Generated" : 'Payment Success!',
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                       color: darken(getThemeColor(context), 0.3),
                       fontFamily: FontConstants.gilroySemiBold)),
               SizedBox(
                 width: 260,
                 child: Text(
-                    'We are delighted to inform you that we received your ${isInsured?"request":"payment"}',
+                    'We are delighted to inform you that we received your ${isInsured ? "request" : "payment"}',
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         color: darken(getThemeColor(context), 0.3),

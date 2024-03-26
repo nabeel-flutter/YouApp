@@ -107,7 +107,7 @@ class HomeScreenBody extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 BodyHeading(
-                  title: "Doctors",
+                  title: "Team Members",
                   onTap: () {
                     context.router.push(const AllDoctorsRoute());
                   },

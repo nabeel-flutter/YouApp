@@ -33,7 +33,7 @@ android {
     productFlavors {
         prod {
             dimension "flavor-type"
-        applicationId "com.softtech.sefttech_test.android"
+        applicationId "com.newBeginnings.new_beginnings.android"
             resValue "string", "app_name", "Soft Tech Test"
         }
         staging {
@@ -67,7 +67,7 @@ android {
         applicationId "com.example.softtecg_test"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()

@@ -127,6 +127,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                   userName:
                       "${firstNameController.text} ${lastNameController.text}",
                   userEmail: emailController.text,
+                  // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
                   onImageSelected: (File) {
                     avatar = File;
                   },

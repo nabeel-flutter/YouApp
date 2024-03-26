@@ -38,7 +38,7 @@ class CustomTextField extends StatelessWidget {
             contentPadding: const EdgeInsets.symmetric(
                 vertical: 21.0, horizontal: 10), // Adjust the vertical p
             filled: true,
-            fillColor: const Color(0xff80BCBD).withOpacity(0.2),
+            fillColor: ColorConstants.inputFeildBgColor.withOpacity(0.2),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: const BorderSide(color: ColorConstants.primaryColor),
@@ -58,7 +58,7 @@ class CustomTextField extends StatelessWidget {
             ),
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  color: const Color(0xff656567),
+                  color: ColorConstants.hintTextColor,
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
                 ),
