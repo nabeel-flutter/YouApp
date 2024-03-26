@@ -151,6 +151,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    PrivacyPolicyRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PrivacyPolicyScreen(),
+      );
+    },
     ProfileRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -189,6 +195,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const TPScreen(),
+      );
+    },
+    TermsConditionsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TermsConditionsScreen(),
       );
     },
     VerifyEmailRoute.name: (routeData) {
@@ -577,6 +589,20 @@ class PaymentWebViewRouteArgs {
 }
 
 /// generated route for
+/// [PrivacyPolicyScreen]
+class PrivacyPolicyRoute extends PageRouteInfo<void> {
+  const PrivacyPolicyRoute({List<PageRouteInfo>? children})
+      : super(
+          PrivacyPolicyRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PrivacyPolicyRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [ProfileScreen]
 class ProfileRoute extends PageRouteInfo<void> {
   const ProfileRoute({List<PageRouteInfo>? children})
@@ -680,6 +706,20 @@ class TPRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'TPRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TermsConditionsScreen]
+class TermsConditionsRoute extends PageRouteInfo<void> {
+  const TermsConditionsRoute({List<PageRouteInfo>? children})
+      : super(
+          TermsConditionsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TermsConditionsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
