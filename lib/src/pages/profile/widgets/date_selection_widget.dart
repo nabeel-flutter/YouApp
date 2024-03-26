@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 
 class DateSelectionWidget extends StatefulWidget {
@@ -81,10 +80,9 @@ class _DateSelectionWidgetState extends State<DateSelectionWidget> {
                 Text(
                   selectedDateText,
                   style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                    color: Color(0xff656567),
-                  ),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: ColorConstants.hintTextColor),
                 ),
               ],
             ),

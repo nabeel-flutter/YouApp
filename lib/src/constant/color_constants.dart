@@ -24,4 +24,5 @@ class ColorConstants {
   static const Color lightBlue = Color(0xff57A5D8);
   static const Color greenish = Color(0xff023E3F);
   static const Color grey = Color(0xff9D9D9D);
+  static const Color inputFeildBgColor = Color(0xff80BCBD);
 }

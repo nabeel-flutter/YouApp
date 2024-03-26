@@ -1,4 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/chatbot/chatbot_screen.dart';
 import 'package:new_beginnings/src/pages/my_logs/my_logs.dart';
 
 class AnimatedDrawerAfterLoadedState extends StatefulWidget {
@@ -19,6 +20,7 @@ class _AnimatedDrawerAfterLoadedStateState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingButton(),
       body: PageView(
         controller: context.read<AnimatedDrawerCubit>().pageController,
         physics: const NeverScrollableScrollPhysics(),
@@ -89,5 +91,28 @@ class _AnimatedDrawerAfterLoadedStateState
         },
       ),
     );
+  }
+}
+
+class FloatingButton extends StatelessWidget {
+  const FloatingButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+        backgroundColor: ColorConstants.primaryColor,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatBotScreen()),
+          );
+        },
+        child: Image.asset(
+          "assets/images/robot.png",
+          width: 30,
+          height: 30,
+        ));
   }
 }
