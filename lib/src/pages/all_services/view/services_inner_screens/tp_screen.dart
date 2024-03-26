@@ -1,5 +1,4 @@
 import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/all_services/view/services_inner_screens/widgets/paragraph_widget.dart';
 import 'package:new_beginnings/src/pages/all_services/view/services_inner_screens/widgets/service_info_card.dart';
 import 'package:new_beginnings/src/pages/all_services/view/services_inner_screens/widgets/service_top_widget.dart';
 
@@ -97,7 +96,7 @@ class TPScreen extends StatelessWidget {
                     "\nWhat does telepsychiatry look? Like for a typical patient?",
                 description:
                     '''The telepsychiatry experience diverges from traditional in-person psychiatric services. Patients engage with psychiatrists via videoconferencing, mimicking an in-person visit while possibly at a mental health facility but within a private setting for one-on-one sessions.
- 
+
 The scope of these appointments mirrors that of in-person visits, where doctors delve into issues, formulate treatment plans, and may prescribe medications through telepsychiatry. Subsequent appointments and referrals can also be managed similarly, offering patients substantial savings in travel time and expenses.''',
               )
             ],
