@@ -11,7 +11,7 @@ class DateSelectionWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _DateSelectionWidgetState createState() => _DateSelectionWidgetState();
+  State<DateSelectionWidget> createState() => _DateSelectionWidgetState();
 }
 
 class _DateSelectionWidgetState extends State<DateSelectionWidget> {
