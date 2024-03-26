@@ -6,10 +6,8 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailController =
-        TextEditingController(text: '');
-    TextEditingController passwordController =
-        TextEditingController(text: "");
+    TextEditingController emailController = TextEditingController(text: '');
+    TextEditingController passwordController = TextEditingController(text: "");
     // TextEditingController emailController =
     //     TextEditingController(text: '');
     // TextEditingController passwordController =
@@ -209,7 +207,7 @@ class SignInForm extends StatelessWidget {
                   )
                 ],
               )),
-          const SizedBox(height: 50),
+          // const SizedBox(height: 50),
           // const SocialLogin(),
         ],
       ),
