@@ -1,12 +1,10 @@
-import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/material.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'dart:math' as math;
 
 class UploadInsuranceCard extends StatefulWidget {
-  final bool? showlabeltext;
+  final bool? showLabelText;
   final String text;
   final Function(File?) onFileSelected;
   final String? image;
@@ -14,7 +12,7 @@ class UploadInsuranceCard extends StatefulWidget {
   const UploadInsuranceCard({
     Key? key,
     required this.text,
-    this.showlabeltext = true,
+    this.showLabelText = true,
     required this.onFileSelected,
     this.image,
   }) : super(key: key);
@@ -58,7 +56,7 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (widget.showlabeltext ?? true)
+                if (widget.showLabelText ?? true)
                   const Text(
                     "Uploaded Images of Insurance Card",
                     style: TextStyle(
@@ -85,7 +83,7 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (widget.showlabeltext ?? true)
+                    if (widget.showLabelText ?? true)
                       const Text(
                         "Uploaded Images of Insurance Card\n(Click image to change)",
                         style: TextStyle(
@@ -114,7 +112,7 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
               : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (widget.showlabeltext ?? true)
+                    if (widget.showLabelText ?? true)
                       const Text(
                         "Upload Images of Insurance Card",
                         style: TextStyle(
@@ -141,7 +139,7 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
                           Padding(
                             padding: const EdgeInsets.only(left: 8.0, top: 8),
                             child: Image.asset(
-                              AssetsConstants.uploadimageicon,
+                              AssetsConstants.uploadImageIcon,
                               width: 50,
                               height: 50,
                             ),
@@ -163,7 +161,7 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
                               ? Padding(
                                   padding: const EdgeInsets.only(right: 10.0),
                                   child: Image.asset(
-                                    AssetsConstants.uploadicon,
+                                    AssetsConstants.uploadIcon,
                                     width: 25,
                                     height: 25,
                                   ),

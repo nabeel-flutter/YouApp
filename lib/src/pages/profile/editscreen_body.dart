@@ -418,7 +418,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
             insuranceCardBack = file;
           },
           text: 'Upload back side of Card',
-          showlabeltext: false,
+          showLabelText: false,
         ),
       ],
     );

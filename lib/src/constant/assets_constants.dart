@@ -1,10 +1,10 @@
 class AssetsConstants {
   //Images
-  static String newappointmenticon = 'assets/images/new_appointment.png';
-  static String timechnagedicon = 'assets/images/time_changed.png';
-  static String paymentreceivedicon = 'assets/images/payment_received.png';
-  static String uploadimageicon = 'assets/images/upload_bg.png';
-  static String uploadicon = 'assets/images/dropback.png';
+  static String newAppointmentIcon = 'assets/images/new_appointment.png';
+  static String timeChangedIon = 'assets/images/time_changed.png';
+  static String paymentReceivedIcon = 'assets/images/payment_received.png';
+  static String uploadImageIcon = 'assets/images/upload_bg.png';
+  static String uploadIcon = 'assets/images/dropback.png';
 
   static const String logoutImage = 'assets/images/logout_image.png';
   static String doctorDetailImage = 'assets/images/doctor_profile_image.jpg';
@@ -21,7 +21,7 @@ class AssetsConstants {
       'assets/images/upcomming_appointment_card_doctor_image.png';
   static const String successDialogImage =
       'assets/images/success_dialog_image.png';
-  static const String paymnetProcessingDialog =
+  static const String paymentProcessingDialog =
       'assets/images/payment_loading.png';
   static const String failedDialogImage =
       'assets/images/failed_dioalog_image.png';

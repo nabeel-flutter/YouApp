@@ -34,7 +34,7 @@ class SuccessDialog extends StatelessWidget {
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
                       color: darken(getThemeColor(context), 0.3),
                       fontFamily: FontConstants.gilroySemiBold)),
-              Container(
+              SizedBox(
                 width: 260,
                 child: Text(
                     'We are delighted to inform you that we received your ${isInsured?"request":"payment"}',
