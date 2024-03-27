@@ -19,15 +19,15 @@ class _MessagesScreenState extends State<MessagesScreen> {
   }
 
   void _initializeTts() {
-    flutterTts.setStartHandler(() {
-      print("Playing");
-    });
-    flutterTts.setCompletionHandler(() {
-      print("Complete");
-    });
-    flutterTts.setErrorHandler((msg) {
-      print("error: $msg");
-    });
+    flutterTts.setStartHandler(() {});
+    flutterTts.setCompletionHandler(() {});
+    flutterTts.setErrorHandler((msg) {});
+  }
+
+  @override
+  void dispose() {
+    flutterTts.stop();
+    super.dispose();
   }
 
   Future<void> _speak(String text) async {
@@ -44,32 +44,33 @@ class _MessagesScreenState extends State<MessagesScreen> {
     return ListView.separated(
       itemBuilder: (context, index) {
         return Container(
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           child: Row(
             mainAxisAlignment: widget.messages[index]['isUserMessage']
                 ? MainAxisAlignment.end
                 : MainAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: 14, horizontal: 14),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
+                    bottomLeft: const Radius.circular(20),
+                    topRight: const Radius.circular(20),
                     bottomRight: Radius.circular(
                         widget.messages[index]['isUserMessage'] ? 0 : 20),
                     topLeft: Radius.circular(
                         widget.messages[index]['isUserMessage'] ? 20 : 0),
                   ),
                   color: widget.messages[index]['isUserMessage']
-                      ? Color(0xff80BCBD)
-                      : Color(0xff80BCBD).withOpacity(0.8),
+                      ? const Color(0xff80BCBD)
+                      : const Color(0xff80BCBD).withOpacity(0.8),
                 ),
                 constraints: BoxConstraints(maxWidth: w * 2 / 3),
                 child: Text(widget.messages[index]['message'].text.text[0]),
               ),
               InkWell(
-                child: Icon(
+                child: const Icon(
                   Icons.volume_up_rounded,
                   color: Color(0xff80BCBD),
                 ),
@@ -81,7 +82,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
           ),
         );
       },
-      separatorBuilder: (_, i) => Padding(padding: EdgeInsets.only(top: 10)),
+      separatorBuilder: (_, i) =>
+          const Padding(padding: EdgeInsets.only(top: 10)),
       itemCount: widget.messages.length,
     );
   }
