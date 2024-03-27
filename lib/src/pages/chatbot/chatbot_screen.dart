@@ -108,7 +108,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
 
   Future<void> sendMessage(String text) async {
     if (text.isEmpty) {
-      print('Message is empty');
+      return;
     } else {
       setState(() {
         addMessage(Message(text: DialogText(text: [text])), true);
@@ -123,7 +123,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
     }
   }
 
-  addMessage(Message message, [bool isUserMessage = false]) {
+  void addMessage(Message message, [bool isUserMessage = false]) {
     messages.add({'message': message, 'isUserMessage': isUserMessage});
   }
 }

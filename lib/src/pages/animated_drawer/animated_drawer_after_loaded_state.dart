@@ -20,7 +20,7 @@ class _AnimatedDrawerAfterLoadedStateState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingButton(),
+      floatingActionButton: const FloatingButton(),
       body: PageView(
         controller: context.read<AnimatedDrawerCubit>().pageController,
         physics: const NeverScrollableScrollPhysics(),
@@ -106,7 +106,7 @@ class FloatingButton extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ChatBotScreen()),
+            MaterialPageRoute(builder: (context) => const ChatBotScreen()),
           );
         },
         child: Image.asset(
