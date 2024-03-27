@@ -121,25 +121,7 @@ class MessageComponent extends StatelessWidget {
                         : const Color(0xff80BCBD).withOpacity(0.8),
                   ),
                   constraints: BoxConstraints(maxWidth: w * 2 / 3),
-                  child: message['isUserMessage']
-                      ? Text(message['message'].text.text[0])
-                      : AnimatedTextKit(
-                          animatedTexts: [
-                            TypewriterAnimatedText(
-                              message['message'].text.text[0],
-                              speed: const Duration(milliseconds: 5),
-                            ),
-                          ],
-                          onFinished: () {
-                            controller.animateTo(
-                              controller.position.maxScrollExtent + 100,
-                              curve: Curves.easeOut,
-                              duration: const Duration(milliseconds: 300),
-                            );
-                          },
-                          repeatForever: false,
-                          isRepeatingAnimation: false,
-                        )),
+                  child: Text(message['message'].text.text[0])),
             ],
           ),
           message['isUserMessage']
