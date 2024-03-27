@@ -97,7 +97,7 @@ class MessageComponent extends StatelessWidget {
                       radius: 25,
                       child: Image.asset("assets/images/robot.png"),
                     ),
-              SizedBox(
+              const SizedBox(
                 width: 8,
               ),
               Container(
@@ -123,11 +123,11 @@ class MessageComponent extends StatelessWidget {
           message['isUserMessage']
               ? Container()
               : InkWell(
+                  onTap: onTapSpeaker,
                   child: const Icon(
                     Icons.volume_up_rounded,
                     color: Color(0xff80BCBD),
                   ),
-                  onTap: onTapSpeaker,
                 )
         ],
       ),
