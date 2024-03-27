@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
@@ -101,23 +102,33 @@ class MessageComponent extends StatelessWidget {
                 width: 8,
               ),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: const Radius.circular(20),
-                    topRight: const Radius.circular(20),
-                    bottomRight:
-                        Radius.circular(message['isUserMessage'] ? 0 : 20),
-                    topLeft: Radius.circular(message['isUserMessage'] ? 20 : 0),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: const Radius.circular(20),
+                      topRight: const Radius.circular(20),
+                      bottomRight:
+                          Radius.circular(message['isUserMessage'] ? 0 : 20),
+                      topLeft:
+                          Radius.circular(message['isUserMessage'] ? 20 : 0),
+                    ),
+                    color: message['isUserMessage']
+                        ? const Color(0xff80BCBD)
+                        : const Color(0xff80BCBD).withOpacity(0.8),
                   ),
-                  color: message['isUserMessage']
-                      ? const Color(0xff80BCBD)
-                      : const Color(0xff80BCBD).withOpacity(0.8),
-                ),
-                constraints: BoxConstraints(maxWidth: w * 2 / 3),
-                child: Text(message['message'].text.text[0]),
-              ),
+                  constraints: BoxConstraints(maxWidth: w * 2 / 3),
+                  child: message['isUserMessage']
+                      ? Text(message['message'].text.text[0])
+                      : AnimatedTextKit(
+                          animatedTexts: [
+                            TypewriterAnimatedText(
+                              message['message'].text.text[0],
+                              speed: const Duration(milliseconds: 5),
+                            ),
+                          ],
+                          totalRepeatCount: 1,
+                        )),
             ],
           ),
           message['isUserMessage']
