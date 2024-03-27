@@ -7,7 +7,7 @@ class ChatBotScreen extends StatefulWidget {
   const ChatBotScreen({Key? key}) : super(key: key);
 
   @override
-  _ChatBotScreenState createState() => _ChatBotScreenState();
+  State<ChatBotScreen> createState() => _ChatBotScreenState();
 }
 
 class _ChatBotScreenState extends State<ChatBotScreen> {
