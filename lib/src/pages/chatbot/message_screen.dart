@@ -51,6 +51,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
       controller: widget.messagesScrollController,
       itemBuilder: (context, index) {
         return MessageComponent(
+            controller: widget.messagesScrollController,
             message: widget.messages[index],
             w: w,
             index: index,
@@ -72,7 +73,9 @@ class MessageComponent extends StatelessWidget {
     required this.w,
     required this.index,
     required this.onTapSpeaker,
+    required this.controller,
   });
+  final ScrollController controller;
 
   final dynamic message;
   final double w;
@@ -127,7 +130,15 @@ class MessageComponent extends StatelessWidget {
                               speed: const Duration(milliseconds: 5),
                             ),
                           ],
-                          totalRepeatCount: 1,
+                          onFinished: () {
+                            controller.animateTo(
+                              controller.position.maxScrollExtent + 100,
+                              curve: Curves.easeOut,
+                              duration: const Duration(milliseconds: 300),
+                            );
+                          },
+                          repeatForever: false,
+                          isRepeatingAnimation: false,
                         )),
             ],
           ),
