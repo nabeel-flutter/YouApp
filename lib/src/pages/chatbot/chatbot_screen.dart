@@ -13,6 +13,7 @@ class ChatBotScreen extends StatefulWidget {
 class _ChatBotScreenState extends State<ChatBotScreen> {
   late DialogFlowtter dialogFlowtter;
   final TextEditingController _controller = TextEditingController();
+  final ScrollController messagesScrollController = ScrollController();
 
   List<Map<String, dynamic>> messages = [];
   List<Map<String, String>> faq = [
@@ -29,41 +30,120 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
     dialogFlowtter =
         DialogFlowtter(jsonPath: "assets/credentials/dialog_flow_auth.json");
 
-    addMessage(Message(
-        text: DialogText(text: const [
-      "Hello! I am NB Chatbot. How can I help you today?"
-    ])));
+    // addMessage(Message(
+    //     text: DialogText(text: const [
+    //   "Hello! I am NB Chatbot. How can I help you today?"
+    // ])));
   }
 
   @override
   Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    dynamic message = {
+      'isUserMessage': false,
+      'message':
+          """Hello and welcome to New Beginnings! I'm here to guide you through scheduling your health appointments. Just let me know if you want to book, change, or review your appointments, and I’ll take care of the rest. How can I assist you today?"""
+    };
     return PrimaryBackground(
       appbarText: "NB Chatbot",
       isBackAppBar: true,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: const EdgeInsets.only(top: 10, left: 10),
-            child: Text(
-              "Here are some frequently asked questions:",
-              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+          messages.isEmpty
+              ? Container(
+                  margin: const EdgeInsets.only(
+                      top: 10, bottom: 10, left: 5, right: 5),
+                  child: Row(
+                    mainAxisAlignment: message['isUserMessage']
+                        ? MainAxisAlignment.end
+                        : MainAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          message['isUserMessage']
+                              ? Container()
+                              : CircleAvatar(
+                                  backgroundColor: Colors.transparent,
+                                  radius: 25,
+                                  child: Image.asset("assets/images/robot.png"),
+                                ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 14, horizontal: 14),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: const Radius.circular(20),
+                                topRight: const Radius.circular(20),
+                                bottomRight: Radius.circular(
+                                    message['isUserMessage'] ? 0 : 20),
+                                topLeft: Radius.circular(
+                                    message['isUserMessage'] ? 20 : 0),
+                              ),
+                              color: message['isUserMessage']
+                                  ? const Color(0xff80BCBD)
+                                  : const Color(0xff80BCBD).withOpacity(0.8),
+                            ),
+                            constraints: BoxConstraints(maxWidth: w * 2 / 3),
+                            child: Text(message['message']),
+                          )
+                        ],
+                      ),
+                      message['isUserMessage']
+                          ? Container()
+                          : InkWell(
+                              child: const Icon(
+                                Icons.volume_up_rounded,
+                                color: Color(0xff80BCBD),
+                              ),
+                              // onTap: onTapSpeaker,
+                            )
+                    ],
                   ),
+                )
+              : SizedBox(
+                  height: 20,
+                ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: faq
+                  .map((e) => InkWell(
+                        child: Container(
+                            margin: EdgeInsets.symmetric(vertical: 5),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(100),
+                                border: Border.all(
+                                    color: ColorConstants.primaryColor)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Text(e['question']!),
+                            )),
+                        onTap: () {
+                          sendMessage(e['question']!);
+                          FocusScope.of(context).unfocus();
+                          messagesScrollController.animateTo(
+                            messagesScrollController.position.maxScrollExtent +
+                                100,
+                            curve: Curves.easeOut,
+                            duration: const Duration(milliseconds: 300),
+                          );
+                        },
+                      ))
+                  .toList(),
             ),
           ),
-          Column(
-            children: faq
-                .map((e) => ListTile(
-                      title: Text(e['question']!),
-                      onTap: () {
-                        sendMessage(e['question']!);
-                      },
-                    ))
-                .toList(),
-          ),
-          Expanded(child: MessagesScreen(messages: messages)),
+          Expanded(
+              child: MessagesScreen(
+            messages: messages,
+            messagesScrollController: messagesScrollController,
+          )),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
             color: const Color(0xff0A7E80),
@@ -74,30 +154,31 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(8),
                     ),
                     child: TextField(
                       controller: _controller,
                       style: const TextStyle(color: Colors.black),
                       decoration: const InputDecoration(
                         hintText: 'Type a message...',
-                        hintStyle: TextStyle(color: Colors.grey),
+                        hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
                         border: InputBorder.none,
                       ),
                     ),
                   ),
                 ),
                 IconButton(
-                  onPressed: () {
-                    sendMessage(_controller.text);
-                    _controller.clear();
-                    FocusScope.of(context).unfocus();
-                  },
-                  icon: const Icon(
-                    Icons.send,
-                    color: Colors.white,
-                  ),
-                )
+                    onPressed: () {
+                      sendMessage(_controller.text);
+                      _controller.clear();
+                      FocusScope.of(context).unfocus();
+                    },
+                    icon: Image.asset(
+                      "assets/images/Vector.png",
+                      width: 25,
+                      height: 25,
+                      color: Colors.white,
+                    ))
               ],
             ),
           )
@@ -121,6 +202,11 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
         addMessage(response.message!);
       });
     }
+    messagesScrollController.animateTo(
+      messagesScrollController.position.maxScrollExtent + 500,
+      curve: Curves.easeOut,
+      duration: const Duration(milliseconds: 300),
+    );
   }
 
   void addMessage(Message message, [bool isUserMessage = false]) {
