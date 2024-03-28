@@ -38,18 +38,23 @@ class DoctorProfileScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    //add image with color filter
                     Expanded(
-                      child: Container(
-                          decoration: BoxDecoration(
+                      child: ClipRRect(
                         borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                          topRight: Radius.circular(12),
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12)),
+                        child: ColorFiltered(
+                          colorFilter: const ColorFilter.mode(
+                              ColorConstants.grey, BlendMode.saturation),
+                          child: Image.asset(
+                            doctor.image,
+                            height: MediaQuery.of(context).size.height * 0.3,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                        image: DecorationImage(
-                          image: AssetImage(doctor.image),
-                          fit: BoxFit.fill,
-                        ),
-                      )),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
