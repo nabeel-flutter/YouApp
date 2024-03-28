@@ -124,7 +124,7 @@ class _MessageComponentState extends State<MessageComponent> {
                         ? const Color(0xff80BCBD)
                         : const Color(0xff80BCBD).withOpacity(0.8),
                   ),
-                  constraints: BoxConstraints(maxWidth: w * 2 / 3),
+                  constraints: BoxConstraints(maxWidth: widget.w * 2 / 3),
                   child: Text(widget.message['message'].text.text[0])),
             ],
           ),
