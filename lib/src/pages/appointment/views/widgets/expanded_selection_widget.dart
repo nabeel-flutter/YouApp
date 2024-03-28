@@ -66,9 +66,9 @@ class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
               title: Text(
                 currentTitle, // Use currentTitle for dynamic updates
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: ColorConstants.hintTextColor,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
+                      color: Color(0xff656567),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
                     ),
               ),
               initiallyExpanded: false,

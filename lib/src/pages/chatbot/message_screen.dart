@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:new_beginnings/src/app/app_export.dart';
 
 class MessagesScreen extends StatefulWidget {
   final List messages;
+  final FlutterTts flutterTts;
   final ScrollController messagesScrollController;
   const MessagesScreen(
       {Key? key,
       required this.messages,
-      required this.messagesScrollController})
+      required this.messagesScrollController,
+      required this.flutterTts})
       : super(key: key);
 
   @override
@@ -15,8 +18,6 @@ class MessagesScreen extends StatefulWidget {
 }
 
 class _MessagesScreenState extends State<MessagesScreen> {
-  final FlutterTts flutterTts = FlutterTts();
-
   @override
   void initState() {
     super.initState();
@@ -24,22 +25,22 @@ class _MessagesScreenState extends State<MessagesScreen> {
   }
 
   void _initializeTts() {
-    flutterTts.setStartHandler(() {});
-    flutterTts.setCompletionHandler(() {});
-    flutterTts.setErrorHandler((msg) {});
+    widget.flutterTts.setStartHandler(() {});
+    widget.flutterTts.setCompletionHandler(() {});
+    widget.flutterTts.setErrorHandler((msg) {});
   }
 
   @override
   void dispose() {
-    flutterTts.stop();
+    widget.flutterTts.stop();
     super.dispose();
   }
 
   Future<void> _speak(String text) async {
     if (text.isNotEmpty) {
-      await flutterTts.stop();
+      await widget.flutterTts.stop();
 
-      await flutterTts.speak(text);
+      await widget.flutterTts.speak(text);
     }
   }
 
@@ -109,34 +110,39 @@ class _MessageComponentState extends State<MessageComponent> {
                 width: 8,
               ),
               Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: const Radius.circular(20),
-                      topRight: const Radius.circular(20),
-                      bottomRight: Radius.circular(
-                          widget.message['isUserMessage'] ? 0 : 20),
-                      topLeft: Radius.circular(
-                          widget.message['isUserMessage'] ? 20 : 0),
-                    ),
-                    color: widget.message['isUserMessage']
-                        ? const Color(0xff80BCBD)
-                        : const Color(0xff80BCBD).withOpacity(0.8),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: const Radius.circular(25.69),
+                    topRight: const Radius.circular(25.69),
+                    bottomRight: Radius.circular(
+                        widget.message['isUserMessage'] ? 0 : 25.69),
+                    topLeft: Radius.circular(
+                        widget.message['isUserMessage'] ? 25.69 : 0),
                   ),
-                  constraints: BoxConstraints(maxWidth: widget.w * 2 / 3),
-                  child: Text(widget.message['message'].text.text[0])),
+                  color: widget.message['isUserMessage']
+                      ? ColorConstants.primaryColor
+                      : Color(0xffF2F4F5),
+                ),
+                constraints: BoxConstraints(maxWidth: widget.w * 2 / 3),
+                child: Text(widget.message['message'].text.text[0],
+                    style: widget.message['isUserMessage']
+                        ? TextStyle(color: Colors.white, fontSize: 16)
+                        : TextStyle(color: Color(0xff303437), fontSize: 16)),
+              )
             ],
+          ),
+          SizedBox(
+            width: 10,
           ),
           widget.message['isUserMessage']
               ? Container()
               : InkWell(
                   onTap: widget.onTapSpeaker,
-                  child: const Icon(
-                    Icons.volume_up_rounded,
-                    color: Color(0xff80BCBD),
-                  ),
-                )
+                  child: SvgPicture.asset(
+                    "assets/images/volume-high.svg",
+                  ))
         ],
       ),
     );
