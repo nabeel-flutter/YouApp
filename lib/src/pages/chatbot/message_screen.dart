@@ -66,7 +66,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
   }
 }
 
-class MessageComponent extends StatelessWidget {
+class MessageComponent extends StatefulWidget {
   const MessageComponent({
     super.key,
     required this.message,
@@ -83,18 +83,23 @@ class MessageComponent extends StatelessWidget {
   final VoidCallback onTapSpeaker;
 
   @override
+  State<MessageComponent> createState() => _MessageComponentState();
+}
+
+class _MessageComponentState extends State<MessageComponent> {
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 10, bottom: 10, left: 5, right: 5),
       child: Row(
-        mainAxisAlignment: message['isUserMessage']
+        mainAxisAlignment: widget.message['isUserMessage']
             ? MainAxisAlignment.end
             : MainAxisAlignment.start,
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              message['isUserMessage']
+              widget.message['isUserMessage']
                   ? Container()
                   : CircleAvatar(
                       backgroundColor: Colors.transparent,
@@ -111,28 +116,28 @@ class MessageComponent extends StatelessWidget {
                     borderRadius: BorderRadius.only(
                       bottomLeft: const Radius.circular(20),
                       topRight: const Radius.circular(20),
-                      bottomRight:
-                          Radius.circular(message['isUserMessage'] ? 0 : 20),
-                      topLeft:
-                          Radius.circular(message['isUserMessage'] ? 20 : 0),
+                      bottomRight: Radius.circular(
+                          widget.message['isUserMessage'] ? 0 : 20),
+                      topLeft: Radius.circular(
+                          widget.message['isUserMessage'] ? 20 : 0),
                     ),
-                    color: message['isUserMessage']
+                    color: widget.message['isUserMessage']
                         ? const Color(0xff80BCBD)
                         : const Color(0xff80BCBD).withOpacity(0.8),
                   ),
-                  constraints: BoxConstraints(maxWidth: w * 2 / 3),
-                  child: message['isUserMessage']
-                      ? Text(message['message'].text.text[0])
+                  constraints: BoxConstraints(maxWidth: widget.w * 2 / 3),
+                  child: widget.message['isUserMessage']
+                      ? Text(widget.message['message'].text.text[0])
                       : AnimatedTextKit(
                           animatedTexts: [
                             TypewriterAnimatedText(
-                              message['message'].text.text[0],
+                              widget.message['message'].text.text[0],
                               speed: const Duration(milliseconds: 5),
                             ),
                           ],
                           onFinished: () {
-                            controller.animateTo(
-                              controller.position.maxScrollExtent + 100,
+                            widget.controller.animateTo(
+                              widget.controller.position.maxScrollExtent + 100,
                               curve: Curves.easeOut,
                               duration: const Duration(milliseconds: 300),
                             );
@@ -142,10 +147,10 @@ class MessageComponent extends StatelessWidget {
                         )),
             ],
           ),
-          message['isUserMessage']
+          widget.message['isUserMessage']
               ? Container()
               : InkWell(
-                  onTap: onTapSpeaker,
+                  onTap: widget.onTapSpeaker,
                   child: const Icon(
                     Icons.volume_up_rounded,
                     color: Color(0xff80BCBD),
