@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
@@ -125,26 +124,8 @@ class _MessageComponentState extends State<MessageComponent> {
                         ? const Color(0xff80BCBD)
                         : const Color(0xff80BCBD).withOpacity(0.8),
                   ),
-                  constraints: BoxConstraints(maxWidth: widget.w * 2 / 3),
-                  child: widget.message['isUserMessage']
-                      ? Text(widget.message['message'].text.text[0])
-                      : AnimatedTextKit(
-                          animatedTexts: [
-                            TypewriterAnimatedText(
-                              widget.message['message'].text.text[0],
-                              speed: const Duration(milliseconds: 5),
-                            ),
-                          ],
-                          onFinished: () {
-                            widget.controller.animateTo(
-                              widget.controller.position.maxScrollExtent + 100,
-                              curve: Curves.easeOut,
-                              duration: const Duration(milliseconds: 300),
-                            );
-                          },
-                          repeatForever: false,
-                          isRepeatingAnimation: false,
-                        )),
+                  constraints: BoxConstraints(maxWidth: w * 2 / 3),
+                  child: Text(widget.message['message'].text.text[0])),
             ],
           ),
           widget.message['isUserMessage']

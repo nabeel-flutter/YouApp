@@ -24,42 +24,10 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
   ];
 
   bool _isExpanded = false;
-  int _counter = 0;
-  Timer? _timer;
-
-  void startTimer() {
-    _counter = 0; // Reset counter
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      if (_counter < 5) {
-        executeFunction();
-        _counter++;
-      } else {
-        _timer?.cancel(); // Stop the timer when it has executed 5 times
-      }
-    });
-  }
-
-  void executeFunction() {
-    // Your function logic here
-    messagesScrollController.animateTo(
-      messagesScrollController.position.maxScrollExtent + 100,
-      curve: Curves.easeOut,
-      duration: const Duration(milliseconds: 300),
-    );
-
-    print('Function executed $_counter time(s)');
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel(); // Always cancel the timer to avoid memory leaks
-    super.dispose();
-  }
 
   @override
   void initState() {
     super.initState(); // Make sure to call super.initState()
-    startTimer();
     dialogFlowtter =
         DialogFlowtter(jsonPath: "assets/credentials/dialog_flow_auth.json");
 
@@ -203,7 +171,7 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
                               onTap: () {
                                 sendMessage(e['question']!);
                                 FocusScope.of(context).unfocus();
-                                startTimer();
+
                                 setState(() {
                                   _isExpanded = false;
                                 });
@@ -252,8 +220,6 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
                 ),
                 IconButton(
                     onPressed: () {
-                      startTimer();
-
                       sendMessage(_controller.text);
                       _controller.clear();
                       FocusScope.of(context).unfocus();
@@ -288,9 +254,9 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
       });
     }
     messagesScrollController.animateTo(
-      messagesScrollController.position.maxScrollExtent + 500,
+      messagesScrollController.position.maxScrollExtent + 1000,
       curve: Curves.easeOut,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(seconds: 1),
     );
   }
 

@@ -32,24 +32,25 @@ class DoctorProfileScreen extends StatelessWidget {
                     ),
                   ],
                   color: ColorConstants.white,
-                  border: Border.all(color: ColorConstants.primaryTextColor),
+                  // border: Border.all(color: ColorConstants.primaryTextColor),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    //add image with color filter
                     Expanded(
-                      child: Container(
-                          decoration: BoxDecoration(
+                      child: ClipRRect(
                         borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                          topRight: Radius.circular(12),
+                            topLeft: Radius.circular(12),
+                            topRight: Radius.circular(12)),
+                        child: Image.asset(
+                          doctor.image,
+                          height: MediaQuery.of(context).size.height * 0.3,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
                         ),
-                        image: DecorationImage(
-                          image: AssetImage(doctor.image),
-                          fit: BoxFit.fill,
-                        ),
-                      )),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
@@ -120,9 +121,11 @@ class DoctorProfileScreen extends StatelessWidget {
               ),
               //statistics widget
               const SizedBox(height: 20),
-              StatisticsWidget(
-                doctor: doctor,
-              ),
+              doctor.department == "Providers"
+                  ? StatisticsWidget(
+                      doctor: doctor,
+                    )
+                  : Container(),
               //about doctor
               const SizedBox(height: 20),
               DescriptionWidget(
