@@ -32,7 +32,7 @@ class DoctorProfileScreen extends StatelessWidget {
                     ),
                   ],
                   color: ColorConstants.white,
-                  border: Border.all(color: ColorConstants.primaryTextColor),
+                  // border: Border.all(color: ColorConstants.primaryTextColor),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
@@ -44,15 +44,11 @@ class DoctorProfileScreen extends StatelessWidget {
                         borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(12),
                             topRight: Radius.circular(12)),
-                        child: ColorFiltered(
-                          colorFilter: const ColorFilter.mode(
-                              ColorConstants.grey, BlendMode.saturation),
-                          child: Image.asset(
-                            doctor.image,
-                            height: MediaQuery.of(context).size.height * 0.3,
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                          ),
+                        child: Image.asset(
+                          doctor.image,
+                          height: MediaQuery.of(context).size.height * 0.3,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -125,9 +121,11 @@ class DoctorProfileScreen extends StatelessWidget {
               ),
               //statistics widget
               const SizedBox(height: 20),
-              StatisticsWidget(
-                doctor: doctor,
-              ),
+              doctor.department == "Providers"
+                  ? StatisticsWidget(
+                      doctor: doctor,
+                    )
+                  : Container(),
               //about doctor
               const SizedBox(height: 20),
               DescriptionWidget(
