@@ -34,6 +34,11 @@ class CustomTextField extends StatelessWidget {
           cursorColor: ColorConstants.primaryColor,
           controller: controller,
           keyboardType: keyboardType ?? TextInputType.text,
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                color: Color(0xff656567),
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.symmetric(
                 vertical: 21.0, horizontal: 10), // Adjust the vertical p
@@ -58,9 +63,9 @@ class CustomTextField extends StatelessWidget {
             ),
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  color: ColorConstants.hintTextColor,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
+                  color: Color(0xff656567),
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
                 ),
           ),
         ),
