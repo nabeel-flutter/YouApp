@@ -140,7 +140,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                   children: [
                     const SizedBox(height: 5),
                     HeadingText(
-                      text: StringConstants.personaldetails,
+                      text: StringConstants.personalDetails,
                     ),
                     const SizedBox(
                       height: 20,

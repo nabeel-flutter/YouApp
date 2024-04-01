@@ -692,7 +692,7 @@ class StringConstants {
   static String get ePrescriptions => _getLang('ePrescriptions');
   //user edit screen
   static String get insurancepolicy => _getLang("insurancepolicy");
-  static String get personaldetails => _getLang("Personal Details");
+  static String get personalDetails => _getLang("Personal Details");
 
   static String _getLang(String s) {
     return languageSelector(s);
