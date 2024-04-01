@@ -66,6 +66,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   @override
   void initState() {
     super.initState();
+
     if (widget.userDetails != null) {
       updateControllers();
     }
@@ -312,6 +313,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     Button(
                         label: 'Save',
                         onPressed: () {
+                          print(avatar);
                           if (selectedPaymentValue.isEmpty) {
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(const SnackBar(
