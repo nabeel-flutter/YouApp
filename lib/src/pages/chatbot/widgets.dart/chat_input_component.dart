@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 
 class ChatBotInputFeild extends StatelessWidget {
@@ -15,7 +14,7 @@ class ChatBotInputFeild extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: kToolbarHeight * 2,
-      decoration: BoxDecoration(color: Color(0xff0A7E80)),
+      decoration: const BoxDecoration(color: Color(0xff0A7E80)),
       child: Center(
         child: Container(
           padding: const EdgeInsets.all(20),
@@ -45,7 +44,7 @@ class ChatBotInputFeild extends StatelessWidget {
                                   .textTheme
                                   .labelSmall!
                                   .copyWith(
-                                      color: Color(0xff023E3F),
+                                      color: const Color(0xff023E3F),
                                       fontSize: 16,
                                       fontFamily: FontConstants.gilroyMedium),
                               controller: _controller,
@@ -55,7 +54,7 @@ class ChatBotInputFeild extends StatelessWidget {
                                       .textTheme
                                       .labelSmall!
                                       .copyWith(
-                                          color: Color(0xff023E3F),
+                                          color: const Color(0xff023E3F),
                                           fontSize: 16,
                                           fontFamily:
                                               FontConstants.gilroyMedium),
@@ -74,7 +73,7 @@ class ChatBotInputFeild extends StatelessWidget {
                               width: 30,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Color(0xff023E3F),
+                                color: const Color(0xff023E3F),
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),

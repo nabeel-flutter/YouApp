@@ -40,13 +40,6 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
         DialogFlowtter(jsonPath: "assets/credentials/dialog_flow_auth.json");
   }
 
-  Future<void> _speak(String text) async {
-    if (text.isNotEmpty) {
-      await flutterTts.stop();
-
-      await flutterTts.speak(text);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -665,7 +665,7 @@ class StringConstants {
 
   static String get email => _getLang('email');
 
-  static String get alternatephonenumber => _getLang('alternatephonenumber');
+  static String get alternatePhoneNumber => _getLang('alternatephonenumber');
 
   static String get password => _getLang('password');
 
