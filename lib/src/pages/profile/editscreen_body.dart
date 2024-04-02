@@ -66,6 +66,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
   @override
   void initState() {
     super.initState();
+
     if (widget.userDetails != null) {
       updateControllers();
     }
@@ -127,7 +128,6 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                   userName:
                       "${firstNameController.text} ${lastNameController.text}",
                   userEmail: emailController.text,
-                  // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
                   onImageSelected: (File) {
                     avatar = File;
                   },
@@ -141,7 +141,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                   children: [
                     const SizedBox(height: 5),
                     HeadingText(
-                      text: StringConstants.personaldetails,
+                      text: StringConstants.personalDetails,
                     ),
                     const SizedBox(
                       height: 20,
@@ -313,6 +313,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     Button(
                         label: 'Save',
                         onPressed: () {
+                          print(avatar);
                           if (selectedPaymentValue.isEmpty) {
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(const SnackBar(

@@ -26,6 +26,7 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
   String? _methodOfService;
   String? _technologyAvailable;
   String? _appointmentRequest;
+
   @override
   Widget build(BuildContext context) {
     debugPrint(widget.date);
@@ -42,18 +43,18 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
             orElse: () => Container(),
             loading: () => null,
             loaded: (data) async {
-              if(data.data['paymentLink']==null){
-              AlertDialogComponent.showDialogComponent(
-                alertDialog: const AlertDialog(
-                    insetPadding: EdgeInsets.all(16),
-                    contentPadding: EdgeInsets.zero,
-                    content: SuccessDialog(isInsured: true,)),
-                context: context);
-             
-                }else{
-    await context.router
-                  .push(PaymentWebViewRoute(uri: data.data['paymentLink']));
-          
+              if (data.data['paymentLink'] == null) {
+                AlertDialogComponent.showDialogComponent(
+                    alertDialog: const AlertDialog(
+                        insetPadding: EdgeInsets.all(16),
+                        contentPadding: EdgeInsets.zero,
+                        content: SuccessDialog(
+                          isInsured: true,
+                        )),
+                    context: context);
+              } else {
+                await context.router
+                    .push(PaymentWebViewRoute(uri: data.data['paymentLink']));
               }
             },
           );
@@ -73,6 +74,9 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                           onTapped: (methodOfService) {
                             setState(() {
                               _methodOfService = methodOfService;
+                              if (methodOfService == 'On-site (face-to-face)') {
+                                _technologyAvailable = null;
+                              }
                             });
                           },
                           title:
@@ -80,27 +84,28 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                           label:
                               "Please Select Your Preferred Method Of Service",
                           textList: const [
-                            'I would prefer on-site behavioral health services',
-                            'I would prefer telehealth (remote) behavioral health services',
-                            'I do not have preference for the type of behavioral health services I receive',
+                            'On-site (face-to-face)',
+                            'Telehealth (remote)',
+                            'Any available method (No preference)',
                           ],
                         ),
-                        ExpandedSelectionWidget(
-                          onTapped: (technologyAvailable) {
-                            setState(() {
-                              _technologyAvailable = technologyAvailable;
-                            });
-                          },
-                          title: _technologyAvailable ??
-                              "Type of Technology Available",
-                          label:
-                              "Please Select the type of Technology Available to you",
-                          textList: const [
-                            'I have access to internet at my home or at an accessible location',
-                            'I have a smart phone capable of adding the telehealth app for video conferencing',
-                            'I do not have reliable internet or a smart phone',
-                          ],
-                        ),
+                        if (_methodOfService != 'On-site (face-to-face)')
+                          ExpandedSelectionWidget(
+                            onTapped: (technologyAvailable) {
+                              setState(() {
+                                _technologyAvailable = technologyAvailable;
+                              });
+                            },
+                            title: _technologyAvailable ??
+                                "Type of Technology Available",
+                            label:
+                                "Please Select the type of Technology Available to you",
+                            textList: const [
+                              'I have access to internet at my home or at an accessible location',
+                              'I have a smart phone capable of adding the telehealth app for video conferencing',
+                              'I do not have reliable internet or a smart phone',
+                            ],
+                          ),
                         ExpandedSelectionWidget(
                           onTapped: (appointmentRequest) {
                             setState(() {
@@ -163,33 +168,38 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                     onTapped: (methodOfService) {
                       setState(() {
                         _methodOfService = methodOfService;
+                        if (methodOfService == 'On-site (face-to-face)') {
+                          _technologyAvailable = null;
+                        }
                       });
                     },
                     title: _methodOfService ?? "Preferred Method Of Service",
                     label: "Please Select Your Preferred Method Of Service",
                     textList: const [
-                      'I would prefer on-site behavioral health services',
-                      'I would prefer telehealth (remote) behavioral health services',
-                      'I do not have preference for the type of behavioral health services I receive',
+                      'On-site (face-to-face)',
+                      'Telehealth (remote)',
+                      'Any available method (No preference)',
                     ],
                   ),
+                  if (_methodOfService != 'On-site (face-to-face)')
+                    ExpandedSelectionWidget(
+                      onTapped: (technologyAvailable) {
+                        setState(() {
+                          _technologyAvailable = technologyAvailable;
+                        });
+                      },
+                      title: _technologyAvailable ??
+                          "Type of Technology Available",
+                      label:
+                          "Please Select the type of Technology Available to you",
+                      textList: const [
+                        'I have access to internet at my home or at an accessible location',
+                        'I have a smart phone capable of adding the telehealth app for video conferencing',
+                        'I do not have reliable internet or a smart phone',
+                      ],
+                    ),
                   ExpandedSelectionWidget(
-                    onTapped: (technologyAvailable) {
-                      setState(() {
-                        _technologyAvailable = technologyAvailable;
-                      });
-                    },
-                    title:
-                        _technologyAvailable ?? "Type of Technology Available",
-                    label:
-                        "Please Select the type of Technology Available to you",
-                    textList: const [
-                      'I have access to internet at my home or at an accessible location',
-                      'I have a smart phone capable of adding the telehealth app for video conferencing',
-                      'I do not have reliable internet or a smart phone',
-                    ],
-                  ),
-                  ExpandedSelectionWidget(
+                    hasOtherOption: true,
                     onTapped: (appointmentRequest) {
                       setState(() {
                         _appointmentRequest = appointmentRequest;
@@ -202,7 +212,7 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                       'I am referring a patient for behavioral health services',
                       'I am an existing patient requesting to schedule an appointment',
                       'I am an existing patient requesting to cancel and reschedule an appointment',
-                      'I am an existing patient and have a medication related question or concern'
+                      'I am an existing patient and have a medication related question or concern',
                     ],
                   ),
                   const SizedBox(
@@ -221,7 +231,9 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                         if (_methodOfService == null) {
                           ToastComponent3(context).showToast(
                               context, 'Please select method of service');
-                        } else if (_technologyAvailable == null) {
+                        } else if (_methodOfService !=
+                                'On-site (face-to-face)' &&
+                            _technologyAvailable == null) {
                           ToastComponent3(context).showToast(
                               context, 'Please select technology available');
                         } else if (_appointmentRequest == null) {

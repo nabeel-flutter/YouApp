@@ -38,11 +38,15 @@ class TopDoctorsWidget extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  image!,
-                  height: 100,
-                  width: 100,
-                  fit: BoxFit.cover,
+                child: ColorFiltered(
+                  colorFilter: const ColorFilter.mode(
+                      ColorConstants.grey, BlendMode.saturation),
+                  child: Image.asset(
+                    image!,
+                    height: 100,
+                    width: 100,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(width: 10), // Add spacing between image and text

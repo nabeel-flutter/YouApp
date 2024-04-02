@@ -5,6 +5,7 @@ class ExpandedSelectionWidget extends StatefulWidget {
   final List<String> textList;
   final String title;
   final Function(String) onTapped;
+  final bool hasOtherOption;
 
   const ExpandedSelectionWidget({
     super.key,
@@ -12,6 +13,7 @@ class ExpandedSelectionWidget extends StatefulWidget {
     required this.textList,
     required this.onTapped,
     required this.title,
+    this.hasOtherOption = false,
   });
 
   @override
@@ -25,11 +27,19 @@ class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
   bool expanded = false;
   ExpansionTileController expandedController = ExpansionTileController();
 
+  late TextEditingController otherOptionController;
+
   @override
   void initState() {
     super.initState();
-    currentTitle =
-        widget.title; // Initialize currentTitle with the widget's initial title
+    currentTitle = widget.title;
+    otherOptionController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    otherOptionController.dispose();
+    super.dispose();
   }
 
   @override
@@ -64,11 +74,11 @@ class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
               ),
               backgroundColor: ColorConstants.white,
               title: Text(
-                currentTitle, // Use currentTitle for dynamic updates
+                currentTitle,
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: ColorConstants.hintTextColor,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
+                      color: const Color(0xff656567),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
                     ),
               ),
               initiallyExpanded: false,
@@ -79,8 +89,7 @@ class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
                   (location) => ListTile(
                     onTap: () {
                       setState(() {
-                        currentTitle =
-                            location; // Update the currentTitle on selection
+                        currentTitle = location;
                       });
                       widget.onTapped(location);
                       expandedController.collapse();
@@ -94,7 +103,27 @@ class _ExpandedSelectionWidgetState extends State<ExpandedSelectionWidget> {
                           ),
                     ),
                   ),
-                )
+                ),
+                if (widget.hasOtherOption)
+                  ListTile(
+                    title: TextField(
+                      controller: otherOptionController,
+                      decoration: const InputDecoration(
+                        hintText: 'Other (Please specify)',
+                        hintStyle: TextStyle(
+                          color: ColorConstants.primaryTextColor,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        border: InputBorder.none,
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          widget.onTapped(value);
+                        });
+                      },
+                    ),
+                  ),
               ],
             ),
           )

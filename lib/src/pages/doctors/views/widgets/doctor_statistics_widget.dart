@@ -21,7 +21,7 @@ class StatisticsWidget extends StatelessWidget {
         StatisticIcon(
           icon: AssetsConstants.yearsOfExperienceIcon,
           title: doctor.yearsOfExperience.toString(),
-          subtitle: StringConstants.yearsExpert,
+          subtitle: "Experience",
         ),
         StatisticIcon(
           icon: AssetsConstants.ratingIconDoctor,

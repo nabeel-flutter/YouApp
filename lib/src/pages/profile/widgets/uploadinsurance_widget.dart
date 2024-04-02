@@ -70,7 +70,8 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
                       color: const Color(0xff80BCBD).withOpacity(0.2),
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: ColorConstants.greenish, // Set border color here
+                        color: ColorConstants
+                            .primaryColor, // Set border color here
                         width: 2.0, // Set border width here
                       ),
                     ),
@@ -98,7 +99,7 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
                             color: ColorConstants
-                                .greenish, // Set border color here
+                                .primaryColor, // Set border color here
                             width: 2.0, // Set border width here
                           ),
                         ),
@@ -128,9 +129,9 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
                         color: const Color(0xff80BCBD).withOpacity(0.2),
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color:
-                              ColorConstants.greenish, // Set border color here
-                          width: 2.0, // Set border width here
+                          color: ColorConstants
+                              .primaryColor, // Set border color here
+                          width: 1.0, // Set border width here
                         ),
                       ),
                       child: Row(
