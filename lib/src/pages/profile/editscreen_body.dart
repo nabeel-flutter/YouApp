@@ -436,7 +436,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
       Directory tempDir = await getTemporaryDirectory();
       String tempPath = tempDir.path;
 
-      String fileName = imageUrl.split('/').last;
+      String fileName = '${imageUrl.split('/').last}.jpg';
 
       File tempFile = File('$tempPath/$fileName');
       await tempFile.writeAsBytes(response.bodyBytes);
