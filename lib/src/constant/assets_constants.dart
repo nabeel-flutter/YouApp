@@ -6,11 +6,15 @@ class AssetsConstants {
   static String uploadImageIcon = 'assets/images/upload_bg.png';
   static String uploadIcon = 'assets/images/dropback.png';
   static String nadeemPic = 'assets/images/nadeemPic.png';
+  static String docsummarmirPic = 'assets/images/summarmirpic.png';
+  static String docimranPic = 'assets/images/imranfarooqi.png';
+
   static String docRaheelPic = 'assets/images/docRaheelPic.png';
   static String docAlissaPic = 'assets/images/docAlissaPic.png';
   static String rizwanMalikPic = 'assets/images/rizwanMalikPic.png';
   static String loriPic = 'assets/images/loriPic.png';
   static String williamPic = 'assets/images/williamPic.png';
+  static String arsalanPic = 'assets/images/docArsalanPic.png';
   static String seanPic = 'assets/images/seanPic.png';
   static String charlesPic = 'assets/images/charlesPic.png';
   static String jamesPic = 'assets/images/jamesPic.png';
@@ -18,6 +22,16 @@ class AssetsConstants {
   static String kimberlyPic = 'assets/images/kimberlyPic.png';
   static String jamiePic = 'assets/images/jamiePic.png';
   static String amandaPic = 'assets/images/amandaPic.png';
+  static String paigebakerPic = 'assets/images/paigebeaker.png';
+  static String ajeethaPic = 'assets/images/ajeethaPic.png';
+  static String maleavatar = 'assets/images/imranfarooqi.png';
+  static String michelelafeminaPic = 'assets/images/michelePic.png';
+  static String bernadettehulsingerPic = 'assets/images/bernadettePic.png';
+  static String femaleavatar = 'assets/images/femaleavatar.png';
+  static String marhtabricenoPic = 'assets/images/marthaPic.png';
+
+  static String syedtariqPic = 'assets/images/syedtariqpic.png';
+
   static String newappointmenticon = 'assets/images/new_appointment.png';
   static String timechnagedicon = 'assets/images/time_changed.png';
   static String paymentreceivedicon = 'assets/images/payment_received.png';
