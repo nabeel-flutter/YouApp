@@ -313,6 +313,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     Button(
                         label: 'Save',
                         onPressed: () {
+                          print(avatar);
                           if (selectedPaymentValue.isEmpty) {
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(const SnackBar(
