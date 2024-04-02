@@ -85,23 +85,32 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
         ContextMenuItem(
           // ignore: deprecated_member_use
           androidId: 1,
-          iosId: "1",
+          id: '1',
+          // iosId: "1",
           title: "Special",
           action: () async {
             await webViewController?.clearFocus();
           },
         )
       ],
-      options: ContextMenuOptions(hideDefaultSystemContextMenuItems: false),
+      settings: ContextMenuSettings(
+        hideDefaultSystemContextMenuItems: false,
+        // menuItems: ContextMenuItems.DEFAULT,
+        // show: true,
+      ),
+      // options: ContextMenuOptions(hideDefaultSystemContextMenuItems: false),
       onCreateContextMenu: (hitTestResult) async {},
       onHideContextMenu: () {},
       onContextMenuActionItemClicked: (contextMenuItemClicked) async {},
     );
 
     pullToRefreshController = PullToRefreshController(
-      options: PullToRefreshOptions(
+      settings: PullToRefreshSettings(
         color: Colors.blue,
       ),
+      // options: PullToRefreshOptions(
+      //   color: Colors.blue,
+      // ),
       onRefresh: () async {
         if (Platform.isAndroid) {
           webViewController?.reload();
