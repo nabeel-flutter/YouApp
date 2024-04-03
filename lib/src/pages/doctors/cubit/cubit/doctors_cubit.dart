@@ -147,7 +147,7 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         reviews: "300",
         noOfPatients: "650",
         yearsOfExperience: "11",
-        department: "Providers"),
+        department: "Managment"),
     Doctor(
         name: "Nancy Allen",
         specialty: "MS,CRNP",
@@ -159,17 +159,7 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         noOfPatients: "658",
         yearsOfExperience: "3",
         department: "Providers"),
-    Doctor(
-        name: "Kimberly Fleming",
-        specialty: "Mental Health Therapist",
-        image: AssetsConstants.kimberlyPic,
-        description:
-            "When human beings experience trauma or severe life stressors, it is not uncommon for their lives to unravel.  Kimberley’s great passion is bringing healing to people who have been through a traumatic or stressful experience.  Within the practice of New Beginnings, she helps her clients who include children and adults to find healthy perceptions  of themselves and strengthen their relationships. Most of all she helps them heal. She takes clients from ages 4 and up  and specializes in children. Kimberley began her career working as a school-based therapist in 2005 helping children and  family struggling with child abuse and neglect. She addressed challenges such as ADHD, autism, anxiety, and depression.  Since then, Kimberley has worked in several capacities and roles such as counseling, psychiatric consult in a mental  health facility, crisis intervention team and behavioral specialist. She has been trained in a range of modalities such as  play therapy, relational therapy, somatic and trauma training, and cognitive behavioral therapy. Her approach is client  and family centered focused on evidence-based therapies such as cognitive behavioral therapy. Kimberley has  therapeutic interests in the areas of mindfulness, parenting and family issues, child and adolescent development and  clinical areas of anxiety, depression, substance abuse and trauma.",
-        rating: "4.5",
-        reviews: "290",
-        noOfPatients: "1200",
-        yearsOfExperience: "11",
-        department: "Providers"),
+
     Doctor(
         name: "Jamie Evans",
         specialty: "LCSW",
