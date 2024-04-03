@@ -27,8 +27,8 @@ class _AnimatedDrawerAfterLoadedStateState
         children: const [
           HomeScreenBody(),
           AppointmentScreen(),
+          MyLogs(),
           ProfileScreen(),
-          MyLogs()
         ],
       ),
       bottomNavigationBar:
@@ -36,6 +36,7 @@ class _AnimatedDrawerAfterLoadedStateState
         listener: (context, state) {},
         builder: (context, state) {
           return BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
             backgroundColor: ColorConstants.primaryColor,
             selectedItemColor: ColorConstants.white,
             currentIndex: context.read<AnimatedDrawerCubit>().getBottomNavIndex,
@@ -76,9 +77,21 @@ class _AnimatedDrawerAfterLoadedStateState
               ),
               BottomNavigationBarItem(
                 icon: Image.asset(
-                  AssetsConstants.profileIcon,
+                  AssetsConstants.attachmentIcon,
                   color:
                       context.read<AnimatedDrawerCubit>().getBottomNavIndex == 2
+                          ? ColorConstants.white
+                          : ColorConstants.primaryTextColor,
+                  height: 24,
+                  width: 24,
+                ),
+                label: 'My Logs',
+              ),
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  AssetsConstants.profileIcon,
+                  color:
+                      context.read<AnimatedDrawerCubit>().getBottomNavIndex == 3
                           ? ColorConstants.white
                           : ColorConstants.primaryTextColor,
                   height: 24,
