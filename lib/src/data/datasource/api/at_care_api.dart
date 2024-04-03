@@ -12,6 +12,7 @@ import 'package:new_beginnings/src/data/dto/medical_records_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/product_dto.dart';
 import 'package:new_beginnings/src/data/dto/sehat_scan_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/token_dto.dart';
+import 'package:new_beginnings/src/pages/my_logs/model/mylogs_model.dart';
 import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 
 ///
@@ -38,6 +39,7 @@ class SoftTechTestApi {
 
   static String kRouteAuthVerifyEmail = 'resendEmailVerify';
   static String kRouteUserDetail = 'user';
+  static String kRouteLogs = 'logs';
   static String kRouteUpdateUserDetail = 'user/edit';
   static String kRouteGetAppointmentDetails = 'check_appointment_condition';
 
@@ -339,6 +341,12 @@ class SoftTechTestApi {
         (value) => UserDetails.fromJson(value as Map<String, dynamic>));
   }
 
+  Future<BaseResponseDto<LogDetails>> getLogs() async {
+    final response = await dio.get(kRouteLogs);
+    return BaseResponseDto.fromJson({"data": response.data},
+        (value) => LogDetails.fromJson(value as Map<String, dynamic>));
+  }
+
   Future<BaseResponseDto<AppointmentDetailsDto>> getAppointmentDetails() async {
     final response = await dio.get(kRouteGetAppointmentDetails);
     return BaseResponseDto.fromJson(
@@ -373,19 +381,20 @@ class SoftTechTestApi {
     MultipartFile? insuranceCardFrontImage0 = insuranceCardFrontImage != null
         ? await MultipartFile.fromFile(insuranceCardFrontImage.absolute.path,
             filename: insuranceCardFrontImage.absolute.path.split('/').last,
-            contentType:
-                MediaType('image', insuranceCardFrontImage.absolute.path.split('.').last))
+            contentType: MediaType(
+                'image', insuranceCardFrontImage.absolute.path.split('.').last))
         : null;
     MultipartFile? insuranceCardBackImage0 = insuranceCardBackImage != null
         ? await MultipartFile.fromFile(insuranceCardBackImage.absolute.path,
             filename: insuranceCardBackImage.absolute.path.split('/').last,
-            contentType:
-                MediaType('image', insuranceCardBackImage.absolute.path.split('.').last))
+            contentType: MediaType(
+                'image', insuranceCardBackImage.absolute.path.split('.').last))
         : null;
     MultipartFile? avatar0 = avatar != null
         ? await MultipartFile.fromFile(avatar.absolute.path,
             filename: avatar.absolute.path.split('/').last,
-            contentType: MediaType('image', avatar.absolute.path.split('.').last))
+            contentType:
+                MediaType('image', avatar.absolute.path.split('.').last))
         : null;
     final formData = FormData.fromMap({
       'firstName': firstName,
@@ -409,10 +418,11 @@ class SoftTechTestApi {
       "backPic": insuranceCardBackImage0,
       'insuranceName': paymentType == "insured" ? insuranceName : null,
       'insurancePolicy': paymentType == "insured" ? insurancePoilcyNumber : null
-      
-    }); final response = await dio.put(kRouteUpdateUserDetail,
-        data: formData,
-        );
+    });
+    final response = await dio.put(
+      kRouteUpdateUserDetail,
+      data: formData,
+    );
 
     return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
   }
