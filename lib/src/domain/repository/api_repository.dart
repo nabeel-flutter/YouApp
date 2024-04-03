@@ -9,6 +9,7 @@ import 'package:new_beginnings/src/domain/model/data_list.dart';
 import 'package:new_beginnings/src/domain/model/docotor.dart';
 import 'package:new_beginnings/src/domain/model/medical_records.dart';
 import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
+import 'package:new_beginnings/src/pages/my_logs/model/mylogs_model.dart';
 import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 
 abstract class ApiRepository extends Repository {
@@ -102,29 +103,30 @@ abstract class ApiRepository extends Repository {
 
   Future<Result<BaseResponseDto<UserDetails>>> getUser();
 
-  Future<Result<BaseResponseDto>> updateUser({
-    String? firstName,
-    String? lastName,
-    String? email,
-    String? phone,
-    String? alternateNumber,
-    File? insuranceCardFront,
-    File? insuranceCardBack,
-    String? insuranceName,
-    String? insurancePolicyNumber,
-    File? avatar,
-    String? country,
-    String? state,
-    String? city,
-    String? zipCode,
-    String? address,
-    String? dob,
-    String? gender,
-    String? ssn,
-    String? suffix,
-    String? prefferdLocation,
-    String paymentType
-  });
+  Future<Result<BaseResponseDto<LogDetails>>> getLogs();
+
+  Future<Result<BaseResponseDto>> updateUser(
+      {String? firstName,
+      String? lastName,
+      String? email,
+      String? phone,
+      String? alternateNumber,
+      File? insuranceCardFront,
+      File? insuranceCardBack,
+      String? insuranceName,
+      String? insurancePolicyNumber,
+      File? avatar,
+      String? country,
+      String? state,
+      String? city,
+      String? zipCode,
+      String? address,
+      String? dob,
+      String? gender,
+      String? ssn,
+      String? suffix,
+      String? prefferdLocation,
+      String paymentType});
 
   Future<Result<BaseResponseDto>> bookAppointment({
     required String appointmenDate,
