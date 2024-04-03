@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 
@@ -14,7 +13,7 @@ class MessagesScreen extends StatefulWidget {
       : super(key: key);
 
   @override
-  _MessagesScreenState createState() => _MessagesScreenState();
+  State<MessagesScreen> createState() => _MessagesScreenState();
 }
 
 class _MessagesScreenState extends State<MessagesScreen> {
@@ -123,17 +122,17 @@ class _MessageComponentState extends State<MessageComponent> {
                   ),
                   color: widget.message['isUserMessage']
                       ? ColorConstants.primaryColor
-                      : Color(0xffF2F4F5),
+                      : const Color(0xffF2F4F5),
                 ),
                 constraints: BoxConstraints(maxWidth: widget.w * 2 / 3),
                 child: Text(widget.message['message'].text.text[0],
                     style: widget.message['isUserMessage']
-                        ? TextStyle(color: Colors.white, fontSize: 16)
-                        : TextStyle(color: Color(0xff303437), fontSize: 16)),
+                        ? const TextStyle(color: Colors.white, fontSize: 16)
+                        : const TextStyle(color: Color(0xff303437), fontSize: 16)),
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
           widget.message['isUserMessage']

@@ -35,7 +35,7 @@ class CustomTextField extends StatelessWidget {
           controller: controller,
           keyboardType: keyboardType ?? TextInputType.text,
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: Color(0xff656567),
+                color: const Color(0xff656567),
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),
@@ -63,7 +63,7 @@ class CustomTextField extends StatelessWidget {
             ),
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  color: Color(0xff656567),
+                  color: const Color(0xff656567),
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                 ),

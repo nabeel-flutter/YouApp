@@ -15,23 +15,22 @@ class StatisticsWidget extends StatelessWidget {
       children: [
         StatisticIcon(
           icon: AssetsConstants.noOfPatientsIcon,
-          title: doctor.noOfPatients.toString(),
+          title: "${doctor.noOfPatients}+",
           subtitle: StringConstants.patients,
         ),
         StatisticIcon(
           icon: AssetsConstants.yearsOfExperienceIcon,
-          title: doctor.yearsOfExperience.toString(),
-          subtitle: StringConstants.yearsExpert,
+          title: "${doctor.yearsOfExperience}+ years",
+          subtitle: "Experience",
         ),
         StatisticIcon(
           icon: AssetsConstants.ratingIconDoctor,
           title: doctor.rating.toString(),
-          isRating: true,
           subtitle: StringConstants.rating,
         ),
         StatisticIcon(
           icon: AssetsConstants.reviewsIcon,
-          title: doctor.reviews.toString(),
+          title: "${doctor.reviews}+",
           subtitle: StringConstants.reviews,
         )
       ],
@@ -43,13 +42,12 @@ class StatisticIcon extends StatelessWidget {
   final String icon;
   final String title;
   final String subtitle;
-  final bool isRating;
+
   const StatisticIcon({
     super.key,
     this.icon = AssetsConstants.noOfPatientsIcon,
     required this.title,
     this.subtitle = "patients",
-    this.isRating = false,
   });
 
   @override
@@ -57,19 +55,12 @@ class StatisticIcon extends StatelessWidget {
     return Column(children: [
       SvgPicture.asset(icon),
       const SizedBox(height: 10),
-      isRating == true
-          ? Text(title,
-              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: ColorConstants.primaryTextColor,
-                    fontSize: 16,
-                  ))
-          : Text("$title+",
-              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: ColorConstants.primaryTextColor,
-                    fontSize: 16,
-                  )),
+      Text(title,
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                fontWeight: FontWeight.w600,
+                color: ColorConstants.primaryTextColor,
+                fontSize: 16,
+              )),
       const SizedBox(height: 5),
       Text(subtitle,
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(

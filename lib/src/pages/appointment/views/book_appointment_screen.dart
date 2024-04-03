@@ -74,8 +74,7 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                           onTapped: (methodOfService) {
                             setState(() {
                               _methodOfService = methodOfService;
-                              if (methodOfService ==
-                                  'I would prefer on-site behavioral health services') {
+                              if (methodOfService == 'On-site (face-to-face)') {
                                 _technologyAvailable = null;
                               }
                             });
@@ -85,13 +84,12 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                           label:
                               "Please Select Your Preferred Method Of Service",
                           textList: const [
-                            'I would prefer on-site behavioral health services',
-                            'I would prefer telehealth (remote) behavioral health services',
-                            'I do not have preference for the type of behavioral health services I receive',
+                            'On-site (face-to-face)',
+                            'Telehealth (remote)',
+                            'Any available method (No preference)',
                           ],
                         ),
-                        if (_methodOfService !=
-                            'I would prefer on-site behavioral health services')
+                        if (_methodOfService != 'On-site (face-to-face)')
                           ExpandedSelectionWidget(
                             onTapped: (technologyAvailable) {
                               setState(() {
@@ -170,8 +168,7 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                     onTapped: (methodOfService) {
                       setState(() {
                         _methodOfService = methodOfService;
-                        if (methodOfService ==
-                            'I would prefer on-site behavioral health services') {
+                        if (methodOfService == 'On-site (face-to-face)') {
                           _technologyAvailable = null;
                         }
                       });
@@ -179,13 +176,12 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                     title: _methodOfService ?? "Preferred Method Of Service",
                     label: "Please Select Your Preferred Method Of Service",
                     textList: const [
-                      'I would prefer on-site behavioral health services',
-                      'I would prefer telehealth (remote) behavioral health services',
-                      'I do not have preference for the type of behavioral health services I receive',
+                      'On-site (face-to-face)',
+                      'Telehealth (remote)',
+                      'Any available method (No preference)',
                     ],
                   ),
-                  if (_methodOfService !=
-                      'I would prefer on-site behavioral health services')
+                  if (_methodOfService != 'On-site (face-to-face)')
                     ExpandedSelectionWidget(
                       onTapped: (technologyAvailable) {
                         setState(() {
@@ -203,6 +199,7 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                       ],
                     ),
                   ExpandedSelectionWidget(
+                    hasOtherOption: true,
                     onTapped: (appointmentRequest) {
                       setState(() {
                         _appointmentRequest = appointmentRequest;
@@ -215,7 +212,7 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                       'I am referring a patient for behavioral health services',
                       'I am an existing patient requesting to schedule an appointment',
                       'I am an existing patient requesting to cancel and reschedule an appointment',
-                      'I am an existing patient and have a medication related question or concern'
+                      'I am an existing patient and have a medication related question or concern',
                     ],
                   ),
                   const SizedBox(
@@ -235,7 +232,7 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                           ToastComponent3(context).showToast(
                               context, 'Please select method of service');
                         } else if (_methodOfService !=
-                                'I would prefer on-site behavioral health services' &&
+                                'On-site (face-to-face)' &&
                             _technologyAvailable == null) {
                           ToastComponent3(context).showToast(
                               context, 'Please select technology available');

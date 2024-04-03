@@ -128,8 +128,8 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                   userName:
                       "${firstNameController.text} ${lastNameController.text}",
                   userEmail: emailController.text,
-                  onImageSelected: (File) {
-                    avatar = File;
+                  onImageSelected: (file) {
+                    avatar = file;
                   },
                 )),
             Padding(
@@ -267,7 +267,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                         keyboardType: TextInputType.number,
                         controller: phoneNumberController),
                     CustomTextField(
-                        fieldName: StringConstants.alternatephonenumber,
+                        fieldName: StringConstants.alternatePhoneNumber,
                         hintText: "Enter your Alternate Phone Number",
                         keyboardType: TextInputType.number,
                         controller: alternatePhoneNumController),
@@ -279,9 +279,9 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                           _isInsured = isInsured;
                         });
                       },
-                      onPaymentSelect: (paymentvalue) {
+                      onPaymentSelect: (paymentValue) {
                         setState(() {
-                          selectedPaymentValue = paymentvalue;
+                          selectedPaymentValue = paymentValue;
                         });
                       },
                     ),
@@ -437,7 +437,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
       Directory tempDir = await getTemporaryDirectory();
       String tempPath = tempDir.path;
 
-      String fileName = imageUrl.split('/').last;
+      String fileName = '${imageUrl.split('/').last}.jpg';
 
       File tempFile = File('$tempPath/$fileName');
       await tempFile.writeAsBytes(response.bodyBytes);

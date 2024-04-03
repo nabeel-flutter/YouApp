@@ -7,7 +7,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
   DoctorsCubit() : super(const DoctorsState.initial());
 
   final List<Doctor> doctors = [
-    //////////Executive Management//////////
+    //Executive Management
     Doctor(
         name: "Nadeem Bashir",
         specialty: "Chef Executive Officer",
@@ -54,7 +54,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
         yearsOfExperience: "10",
         department: "Executive Management"),
 
-    /////////////Managment/////////
+    //Management
     Doctor(
         name: "Alissa Emerich",
         specialty: "MS - Director of Clinical Training",
@@ -113,7 +113,7 @@ Over the last 20 years, Dr. Malik has served in various positions and has been t
         yearsOfExperience: "11",
         department: "Management"),
 
-    /////////////Provider////////
+    ///Providers
 
     Doctor(
         name: "Sean Lyons",
