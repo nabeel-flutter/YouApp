@@ -351,13 +351,11 @@ class SoftTechTestApi {
         (value) => LogDetails.fromJson(value as Map<String, dynamic>));
   }
 
-   Future<BaseResponseDto<TeamDto>> getTeam() async {
+  Future<BaseResponseDto<TeamDto>> getTeam() async {
     final response = await dio.get(kRoutegetTeam);
 
     return BaseResponseDto.fromJson({"data": response.data},
-        (value) => 
-      TeamDto.fromJson(value as Map<String, dynamic>)  
-        );
+        (value) => TeamDto.fromJson(value as Map<String, dynamic>));
   }
 
   Future<BaseResponseDto<AppointmentDetailsDto>> getAppointmentDetails() async {

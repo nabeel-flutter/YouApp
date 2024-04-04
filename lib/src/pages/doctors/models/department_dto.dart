@@ -9,8 +9,12 @@ class DepartmentDto {
 
   DepartmentDto({required this.department, required this.team});
 
-  factory DepartmentDto.fromJson(Map<String, dynamic> json) =>
-      _$DepartmentDtoFromJson(json);
+  factory DepartmentDto.fromJson(Map<String, dynamic> json) {
+    for (var element in json['team']) {
+      element['department'] = json['department'];
+    }
+    return _$DepartmentDtoFromJson(json);
+  }
 
   Map<String, dynamic> toJson() => _$DepartmentDtoToJson(this);
 }
@@ -18,6 +22,7 @@ class DepartmentDto {
 @JsonSerializable()
 class Team {
   String? id;
+  String? department;
   String? image;
   String? profile;
   String? name;
@@ -30,17 +35,18 @@ class Team {
   int? patients;
 
   Team({
-     this.id,
-     this.image,
-     this.profile,
-     this.name,
-     this.designation,
-     this.description,
-     this.suffix,
-     this.reviews,
-     this.ratings,
-     this.experiences,
-     this.patients,
+    this.id,
+    this.image,
+    this.profile,
+    this.name,
+    this.designation,
+    this.description,
+    this.suffix,
+    this.reviews,
+    this.department,
+    this.ratings,
+    this.experiences,
+    this.patients,
   });
 
   factory Team.fromJson(Map<String, dynamic> json) => _$TeamFromJson(json);

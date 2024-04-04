@@ -29,6 +29,7 @@ Team _$TeamFromJson(Map<String, dynamic> json) => Team(
       description: json['description'] as String?,
       suffix: json['suffix'] as String?,
       reviews: json['reviews'] as int?,
+      department: json['department'] as String?,
       ratings: (json['ratings'] as num?)?.toDouble(),
       experiences: json['experiences'] as int?,
       patients: json['patients'] as int?,
@@ -36,6 +37,7 @@ Team _$TeamFromJson(Map<String, dynamic> json) => Team(
 
 Map<String, dynamic> _$TeamToJson(Team instance) => <String, dynamic>{
       'id': instance.id,
+      'department': instance.department,
       'image': instance.image,
       'profile': instance.profile,
       'name': instance.name,

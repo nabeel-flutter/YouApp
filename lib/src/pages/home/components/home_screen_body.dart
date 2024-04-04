@@ -8,6 +8,7 @@ import 'package:new_beginnings/src/pages/home/components/widgets/top_doctors_wid
 import 'package:new_beginnings/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
 
 import 'package:new_beginnings/src/pages/all_services/cubit/cubit/service_cubit.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({
@@ -16,6 +17,7 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<DoctorsCubit>(context).getTeam();
     // List<ServiceModel> services = [
     //   ServiceModel(
     //       name: "Psychiatric\nEvaluation", image: AssetsConstants.pscyEvImage),
@@ -113,26 +115,76 @@ class HomeScreenBody extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 10),
-            //     Column(
-            //         children: BlocProvider.of<DoctorsCubit>(context)
-            //             .doctors
-            //             .map((e) => GestureDetector(
-            //                   onTap: () {
-            //                     context.router.push(
-            //                       DoctorProfileRoute(doctor: e,
-            //                       department: e.specialty
-            //                       ),
-            //                     );
-            //                   },
-            //                   child: TopDoctorsWidget(
-            //                     title: e.name,
-            //                     subtitle: e.specialty,
-            //                     image: e.image,
-            //                     description: e.description,
-            //                   ),
-            //                 ))
-            //             .toList()
-            //             .sublist(0, 5)),
+                BlocBuilder<DoctorsCubit, DoctorsState>(
+                  builder: (context, state) => state.maybeWhen(
+                    orElse: () => const Center(
+                      child: Text('hey'),
+                    ),
+                    loading: () {
+                      return Skeletonizer(
+                        child: Column(
+                          children: List.generate(5, (index) {
+                            return const TopDoctorsWidget(
+                              title: "",
+                              subtitle: "",
+                              image: "",
+                              description: "",
+                            );
+                          }),
+                        ),
+                      );
+                    },
+                    loaded: (team) => Column(
+                      children: team.data
+                          .map((e) => Column(
+                                children: [
+                                  Column(
+                                    children: e.team
+                                        .map((e) => GestureDetector(
+                                              onTap: () {
+                                                context.router.push(
+                                                    DoctorProfileRoute(
+                                                        doctor: e,
+                                                        department:
+                                                            e.department ??
+                                                                ""));
+                                              },
+                                              child: TopDoctorsWidget(
+                                                image: e.image ?? "",
+                                                description:
+                                                    e.description ?? "",
+                                                subtitle: e.designation ?? "",
+                                                title: e.name ?? "",
+                                              ),
+                                            ))
+                                        .toList(),
+                                  ),
+                                ],
+                              ))
+                          .toList(),
+                    ),
+                  ),
+                ),
+                //     Column(
+                //         children: BlocProvider.of<DoctorsCubit>(context)
+                //             .doctors
+                //             .map((e) => GestureDetector(
+                //                   onTap: () {
+                //                     context.router.push(
+                //                       DoctorProfileRoute(doctor: e,
+                //                       department: e.specialty
+                //                       ),
+                //                     );
+                //                   },
+                //                   child: TopDoctorsWidget(
+                //                     title: e.name,
+                //                     subtitle: e.specialty,
+                //                     image: e.image,
+                //                     description: e.description,
+                //                   ),
+                //                 ))
+                //             .toList()
+                //             .sublist(0, 5)),
               ],
             ),
           ),
