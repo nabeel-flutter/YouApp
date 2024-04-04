@@ -31,77 +31,82 @@ class _AnimatedDrawerAfterLoadedStateState
           ProfileScreen(),
         ],
       ),
-      bottomNavigationBar:
-          BlocConsumer<AnimatedDrawerCubit, AnimatedDrawerState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          return BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: ColorConstants.primaryColor,
-            selectedItemColor: ColorConstants.white,
-            currentIndex: context.read<AnimatedDrawerCubit>().getBottomNavIndex,
-            onTap: (index) {
-              context.read<AnimatedDrawerCubit>().updateIndex(
-                  isOpen: false,
-                  index: index,
-                  pageController:
-                      context.read<AnimatedDrawerCubit>().pageController,
-                  advancedDrawerController: context
-                      .read<AnimatedDrawerCubit>()
-                      .advancedDrawerController);
-            },
-            items: [
-              BottomNavigationBarItem(
-                icon: Image.asset(
-                  AssetsConstants.homeIcon,
-                  color:
-                      context.read<AnimatedDrawerCubit>().getBottomNavIndex == 0
-                          ? ColorConstants.white
-                          : ColorConstants.primaryTextColor,
-                  height: 24,
-                  width: 24,
-                ),
-                label: 'Home',
+      bottomNavigationBar: Container(
+        height: 77,
+        child: BlocConsumer<AnimatedDrawerCubit, AnimatedDrawerState>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            return BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: ColorConstants.primaryColor,
+              selectedItemColor: ColorConstants.white,
+              unselectedItemColor: ColorConstants.white,
+              selectedLabelStyle: const TextStyle(
+                fontSize: 12,
+                height: 1.8,
               ),
-              BottomNavigationBarItem(
-                icon: Image.asset(
-                  AssetsConstants.appointmentIcon,
-                  color:
-                      context.read<AnimatedDrawerCubit>().getBottomNavIndex == 1
-                          ? ColorConstants.white
-                          : ColorConstants.primaryTextColor,
-                  height: 24,
-                  width: 24,
+              unselectedLabelStyle: const TextStyle(height: 1.8, fontSize: 12),
+              currentIndex:
+                  context.read<AnimatedDrawerCubit>().getBottomNavIndex,
+              onTap: (index) {
+                context.read<AnimatedDrawerCubit>().updateIndex(
+                    isOpen: false,
+                    index: index,
+                    pageController:
+                        context.read<AnimatedDrawerCubit>().pageController,
+                    advancedDrawerController: context
+                        .read<AnimatedDrawerCubit>()
+                        .advancedDrawerController);
+              },
+              items: [
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    context.read<AnimatedDrawerCubit>().getBottomNavIndex == 0
+                        ? AssetsConstants.homefilledIcon
+                        : AssetsConstants.homeIcon,
+                    color: ColorConstants.white,
+                    height: 24,
+                    width: 24,
+                  ),
+                  label: 'Home',
                 ),
-                label: 'Appointments',
-              ),
-              BottomNavigationBarItem(
-                icon: Image.asset(
-                  AssetsConstants.attachmentIcon,
-                  color:
-                      context.read<AnimatedDrawerCubit>().getBottomNavIndex == 2
-                          ? ColorConstants.white
-                          : ColorConstants.primaryTextColor,
-                  height: 24,
-                  width: 24,
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    context.read<AnimatedDrawerCubit>().getBottomNavIndex == 1
+                        ? AssetsConstants.appoinmentfilledIcon
+                        : AssetsConstants.appointmentIcon,
+                    color: ColorConstants.white,
+                    height: 24,
+                    width: 24,
+                  ),
+                  label: 'Appointment',
                 ),
-                label: 'My Logs',
-              ),
-              BottomNavigationBarItem(
-                icon: Image.asset(
-                  AssetsConstants.profileIcon,
-                  color:
-                      context.read<AnimatedDrawerCubit>().getBottomNavIndex == 3
-                          ? ColorConstants.white
-                          : ColorConstants.primaryTextColor,
-                  height: 24,
-                  width: 24,
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    context.read<AnimatedDrawerCubit>().getBottomNavIndex == 2
+                        ? AssetsConstants.logfilledIcon
+                        : AssetsConstants.logIcon,
+                    color: ColorConstants.white,
+                    height: 24,
+                    width: 24,
+                  ),
+                  label: 'My Logs',
                 ),
-                label: 'Profile',
-              ),
-            ],
-          );
-        },
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    context.read<AnimatedDrawerCubit>().getBottomNavIndex == 3
+                        ? AssetsConstants.profilefilledIcon
+                        : AssetsConstants.profileIcon,
+                    color: ColorConstants.white,
+                    height: 24,
+                    width: 24,
+                  ),
+                  label: 'Profile',
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

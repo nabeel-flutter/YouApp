@@ -6,7 +6,7 @@ Widget buildLogDataView(LogDetails? logDetails, BuildContext context) {
     return const Center(child: Text("No log data available"));
   } else {
     return ListView.builder(
-      itemCount: logDetails!.data!.length,
+      itemCount: logDetails.data!.length,
       itemBuilder: (context, index) {
         return _buildLogItem(logDetails.data![index], context);
       },
@@ -16,35 +16,34 @@ Widget buildLogDataView(LogDetails? logDetails, BuildContext context) {
 
 Widget _buildLogItem(LogData logData, BuildContext context) {
   return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 16),
-    child: Column(
-      children: [
-        const SizedBox(height: 15),
-        Row(
-          children: [
-            _buildGroupedFields(
-              'Appointment ID',
-              logData.id!.substring(0, 6),
-              'Time Slot',
-              logData.timeSlot!,
-              'Payment Type',
-              logData.paymentType!,
-            ),
-            _buildGroupedFields(
-              'Date of Service (DOS)',
-              logData.appointmentDate!.substring(0, 10),
-              'Location',
-              logData.location!.substring(0, 11),
-              'Payment Status',
-              logData.paymentStatus!,
-            ),
-          ],
-        ),
-        const SizedBox(height: 12),
-        const Divider(),
-      ],
-    ),
-  );
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        children: [
+          const SizedBox(height: 15),
+          Row(
+            children: [
+              _buildGroupedFields(
+                'Appointment ID',
+                logData.id!.substring(0, 6),
+                'Time Slot',
+                logData.timeSlot!,
+                'Payment Type',
+                logData.paymentType!,
+              ),
+              _buildGroupedFields(
+                'Date of Service (DOS)',
+                logData.appointmentDate!.substring(0, 10),
+                'Location',
+                logData.location!.substring(0, 11),
+                'Payment Status',
+                logData.paymentStatus!,
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          const Divider(),
+        ],
+      ));
 }
 
 Widget _buildGroupedFields(String title1, String content1, String title2,

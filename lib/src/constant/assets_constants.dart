@@ -104,9 +104,16 @@ class AssetsConstants {
   static const String tempIcon = 'assets/icon/temp_icon.png';
   static const String weughtIcon = 'assets/icon/weight_icon.png';
   static const String settingIcon = 'assets/icon/setting_icon.png';
+  static const String homefilledIcon = 'assets/icon/homefilled.png';
   static const String homeIcon = 'assets/icon/homeIcon.png';
+  static const String appoinmentfilledIcon =
+      'assets/icon/appointmentfilled.png';
   static const String appointmentIcon = 'assets/icon/AppointmentIcon.png';
+  static const String logfilledIcon = 'assets/icon/logfilled.png';
+
   static const String profileIcon = 'assets/icon/profileIcon.png';
+
+  static const String profilefilledIcon = 'assets/icon/profilefilled.png';
   static const String appointmentsIcon = 'assets/icon/appointments.png';
   static const String communicationIcon = 'assets/icon/communication.png';
   static const String documentsIcon = 'assets/icon/documents.png';
@@ -172,7 +179,7 @@ class AssetsConstants {
   static const String checkIcon = 'assets/icon/check_icon.png';
   static const String unSelectedCheckIcon =
       'assets/icon/unselected_check_icon.png';
-  static const String attachmentIcon = 'assets/icon/attachment_icon.png';
+  static const String logIcon = 'assets/icon/attachment_icon.png';
   static const String sendMsgIcon = 'assets/icon/send_msg_icon.png';
   static const String documentTransparentIcon =
       'assets/icon/document_transparent_icon.png';

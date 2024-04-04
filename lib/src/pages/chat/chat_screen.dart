@@ -83,7 +83,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                 GestureDetector(
                                   onTap: () {},
                                   child: Image.asset(
-                                    AssetsConstants.attachmentIcon,
+                                    AssetsConstants.logIcon,
                                     height: 25.5,
                                     width: 25.5,
                                   ),
