@@ -1,7 +1,8 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/doctors/models/department_dto.dart';
 
 class StatisticsWidget extends StatelessWidget {
-  final Doctor doctor;
+  final Team doctor;
   const StatisticsWidget({
     super.key,
     required this.doctor,
@@ -15,17 +16,17 @@ class StatisticsWidget extends StatelessWidget {
       children: [
         StatisticIcon(
           icon: AssetsConstants.noOfPatientsIcon,
-          title: "${doctor.noOfPatients}+",
+          title: "${doctor.patients}+",
           subtitle: StringConstants.patients,
         ),
         StatisticIcon(
           icon: AssetsConstants.yearsOfExperienceIcon,
-          title: "${doctor.yearsOfExperience}+ years",
+          title: "${doctor.experiences}+ years",
           subtitle: "Experience",
         ),
         StatisticIcon(
           icon: AssetsConstants.ratingIconDoctor,
-          title: doctor.rating.toString(),
+          title: doctor.ratings.toString(),
           subtitle: StringConstants.rating,
         ),
         StatisticIcon(

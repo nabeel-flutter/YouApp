@@ -8,5 +8,5 @@ class DoctorsState with _$DoctorsState {
   const factory DoctorsState.Error(String message) = _Error;
   const factory DoctorsState.specialties({required List<String> specialties}) =
       _Specialties;
-  const factory DoctorsState.loaded(DepartmentDto team) = _Loaded;
+  const factory DoctorsState.loaded(TeamDto team) = _Loaded;
 }

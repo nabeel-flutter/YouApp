@@ -113,24 +113,26 @@ class HomeScreenBody extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 10),
-                Column(
-                    children: BlocProvider.of<DoctorsCubit>(context)
-                        .doctors
-                        .map((e) => GestureDetector(
-                              onTap: () {
-                                context.router.push(
-                                  DoctorProfileRoute(doctor: e),
-                                );
-                              },
-                              child: TopDoctorsWidget(
-                                title: e.name,
-                                subtitle: e.specialty,
-                                image: e.image,
-                                description: e.description,
-                              ),
-                            ))
-                        .toList()
-                        .sublist(0, 5)),
+            //     Column(
+            //         children: BlocProvider.of<DoctorsCubit>(context)
+            //             .doctors
+            //             .map((e) => GestureDetector(
+            //                   onTap: () {
+            //                     context.router.push(
+            //                       DoctorProfileRoute(doctor: e,
+            //                       department: e.specialty
+            //                       ),
+            //                     );
+            //                   },
+            //                   child: TopDoctorsWidget(
+            //                     title: e.name,
+            //                     subtitle: e.specialty,
+            //                     image: e.image,
+            //                     description: e.description,
+            //                   ),
+            //                 ))
+            //             .toList()
+            //             .sublist(0, 5)),
               ],
             ),
           ),

@@ -12,6 +12,7 @@ import 'package:new_beginnings/src/data/dto/medical_records_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/product_dto.dart';
 import 'package:new_beginnings/src/data/dto/sehat_scan_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/token_dto.dart';
+import 'package:new_beginnings/src/pages/doctors/models/department_dto.dart';
 import 'package:new_beginnings/src/pages/doctors/models/team_dto.dart';
 import 'package:new_beginnings/src/pages/my_logs/model/mylogs_model.dart';
 import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
@@ -350,10 +351,13 @@ class SoftTechTestApi {
         (value) => LogDetails.fromJson(value as Map<String, dynamic>));
   }
 
-  Future<BaseResponseDto<DepartmentDto>> getTeam() async {
+   Future<BaseResponseDto<TeamDto>> getTeam() async {
     final response = await dio.get(kRoutegetTeam);
+
     return BaseResponseDto.fromJson({"data": response.data},
-        (value) => DepartmentDto.fromJson(value as Map<String, dynamic>));
+        (value) => 
+      TeamDto.fromJson(value as Map<String, dynamic>)  
+        );
   }
 
   Future<BaseResponseDto<AppointmentDetailsDto>> getAppointmentDetails() async {
