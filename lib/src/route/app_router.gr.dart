@@ -60,6 +60,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: DoctorProfileScreen(
           key: args.key,
           doctor: args.doctor,
+          department: args.department,
         ),
       );
     },
@@ -335,13 +336,15 @@ class CPTRoute extends PageRouteInfo<void> {
 class DoctorProfileRoute extends PageRouteInfo<DoctorProfileRouteArgs> {
   DoctorProfileRoute({
     Key? key,
-    required Doctor doctor,
+    required Team doctor,
+    required String department,
     List<PageRouteInfo>? children,
   }) : super(
           DoctorProfileRoute.name,
           args: DoctorProfileRouteArgs(
             key: key,
             doctor: doctor,
+            department: department,
           ),
           initialChildren: children,
         );
@@ -356,15 +359,18 @@ class DoctorProfileRouteArgs {
   const DoctorProfileRouteArgs({
     this.key,
     required this.doctor,
+    required this.department,
   });
 
   final Key? key;
 
-  final Doctor doctor;
+  final Team doctor;
+
+  final String department;
 
   @override
   String toString() {
-    return 'DoctorProfileRouteArgs{key: $key, doctor: $doctor}';
+    return 'DoctorProfileRouteArgs{key: $key, doctor: $doctor, department: $department}';
   }
 }
 

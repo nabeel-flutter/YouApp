@@ -16,8 +16,9 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<DoctorsCubit>(context).getTeam();
     return PrimaryBackground(
-        appbarText: specialty=="All"?"Team Members": specialty,
+        appbarText: specialty == "All" ? "Team Members" : specialty,
         isBackAppBar: true,
         body: SingleChildScrollView(
           child: Padding(
@@ -55,7 +56,7 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                                   specialty = e;
                                 });
                                 BlocProvider.of<DoctorsCubit>(context)
-                                    .filterDoctorsBySpecialty(e);
+                                    .getTeam();
                               },
                             ),
                           ))
@@ -63,43 +64,63 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              Column(
-                children: specialty == 'All'
-                    ? context
-                        .read<DoctorsCubit>()
-                        .doctors
-                        .map((e) => GestureDetector(
-                              onTap: () {
-                                context.router.push(
-                                  DoctorProfileRoute(doctor: e),
-                                );
-                              },
-                              child: TopDoctorsWidget(
-                                title: e.name,
-                                subtitle: e.specialty,
-                                image: e.image,
-                                description: e.description,
-                              ),
-                            ))
-                        .toList()
-                    : context
-                        .read<DoctorsCubit>()
-                        .doctors
-                        .where((element) => element.department == specialty)
-                        .map((e) => GestureDetector(
-                              onTap: () {
-                                context.router.push(
-                                  DoctorProfileRoute(doctor: e),
-                                );
-                              },
-                              child: TopDoctorsWidget(
-                                title: e.name,
-                                subtitle: e.specialty,
-                                image: e.image,
-                                description: e.description,
-                              ),
+              BlocBuilder<DoctorsCubit, DoctorsState>(
+                builder: (context, state) => state.maybeWhen(
+                  orElse: () => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  loaded: (team) => Column(
+                    children: team.data
+                        .where((element) =>
+                            specialty == "All" || element.department == specialty)
+                        .map((e) => Column(
+                              children: [
+                                // Padding(
+                                //   padding: const EdgeInsets.symmetric(
+                                //       vertical: 10.0),
+                                //   child: Text(
+                                //     e.department,
+                                //     style: Theme.of(context)
+                                //         .textTheme
+                                //         .bodyLarge!
+                                //         .copyWith(
+                                //             color: ColorConstants.primaryColor,
+                                //             fontFamily: FontConstants.gilroyBold),
+                                //   ),
+                                // ),
+                                Column(
+                                  children: e.team
+                                      .map((e) => GestureDetector(
+                                        onTap: () {
+                                          context.router.push(DoctorProfileRoute(doctor: e,
+                                          department: e.designation??""
+                                          ));
+                                        },
+                                        child: TopDoctorsWidget(
+                                          image: e.image??"",
+                                              description: e.description??"",
+                                                subtitle: e.designation??"",
+                                              title: e.name??"",
+                                            ),
+                                      ))
+                                      .toList(),
+                                ),
+                              ],
                             ))
                         .toList(),
+                    // children: 
+                    // [Text(team.toString())]
+
+                      // children: team
+                      //     .where((element) =>
+                      //         specialty == "All" || element.specialty == specialty)
+                      //     .map((e) => TopDoctorsWidget(
+
+                      //           doctor: e,
+                      //         ))
+                      //     .toList(),
+                      ),
+                ),
               ),
             ]),
           ),

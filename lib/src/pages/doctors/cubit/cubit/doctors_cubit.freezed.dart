@@ -22,7 +22,7 @@ mixin _$DoctorsState {
     required TResult Function() loading,
     required TResult Function(String message) Error,
     required TResult Function(List<String> specialties) specialties,
-    required TResult Function(List<Doctor> doctors) loaded,
+    required TResult Function(TeamDto team) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$DoctorsState {
     TResult? Function()? loading,
     TResult? Function(String message)? Error,
     TResult? Function(List<String> specialties)? specialties,
-    TResult? Function(List<Doctor> doctors)? loaded,
+    TResult? Function(TeamDto team)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$DoctorsState {
     TResult Function()? loading,
     TResult Function(String message)? Error,
     TResult Function(List<String> specialties)? specialties,
-    TResult Function(List<Doctor> doctors)? loaded,
+    TResult Function(TeamDto team)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +133,7 @@ class _$_Initial implements _Initial {
     required TResult Function() loading,
     required TResult Function(String message) Error,
     required TResult Function(List<String> specialties) specialties,
-    required TResult Function(List<Doctor> doctors) loaded,
+    required TResult Function(TeamDto team) loaded,
   }) {
     return initial();
   }
@@ -145,7 +145,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? loading,
     TResult? Function(String message)? Error,
     TResult? Function(List<String> specialties)? specialties,
-    TResult? Function(List<Doctor> doctors)? loaded,
+    TResult? Function(TeamDto team)? loaded,
   }) {
     return initial?.call();
   }
@@ -157,7 +157,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loading,
     TResult Function(String message)? Error,
     TResult Function(List<String> specialties)? specialties,
-    TResult Function(List<Doctor> doctors)? loaded,
+    TResult Function(TeamDto team)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -252,7 +252,7 @@ class _$_Loading implements _Loading {
     required TResult Function() loading,
     required TResult Function(String message) Error,
     required TResult Function(List<String> specialties) specialties,
-    required TResult Function(List<Doctor> doctors) loaded,
+    required TResult Function(TeamDto team) loaded,
   }) {
     return loading();
   }
@@ -264,7 +264,7 @@ class _$_Loading implements _Loading {
     TResult? Function()? loading,
     TResult? Function(String message)? Error,
     TResult? Function(List<String> specialties)? specialties,
-    TResult? Function(List<Doctor> doctors)? loaded,
+    TResult? Function(TeamDto team)? loaded,
   }) {
     return loading?.call();
   }
@@ -276,7 +276,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loading,
     TResult Function(String message)? Error,
     TResult Function(List<String> specialties)? specialties,
-    TResult Function(List<Doctor> doctors)? loaded,
+    TResult Function(TeamDto team)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -351,7 +351,7 @@ class __$$_ErrorCopyWithImpl<$Res>
     Object? message = null,
   }) {
     return _then(_$_Error(
-      message: null == message
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -362,7 +362,7 @@ class __$$_ErrorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Error implements _Error {
-  const _$_Error({required this.message});
+  const _$_Error(this.message);
 
   @override
   final String message;
@@ -396,7 +396,7 @@ class _$_Error implements _Error {
     required TResult Function() loading,
     required TResult Function(String message) Error,
     required TResult Function(List<String> specialties) specialties,
-    required TResult Function(List<Doctor> doctors) loaded,
+    required TResult Function(TeamDto team) loaded,
   }) {
     return Error(message);
   }
@@ -408,7 +408,7 @@ class _$_Error implements _Error {
     TResult? Function()? loading,
     TResult? Function(String message)? Error,
     TResult? Function(List<String> specialties)? specialties,
-    TResult? Function(List<Doctor> doctors)? loaded,
+    TResult? Function(TeamDto team)? loaded,
   }) {
     return Error?.call(message);
   }
@@ -420,7 +420,7 @@ class _$_Error implements _Error {
     TResult Function()? loading,
     TResult Function(String message)? Error,
     TResult Function(List<String> specialties)? specialties,
-    TResult Function(List<Doctor> doctors)? loaded,
+    TResult Function(TeamDto team)? loaded,
     required TResult orElse(),
   }) {
     if (Error != null) {
@@ -471,7 +471,7 @@ class _$_Error implements _Error {
 }
 
 abstract class _Error implements DoctorsState {
-  const factory _Error({required final String message}) = _$_Error;
+  const factory _Error(final String message) = _$_Error;
 
   String get message;
   @JsonKey(ignore: true)
@@ -555,7 +555,7 @@ class _$_Specialties implements _Specialties {
     required TResult Function() loading,
     required TResult Function(String message) Error,
     required TResult Function(List<String> specialties) specialties,
-    required TResult Function(List<Doctor> doctors) loaded,
+    required TResult Function(TeamDto team) loaded,
   }) {
     return specialties(this.specialties);
   }
@@ -567,7 +567,7 @@ class _$_Specialties implements _Specialties {
     TResult? Function()? loading,
     TResult? Function(String message)? Error,
     TResult? Function(List<String> specialties)? specialties,
-    TResult? Function(List<Doctor> doctors)? loaded,
+    TResult? Function(TeamDto team)? loaded,
   }) {
     return specialties?.call(this.specialties);
   }
@@ -579,7 +579,7 @@ class _$_Specialties implements _Specialties {
     TResult Function()? loading,
     TResult Function(String message)? Error,
     TResult Function(List<String> specialties)? specialties,
-    TResult Function(List<Doctor> doctors)? loaded,
+    TResult Function(TeamDto team)? loaded,
     required TResult orElse(),
   }) {
     if (specialties != null) {
@@ -644,7 +644,7 @@ abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Doctor> doctors});
+  $Res call({TeamDto team});
 }
 
 /// @nodoc
@@ -657,13 +657,13 @@ class __$$_LoadedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? doctors = null,
+    Object? team = null,
   }) {
     return _then(_$_Loaded(
-      doctors: null == doctors
-          ? _value._doctors
-          : doctors // ignore: cast_nullable_to_non_nullable
-              as List<Doctor>,
+      null == team
+          ? _value.team
+          : team // ignore: cast_nullable_to_non_nullable
+              as TeamDto,
     ));
   }
 }
@@ -671,19 +671,14 @@ class __$$_LoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded({required final List<Doctor> doctors}) : _doctors = doctors;
+  const _$_Loaded(this.team);
 
-  final List<Doctor> _doctors;
   @override
-  List<Doctor> get doctors {
-    if (_doctors is EqualUnmodifiableListView) return _doctors;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_doctors);
-  }
+  final TeamDto team;
 
   @override
   String toString() {
-    return 'DoctorsState.loaded(doctors: $doctors)';
+    return 'DoctorsState.loaded(team: $team)';
   }
 
   @override
@@ -691,12 +686,11 @@ class _$_Loaded implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loaded &&
-            const DeepCollectionEquality().equals(other._doctors, _doctors));
+            (identical(other.team, team) || other.team == team));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_doctors));
+  int get hashCode => Object.hash(runtimeType, team);
 
   @JsonKey(ignore: true)
   @override
@@ -711,9 +705,9 @@ class _$_Loaded implements _Loaded {
     required TResult Function() loading,
     required TResult Function(String message) Error,
     required TResult Function(List<String> specialties) specialties,
-    required TResult Function(List<Doctor> doctors) loaded,
+    required TResult Function(TeamDto team) loaded,
   }) {
-    return loaded(doctors);
+    return loaded(team);
   }
 
   @override
@@ -723,9 +717,9 @@ class _$_Loaded implements _Loaded {
     TResult? Function()? loading,
     TResult? Function(String message)? Error,
     TResult? Function(List<String> specialties)? specialties,
-    TResult? Function(List<Doctor> doctors)? loaded,
+    TResult? Function(TeamDto team)? loaded,
   }) {
-    return loaded?.call(doctors);
+    return loaded?.call(team);
   }
 
   @override
@@ -735,11 +729,11 @@ class _$_Loaded implements _Loaded {
     TResult Function()? loading,
     TResult Function(String message)? Error,
     TResult Function(List<String> specialties)? specialties,
-    TResult Function(List<Doctor> doctors)? loaded,
+    TResult Function(TeamDto team)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(doctors);
+      return loaded(team);
     }
     return orElse();
   }
@@ -786,9 +780,9 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements DoctorsState {
-  const factory _Loaded({required final List<Doctor> doctors}) = _$_Loaded;
+  const factory _Loaded(final TeamDto team) = _$_Loaded;
 
-  List<Doctor> get doctors;
+  TeamDto get team;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       throw _privateConstructorUsedError;

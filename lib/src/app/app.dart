@@ -47,7 +47,7 @@ class App extends StatelessWidget {
               BlocProvider(create: (context) => AppointmentCubit(getIt.get())),
               BlocProvider(
                   create: (context) => BookAppointmentCubit(getIt.get())),
-              BlocProvider(create: (context) => DoctorsCubit()),
+              BlocProvider(create: (context) => DoctorsCubit(getIt.get())),
               BlocProvider(
                 create: (context) => ServiceCubit(),
               ),

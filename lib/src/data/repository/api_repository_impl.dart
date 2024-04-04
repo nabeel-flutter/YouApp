@@ -12,7 +12,9 @@ import 'package:new_beginnings/src/domain/model/data_list.dart';
 import 'package:new_beginnings/src/domain/model/docotor.dart';
 import 'package:new_beginnings/src/domain/model/medical_records.dart';
 import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
+import 'package:new_beginnings/src/pages/doctors/models/team_dto.dart';
 import 'package:new_beginnings/src/pages/my_logs/model/my_logs_model.dart';
+
 import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 
 class ApiRepositoryImpl extends ApiRepository {
@@ -130,7 +132,6 @@ class ApiRepositoryImpl extends ApiRepository {
     }
   }
 
-  @override
   Future<Result<DataList<Doctor>>> getDoctors(
       {required int medicalRecordId}) async {
     try {
@@ -280,6 +281,17 @@ class ApiRepositoryImpl extends ApiRepository {
     try {
       final response = await softTechTestApi.getLogs();
       return Result.success(objectMapper.toGetLogs(response));
+    } on Exception catch (e) {
+      logger.e(e);
+      return Result.failed(objectMapper.toError(e));
+    }
+  }
+
+  @override
+  Future<Result<BaseResponseDto<TeamDto>>> getTeam() async {
+    try {
+      final response = await softTechTestApi.getTeam();
+      return Result.success(objectMapper.toGetTeam(response));
     } on Exception catch (e) {
       logger.e(e);
       return Result.failed(objectMapper.toError(e));

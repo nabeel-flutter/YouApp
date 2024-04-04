@@ -1,6 +1,6 @@
 export 'package:new_beginnings/src/pages/payment_webview/payment_webview.dart';
 export 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
-
+   export 'package:new_beginnings/src/pages/doctors/models/department_dto.dart';
 export 'package:new_beginnings/src/pages/verify_email/verify_email_screen.dart';
 export 'package:auto_route/auto_route.dart';
 export 'package:new_beginnings/src/route/app_router.dart';
@@ -135,7 +135,7 @@ export 'dart:io';
 
 export 'package:new_beginnings/src/pages/profile/edit_profile.dart';
 
-export 'package:new_beginnings/src/pages/doctors/models/doctor_model.dart';
+export 'package:new_beginnings/src/pages/doctors/models/doctor.dart';
 export 'package:new_beginnings/src/pages/appointment/views/appoinment_screen.dart';
 export 'package:new_beginnings/src/pages/appointment/views/book_appointment_screen.dart';
 export 'package:new_beginnings/src/pages/doctors/views/all_doctors_screen.dart';
