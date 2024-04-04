@@ -1,10 +1,15 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
+import 'package:new_beginnings/src/pages/doctors/models/team_dto.dart';
+
+import 'package:new_beginnings/src/domain/common/result.dart';
 
 part 'doctors_state.dart';
 part 'doctors_cubit.freezed.dart';
 
 class DoctorsCubit extends Cubit<DoctorsState> {
-  DoctorsCubit() : super(const DoctorsState.initial());
+  ApiRepository apiRepository;
+  DoctorsCubit(this.apiRepository) : super(const DoctorsState.initial());
 
   final List<Doctor> doctors = [
     //Executive Management
@@ -295,19 +300,26 @@ Located in rural, central Pennsylvania, Amanda has a MS in Elementary Education,
     "Providers",
   ];
 
-  // void getDoctors() {
-  //   emit(DoctorsState.loaded(doctors: doctors));
-  // }
-
-  void filterDoctorsBySpecialty(String specialty) {
-    if (specialty == 'All') {
-      emit(DoctorsState.loaded(doctors: doctors));
-    } else if (specialty.isEmpty) {
-      emit(DoctorsState.loaded(doctors: doctors));
-    } else {
-      filteredDoctors =
-          doctors.where((doctor) => doctor.department == specialty).toList();
-      emit(DoctorsState.loaded(doctors: filteredDoctors));
-    }
+  Future<void> getTeam() async {
+    emit(const DoctorsState.loading());
+    final Result<BaseResponseDto<DepartmentDto>> result =
+        await apiRepository.getTeam();
+    result.when(
+        success: (data) {
+          emit(_Loaded(data.data!));
+        },
+        failed: (error) => emit(_Error(error.message)));
   }
+
+//   void filterDoctorsBySpecialty(String specialty) {
+//     if (specialty == 'All') {
+//       emit(DoctorsState.loaded(doctors: doctors));
+//     } else if (specialty.isEmpty) {
+//       emit(DoctorsState.loaded(doctors: doctors));
+//     } else {
+//       filteredDoctors =
+//           doctors.where((doctor) => doctor.department == specialty).toList();
+//       emit(DoctorsState.loaded(doctors: filteredDoctors));
+//     }
+//   }
 }

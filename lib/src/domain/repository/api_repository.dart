@@ -12,6 +12,8 @@ import 'package:new_beginnings/src/pages/appointment/models/appointments_details
 import 'package:new_beginnings/src/pages/my_logs/model/mylogs_model.dart';
 import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 
+import '../../pages/doctors/models/team_dto.dart';
+
 abstract class ApiRepository extends Repository {
   ///
   /// get user dashboard overview
@@ -102,6 +104,8 @@ abstract class ApiRepository extends Repository {
   Future<Result<BaseResponseDto>> verifyEmail({required String email});
 
   Future<Result<BaseResponseDto<UserDetails>>> getUser();
+
+  Future<Result<BaseResponseDto<DepartmentDto>>> getTeam();
 
   Future<Result<BaseResponseDto<LogDetails>>> getLogs();
 
