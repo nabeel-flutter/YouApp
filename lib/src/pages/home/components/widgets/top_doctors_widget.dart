@@ -46,6 +46,13 @@ class TopDoctorsWidget extends StatelessWidget {
                     height: 100,
                     width: 100,
                     fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        height: 100,
+                        width: 100,
+                        color: ColorConstants.grey,
+                      );
+                    },
                   ),
                 ),
               ),

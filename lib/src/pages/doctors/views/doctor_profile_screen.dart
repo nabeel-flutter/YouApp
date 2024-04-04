@@ -8,13 +8,14 @@ import 'package:new_beginnings/src/pages/doctors/views/widgets/doctor_statistics
 class DoctorProfileScreen extends StatelessWidget {
   final Team doctor;
   final String department;
-  const DoctorProfileScreen({super.key, required this.doctor, required this.department});
+  const DoctorProfileScreen(
+      {super.key, required this.doctor, required this.department});
 
   @override
   Widget build(BuildContext context) {
     return PrimaryBackground(
       isAppBar: true,
-      appbarText: department ,
+      appbarText: department,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
@@ -46,11 +47,20 @@ class DoctorProfileScreen extends StatelessWidget {
                         borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(12),
                             topRight: Radius.circular(12)),
-                        child: Image.asset(
-                          doctor.image!,
+                        child: Image.network(
+                          doctor.profile!,
                           height: MediaQuery.of(context).size.height * 0.3,
                           width: double.infinity,
                           fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return const Center(
+                              child: Icon(
+                                Icons.error,
+                                color: ColorConstants.primaryTextColor,
+                                size: 40,
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ),
