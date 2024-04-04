@@ -1,7 +1,7 @@
 class HttpConstants {
-  static const bool isProduction = true;
-  static const String ngroklink = 'https://95d8-2407-aa80-14-4f4-d1cf-425c-1994-9f5f.ngrok-free.app/api/v1/'
-;  static const String baseUrlArticle =
+  static const bool isProduction = false;
+  static const String ngroklink = 'http://192.168.18.7:7000/api/v1/';
+  static const String baseUrlArticle =
       'https://13be-111-88-87-28.ngrok-free.app/api/v1/';
   static const String base = isProduction
       ? "http://ec2-54-164-108-167.compute-1.amazonaws.com:7000/api/v1/"

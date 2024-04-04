@@ -72,7 +72,8 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                   loaded: (team) => Column(
                     children: team.data
                         .where((element) =>
-                            specialty == "All" || element.department == specialty)
+                            specialty == "All" ||
+                            element.department == specialty)
                         .map((e) => Column(
                               children: [
                                 // Padding(
@@ -91,35 +92,37 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                                 Column(
                                   children: e.team
                                       .map((e) => GestureDetector(
-                                        onTap: () {
-                                          context.router.push(DoctorProfileRoute(doctor: e,
-                                          department: e.designation??""
-                                          ));
-                                        },
-                                        child: TopDoctorsWidget(
-                                          image: e.image??"",
-                                              description: e.description??"",
-                                                subtitle: e.designation??"",
-                                              title: e.name??"",
+                                            onTap: () {
+                                              context.router.push(
+                                                  DoctorProfileRoute(
+                                                      doctor: e,
+                                                      department:
+                                                          e.department ?? ""));
+                                            },
+                                            child: TopDoctorsWidget(
+                                              image: e.image ?? "",
+                                              description: e.description ?? "",
+                                              subtitle: e.designation ?? "",
+                                              title: e.name ?? "",
                                             ),
-                                      ))
+                                          ))
                                       .toList(),
                                 ),
                               ],
                             ))
                         .toList(),
-                    // children: 
+                    // children:
                     // [Text(team.toString())]
 
-                      // children: team
-                      //     .where((element) =>
-                      //         specialty == "All" || element.specialty == specialty)
-                      //     .map((e) => TopDoctorsWidget(
+                    // children: team
+                    //     .where((element) =>
+                    //         specialty == "All" || element.specialty == specialty)
+                    //     .map((e) => TopDoctorsWidget(
 
-                      //           doctor: e,
-                      //         ))
-                      //     .toList(),
-                      ),
+                    //           doctor: e,
+                    //         ))
+                    //     .toList(),
+                  ),
                 ),
               ),
             ]),
