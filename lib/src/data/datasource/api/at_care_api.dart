@@ -12,7 +12,7 @@ import 'package:new_beginnings/src/data/dto/medical_records_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/product_dto.dart';
 import 'package:new_beginnings/src/data/dto/sehat_scan_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/token_dto.dart';
-import 'package:new_beginnings/src/pages/my_logs/model/mylogs_model.dart';
+import 'package:new_beginnings/src/pages/my_logs/model/my_logs_model.dart';
 import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 
 ///
