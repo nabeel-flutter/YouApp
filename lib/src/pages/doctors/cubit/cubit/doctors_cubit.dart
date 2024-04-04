@@ -1,6 +1,5 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
-import 'package:new_beginnings/src/pages/doctors/models/department_dto.dart';
 
 import 'package:new_beginnings/src/domain/common/result.dart';
 import 'package:new_beginnings/src/pages/doctors/models/team_dto.dart';
