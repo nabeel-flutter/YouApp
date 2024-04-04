@@ -41,7 +41,7 @@ class TopDoctorsWidget extends StatelessWidget {
                 child: ColorFiltered(
                   colorFilter: const ColorFilter.mode(
                       ColorConstants.grey, BlendMode.saturation),
-                  child: Image.asset(
+                  child: Image.network(
                     image!,
                     height: 100,
                     width: 100,

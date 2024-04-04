@@ -288,7 +288,7 @@ class ApiRepositoryImpl extends ApiRepository {
   }
 
   @override
-  Future<Result<BaseResponseDto<DepartmentDto>>> getTeam() async {
+  Future<Result<BaseResponseDto<TeamDto>>> getTeam() async {
     try {
       final response = await softTechTestApi.getTeam();
       return Result.success(objectMapper.toGetTeam(response));

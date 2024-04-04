@@ -1,18 +1,20 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/doctors/models/department_dto.dart';
 import 'package:new_beginnings/src/pages/doctors/views/widgets/description_widget.dart';
 
 import 'package:new_beginnings/src/pages/doctors/views/widgets/doctor_statistics_widget.dart';
 
 @RoutePage()
 class DoctorProfileScreen extends StatelessWidget {
-  final Doctor doctor;
-  const DoctorProfileScreen({super.key, required this.doctor});
+  final Team doctor;
+  final String department;
+  const DoctorProfileScreen({super.key, required this.doctor, required this.department});
 
   @override
   Widget build(BuildContext context) {
     return PrimaryBackground(
       isAppBar: true,
-      appbarText: doctor.department,
+      appbarText: department ,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
@@ -45,7 +47,7 @@ class DoctorProfileScreen extends StatelessWidget {
                             topLeft: Radius.circular(12),
                             topRight: Radius.circular(12)),
                         child: Image.asset(
-                          doctor.image,
+                          doctor.image!,
                           height: MediaQuery.of(context).size.height * 0.3,
                           width: double.infinity,
                           fit: BoxFit.cover,
@@ -61,7 +63,7 @@ class DoctorProfileScreen extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                doctor.name,
+                                doctor.name!,
                                 style: Theme.of(context)
                                     .textTheme
                                     .headlineSmall!
@@ -82,7 +84,7 @@ class DoctorProfileScreen extends StatelessWidget {
                                   const SizedBox(width: 5),
                                   Text(
                                     // ignore: prefer_interpolation_to_compose_strings
-                                    doctor.rating.toString() +
+                                    doctor.ratings.toString() +
                                         " " +
                                         '(' +
                                         doctor.reviews.toString() +
@@ -103,7 +105,7 @@ class DoctorProfileScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 5),
                           Text(
-                            doctor.specialty,
+                            doctor.designation!,
                             style: Theme.of(context)
                                 .textTheme
                                 .headlineSmall!
@@ -121,7 +123,7 @@ class DoctorProfileScreen extends StatelessWidget {
               ),
               //statistics widget
               const SizedBox(height: 20),
-              doctor.department == "Providers"
+              department == "Providers"
                   ? StatisticsWidget(
                       doctor: doctor,
                     )

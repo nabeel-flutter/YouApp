@@ -1,7 +1,8 @@
 import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:new_beginnings/src/pages/doctors/models/department_dto.dart';
 
 class DescriptionWidget extends StatelessWidget {
-  final Doctor doctor;
+  final Team doctor;
   const DescriptionWidget({
     super.key,
     required this.doctor,

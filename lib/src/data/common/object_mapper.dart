@@ -37,6 +37,7 @@ import 'package:new_beginnings/src/domain/model/shared_with_doctors.dart';
 import 'package:new_beginnings/src/domain/model/subscription.dart';
 import 'package:new_beginnings/src/domain/status/readings_status.dart';
 import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
+import 'package:new_beginnings/src/pages/doctors/models/department_dto.dart';
 import 'package:new_beginnings/src/pages/doctors/models/team_dto.dart';
 import 'package:new_beginnings/src/pages/my_logs/model/mylogs_model.dart';
 import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
@@ -438,12 +439,11 @@ class ObjectMapper {
     return BaseResponseDto(data: dto.data, message: dto.data['message']);
   }
 
-  BaseResponseDto<DepartmentDto> toGetTeam(BaseResponseDto<DepartmentDto> dto) {
-    return BaseResponseDto<DepartmentDto>(
+  BaseResponseDto<TeamDto> toGetTeam(BaseResponseDto<TeamDto> dto) {
+    return BaseResponseDto<TeamDto>(
       message: dto.message,
       status: dto.status,
-      data:
-          DepartmentDto(team: dto.data!.team, department: dto.data!.department),
+      data: TeamDto(data: dto.data!.data.map((e) => DepartmentDto(team: e.team, department: e.department)).toList()),
     );
   }
 }

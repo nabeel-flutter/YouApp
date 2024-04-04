@@ -1,8 +1,9 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
-import 'package:new_beginnings/src/pages/doctors/models/team_dto.dart';
+import 'package:new_beginnings/src/pages/doctors/models/department_dto.dart';
 
 import 'package:new_beginnings/src/domain/common/result.dart';
+import 'package:new_beginnings/src/pages/doctors/models/team_dto.dart';
 
 part 'doctors_state.dart';
 part 'doctors_cubit.freezed.dart';
@@ -302,7 +303,7 @@ Located in rural, central Pennsylvania, Amanda has a MS in Elementary Education,
 
   Future<void> getTeam() async {
     emit(const DoctorsState.loading());
-    final Result<BaseResponseDto<DepartmentDto>> result =
+    final Result<BaseResponseDto<TeamDto>> result =
         await apiRepository.getTeam();
     result.when(
         success: (data) {
