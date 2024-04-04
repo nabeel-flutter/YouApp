@@ -16,90 +16,70 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<DoctorsCubit>(context).getTeam();
     return PrimaryBackground(
-        appbarText: specialty=="All"?"Team Members": specialty,
+        appbarText: specialty == "All" ? "Team Members" : specialty,
         isBackAppBar: true,
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
             child: Column(children: [
               const SizedBox(height: 20),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: context
-                      .read<DoctorsCubit>()
-                      .specaialty
-                      .map((e) => Padding(
-                            padding: const EdgeInsets.only(right: 5.0),
-                            child: FilterChip(
-                              side: const BorderSide(
-                                  color: ColorConstants.primaryColor),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              backgroundColor: specialty == e
-                                  ? ColorConstants.primaryTextColor
-                                  : ColorConstants.white,
-                              label: Text(e,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(
-                                        color: specialty == e
-                                            ? ColorConstants.white
-                                            : ColorConstants.primaryTextColor,
-                                      )),
-                              onSelected: (bool value) {
-                                setState(() {
-                                  specialty = e;
-                                });
-                                BlocProvider.of<DoctorsCubit>(context)
-                                    .filterDoctorsBySpecialty(e);
-                              },
-                            ),
-                          ))
-                      .toList(),
-                ),
-              ),
+              // SingleChildScrollView(
+              //   scrollDirection: Axis.horizontal,
+              //   child: Row(
+              //     children: context
+              //         .read<DoctorsCubit>()
+              //         .specaialty
+              //         .map((e) => Padding(
+              //               padding: const EdgeInsets.only(right: 5.0),
+              //               child: FilterChip(
+              //                 side: const BorderSide(
+              //                     color: ColorConstants.primaryColor),
+              //                 shape: RoundedRectangleBorder(
+              //                   borderRadius: BorderRadius.circular(20),
+              //                 ),
+              //                 backgroundColor: specialty == e
+              //                     ? ColorConstants.primaryTextColor
+              //                     : ColorConstants.white,
+              //                 label: Text(e,
+              //                     style: Theme.of(context)
+              //                         .textTheme
+              //                         .bodySmall!
+              //                         .copyWith(
+              //                           color: specialty == e
+              //                               ? ColorConstants.white
+              //                               : ColorConstants.primaryTextColor,
+              //                         )),
+              //                 onSelected: (bool value) {
+              //                   setState(() {
+              //                     specialty = e;
+              //                   });
+              //                   BlocProvider.of<DoctorsCubit>(context)
+              //                       .getTeam();
+              //                 },
+              //               ),
+              //             ))
+              //         .toList(),
+              //   ),
+              // ),
               const SizedBox(height: 20),
-              Column(
-                children: specialty == 'All'
-                    ? context
-                        .read<DoctorsCubit>()
-                        .doctors
-                        .map((e) => GestureDetector(
-                              onTap: () {
-                                context.router.push(
-                                  DoctorProfileRoute(doctor: e),
-                                );
-                              },
-                              child: TopDoctorsWidget(
-                                title: e.name,
-                                subtitle: e.specialty,
-                                image: e.image,
-                                description: e.description,
-                              ),
-                            ))
-                        .toList()
-                    : context
-                        .read<DoctorsCubit>()
-                        .doctors
-                        .where((element) => element.department == specialty)
-                        .map((e) => GestureDetector(
-                              onTap: () {
-                                context.router.push(
-                                  DoctorProfileRoute(doctor: e),
-                                );
-                              },
-                              child: TopDoctorsWidget(
-                                title: e.name,
-                                subtitle: e.specialty,
-                                image: e.image,
-                                description: e.description,
-                              ),
-                            ))
-                        .toList(),
+              BlocBuilder<DoctorsCubit, DoctorsState>(
+                builder: (context, state) => state.maybeWhen(
+                  orElse: () => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  loaded: (team) => Column(children: [Text(team.toString())]
+                      // children: team
+                      //     .where((element) =>
+                      //         specialty == "All" || element.specialty == specialty)
+                      //     .map((e) => TopDoctorsWidget(
+
+                      //           doctor: e,
+                      //         ))
+                      //     .toList(),
+                      ),
+                ),
               ),
             ]),
           ),

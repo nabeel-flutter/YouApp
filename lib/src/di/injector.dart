@@ -49,7 +49,7 @@ void _injectBlocsAndCubits() {
   getIt.registerFactory(() => LogsCubit(getIt.get()));
 
   getIt.registerFactory(() => GAD7Cubit());
-  getIt.registerFactory(() => DoctorsCubit());
+  getIt.registerFactory(() => DoctorsCubit(getIt.get()));
   getIt.registerFactory(() => ServiceCubit());
   getIt.registerLazySingleton(() => AppRouter());
 }

@@ -37,6 +37,7 @@ import 'package:new_beginnings/src/domain/model/shared_with_doctors.dart';
 import 'package:new_beginnings/src/domain/model/subscription.dart';
 import 'package:new_beginnings/src/domain/status/readings_status.dart';
 import 'package:new_beginnings/src/pages/appointment/models/appointments_details_dto.dart';
+import 'package:new_beginnings/src/pages/doctors/models/team_dto.dart';
 import 'package:new_beginnings/src/pages/my_logs/model/mylogs_model.dart';
 import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
 
@@ -405,15 +406,16 @@ class ObjectMapper {
 
   BaseResponseDto<UserDetails> toGetUser(BaseResponseDto<UserDetails> dto) {
     return BaseResponseDto<UserDetails>(
-      message: dto.message,
-      status: dto.status,
-      data: UserDetails(data: dto.data!.data));
+        message: dto.message,
+        status: dto.status,
+        data: UserDetails(data: dto.data!.data));
   }
-    BaseResponseDto<LogDetails> toGetLogs(BaseResponseDto<LogDetails> dto) {
+
+  BaseResponseDto<LogDetails> toGetLogs(BaseResponseDto<LogDetails> dto) {
     return BaseResponseDto<LogDetails>(
-      message: dto.message,
-      status: dto.status,
-      data: LogDetails(data: dto.data!.data));
+        message: dto.message,
+        status: dto.status,
+        data: LogDetails(data: dto.data!.data));
   }
 
   BaseResponseDto<AppointmentDetailsDto> toGetAppointmentDetails(
@@ -429,10 +431,19 @@ class ObjectMapper {
   }
 
   BaseResponseDto toUpdateUser(BaseResponseDto dto) {
-    return  BaseResponseDto(data: dto.data, message: dto.data['message']);
+    return BaseResponseDto(data: dto.data, message: dto.data['message']);
   }
 
   BaseResponseDto toBookAppointment(BaseResponseDto dto) {
     return BaseResponseDto(data: dto.data, message: dto.data['message']);
+  }
+
+  BaseResponseDto<DepartmentDto> toGetTeam(BaseResponseDto<DepartmentDto> dto) {
+    return BaseResponseDto<DepartmentDto>(
+      message: dto.message,
+      status: dto.status,
+      data:
+          DepartmentDto(team: dto.data!.team, department: dto.data!.department),
+    );
   }
 }
