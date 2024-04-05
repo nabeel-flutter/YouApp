@@ -1,5 +1,7 @@
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 
+final localhostServer = InAppLocalhostServer(documentRoot: 'assets');
 FutureOr<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeInjectedDependencies();
@@ -16,7 +18,13 @@ FutureOr<void> main() async {
           ),
         ),
       );
+  if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
+    await InAppWebViewController.setWebContentsDebuggingEnabled(kDebugMode);
+  }
 
+  if (!kIsWeb) {
+    await localhostServer.start();
+  }
   runApp(
     EasyLocalization(
       supportedLocales: const [

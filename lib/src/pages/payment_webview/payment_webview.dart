@@ -85,8 +85,7 @@ class _PaymentWebViewScreenState extends State<PaymentWebViewScreen> {
         ContextMenuItem(
           // ignore: deprecated_member_use
           androidId: 1,
-          id: '1',
-          // iosId: "1",
+          id: 1,
           title: "Special",
           action: () async {
             await webViewController?.clearFocus();
