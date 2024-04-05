@@ -118,7 +118,7 @@ class HomeScreenBody extends StatelessWidget {
                 BlocBuilder<DoctorsCubit, DoctorsState>(
                   builder: (context, state) => state.maybeWhen(
                     orElse: () => const Center(
-                      child: Text('hey'),
+                      child: Text('No Team member is available'),
                     ),
                     loading: () {
                       return Skeletonizer(
@@ -137,29 +137,23 @@ class HomeScreenBody extends StatelessWidget {
                     loaded: (team) => Column(
                       children: team.data
                           .map((e) => Column(
-                                children: [
-                                  Column(
-                                    children: e.team
-                                        .map((e) => GestureDetector(
-                                              onTap: () {
-                                                context.router.push(
-                                                    DoctorProfileRoute(
-                                                        doctor: e,
-                                                        department:
-                                                            e.department ??
-                                                                ""));
-                                              },
-                                              child: TopDoctorsWidget(
-                                                image: e.image ?? "",
-                                                description:
-                                                    e.description ?? "",
-                                                subtitle: e.designation ?? "",
-                                                title: e.name ?? "",
-                                              ),
-                                            ))
-                                        .toList(),
-                                  ),
-                                ],
+                                children: e.team
+                                    .map((e) => GestureDetector(
+                                          onTap: () {
+                                            context.router.push(
+                                                DoctorProfileRoute(
+                                                    doctor: e,
+                                                    department:
+                                                        e.department ?? ""));
+                                          },
+                                          child: TopDoctorsWidget(
+                                            image: e.image ?? "",
+                                            description: e.description ?? "",
+                                            subtitle: e.designation ?? "",
+                                            title: e.name ?? "",
+                                          ),
+                                        ))
+                                    .toList(),
                               ))
                           .toList(),
                     ),
