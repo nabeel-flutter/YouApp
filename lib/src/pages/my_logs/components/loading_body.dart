@@ -30,7 +30,7 @@ class LoadingView extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children:
-              List.generate(5, (index) => const ShimmerContainer()).toList(),
+              List.generate(10, (index) => const ShimmerContainer()).toList(),
         ),
       ),
     );
