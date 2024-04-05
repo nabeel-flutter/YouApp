@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_beginnings/src/core/extension/string_extension.dart';
 import 'package:new_beginnings/src/pages/my_logs/model/my_logs_model.dart';
 
 class LogDataView extends StatelessWidget {
@@ -41,7 +42,7 @@ class LogItem extends StatelessWidget {
                 title2: 'Time Slot',
                 content2: logData.timeSlot!,
                 title3: 'Payment Type',
-                content3: logData.paymentType!,
+                content3: logData.paymentType!.toCapitalized(),
               ),
               GroupedFields(
                 title1: 'Date of Service (DOS)',
@@ -49,7 +50,7 @@ class LogItem extends StatelessWidget {
                 title2: 'Location',
                 content2: logData.location!.substring(0, 11),
                 title3: 'Payment Status',
-                content3: logData.paymentStatus!,
+                content3: logData.paymentStatus!.toCapitalized(),
               ),
             ],
           ),
