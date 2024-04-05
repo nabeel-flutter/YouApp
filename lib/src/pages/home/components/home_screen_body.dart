@@ -120,6 +120,10 @@ class HomeScreenBody extends StatelessWidget {
                     orElse: () => const Center(
                       child: Text('No Team member is available'),
                     ),
+                    Error: (message) => ErrorState(
+                      message: message,
+                      onTap: () => context.read<DoctorsCubit>().getTeam(),
+                    ),
                     loading: () {
                       return Skeletonizer(
                         child: Column(

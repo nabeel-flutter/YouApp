@@ -1,11 +1,8 @@
-import 'dart:io';
-
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
 import 'package:new_beginnings/src/data/dto/data_list_dto.dart';
 import 'package:new_beginnings/src/data/dto/product_dto.dart';
 import 'package:new_beginnings/src/data/dto/token_dto.dart';
-import 'package:new_beginnings/src/domain/common/result.dart';
 import 'package:new_beginnings/src/domain/domain.dart';
 import 'package:new_beginnings/src/domain/model/appointment.dart';
 

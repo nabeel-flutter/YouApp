@@ -70,6 +70,10 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                   orElse: () => const Center(
                     child: CircularProgressIndicator(),
                   ),
+                  Error: (message) => ErrorState(
+                    message: message,
+                    onTap: () => context.read<DoctorsCubit>().getTeam(),
+                  ),
                   loading: () => Skeletonizer(
                     child: Column(
                       children: List.generate(8, (index) {
