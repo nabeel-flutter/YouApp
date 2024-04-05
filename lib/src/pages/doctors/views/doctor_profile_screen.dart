@@ -84,33 +84,35 @@ class DoctorProfileScreen extends StatelessWidget {
                                     ),
                               ),
                               const Spacer(),
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.star,
-                                    color: ColorConstants.yellowGolden,
-                                    size: 16,
-                                  ),
-                                  const SizedBox(width: 5),
-                                  Text(
-                                    // ignore: prefer_interpolation_to_compose_strings
-                                    doctor.ratings.toString() +
-                                        " " +
-                                        '(' +
-                                        doctor.reviews.toString() +
-                                        " Reviews" +
-                                        ')',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineSmall!
-                                        .copyWith(
-                                          fontWeight: FontWeight.w600,
-                                          color: ColorConstants.black,
-                                          fontSize: 14,
+                              department == "Providers"
+                                  ? Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.star,
+                                          color: ColorConstants.yellowGolden,
+                                          size: 16,
                                         ),
-                                  ),
-                                ],
-                              ),
+                                        const SizedBox(width: 5),
+                                        Text(
+                                          // ignore: prefer_interpolation_to_compose_strings
+                                          doctor.ratings.toString() +
+                                              " " +
+                                              '(' +
+                                              doctor.reviews.toString() +
+                                              " Reviews" +
+                                              ')',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineSmall!
+                                              .copyWith(
+                                                fontWeight: FontWeight.w600,
+                                                color: ColorConstants.black,
+                                                fontSize: 14,
+                                              ),
+                                        ),
+                                      ],
+                                    )
+                                  : Container(),
                             ],
                           ),
                           const SizedBox(height: 5),
