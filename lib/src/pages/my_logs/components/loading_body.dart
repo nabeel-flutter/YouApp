@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/my_logs/model/my_logs_model.dart';
 import 'package:new_beginnings/src/pages/my_logs/widgets/log_item_widgets.dart';
+import 'package:shimmer/shimmer.dart'; // Ensure you have added this package to your pubspec.yaml
 
 class LoadingBody extends StatelessWidget {
   final LogDetails? logDetails;
@@ -24,32 +25,36 @@ class LoadingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double borderRadius = 8.0;
-    const EdgeInsets padding = EdgeInsets.all(8.0);
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children:
+              List.generate(5, (index) => const ShimmerContainer()).toList(),
+        ),
+      ),
+    );
+  }
+}
 
+class ShimmerContainer extends StatelessWidget {
+  const ShimmerContainer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
-      padding: padding,
-      child: Column(
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            height: 20.0,
-            decoration: BoxDecoration(
-              color: Colors.grey[300],
-              borderRadius: BorderRadius.circular(borderRadius),
-            ),
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Shimmer.fromColors(
+        baseColor: Colors.grey[300]!,
+        highlightColor: Colors.grey[100]!,
+        child: Container(
+          width: double.infinity,
+          height: 130.0,
+          decoration: BoxDecoration(
+            color: Colors.grey[300],
+            borderRadius: BorderRadius.circular(8.0),
           ),
-          const SizedBox(height: 10),
-          Container(
-            width: double.infinity,
-            height: 15.0,
-            decoration: BoxDecoration(
-              color: Colors.grey[300],
-              borderRadius: BorderRadius.circular(borderRadius),
-            ),
-          ),
-          const SizedBox(height: 10),
-        ],
+        ),
       ),
     );
   }
