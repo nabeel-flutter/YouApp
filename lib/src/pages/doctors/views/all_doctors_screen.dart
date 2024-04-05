@@ -2,6 +2,7 @@ import 'package:new_beginnings/src/app/app_export.dart';
 
 import 'package:new_beginnings/src/pages/home/components/widgets/top_doctors_widget.dart';
 import 'package:new_beginnings/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 @RoutePage()
 class AllDoctorsScreen extends StatefulWidget {
@@ -68,6 +69,18 @@ class _AllDoctorsScreenState extends State<AllDoctorsScreen> {
                 builder: (context, state) => state.maybeWhen(
                   orElse: () => const Center(
                     child: CircularProgressIndicator(),
+                  ),
+                  loading: () => Skeletonizer(
+                    child: Column(
+                      children: List.generate(8, (index) {
+                        return const TopDoctorsWidget(
+                          title: "",
+                          subtitle: "",
+                          image: "",
+                          description: "",
+                        );
+                      }),
+                    ),
                   ),
                   loaded: (team) => Column(
                     children: team.data
