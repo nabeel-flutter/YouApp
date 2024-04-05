@@ -14,7 +14,9 @@ class MyLogsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return PrimaryBackground(
       isAppBar: true,
-      body: buildLogDataView(logDetails, context),
+      body: LogDataView(
+        logDetails: logDetails,
+      ),
       isBackAppBar: false,
       appbarText: "Logs",
     );
