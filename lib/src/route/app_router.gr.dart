@@ -44,6 +44,7 @@ abstract class _$AppRouter extends RootStackRouter {
           paymentMethod: args.paymentMethod,
           date: args.date,
           time: args.time,
+          initialAmount: args.initialAmount,
         ),
       );
     },
@@ -269,6 +270,7 @@ class BookAppointmentRoute extends PageRouteInfo<BookAppointmentRouteArgs> {
     required String paymentMethod,
     required String date,
     required String time,
+    int? initialAmount,
     List<PageRouteInfo>? children,
   }) : super(
           BookAppointmentRoute.name,
@@ -279,6 +281,7 @@ class BookAppointmentRoute extends PageRouteInfo<BookAppointmentRouteArgs> {
             paymentMethod: paymentMethod,
             date: date,
             time: time,
+            initialAmount: initialAmount,
           ),
           initialChildren: children,
         );
@@ -297,6 +300,7 @@ class BookAppointmentRouteArgs {
     required this.paymentMethod,
     required this.date,
     required this.time,
+    this.initialAmount,
   });
 
   final Key? key;
@@ -311,9 +315,11 @@ class BookAppointmentRouteArgs {
 
   final String time;
 
+  final int? initialAmount;
+
   @override
   String toString() {
-    return 'BookAppointmentRouteArgs{key: $key, slot: $slot, service: $service, paymentMethod: $paymentMethod, date: $date, time: $time}';
+    return 'BookAppointmentRouteArgs{key: $key, slot: $slot, service: $service, paymentMethod: $paymentMethod, date: $date, time: $time, initialAmount: $initialAmount}';
   }
 }
 
