@@ -4,6 +4,7 @@ class AuthInterceptor extends InterceptorsWrapper {
   static const requiresAuth = 'requiresAuthentication';
 
   final Logger logger;
+  BuildContext? _context;
   AuthInterceptor(
     this.logger,
   );
@@ -29,7 +30,7 @@ class AuthInterceptor extends InterceptorsWrapper {
 
       options.headers['Authorization'] = authToken;
       options.headers['token'] = authToken;
-      
+
       // options.headers['locale'] = BlocProvider.of<AppCubit>(
       //                 navigationService!.navigatorKey.currentContext!)
       //             .isUrdu(navigationService!.navigatorKey.currentContext!.locale
@@ -53,17 +54,21 @@ class AuthInterceptor extends InterceptorsWrapper {
 
   @override
   Future<void> onError(
-      DioException err, ErrorInterceptorHandler handler) async {
-        if(err.response?.statusCode == 403 ){
-          getIt.get<SharedPreferencesUtil>().removeValue(SharedPreferenceConstants.apiAuthToken);
-          NavigationUtil.popAllAndPush(navigationService!.navigatorKey.currentContext!, RouteConstants.signInRoute);
-          
-        }
-    if (err.response?.statusCode == 401 /* unauthorized */) {
-      
-      // await _preferences.clearSession();
-    }
+    DioException err,
+    ErrorInterceptorHandler handler,
+  ) async {
+    if (_context != null) {
+      if (err.response?.statusCode == 403 || err.response?.statusCode == 401) {
+        getIt
+            .get<SharedPreferencesUtil>()
+            .removeValue(SharedPreferenceConstants.apiAuthToken);
+        NavigationUtil.popAllAndPush(
+          _context!,
+          RouteConstants.signInRoute,
+        );
+      }
 
-    super.onError(err, handler);
+      super.onError(err, handler);
+    }
   }
 }
