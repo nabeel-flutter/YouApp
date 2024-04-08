@@ -35,74 +35,77 @@ class _AnimatedDrawerAfterLoadedStateState
           BlocConsumer<AnimatedDrawerCubit, AnimatedDrawerState>(
         listener: (context, state) {},
         builder: (context, state) {
-          return BottomNavigationBar(
-             
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: ColorConstants.primaryColor,
-            selectedItemColor: ColorConstants.white,
-            unselectedItemColor: ColorConstants.white,
-            selectedLabelStyle: const TextStyle(
-              fontSize: 12,
-              height: 1.8,
+          return SizedBox(
+            height: MediaQuery.of(context).size.height / 9,
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: ColorConstants.primaryColor,
+              selectedItemColor: ColorConstants.white,
+              unselectedItemColor: ColorConstants.white,
+              selectedLabelStyle: const TextStyle(
+                fontSize: 12,
+                height: 1.8,
+              ),
+              unselectedLabelStyle: const TextStyle(height: 1.8, fontSize: 12),
+              currentIndex:
+                  context.read<AnimatedDrawerCubit>().getBottomNavIndex,
+              onTap: (index) {
+                context.read<AnimatedDrawerCubit>().updateIndex(
+                    isOpen: false,
+                    index: index,
+                    pageController:
+                        context.read<AnimatedDrawerCubit>().pageController,
+                    advancedDrawerController: context
+                        .read<AnimatedDrawerCubit>()
+                        .advancedDrawerController);
+              },
+              items: [
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    context.read<AnimatedDrawerCubit>().getBottomNavIndex == 0
+                        ? AssetsConstants.homefilledIcon
+                        : AssetsConstants.homeIcon,
+                    color: ColorConstants.white,
+                    height: 24,
+                    width: 24,
+                  ),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    context.read<AnimatedDrawerCubit>().getBottomNavIndex == 1
+                        ? AssetsConstants.appoinmentfilledIcon
+                        : AssetsConstants.appointmentIcon,
+                    color: ColorConstants.white,
+                    height: 24,
+                    width: 24,
+                  ),
+                  label: 'Appointment',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    context.read<AnimatedDrawerCubit>().getBottomNavIndex == 2
+                        ? AssetsConstants.logfilledIcon
+                        : AssetsConstants.logIcon,
+                    color: ColorConstants.white,
+                    height: 24,
+                    width: 24,
+                  ),
+                  label: 'My Logs',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    context.read<AnimatedDrawerCubit>().getBottomNavIndex == 3
+                        ? AssetsConstants.profilefilledIcon
+                        : AssetsConstants.profileIcon,
+                    color: ColorConstants.white,
+                    height: 24,
+                    width: 24,
+                  ),
+                  label: 'Profile',
+                ),
+              ],
             ),
-            unselectedLabelStyle: const TextStyle(height: 1.8, fontSize: 12),
-            currentIndex: context.read<AnimatedDrawerCubit>().getBottomNavIndex,
-            onTap: (index) {
-              context.read<AnimatedDrawerCubit>().updateIndex(
-                  isOpen: false,
-                  index: index,
-                  pageController:
-                      context.read<AnimatedDrawerCubit>().pageController,
-                  advancedDrawerController: context
-                      .read<AnimatedDrawerCubit>()
-                      .advancedDrawerController);
-            },
-            items: [
-              BottomNavigationBarItem(
-                icon: Image.asset(
-                  context.read<AnimatedDrawerCubit>().getBottomNavIndex == 0
-                      ? AssetsConstants.homefilledIcon
-                      : AssetsConstants.homeIcon,
-                  color: ColorConstants.white,
-                  height: 24,
-                  width: 24,
-                ),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Image.asset(
-                  context.read<AnimatedDrawerCubit>().getBottomNavIndex == 1
-                      ? AssetsConstants.appoinmentfilledIcon
-                      : AssetsConstants.appointmentIcon,
-                  color: ColorConstants.white,
-                  height: 24,
-                  width: 24,
-                ),
-                label: 'Appointment',
-              ),
-              BottomNavigationBarItem(
-                icon: Image.asset(
-                  context.read<AnimatedDrawerCubit>().getBottomNavIndex == 2
-                      ? AssetsConstants.logfilledIcon
-                      : AssetsConstants.logIcon,
-                  color: ColorConstants.white,
-                  height: 24,
-                  width: 24,
-                ),
-                label: 'My Logs',
-              ),
-              BottomNavigationBarItem(
-                icon: Image.asset(
-                  context.read<AnimatedDrawerCubit>().getBottomNavIndex == 3
-                      ? AssetsConstants.profilefilledIcon
-                      : AssetsConstants.profileIcon,
-                  color: ColorConstants.white,
-                  height: 24,
-                  width: 24,
-                ),
-                label: 'Profile',
-              ),
-            ],
           );
         },
       ),

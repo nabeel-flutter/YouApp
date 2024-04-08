@@ -45,16 +45,20 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
             loaded: (data) async {
               if (data.data['paymentLink'] == null) {
                 AlertDialogComponent.showDialogComponent(
-                    alertDialog: const AlertDialog(
-                        insetPadding: EdgeInsets.all(16),
-                        contentPadding: EdgeInsets.zero,
-                        content: SuccessDialog(
-                          isInsured: true,
-                        )),
-                    context: context);
+                  alertDialog: const AlertDialog(
+                    insetPadding: EdgeInsets.all(16),
+                    contentPadding: EdgeInsets.zero,
+                    content: SuccessDialog(
+                      isInsured: true,
+                    ),
+                  ),
+                  context: context,
+                );
               } else {
-                await context.router
-                    .push(PaymentWebViewRoute(uri: data.data['paymentLink']));
+                await Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      PaymentWebViewScreen(uri: data.data['paymentLink']),
+                ));
               }
             },
           );

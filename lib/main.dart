@@ -1,3 +1,4 @@
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 
 FutureOr<void> main() async {
@@ -16,6 +17,9 @@ FutureOr<void> main() async {
           ),
         ),
       );
+  if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
+    await InAppWebViewController.setWebContentsDebuggingEnabled(kDebugMode);
+  }
 
   runApp(
     EasyLocalization(
