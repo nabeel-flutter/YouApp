@@ -165,7 +165,7 @@ class UserProfileBottomComponent extends StatelessWidget {
         child: Column(
           children: [
             Button(
-              label: StringConstants.editprofile,
+              label: StringConstants.editProfile,
               onPressed: () {
                 onPressed();
               },
