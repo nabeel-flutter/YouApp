@@ -412,7 +412,7 @@ class StringConstants {
   static String get personalSafety => _getLang('personalSafety');
 
   static String get tablet => _getLang('tablet');
-  static String get editprofile => _getLang('Edit Profile');
+  static String get editProfile => _getLang('Edit Profile');
 
   static String get hrs => _getLang('hrs');
 
