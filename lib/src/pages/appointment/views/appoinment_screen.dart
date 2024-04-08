@@ -1,11 +1,13 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/core/date_time.dart';
 import 'package:new_beginnings/src/pages/appointment/cubit/appointnent_details/appointment_cubit_cubit.dart';
+import 'package:new_beginnings/src/pages/appointment/views/widgets/input_initial_payment.dart';
 
 import 'package:new_beginnings/src/pages/appointment/views/widgets/select_date_widget.dart';
 import 'package:new_beginnings/src/pages/appointment/views/widgets/select_time_widget.dart';
 
 import 'package:new_beginnings/src/pages/appointment/views/widgets/payment_mode_selection.dart';
+import 'package:new_beginnings/src/pages/profile/widgets/custom_textfeild_widget.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import 'package:new_beginnings/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
@@ -27,6 +29,11 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   String? _selectedTime;
 
   DateTime? _selectedDate;
+
+  bool _showNumericField = false;
+  String? _initialAmount;
+
+  TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -115,6 +122,22 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                             ],
                           ),
                           const SizedBox(height: 20),
+                          if (_appointmentDetails?.paymentType == 'insured')
+                            InputInititalPayment(
+                              onValueChanged: (value) {
+                                setState(() {
+                                  _showNumericField = value == 1;
+                                });
+                              },
+                            ),
+                          const SizedBox(height: 20),
+                          if (_showNumericField)
+                            CustomTextField(
+                                keyboardType: TextInputType.number,
+                                fieldName: "Initial Amount",
+                                hintText: "Enter your amount",
+                                controller: _controller),
+                          const SizedBox(height: 10),
                           ExpandedSelectionWidget(
                             label: "Service",
                             textList: _appointmentDetails!.services
@@ -167,17 +190,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // appointmentCubit.bookAppointment(
-                //   selectedPaymentMode:
-                //       appointmentCubit.selectedPaymentMode,
-                //   selectedDate: appointmentCubit.selectedDate1,
-                //   selectedTime: appointmentCubit.selectedTime1,
-                //   selectedService: appointmentCubit.service,
-                //   selectedTimeSlot: appointmentCubit.service ==
-                //           "Individual Counseling"
-                //       ? appointmentCubit.timeSlot
-                //       : null,
-                // );
+                _initialAmount = _controller.text;
+                int? initialAmount = int.tryParse(_initialAmount!);
                 if (_selectedDate == null) {
                   ToastComponent3(context)
                       .showToast(context, 'Please select date');
@@ -193,6 +207,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                       context, 'Please select preferred appointment time');
                 } else {
                   context.router.push(BookAppointmentRoute(
+                      initialAmount: initialAmount,
                       service: _selectedService!,
                       slot: _selectedTimeSlot,
                       paymentMethod: _appointmentDetails!.paymentType,

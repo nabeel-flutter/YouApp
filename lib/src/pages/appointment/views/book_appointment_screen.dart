@@ -11,12 +11,14 @@ class BookAppointmentScreen extends StatefulWidget {
       required this.service,
       required this.paymentMethod,
       required this.date,
-      required this.time});
+      required this.time,
+      this.initialAmount});
   final Slot? slot;
   final Service service;
   final String paymentMethod;
   final String date;
   final String time;
+  final int? initialAmount;
 
   @override
   State<BookAppointmentScreen> createState() => _BookAppointmentScreenState();
@@ -228,6 +230,7 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700)),
                       onPressed: () {
+                        print(widget.initialAmount);
                         if (_methodOfService == null) {
                           ToastComponent3(context).showToast(
                               context, 'Please select method of service');

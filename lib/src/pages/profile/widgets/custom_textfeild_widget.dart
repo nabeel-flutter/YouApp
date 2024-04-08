@@ -40,8 +40,8 @@ class CustomTextField extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(
-                vertical: 21.0, horizontal: 10), // Adjust the vertical p
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 21.0, horizontal: 10),
             filled: true,
             fillColor: ColorConstants.inputFeildBgColor.withOpacity(0.2),
             border: OutlineInputBorder(
@@ -50,16 +50,11 @@ class CustomTextField extends StatelessWidget {
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(
-                  color: ColorConstants
-                      .primaryColor), // Set the constant outline color here
+              borderSide: const BorderSide(color: ColorConstants.primaryColor),
             ),
-            // The focusedBorder property will define the appearance of the border when the TextField is focused
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(
-                  color: ColorConstants
-                      .primaryColor), // And also set the same color here if you want
+              borderSide: const BorderSide(color: ColorConstants.primaryColor),
             ),
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
