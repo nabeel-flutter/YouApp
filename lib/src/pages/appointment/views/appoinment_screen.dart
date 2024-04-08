@@ -205,6 +205,16 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                 } else if (_selectedTime == null) {
                   ToastComponent3(context).showToast(
                       context, 'Please select preferred appointment time');
+                } else if (initialAmount == null) {
+                  ToastComponent3(context).showToast(
+                    context,
+                    'Initial amount can not be empty',
+                  );
+                } else if (initialAmount < 1) {
+                  ToastComponent3(context).showToast(
+                    context,
+                    'Initial amount must be more than \$0.00.',
+                  );
                 } else {
                   context.router.push(BookAppointmentRoute(
                       initialAmount: initialAmount,
