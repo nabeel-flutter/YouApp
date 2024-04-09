@@ -169,6 +169,7 @@ class UserProfileBottomComponent extends StatelessWidget {
               onPressed: () {
                 onPressed();
               },
+              buttonColor: ColorConstants.greenish,
             ),
             const SizedBox(
               height: 10,
@@ -184,17 +185,19 @@ class UserProfileBottomComponent extends StatelessWidget {
 class Button extends StatelessWidget {
   final VoidCallback onPressed;
   final String label;
+  final Color buttonColor;
   const Button({
     super.key,
     required this.label,
     required this.onPressed,
+    required this.buttonColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: ColorConstants.greenish,
+          backgroundColor: buttonColor,
         ),
         onPressed: () {
           onPressed();

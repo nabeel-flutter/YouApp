@@ -311,6 +311,7 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                       height: 10,
                     ),
                     Button(
+                        buttonColor: ColorConstants.greenish,
                         label: 'Save',
                         onPressed: () {
                           print(avatar);

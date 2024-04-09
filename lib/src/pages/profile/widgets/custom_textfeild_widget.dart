@@ -6,13 +6,15 @@ class CustomTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextEditingController controller;
   final bool isEnabled;
+  final bool? messageFeild;
   const CustomTextField(
       {super.key,
       required this.fieldName,
       required this.hintText,
       required this.controller,
       this.keyboardType,
-      this.isEnabled = true});
+      this.isEnabled = true,
+      this.messageFeild = false});
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +42,9 @@ class CustomTextField extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
           decoration: InputDecoration(
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 21.0, horizontal: 10),
+            contentPadding: messageFeild!
+                ? const EdgeInsets.symmetric(vertical: 65.0, horizontal: 10)
+                : const EdgeInsets.symmetric(vertical: 21.0, horizontal: 10),
             filled: true,
             fillColor: ColorConstants.inputFeildBgColor.withOpacity(0.2),
             border: OutlineInputBorder(

@@ -1,5 +1,6 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/chatbot/chatbot_screen.dart';
+import 'package:new_beginnings/src/pages/my_bills/my_bills.dart';
 import 'package:new_beginnings/src/pages/my_logs/my_logs.dart';
 
 class AnimatedDrawerAfterLoadedState extends StatefulWidget {
@@ -28,6 +29,7 @@ class _AnimatedDrawerAfterLoadedStateState
           HomeScreenBody(),
           AppointmentScreen(),
           MyLogs(),
+          MyBills(),
           ProfileScreen(),
         ],
       ),
@@ -96,6 +98,17 @@ class _AnimatedDrawerAfterLoadedStateState
                 BottomNavigationBarItem(
                   icon: Image.asset(
                     context.read<AnimatedDrawerCubit>().getBottomNavIndex == 3
+                        ? AssetsConstants.billfilledIcon
+                        : AssetsConstants.billIcon,
+                    color: ColorConstants.white,
+                    height: 24,
+                    width: 24,
+                  ),
+                  label: 'Bills',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    context.read<AnimatedDrawerCubit>().getBottomNavIndex == 4
                         ? AssetsConstants.profilefilledIcon
                         : AssetsConstants.profileIcon,
                     color: ColorConstants.white,

@@ -239,6 +239,30 @@ class ApiRepositoryImpl extends ApiRepository {
   }
 
   @override
+  Future<Result<BaseResponseDto<TokenDto>>> payBill(
+      {required String name,
+      required String email,
+      required String phone,
+      required String paymentType,
+      required String message,
+      required int price}) async {
+    try {
+      final response = await softTechTestApi.payBill(
+          name: name,
+          email: email,
+          phone: phone,
+          paymentType: paymentType,
+          message: message,
+          price: price);
+
+      return Result.success(objectMapper.toPayBill(response));
+    } on Exception catch (e) {
+      logger.e(e);
+      return Result.failed(objectMapper.toError(e));
+    }
+  }
+
+  @override
   Future<Result<BaseResponseDto>> forgetPassword(
       {required String email}) async {
     try {

@@ -114,6 +114,8 @@ class AssetsConstants {
   static const String profileIcon = 'assets/icon/profileIcon.png';
 
   static const String profilefilledIcon = 'assets/icon/profilefilled.png';
+  static const String billIcon = 'assets/icon/bill.png';
+  static const String billfilledIcon = 'assets/icon/filledbillicon.png';
   static const String appointmentsIcon = 'assets/icon/appointments.png';
   static const String communicationIcon = 'assets/icon/communication.png';
   static const String documentsIcon = 'assets/icon/documents.png';
