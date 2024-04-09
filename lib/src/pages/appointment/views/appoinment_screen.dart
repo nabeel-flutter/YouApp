@@ -126,7 +126,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                           const SizedBox(height: 20),
                           if (_appointmentDetails?.paymentType ==
                               'insured') ...{
-                            InputInititalPayment(
+                            InputInitialPayment(
                               onValueChanged: (value) {
                                 setState(() {
                                   _showNumericField = value == 1;
@@ -216,8 +216,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     context,
                     'Initial amount can not be empty',
                   );
-                } else if (initialAmount! < 1 &&
-                    _showNumericField== true) {
+                } else if (initialAmount! < 1 && _showNumericField == true) {
                   ToastComponent3(context).showToast(
                     context,
                     'Initial amount must be more than \$0.00.',
