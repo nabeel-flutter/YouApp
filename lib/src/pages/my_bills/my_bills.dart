@@ -42,17 +42,22 @@ class _MyBillsState extends State<MyBills> {
                     height: 30,
                   ),
                   CustomTextField(
-                      fieldName: "Name",
-                      hintText: "Enter your Name",
-                      controller: _nameController),
+                    fieldName: "Name",
+                    hintText: "Enter your Name",
+                    controller: _nameController,
+                    keyboardType: TextInputType.name,
+                  ),
                   CustomTextField(
                       fieldName: "Email ID",
                       hintText: "Enter your Email ID",
-                      controller: _emailIdController),
+                      controller: _emailIdController,
+                      keyboardType: TextInputType.emailAddress),
                   CustomTextField(
-                      fieldName: "Phone Number",
-                      hintText: "Enter your Phone Number",
-                      controller: _phoneController),
+                    fieldName: "Phone Number",
+                    hintText: "Enter your Phone Number",
+                    controller: _phoneController,
+                    keyboardType: TextInputType.phone,
+                  ),
                   CustomTextField(
                       fieldName: "Amount",
                       hintText: "Enter your Initial Amount",
@@ -69,7 +74,7 @@ class _MyBillsState extends State<MyBills> {
                     textList: const [
                       'Co-Pay',
                       'Co-Insurance',
-                      'Adaptable',
+                      'Deductible',
                       'Other Amount',
                     ],
                   ),
