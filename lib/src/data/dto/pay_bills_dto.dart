@@ -5,16 +5,11 @@ part 'pay_bills_dto.g.dart';
 @JsonSerializable(
   includeIfNull: false,
   explicitToJson: true,
-  fieldRename: FieldRename.snake,
 )
 class PayBillsDto {
-  
-  String ? paymentLink;
-  bool ? success;
-  PayBillsDto({
-    this.paymentLink,
-    this.success
-  });
+  String? paymentLink;
+  bool? success;
+  PayBillsDto({this.paymentLink, this.success});
 
   factory PayBillsDto.fromJson(Map<String, dynamic> json) =>
       _$PayBillsDtoFromJson(json);
