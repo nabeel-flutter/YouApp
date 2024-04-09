@@ -447,6 +447,7 @@ class SoftTechTestApi {
       required String serviceName,
       required String timeSlot,
       required String technologyType,
+      required bool initialPayment,
       required int price}) async {
     final response = await dio.post(kRouteCreateAppointment, data: {
       'appointmentDate': appointmenDate,
@@ -456,7 +457,8 @@ class SoftTechTestApi {
       'serviceName': serviceName,
       'timeSlot': timeSlot,
       'type': technologyType,
-      'price': price
+      'price': price,
+      'initialPayment': initialPayment
     });
     return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
   }

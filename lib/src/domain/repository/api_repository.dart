@@ -131,6 +131,7 @@ abstract class ApiRepository extends Repository {
       String paymentType});
 
   Future<Result<BaseResponseDto>> bookAppointment({
+    required bool initialPayment,
     required String appointmenDate,
     required String paymentType,
     required String requestType,

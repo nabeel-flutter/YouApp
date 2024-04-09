@@ -21,6 +21,7 @@ class BookAppointmentCubit extends Cubit<BookAppointmentState> {
     required String technologyType,
     required String timeSlot,
     required String method,
+    required bool initialPayment
   }) async {
     emit(const _Loading());
     final Result<BaseResponseDto> result = await apiRepository.bookAppointment(
@@ -30,6 +31,7 @@ class BookAppointmentCubit extends Cubit<BookAppointmentState> {
         requestType: requestType,
         serviceName: serviceName,
         technologyType: technologyType,
+        initialPayment: initialPayment,
         timeSlot: timeSlot,
         method: method);
     result.when(success: (data) {
