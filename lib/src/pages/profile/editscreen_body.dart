@@ -192,20 +192,29 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                       },
                     ),
                     const SizedBox(height: 20),
+                    CustomTextField(
+                        fieldName: StringConstants.address,
+                        hintText: "Enter your Address",
+                        keyboardType: TextInputType.streetAddress,
+                        controller: addressController),
                     ExpandedSelectionWidget(
-                      label: "Country",
-                      textList: const ["USA", "Canada", "Mexico"],
-                      onTapped: (selectedCountry) {
+                      label: "City",
+                      textList: const [
+                        "New York City",
+                        "Los Angeles",
+                        "Chicago",
+                        "Houston",
+                      ],
+                      onTapped: (city) {
                         setState(() {
-                          // Assuming you have a mechanism to update the userDetails with the new selection
-                          country = selectedCountry;
+                          this.city = city;
                         });
                       },
-                      title: widget.userDetails?.data?.geoLocation?.country
+                      title: widget.userDetails?.data?.geoLocation?.city
                                   ?.isNotEmpty ==
                               true
-                          ? widget.userDetails!.data!.geoLocation!.country!
-                          : "Select your country",
+                          ? widget.userDetails!.data!.geoLocation!.city!
+                          : "Select your city",
                     ),
                     ExpandedSelectionWidget(
                       label: "State",
@@ -227,29 +236,21 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                           : "Select your state",
                     ),
                     ExpandedSelectionWidget(
-                      label: "City",
-                      textList: const [
-                        "New York City",
-                        "Los Angeles",
-                        "Chicago",
-                        "Houston",
-                      ],
-                      onTapped: (city) {
+                      label: "Country",
+                      textList: const ["USA", "Canada", "Mexico"],
+                      onTapped: (selectedCountry) {
                         setState(() {
-                          this.city = city;
+                          // Assuming you have a mechanism to update the userDetails with the new selection
+                          country = selectedCountry;
                         });
                       },
-                      title: widget.userDetails?.data?.geoLocation?.city
+                      title: widget.userDetails?.data?.geoLocation?.country
                                   ?.isNotEmpty ==
                               true
-                          ? widget.userDetails!.data!.geoLocation!.city!
-                          : "Select your city",
+                          ? widget.userDetails!.data!.geoLocation!.country!
+                          : "Select your country",
                     ),
-                    CustomTextField(
-                        fieldName: StringConstants.address,
-                        hintText: "Enter your Address",
-                        keyboardType: TextInputType.streetAddress,
-                        controller: addressController),
+
                     CustomTextField(
                         fieldName: StringConstants.zipCode,
                         hintText: "Enter your Zip Code",

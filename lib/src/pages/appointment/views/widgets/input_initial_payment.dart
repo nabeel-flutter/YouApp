@@ -18,7 +18,7 @@ class _InputInitialPaymentState extends State<InputInitialPayment> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Initital Payment',
+          'Initial Payment',
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
@@ -52,7 +52,7 @@ class _InputInitialPaymentState extends State<InputInitialPayment> {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    "True",
+                    "Yes",
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: Colors.black,
                           fontSize: 14,
@@ -87,7 +87,7 @@ class _InputInitialPaymentState extends State<InputInitialPayment> {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    "False",
+                    "No",
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: Colors.black,
                           fontSize: 14,

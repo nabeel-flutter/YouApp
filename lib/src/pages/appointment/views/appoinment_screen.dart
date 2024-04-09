@@ -31,11 +31,10 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
   DateTime? _selectedDate;
 
   bool _showNumericField = false;
-  String? _initialAmount;
 
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
-  Slot? initailSlot;
+  Slot? initialSlot;
 
   @override
   Widget build(BuildContext context) {
@@ -223,16 +222,20 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                   );
                 } else {
                   if (initialAmount > 1) {
-                    initailSlot = Slot(
-                        id: _selectedTimeSlot!.id,
+                    initialSlot = Slot(
+                        id: _selectedTimeSlot != null
+                            ? _selectedTimeSlot!.id
+                            : _selectedService!.id,
                         price: initialAmount,
-                        time: _selectedTimeSlot!.time);
+                        time: _selectedTimeSlot != null
+                            ? _selectedTimeSlot!.time
+                            : 'N/A');
                   }
                   context.router.push(BookAppointmentRoute(
                       initialPayment: _showNumericField,
                       initialAmount: initialAmount,
                       service: _selectedService!,
-                      slot: initailSlot ?? _selectedTimeSlot,
+                      slot: initialSlot ?? _selectedTimeSlot,
                       paymentMethod: _appointmentDetails!.paymentType,
                       date: _selectedDate.toString().substring(0, 10),
                       time: DateTimeUtil()
