@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
 import 'package:new_beginnings/src/data/dto/pay_bills_dto.dart';
-import 'package:new_beginnings/src/data/dto/token_dto.dart';
 import 'package:new_beginnings/src/domain/common/result.dart';
 
 part 'my_bills_state.dart';

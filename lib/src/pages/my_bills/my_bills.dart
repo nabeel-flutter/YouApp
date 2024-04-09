@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
 import 'package:new_beginnings/src/pages/my_bills/cubit/my_bills_cubit.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/custom_textfeild_widget.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/user_profile_component.dart';
 
 class MyBills extends StatefulWidget {
   const MyBills({super.key});
@@ -46,7 +44,8 @@ class _MyBillsState extends State<MyBills> {
                     borderRadius: 10,
                     stroke: 1,
                     borderColor: ColorConstants.primaryColor,
-                    fillColor: ColorConstants.inputFeildBgColor.withOpacity(0.2),
+                    fillColor:
+                        ColorConstants.inputFeildBgColor.withOpacity(0.2),
                     label: "Name",
                     hintText: "Enter your Name",
                     controller: _nameController,
@@ -87,7 +86,7 @@ class _MyBillsState extends State<MyBills> {
                     label: "Message",
                     hintText: "Enter your Message",
                     controller: _messageController,
-                    maxLines:5,
+                    maxLines: 5,
                   ),
                   const SizedBox(
                     height: 10,
@@ -219,6 +218,7 @@ class _MyBillsState extends State<MyBills> {
                           builder: (context) =>
                               PaymentWebViewScreen(uri: data.paymentLink!),
                         ));
+                        return null;
                       },
                     ),
                   ),
