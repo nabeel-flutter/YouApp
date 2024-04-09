@@ -35,6 +35,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
 
   TextEditingController _controller = TextEditingController();
 
+  Slot? initailSlot;
+
   @override
   Widget build(BuildContext context) {
     final appointmentCubit = context.read<AppointmentCubit>();
@@ -122,7 +124,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                             ],
                           ),
                           const SizedBox(height: 20),
-                          if (_appointmentDetails?.paymentType == 'insured')
+                          if (_appointmentDetails?.paymentType ==
+                              'insured') ...{
                             InputInititalPayment(
                               onValueChanged: (value) {
                                 setState(() {
@@ -130,14 +133,16 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                                 });
                               },
                             ),
-                          const SizedBox(height: 20),
-                          if (_showNumericField)
+                            const SizedBox(height: 20),
+                          },
+                          if (_showNumericField) ...{
                             CustomTextField(
                                 keyboardType: TextInputType.number,
                                 fieldName: "Initial Amount",
                                 hintText: "Enter your amount",
                                 controller: _controller),
-                          const SizedBox(height: 10),
+                            const SizedBox(height: 10),
+                          },
                           ExpandedSelectionWidget(
                             label: "Service",
                             textList: _appointmentDetails!.services
@@ -190,8 +195,8 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                _initialAmount = _controller.text;
-                int? initialAmount = int.tryParse(_initialAmount!);
+                int? initialAmount = int.tryParse(
+                    _controller.text.isNotEmpty ? _controller.text : '0');
                 if (_selectedDate == null) {
                   ToastComponent3(context)
                       .showToast(context, 'Please select date');
@@ -205,21 +210,30 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                 } else if (_selectedTime == null) {
                   ToastComponent3(context).showToast(
                       context, 'Please select preferred appointment time');
-                } else if (initialAmount == null) {
+                } else if (initialAmount == null &&
+                    _appointmentDetails!.paymentType != 'selfPay') {
                   ToastComponent3(context).showToast(
                     context,
                     'Initial amount can not be empty',
                   );
-                } else if (initialAmount < 1) {
+                } else if (initialAmount! < 1 &&
+                    _showNumericField== true) {
                   ToastComponent3(context).showToast(
                     context,
                     'Initial amount must be more than \$0.00.',
                   );
                 } else {
+                  if (initialAmount > 1) {
+                    initailSlot = Slot(
+                        id: _selectedTimeSlot!.id,
+                        price: initialAmount,
+                        time: _selectedTimeSlot!.time);
+                  }
                   context.router.push(BookAppointmentRoute(
+                      initialPayment: _showNumericField,
                       initialAmount: initialAmount,
                       service: _selectedService!,
-                      slot: _selectedTimeSlot,
+                      slot: initailSlot ?? _selectedTimeSlot,
                       paymentMethod: _appointmentDetails!.paymentType,
                       date: _selectedDate.toString().substring(0, 10),
                       time: DateTimeUtil()

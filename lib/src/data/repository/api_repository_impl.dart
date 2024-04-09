@@ -372,9 +372,11 @@ class ApiRepositoryImpl extends ApiRepository {
       required String serviceName,
       required String timeSlot,
       required String technologyType,
+      required bool initialPayment,
       required int price}) async {
     try {
       final response = await softTechTestApi.bookAppointment(
+        initialPayment: initialPayment,
           appointmenDate: appointmenDate,
           method: method,
           paymentType: paymentType,

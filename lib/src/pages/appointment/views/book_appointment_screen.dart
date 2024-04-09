@@ -12,13 +12,14 @@ class BookAppointmentScreen extends StatefulWidget {
       required this.paymentMethod,
       required this.date,
       required this.time,
-      this.initialAmount});
+      this.initialAmount,required this.initialPayment});
   final Slot? slot;
   final Service service;
   final String paymentMethod;
   final String date;
   final String time;
   final int? initialAmount;
+  final bool  initialPayment;
 
   @override
   State<BookAppointmentScreen> createState() => _BookAppointmentScreenState();
@@ -248,6 +249,7 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
                               context, 'Please select appointment request');
                         } else {
                           context.read<BookAppointmentCubit>().bookAppointment(
+                            initialPayment : widget. initialPayment,
                                 serviceName: widget.service.name,
                                 timeSlot: widget.slot != null
                                     ? widget.slot!.time
