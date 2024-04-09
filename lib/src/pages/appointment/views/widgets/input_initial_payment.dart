@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 
-class InputInititalPayment extends StatefulWidget {
+class InputInitialPayment extends StatefulWidget {
   final void Function(int?)? onValueChanged;
 
-  const InputInititalPayment({super.key, this.onValueChanged});
+  const InputInitialPayment({super.key, this.onValueChanged});
 
   @override
-  State<InputInititalPayment> createState() => _InputInititalPaymentState();
+  State<InputInitialPayment> createState() => _InputInitialPaymentState();
 }
 
-class _InputInititalPaymentState extends State<InputInititalPayment> {
+class _InputInitialPaymentState extends State<InputInitialPayment> {
   int? _selectedValue;
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class _InputInititalPaymentState extends State<InputInititalPayment> {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    "true",
+                    "True",
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: Colors.black,
                           fontSize: 14,
@@ -87,7 +87,7 @@ class _InputInititalPaymentState extends State<InputInititalPayment> {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    "false",
+                    "False",
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: Colors.black,
                           fontSize: 14,
