@@ -21,7 +21,7 @@ mixin _$MyBillsState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(TokenDto token) loaded,
+    required TResult Function(PayBillsDto token) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$MyBillsState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(TokenDto token)? loaded,
+    TResult? Function(PayBillsDto token)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$MyBillsState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(TokenDto token)? loaded,
+    TResult Function(PayBillsDto token)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +126,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(TokenDto token) loaded,
+    required TResult Function(PayBillsDto token) loaded,
   }) {
     return initial();
   }
@@ -137,7 +137,7 @@ class _$_Initial implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(TokenDto token)? loaded,
+    TResult? Function(PayBillsDto token)? loaded,
   }) {
     return initial?.call();
   }
@@ -148,7 +148,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(TokenDto token)? loaded,
+    TResult Function(PayBillsDto token)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -239,7 +239,7 @@ class _$_Loading implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(TokenDto token) loaded,
+    required TResult Function(PayBillsDto token) loaded,
   }) {
     return loading();
   }
@@ -250,7 +250,7 @@ class _$_Loading implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(TokenDto token)? loaded,
+    TResult? Function(PayBillsDto token)? loaded,
   }) {
     return loading?.call();
   }
@@ -261,7 +261,7 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(TokenDto token)? loaded,
+    TResult Function(PayBillsDto token)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -377,7 +377,7 @@ class _$_Error implements _Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(TokenDto token) loaded,
+    required TResult Function(PayBillsDto token) loaded,
   }) {
     return error(message);
   }
@@ -388,7 +388,7 @@ class _$_Error implements _Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(TokenDto token)? loaded,
+    TResult? Function(PayBillsDto token)? loaded,
   }) {
     return error?.call(message);
   }
@@ -399,7 +399,7 @@ class _$_Error implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(TokenDto token)? loaded,
+    TResult Function(PayBillsDto token)? loaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -460,7 +460,7 @@ abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({TokenDto token});
+  $Res call({PayBillsDto token});
 }
 
 /// @nodoc
@@ -479,7 +479,7 @@ class __$$_LoadedCopyWithImpl<$Res>
       null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as TokenDto,
+              as PayBillsDto,
     ));
   }
 }
@@ -490,7 +490,7 @@ class _$_Loaded implements _Loaded {
   const _$_Loaded(this.token);
 
   @override
-  final TokenDto token;
+  final PayBillsDto token;
 
   @override
   String toString() {
@@ -520,7 +520,7 @@ class _$_Loaded implements _Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(TokenDto token) loaded,
+    required TResult Function(PayBillsDto token) loaded,
   }) {
     return loaded(token);
   }
@@ -531,7 +531,7 @@ class _$_Loaded implements _Loaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(TokenDto token)? loaded,
+    TResult? Function(PayBillsDto token)? loaded,
   }) {
     return loaded?.call(token);
   }
@@ -542,7 +542,7 @@ class _$_Loaded implements _Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(TokenDto token)? loaded,
+    TResult Function(PayBillsDto token)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -590,9 +590,9 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements MyBillsState {
-  const factory _Loaded(final TokenDto token) = _$_Loaded;
+  const factory _Loaded(final PayBillsDto token) = _$_Loaded;
 
-  TokenDto get token;
+  PayBillsDto get token;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       throw _privateConstructorUsedError;

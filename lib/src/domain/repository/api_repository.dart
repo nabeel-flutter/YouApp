@@ -1,6 +1,7 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
 import 'package:new_beginnings/src/data/dto/data_list_dto.dart';
+import 'package:new_beginnings/src/data/dto/pay_bills_dto.dart';
 import 'package:new_beginnings/src/data/dto/product_dto.dart';
 import 'package:new_beginnings/src/data/dto/token_dto.dart';
 import 'package:new_beginnings/src/domain/domain.dart';
@@ -97,7 +98,7 @@ abstract class ApiRepository extends Repository {
       required String confirmPassword,
       required String password});
 
-  Future<Result<BaseResponseDto<TokenDto>>> payBill(
+  Future<Result<BaseResponseDto<PayBillsDto>>> payBill(
       {required String name,
       required String email,
       required String phone,

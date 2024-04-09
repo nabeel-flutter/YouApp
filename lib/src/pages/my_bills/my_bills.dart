@@ -209,10 +209,12 @@ class _MyBillsState extends State<MyBills> {
                       initial: () {
                         return null;
                       },
-                      loaded: (token) {
-                        ToastComponent2(context)
-                            .showToast(context, 'Bill Paid Successfully');
-                        return Navigator.pop(context);
+                      loaded: (data) async {
+                                  await Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      PaymentWebViewScreen(uri: data.paymentLink!),
+                ));
+      
                       },
                     ),
                   ),
