@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
 import 'package:new_beginnings/src/pages/my_bills/cubit/my_bills_cubit.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/custom_textfeild_widget.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/user_profile_component.dart';
 
 class MyBills extends StatefulWidget {
   const MyBills({super.key});
@@ -244,6 +242,7 @@ class _MyBillsState extends State<MyBills> {
                           builder: (context) =>
                               PaymentWebViewScreen(uri: data.paymentLink!),
                         ));
+                        return null;
                       },
                     ),
                   ),
