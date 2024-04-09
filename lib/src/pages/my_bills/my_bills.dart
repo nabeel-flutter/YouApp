@@ -43,27 +43,46 @@ class _MyBillsState extends State<MyBills> {
                   ),
                   TextFormFieldComponent(
                     isLabel: true,
-                    borderRadius: 10,
+                    borderRadius: 8,
                     stroke: 1,
                     borderColor: ColorConstants.primaryColor,
-                    fillColor: ColorConstants.inputFeildBgColor.withOpacity(0.2),
+                    fillColor:
+                        ColorConstants.inputFeildBgColor.withOpacity(0.2),
                     label: "Name",
                     hintText: "Enter your Name",
                     controller: _nameController,
                     textInputType: TextInputType.name,
                   ),
                   TextFormFieldComponent(
+                      isLabel: true,
+                      borderRadius: 8,
+                      stroke: 1,
+                      borderColor: ColorConstants.primaryColor,
+                      fillColor:
+                          ColorConstants.inputFeildBgColor.withOpacity(0.2),
                       label: "Email ID",
                       hintText: "Enter your Email ID",
                       controller: _emailIdController,
                       textInputType: TextInputType.emailAddress),
                   TextFormFieldComponent(
+                    isLabel: true,
+                    borderRadius: 8,
+                    stroke: 1,
+                    borderColor: ColorConstants.primaryColor,
+                    fillColor:
+                        ColorConstants.inputFeildBgColor.withOpacity(0.2),
                     label: "Phone Number",
                     hintText: "Enter your Phone Number",
                     controller: _phoneController,
                     textInputType: TextInputType.phone,
                   ),
                   TextFormFieldComponent(
+                      isLabel: true,
+                      borderRadius: 8,
+                      stroke: 1,
+                      borderColor: ColorConstants.primaryColor,
+                      fillColor:
+                          ColorConstants.inputFeildBgColor.withOpacity(0.2),
                       label: "Amount",
                       hintText: "Enter your Initial Amount",
                       textInputType: TextInputType.number,
@@ -84,10 +103,16 @@ class _MyBillsState extends State<MyBills> {
                     ],
                   ),
                   TextFormFieldComponent(
+                    isLabel: true,
+                    borderRadius: 8,
+                    stroke: 1,
+                    borderColor: ColorConstants.primaryColor,
+                    fillColor:
+                        ColorConstants.inputFeildBgColor.withOpacity(0.2),
                     label: "Message",
                     hintText: "Enter your Message",
                     controller: _messageController,
-                    maxLines:5,
+                    maxLines: 5,
                   ),
                   const SizedBox(
                     height: 10,

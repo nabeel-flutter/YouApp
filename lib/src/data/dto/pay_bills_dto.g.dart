@@ -7,7 +7,7 @@ part of 'pay_bills_dto.dart';
 // **************************************************************************
 
 PayBillsDto _$PayBillsDtoFromJson(Map<String, dynamic> json) => PayBillsDto(
-      paymentLink: json['payment_link'] as String?,
+      paymentLink: json['paymentLink'] as String?,
       success: json['success'] as bool?,
     );
 
@@ -20,7 +20,7 @@ Map<String, dynamic> _$PayBillsDtoToJson(PayBillsDto instance) {
     }
   }
 
-  writeNotNull('payment_link', instance.paymentLink);
+  writeNotNull('paymentLink', instance.paymentLink);
   writeNotNull('success', instance.success);
   return val;
 }
