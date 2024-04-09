@@ -41,8 +41,10 @@ class LogItem extends StatelessWidget {
                 content1: logData.id!.substring(0, 6),
                 title2: 'Time Slot',
                 content2: logData.timeSlot!,
-                title3: 'Payment Type',
+                title3: 'Patient Type',
                 content3: logData.paymentType!.toCapitalized(),
+                title4: 'Service Name',
+                content4: logData.serviceName!,
               ),
               GroupedFields(
                 title1: 'Date of Service (DOS)',
@@ -51,6 +53,8 @@ class LogItem extends StatelessWidget {
                 content2: logData.location!.substring(0, 11),
                 title3: 'Payment Status',
                 content3: logData.paymentStatus!.toCapitalized(),
+                title4: 'App type',
+                content4: logData.request!,
               ),
             ],
           ),
@@ -69,6 +73,8 @@ class GroupedFields extends StatelessWidget {
   final String content2;
   final String title3;
   final String content3;
+  final String title4;
+  final String content4;
 
   const GroupedFields({
     Key? key,
@@ -78,6 +84,8 @@ class GroupedFields extends StatelessWidget {
     required this.content2,
     required this.title3,
     required this.content3,
+    required this.title4,
+    required this.content4,
   }) : super(key: key);
 
   @override
@@ -88,6 +96,13 @@ class GroupedFields extends StatelessWidget {
         children: [
           Text(title1),
           Text(content1,
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold, color: Color(0xff023E3F))),
+          const SizedBox(height: 8.0),
+          Text(title4),
+          Text(content4,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                   fontWeight: FontWeight.bold, color: Color(0xff023E3F))),
           const SizedBox(height: 8.0),
