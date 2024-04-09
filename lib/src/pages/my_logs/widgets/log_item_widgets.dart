@@ -37,24 +37,45 @@ class LogItem extends StatelessWidget {
           Row(
             children: [
               GroupedFields(
-                title1: 'Appointment ID',
-                content1: logData.id!.substring(0, 6),
-                title2: 'Time Slot',
-                content2: logData.timeSlot!,
-                title3: 'Patient Type',
-                content3: logData.paymentType!.toCapitalized(),
-                title4: 'Service Name',
-                content4: logData.serviceName!,
+                fields: [
+                  FieldData(
+                    title: 'Appointment ID',
+                    content: logData.id!.substring(0, 6),
+                  ),
+                  FieldData(
+                    title: 'Time Slot',
+                    content: logData.timeSlot!,
+                  ),
+                  FieldData(
+                    title: 'Patient Type',
+                    content: logData.paymentType!.toCapitalized(),
+                  ),
+                  FieldData(
+                    title: 'Service Name',
+                    content: logData.serviceName!,
+                  ),
+                ],
               ),
               GroupedFields(
-                title1: 'Date of Service (DOS)',
-                content1: logData.appointmentDate!.substring(0, 10),
-                title2: 'Location',
-                content2: logData.location!.substring(0, 11),
-                title3: 'Payment Status',
-                content3: logData.paymentStatus!.toCapitalized(),
-                title4: 'App type',
-                content4: logData.request!,
+                fields: [
+                  FieldData(
+                    title: 'Date of Service (DOS)',
+                    content: logData.appointmentDate!.substring(0, 10),
+                  ),
+                  FieldData(
+                    title: 'Location',
+                    content: logData.location!.substring(0, 11),
+                  ),
+                  FieldData(
+                    title: 'Payment Status',
+                    content: logData.paymentStatus!.toCapitalized(),
+                  ),
+                  FieldData(
+                      title: 'App type',
+                      content: logData.request!,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis),
+                ],
               ),
             ],
           ),
@@ -67,25 +88,11 @@ class LogItem extends StatelessWidget {
 }
 
 class GroupedFields extends StatelessWidget {
-  final String title1;
-  final String content1;
-  final String title2;
-  final String content2;
-  final String title3;
-  final String content3;
-  final String title4;
-  final String content4;
+  final List<FieldData> fields;
 
   const GroupedFields({
     Key? key,
-    required this.title1,
-    required this.content1,
-    required this.title2,
-    required this.content2,
-    required this.title3,
-    required this.content3,
-    required this.title4,
-    required this.content4,
+    required this.fields,
   }) : super(key: key);
 
   @override
@@ -93,30 +100,39 @@ class GroupedFields extends StatelessWidget {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title1),
-          Text(content1,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold, color: Color(0xff023E3F))),
-          const SizedBox(height: 8.0),
-          Text(title4),
-          Text(content4,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold, color: Color(0xff023E3F))),
-          const SizedBox(height: 8.0),
-          Text(title2),
-          Text(content2,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold, color: Color(0xff023E3F))),
-          const SizedBox(height: 8.0),
-          Text(title3),
-          Text(content3,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold, color: Color(0xff023E3F))),
-        ],
+        children: fields.map((field) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(field.title),
+              Text(
+                field.content,
+                maxLines: field.maxLines,
+                overflow: field.overflow,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff023E3F),
+                ),
+              ),
+              const SizedBox(height: 8.0),
+            ],
+          );
+        }).toList(),
       ),
     );
   }
+}
+
+class FieldData {
+  final String title;
+  final String content;
+  final int? maxLines;
+  final TextOverflow? overflow;
+
+  FieldData({
+    required this.title,
+    required this.content,
+    this.maxLines,
+    this.overflow,
+  });
 }
