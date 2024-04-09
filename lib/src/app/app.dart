@@ -1,6 +1,7 @@
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/pages/appointment/cubit/appointnent_details/appointment_cubit_cubit.dart';
 import 'package:new_beginnings/src/pages/forgot_password/cubit/forget_password_cubit.dart';
+import 'package:new_beginnings/src/pages/my_bills/cubit/my_bills_cubit.dart';
 import 'package:new_beginnings/src/pages/my_logs/cubit/logs_cubit.dart';
 import 'package:new_beginnings/src/pages/profile/cubit/user_profile_cubit.dart';
 import 'package:new_beginnings/src/pages/sign_in/cubit/sign_in_cubit.dart';
@@ -37,6 +38,9 @@ class App extends StatelessWidget {
               BlocProvider(create: (context) => VerifyEmailCubit(getIt.get())),
               BlocProvider(
                 create: (context) => SignUpCubit(getIt.get()),
+              ),
+              BlocProvider(
+                create: (context) => MyBillsCubit(getIt.get()),
               ),
               BlocProvider(
                 create: (context) => ForgetPasswordCubit(getIt.get()),

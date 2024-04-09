@@ -3,6 +3,7 @@ import 'package:new_beginnings/src/pages/all_services/cubit/cubit/service_cubit.
 import 'package:new_beginnings/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
 import 'package:new_beginnings/src/pages/forgot_password/cubit/forget_password_cubit.dart';
 import 'package:new_beginnings/src/pages/mental_health/mental_health_inner_pages/gad_7/cubit/gad_7_cubit.dart';
+import 'package:new_beginnings/src/pages/my_bills/cubit/my_bills_cubit.dart';
 import 'package:new_beginnings/src/pages/my_logs/cubit/logs_cubit.dart';
 import 'package:new_beginnings/src/pages/product_detail/cubit/product_detail_cubit.dart';
 import 'package:new_beginnings/src/pages/products/cubit/products_list_cubit.dart';
@@ -43,6 +44,7 @@ void _injectBlocsAndCubits() {
   getIt.registerFactory(() => ProductDetailCubit(getIt.get()));
   getIt.registerFactory(() => SignInCubit(getIt.get()));
   getIt.registerFactory(() => SignUpCubit(getIt.get()));
+  getIt.registerFactory(() => MyBillsCubit(getIt.get()));
   getIt.registerFactory(() => ForgetPasswordCubit(getIt.get()));
   getIt.registerFactory(() => VerifyEmailCubit(getIt.get()));
   getIt.registerFactory(() => UserProfileCubit(getIt.get()));

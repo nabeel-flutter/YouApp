@@ -37,6 +37,7 @@ class SoftTechTestApi {
   static String kRouteAuthLogin = 'login';
 
   static String kRouteAuthSignUp = 'register';
+  static String kRoutePayBills = 'billing';
 
   static String kRouteAuthForgetPassword = 'password/forgot';
 
@@ -321,6 +322,25 @@ class SoftTechTestApi {
       'lastName': lastName,
       'phone': phone,
       'email': email
+    });
+    return BaseResponseDto.fromJson({"data": response.data},
+        (value) => TokenDto.fromJson(value as Map<String, dynamic>));
+  }
+
+  Future<BaseResponseDto<TokenDto>> payBill(
+      {required String name,
+      required String email,
+      required String phone,
+      required String paymentType,
+      required String message,
+      required int price}) async {
+    final response = await dio.post(kRoutePayBills, data: {
+      'name': name,
+      'email': email,
+      'phone': phone,
+      'paymentType': paymentType,
+      'message': message,
+      'price': price,
     });
     return BaseResponseDto.fromJson({"data": response.data},
         (value) => TokenDto.fromJson(value as Map<String, dynamic>));

@@ -97,6 +97,14 @@ abstract class ApiRepository extends Repository {
       required String confirmPassword,
       required String password});
 
+  Future<Result<BaseResponseDto<TokenDto>>> payBill(
+      {required String name,
+      required String email,
+      required String phone,
+      required String paymentType,
+      required String message,
+      required int price});
+
   Future<Result<BaseResponseDto>> forgetPassword({required String email});
 
   Future<Result<BaseResponseDto>> verifyEmail({required String email});

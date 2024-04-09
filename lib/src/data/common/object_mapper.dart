@@ -398,6 +398,10 @@ class ObjectMapper {
     return BaseResponseDto<TokenDto>(data: dto.data, message: dto.message);
   }
 
+  BaseResponseDto<TokenDto> toPayBill(BaseResponseDto<TokenDto> dto) {
+    return BaseResponseDto<TokenDto>(data: dto.data, message: dto.message);
+  }
+
   BaseResponseDto toforgetPassword(BaseResponseDto dto) {
     return BaseResponseDto(data: dto.data, message: dto.data['message']);
   }
