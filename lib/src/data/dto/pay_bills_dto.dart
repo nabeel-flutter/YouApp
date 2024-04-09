@@ -1,0 +1,25 @@
+import 'package:json_annotation/json_annotation.dart';
+import 'package:new_beginnings/src/data/dto/doctor_dto.dart';
+import 'package:new_beginnings/src/data/dto/prescription_dto.dart';
+
+part 'pay_bills_dto.g.dart';
+
+@JsonSerializable(
+  includeIfNull: false,
+  explicitToJson: true,
+  fieldRename: FieldRename.snake,
+)
+class PayBillsDto {
+  
+  String ? paymentLink;
+  bool ? success;
+  PayBillsDto({
+    this.paymentLink,
+    this.success
+  });
+
+  factory PayBillsDto.fromJson(Map<String, dynamic> json) =>
+      _$PayBillsDtoFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PayBillsDtoToJson(this);
+}

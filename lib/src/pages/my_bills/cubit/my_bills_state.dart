@@ -8,5 +8,5 @@ class MyBillsState with _$MyBillsState {
 
   const factory MyBillsState.error(String message) = _Error;
 
-  const factory MyBillsState.loaded(TokenDto token) = _Loaded;
+  const factory MyBillsState.loaded(PayBillsDto token) = _Loaded;
 }

@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:new_beginnings/src/app/app_export.dart';
 import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
+import 'package:new_beginnings/src/data/dto/pay_bills_dto.dart';
 import 'package:new_beginnings/src/data/dto/token_dto.dart';
 import 'package:new_beginnings/src/domain/common/result.dart';
 
@@ -20,7 +21,7 @@ class MyBillsCubit extends Cubit<MyBillsState> {
       required int price}) async {
     emit(const _Loading());
 
-    final Result<BaseResponseDto<TokenDto>> result =
+    final Result<BaseResponseDto<PayBillsDto>> result =
         await apiRepository.payBill(
             name: name,
             email: email,

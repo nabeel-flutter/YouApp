@@ -13,6 +13,7 @@ import 'package:new_beginnings/src/data/dto/medical_record_dto.dart';
 import 'package:new_beginnings/src/data/dto/medical_record_file_dto.dart';
 import 'package:new_beginnings/src/data/dto/medical_records_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/package_dto.dart';
+import 'package:new_beginnings/src/data/dto/pay_bills_dto.dart';
 import 'package:new_beginnings/src/data/dto/prescribed_dto.dart';
 import 'package:new_beginnings/src/data/dto/prescribed_element_dto.dart';
 import 'package:new_beginnings/src/data/dto/prescription_dto.dart';
@@ -398,8 +399,8 @@ class ObjectMapper {
     return BaseResponseDto<TokenDto>(data: dto.data, message: dto.message);
   }
 
-  BaseResponseDto<TokenDto> toPayBill(BaseResponseDto<TokenDto> dto) {
-    return BaseResponseDto<TokenDto>(data: dto.data, message: dto.message);
+  BaseResponseDto<PayBillsDto> toPayBill(BaseResponseDto<PayBillsDto> dto) {
+    return BaseResponseDto<PayBillsDto>(data: dto.data, message: dto.message);
   }
 
   BaseResponseDto toforgetPassword(BaseResponseDto dto) {

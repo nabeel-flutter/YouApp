@@ -9,6 +9,7 @@ import 'package:new_beginnings/src/data/dto/dashboard_overview_dto.dart';
 import 'package:new_beginnings/src/data/dto/data_list_dto.dart';
 import 'package:new_beginnings/src/data/dto/doctor_dto.dart';
 import 'package:new_beginnings/src/data/dto/medical_records_history_dto.dart';
+import 'package:new_beginnings/src/data/dto/pay_bills_dto.dart';
 import 'package:new_beginnings/src/data/dto/product_dto.dart';
 import 'package:new_beginnings/src/data/dto/sehat_scan_history_dto.dart';
 import 'package:new_beginnings/src/data/dto/token_dto.dart';
@@ -327,7 +328,7 @@ class SoftTechTestApi {
         (value) => TokenDto.fromJson(value as Map<String, dynamic>));
   }
 
-  Future<BaseResponseDto<TokenDto>> payBill(
+  Future<BaseResponseDto<PayBillsDto>> payBill(
       {required String name,
       required String email,
       required String phone,
@@ -343,7 +344,7 @@ class SoftTechTestApi {
       'price': price,
     });
     return BaseResponseDto.fromJson({"data": response.data},
-        (value) => TokenDto.fromJson(value as Map<String, dynamic>));
+        (value) => PayBillsDto.fromJson(value as Map<String, dynamic>));
   }
 
   Future<BaseResponseDto> forgetPassword({

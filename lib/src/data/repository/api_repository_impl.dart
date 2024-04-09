@@ -4,6 +4,7 @@ import 'package:new_beginnings/src/data/common/object_mapper.dart';
 import 'package:new_beginnings/src/data/datasource/api/at_care_api.dart';
 import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
 import 'package:new_beginnings/src/data/dto/data_list_dto.dart';
+import 'package:new_beginnings/src/data/dto/pay_bills_dto.dart';
 import 'package:new_beginnings/src/data/dto/product_dto.dart';
 import 'package:new_beginnings/src/data/dto/token_dto.dart';
 import 'package:new_beginnings/src/domain/domain.dart';
@@ -239,7 +240,7 @@ class ApiRepositoryImpl extends ApiRepository {
   }
 
   @override
-  Future<Result<BaseResponseDto<TokenDto>>> payBill(
+  Future<Result<BaseResponseDto<PayBillsDto>>> payBill(
       {required String name,
       required String email,
       required String phone,
