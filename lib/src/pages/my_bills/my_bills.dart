@@ -41,27 +41,32 @@ class _MyBillsState extends State<MyBills> {
                   const SizedBox(
                     height: 30,
                   ),
-                  CustomTextField(
-                    fieldName: "Name",
+                  TextFormFieldComponent(
+                    isLabel: true,
+                    borderRadius: 10,
+                    stroke: 1,
+                    borderColor: ColorConstants.primaryColor,
+                    fillColor: ColorConstants.inputFeildBgColor.withOpacity(0.2),
+                    label: "Name",
                     hintText: "Enter your Name",
                     controller: _nameController,
-                    keyboardType: TextInputType.name,
+                    textInputType: TextInputType.name,
                   ),
-                  CustomTextField(
-                      fieldName: "Email ID",
+                  TextFormFieldComponent(
+                      label: "Email ID",
                       hintText: "Enter your Email ID",
                       controller: _emailIdController,
-                      keyboardType: TextInputType.emailAddress),
-                  CustomTextField(
-                    fieldName: "Phone Number",
+                      textInputType: TextInputType.emailAddress),
+                  TextFormFieldComponent(
+                    label: "Phone Number",
                     hintText: "Enter your Phone Number",
                     controller: _phoneController,
-                    keyboardType: TextInputType.phone,
+                    textInputType: TextInputType.phone,
                   ),
-                  CustomTextField(
-                      fieldName: "Amount",
+                  TextFormFieldComponent(
+                      label: "Amount",
                       hintText: "Enter your Initial Amount",
-                      keyboardType: TextInputType.number,
+                      textInputType: TextInputType.number,
                       controller: _amountController),
                   ExpandedSelectionWidget(
                     onTapped: (paymentType) {
@@ -78,11 +83,11 @@ class _MyBillsState extends State<MyBills> {
                       'Other Amount',
                     ],
                   ),
-                  CustomTextField(
-                    fieldName: "Message",
+                  TextFormFieldComponent(
+                    label: "Message",
                     hintText: "Enter your Message",
                     controller: _messageController,
-                    messageFeild: true,
+                    maxLines:5,
                   ),
                   const SizedBox(
                     height: 10,
@@ -210,11 +215,10 @@ class _MyBillsState extends State<MyBills> {
                         return null;
                       },
                       loaded: (data) async {
-                                  await Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) =>
-                      PaymentWebViewScreen(uri: data.paymentLink!),
-                ));
-      
+                        await Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) =>
+                              PaymentWebViewScreen(uri: data.paymentLink!),
+                        ));
                       },
                     ),
                   ),
