@@ -47,9 +47,9 @@ class _DateSelectionWidgetState extends State<DateSelectionWidget> {
         const Text(
           "Date of Birth",
           style: TextStyle(
-            color: Color(0xff656567),
+            color: ColorConstants.primaryTextColor,
             fontSize: 16,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 8),

@@ -96,12 +96,10 @@ class _EditScreenBodyState extends State<EditScreenBody> {
       saveImage(widget.userDetails!.data!.avatar),
       saveImage(widget.userDetails!.data!.insuranceDetails!.frontPic),
       saveImage(widget.userDetails!.data!.insuranceDetails!.backPic),
-      // Add more saveImage calls for other images if needed
     ];
 
     List<File?> downloadedImages = await Future.wait(imageDownloadFutures);
 
-    // Assign downloaded images to variables
     avatar = downloadedImages[0];
     insuranceCardFront = downloadedImages[1];
     insuranceCardBack = downloadedImages[2];
@@ -162,10 +160,6 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                         fieldName: "Suffix",
                         hintText: "Enter your Suffix",
                         controller: suffixController),
-                    // CustomTextField(
-                    //     fieldName: "Date of Birth",
-                    //     hintText: "Enter your Date of Birth",
-                    //     controller: dobController),
                     DateSelectionWidget(
                       initialDate: widget.userDetails?.data?.birthDate,
                       onDateSelected: (selectedDate) {
@@ -177,7 +171,6 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                     const SizedBox(
                       height: 20,
                     ),
-
                     CustomTextField(
                         keyboardType: TextInputType.phone,
                         fieldName: "SSN",
@@ -250,7 +243,6 @@ class _EditScreenBodyState extends State<EditScreenBody> {
                           ? widget.userDetails!.data!.geoLocation!.country!
                           : "Select your country",
                     ),
-
                     CustomTextField(
                         fieldName: StringConstants.zipCode,
                         hintText: "Enter your Zip Code",
