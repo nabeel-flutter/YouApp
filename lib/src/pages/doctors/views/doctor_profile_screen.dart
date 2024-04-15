@@ -1,5 +1,4 @@
 import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/doctors/models/department_dto.dart';
 import 'package:new_beginnings/src/pages/doctors/views/widgets/description_widget.dart';
 
 import 'package:new_beginnings/src/pages/doctors/views/widgets/doctor_statistics_widget.dart';
