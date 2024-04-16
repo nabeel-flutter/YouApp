@@ -103,10 +103,12 @@ class _UploadInsuranceCardState extends State<UploadInsuranceCard> {
                             width: 2.0, // Set border width here
                           ),
                         ),
-                        child: Image.network(
-                          widget.image!,
-                          fit: BoxFit.cover,
-                        )),
+                        child: Image.network(widget.image!,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) =>
+                                const Center(
+                                  child: Text("Image not found"),
+                                ))),
                   ],
                 )
               : Column(
