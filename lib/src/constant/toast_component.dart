@@ -34,7 +34,7 @@ class ToastComponent2 {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: ColorConstants.primaryColor),
-          color: ColorConstants.primaryColor.withOpacity(0.5),
+          color: ColorConstants.widgetBgColor.withOpacity(0.6),
         ),
         // width: MediaQuery.of(context).size.width * .9,
         child: Row(
@@ -55,10 +55,8 @@ class ToastComponent2 {
                 maxLines: 5,
                 overflow: TextOverflow.clip,
                 style: const TextStyle(
-                  color: ColorConstants.primaryColor,
+                  color: ColorConstants.primaryTextColor,
                   fontWeight: FontWeight.bold,
-
-
                 ),
               ),
             ),
@@ -131,8 +129,7 @@ class ToastComponent3 {
                 style: const TextStyle(
                   color: ColorConstants.redIndicatorColor,
                   fontWeight: FontWeight.bold,
-                
-                  ),
+                ),
               ),
             ),
           ],
