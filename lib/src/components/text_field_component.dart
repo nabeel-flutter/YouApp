@@ -14,7 +14,12 @@ class TextFormFieldComponent extends StatefulWidget {
     this.textInputType = TextInputType.text,
     this.isPassword,
     this.suffixIcon,
-    this.errorText, this.borderColor, this.fillColor, this.borderRadius, this.stroke, this.isLabel=false,
+    this.errorText,
+    this.borderColor,
+    this.fillColor,
+    this.borderRadius,
+    this.stroke,
+    this.isLabel = false,
   });
   final List<TextInputFormatter>? listTextInputFormatter;
   final String? label;
@@ -27,14 +32,11 @@ class TextFormFieldComponent extends StatefulWidget {
   final bool? isPassword;
   final Widget? suffixIcon;
   final String? errorText;
-  final Color ? borderColor;
-  final Color ? fillColor;
-  final double ? borderRadius;
-  final double ? stroke ;
-  final bool? isLabel ;
-
-
-   
+  final Color? borderColor;
+  final Color? fillColor;
+  final double? borderRadius;
+  final double? stroke;
+  final bool? isLabel;
 
   @override
   State<TextFormFieldComponent> createState() => _TextFormFieldComponentState();
@@ -48,16 +50,15 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if(widget.isLabel==true)
-            Text(
-          widget.label??'',
-          style: const TextStyle(
-            color: ColorConstants.primaryTextColor,
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
+        if (widget.isLabel == true)
+          Text(
+            widget.label ?? '',
+            style: const TextStyle(
+              color: ColorConstants.primaryTextColor,
+              fontSize: 16,
+              fontWeight: FontWeight.w700,
+            ),
           ),
-        ),
-    
         Padding(
           padding: EdgeInsets.symmetric(vertical: widget.verticalPadding),
           child: TextFormField(
@@ -67,7 +68,8 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
             ),
             maxLines: widget.maxLines,
             validator: (value) {
-              return validator(value: value, textInputType: widget.textInputType);
+              return validator(
+                  value: value, textInputType: widget.textInputType);
             },
             inputFormatters: widget.listTextInputFormatter,
             controller: widget.controller,
@@ -92,33 +94,48 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
                     : widget.suffixIcon,
                 focusColor: getThemeColor(context),
                 filled: true,
-                fillColor: widget.fillColor?? ColorConstants.white,
+                fillColor: widget.fillColor ?? ColorConstants.white,
                 hintText: widget.hintText,
                 hintStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
                     color: ColorConstants.hintTextColor),
                 enabledBorder: OutlineInputBorder(
-                    borderSide:  BorderSide(
-                        color:widget. borderColor?? ColorConstants.borderColorFields, width :widget.stroke?? 2.2),
-                    borderRadius:  BorderRadius.circular(widget.borderRadius?? 20)),
+                    borderSide: BorderSide(
+                        color: widget.borderColor ??
+                            ColorConstants.borderColorFields,
+                        width: widget.stroke ?? 2.2),
+                    borderRadius:
+                        BorderRadius.circular(widget.borderRadius ?? 20)),
                 errorBorder: OutlineInputBorder(
-                    borderSide:  BorderSide(
-                        color:widget. borderColor?? ColorConstants.borderColorFields, width :widget.stroke?? 2.2),
-                    borderRadius: BorderRadius.circular(widget.borderRadius?? 20)),
+                    borderSide: BorderSide(
+                        color: widget.borderColor ??
+                            ColorConstants.borderColorFields,
+                        width: widget.stroke ?? 2.2),
+                    borderRadius:
+                        BorderRadius.circular(widget.borderRadius ?? 20)),
                 disabledBorder: OutlineInputBorder(
-                    borderSide:  BorderSide(
-                        color:widget. borderColor?? ColorConstants.borderColorFields, width :widget.stroke?? 2.2),
-                    borderRadius: BorderRadius.circular(widget.borderRadius?? 20)),
+                    borderSide: BorderSide(
+                        color: widget.borderColor ??
+                            ColorConstants.borderColorFields,
+                        width: widget.stroke ?? 2.2),
+                    borderRadius:
+                        BorderRadius.circular(widget.borderRadius ?? 20)),
                 focusedBorder: OutlineInputBorder(
-                  borderSide:  BorderSide(
-                      color: widget. borderColor??ColorConstants.borderColorFields, width :widget.stroke?? 2.2),
-                  borderRadius: BorderRadius.circular(widget.borderRadius?? 20),
+                  borderSide: BorderSide(
+                      color: widget.borderColor ??
+                          ColorConstants.borderColorFields,
+                      width: widget.stroke ?? 2.2),
+                  borderRadius:
+                      BorderRadius.circular(widget.borderRadius ?? 20),
                 ),
                 border: OutlineInputBorder(
-                    borderSide:  BorderSide(
-                        color:widget. borderColor?? ColorConstants.borderColorFields, width :widget.stroke?? 2.2),
-                    borderRadius: BorderRadius.circular(widget.borderRadius?? 20))),
+                    borderSide: BorderSide(
+                        color: widget.borderColor ??
+                            ColorConstants.borderColorFields,
+                        width: widget.stroke ?? 2.2),
+                    borderRadius:
+                        BorderRadius.circular(widget.borderRadius ?? 20))),
           ),
         ),
       ],
@@ -153,7 +170,7 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
         }
       }
     } else if (textInputType == TextInputType.name) {
-      if (value.length < 4) {
+      if (value.length < 3) {
         return 'Name is too short';
       }
     }
