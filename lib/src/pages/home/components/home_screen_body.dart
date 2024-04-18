@@ -139,7 +139,7 @@ class HomeScreenBody extends StatelessWidget {
                       );
                     },
                     loaded: (team) => Column(
-                      children: team.data
+                      children: team.data.where((element) => element.department=='Executive Management')
                           .map((e) => Column(
                                 children: e.team
                                     .map((e) => GestureDetector(
