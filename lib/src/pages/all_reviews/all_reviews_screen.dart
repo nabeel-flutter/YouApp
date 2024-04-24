@@ -1,4 +1,4 @@
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 
 class AllReviewsScreen extends StatelessWidget {
   const AllReviewsScreen({super.key});

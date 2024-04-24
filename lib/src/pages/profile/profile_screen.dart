@@ -1,7 +1,7 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/profile/cubit/user_profile_cubit.dart';
-import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/user_profile_component.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/profile/cubit/user_profile_cubit.dart';
+import 'package:your_app_test/src/pages/profile/model/user_data_model.dart';
+import 'package:your_app_test/src/pages/profile/widgets/user_profile_component.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 @RoutePage()

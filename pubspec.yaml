@@ -1,4 +1,4 @@
-name: new_beginnings
+name: your_app_test
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -58,7 +58,6 @@ dependencies:
   pin_code_fields: ^8.0.1
   fluttertoast: ^8.2.2
   upgrader: ^10.0.0
-  flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.3.2
   top_modal_sheet: ^2.0.1
   permission_handler: ^11.0.1
@@ -76,6 +75,7 @@ dependencies:
   flutter_tts: ^4.0.2
   animated_text_kit: ^4.2.2
   shimmer: ^3.0.0
+  control_style: ^0.1.0
   
 
 dev_dependencies:
@@ -119,18 +119,18 @@ flavorizr:
       app:
         name: "New Beginnings"
       android:
-        applicationId: "com.newBeginnings.new_beginnings.android"
+        applicationId: "com.yourApp.your_app_test.android"
       ios:
-        bundleId: "com.newBeginnings.new_beginnings.ios"
+        bundleId: "com.yourApp.your_app_test.ios"
       macos:
         bundleId: "com.softTech.softTechTest.mac"
     staging:
       app:
         name: "New Beginnings Staging"
       android:
-        applicationId: "com.newBeginnings.new_beginnings.android"
+        applicationId: "com.yourApp.your_app_test.android"
       ios:
-        bundleId: "com.newBeginnings.new_beginnings.ios"
+        bundleId: "com.yourApp.your_app_test.ios"
       macos:
         bundleId: "com.softTech.softTechTest.mac"
 

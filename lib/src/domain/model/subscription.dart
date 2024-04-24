@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:new_beginnings/src/domain/model/package.dart';
+import 'package:your_app_test/src/domain/model/package.dart';
 
 class Subscription extends Equatable {
   final int remainingDays;

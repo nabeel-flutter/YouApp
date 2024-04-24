@@ -1,4 +1,4 @@
-import 'package:new_beginnings/src/pages/payment/model/my_payment_model.dart';
+import 'package:your_app_test/src/pages/payment/model/my_payment_model.dart';
 
 List<MyPayment> myPaymentList = [
   MyPayment(

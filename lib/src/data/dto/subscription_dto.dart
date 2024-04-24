@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:new_beginnings/src/data/dto/package_dto.dart';
+import 'package:your_app_test/src/data/dto/package_dto.dart';
 
 part 'subscription_dto.g.dart';
 

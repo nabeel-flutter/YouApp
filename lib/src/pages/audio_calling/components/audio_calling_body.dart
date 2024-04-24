@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/components/custom_circular_icon.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/components/custom_circular_icon.dart';
 
 class AudioCallingBody extends StatelessWidget {
   const AudioCallingBody({Key? key}) : super(key: key);

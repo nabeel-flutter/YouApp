@@ -1,4 +1,4 @@
-import 'package:new_beginnings/src/pages/book_appointment_two/model/blood_group_model.dart';
+import 'package:your_app_test/src/pages/book_appointment_two/model/blood_group_model.dart';
 
 List<BloodGroup> bloodGroupList = [
   BloodGroup(bloddGroud: 'AB+'),

@@ -1,6 +1,6 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
-import 'package:new_beginnings/src/domain/common/result.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/data/dto/base_response_dto.dart';
+import 'package:your_app_test/src/domain/common/result.dart';
 
 part 'verify_email_state.dart';
 part 'verify_email_cubit.freezed.dart';

@@ -1,7 +1,7 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/search_doctor/components/bottom_sheet_buttons.dart';
-import 'package:new_beginnings/src/pages/search_doctor/components/bottom_sheet_ratings.dart';
-import 'package:new_beginnings/src/pages/search_doctor/components/search_doctor_categories.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/search_doctor/components/bottom_sheet_buttons.dart';
+import 'package:your_app_test/src/pages/search_doctor/components/bottom_sheet_ratings.dart';
+import 'package:your_app_test/src/pages/search_doctor/components/search_doctor_categories.dart';
 
 class SearchFilterBottomSheet extends StatelessWidget {
   const SearchFilterBottomSheet({super.key});

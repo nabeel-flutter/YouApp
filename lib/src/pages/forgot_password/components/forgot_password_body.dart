@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/forgot_password/cubit/forget_password_cubit.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/forgot_password/cubit/forget_password_cubit.dart';
 
 class ForgotPasswordBody extends StatelessWidget {
   const ForgotPasswordBody({Key? key}) : super(key: key);

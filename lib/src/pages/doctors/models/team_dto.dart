@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:new_beginnings/src/pages/doctors/models/department_dto.dart';
+import 'package:your_app_test/src/pages/doctors/models/department_dto.dart';
 
 part 'team_dto.g.dart';
 

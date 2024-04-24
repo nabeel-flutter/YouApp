@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:new_beginnings/src/data/dto/doctor_dto.dart';
-import 'package:new_beginnings/src/data/dto/prescription_dto.dart';
+import 'package:your_app_test/src/data/dto/doctor_dto.dart';
+import 'package:your_app_test/src/data/dto/prescription_dto.dart';
 
 part 'appointment_dto.g.dart';
 

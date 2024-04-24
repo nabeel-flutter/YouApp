@@ -1,4 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:control_style/control_style.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 
 ThemeData darkThemeData(MyTheme theme) {
   return ThemeData(
@@ -9,13 +10,38 @@ ThemeData darkThemeData(MyTheme theme) {
     brightness: Brightness.light,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        shape: MaterialStatePropertyAll(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
+        textStyle: MaterialStateProperty.resolveWith((states) {
+          return FontStylesConstants.gilroy(
+              fontSize: 16, color: darken(theme.getColor(), 0.35));
+        }),
+        shape: MaterialStateProperty.resolveWith((states) {
+          return DecoratedOutlinedBorder(
+            
+            shadow: [
+              GradientShadow(
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: [
+                        Color(0xff62CDCB).withOpacity(0.5),
+                        Color(0xff4599DB).withOpacity(0.5),
+                      ]),
+                  blurRadius: 12,
+                  offset: Offset(0, 14))
+            ],
+            backgroundGradient: LinearGradient(
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
+                colors: [Color(0xff62CDCB), Color(0xff4599DB)]),
+            child:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          );
+        }),
         fixedSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
         maximumSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
         minimumSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
         backgroundColor: MaterialStatePropertyAll(
-          theme.getColor(),
+          Colors.transparent,
         ),
         foregroundColor: const MaterialStatePropertyAll(
           ColorConstants.white,

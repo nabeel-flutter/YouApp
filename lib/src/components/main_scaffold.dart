@@ -1,4 +1,4 @@
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 
 class MainScaffold extends StatelessWidget {
   final bool? isGradient;
@@ -21,19 +21,32 @@ class MainScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: floatingActionButton,
-      bottomNavigationBar: bottomNavigationBar,
-      backgroundColor: getThemeStateIsLight()
-          ? ColorConstants.black
-          : ColorConstants.bgColorLight,
-      appBar: appBar != null
-          ? PreferredSize(
-              preferredSize:
-                  Size.fromHeight(preferredSizeAppBar ?? kToolbarHeight + 1),
-              child: appBar!)
-          : null,
-      body: body,
+    return Stack(
+      alignment: Alignment.topCenter,
+      fit: StackFit.expand,
+      
+      children: [
+        Image.asset('assets/images/bg_image.png',
+        fit: BoxFit.cover,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        )
+        
+,        Scaffold(
+          
+          floatingActionButton: floatingActionButton,
+          bottomNavigationBar: bottomNavigationBar,
+          backgroundColor: Colors.transparent,
+          appBar: appBar != null
+              ? PreferredSize(
+                  preferredSize:
+                      Size.fromHeight(preferredSizeAppBar ?? kToolbarHeight + 1),
+                  child: appBar!)
+              : null,
+          body: body,
+        ),
+   
+      ],
     );
   }
 }

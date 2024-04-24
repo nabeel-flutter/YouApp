@@ -1,6 +1,6 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/verify_email/components/verify_email_body.dart';
-import 'package:new_beginnings/src/pages/verify_email/components/verify_email_header.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/verify_email/components/verify_email_body.dart';
+import 'package:your_app_test/src/pages/verify_email/components/verify_email_header.dart';
 
 @RoutePage()
 class VerifyEmailScreen extends StatelessWidget {

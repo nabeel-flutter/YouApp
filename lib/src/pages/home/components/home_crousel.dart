@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 
 class HomeCarouselWidget extends StatefulWidget {
   const HomeCarouselWidget({Key? key}) : super(key: key);

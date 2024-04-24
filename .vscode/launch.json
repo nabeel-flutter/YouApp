@@ -5,32 +5,32 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "new_beginnings",
+      "name": "your_app_test",
       "request": "launch",
       "type": "dart",
       "args": [ "--flavor", "staging" ]
     },
     {
-      "name": "new_beginnings (profile mode)",
+      "name": "your_app_test (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile"
     },
     {
-      "name": "new_beginnings (release mode)",
+      "name": "your_app_test (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release"
     },
     {
-      "name": "new_beginnings_prod",
+      "name": "your_app_test_prod",
       "request": "launch",
       "type": "dart",
       "program": "lib/src/flavors/main_prod.dart",
       "args": ["--flavor", "prod"]
     },
     {
-      "name": "new_beginnings_prod (profile mode)",
+      "name": "your_app_test_prod (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile",
@@ -39,7 +39,7 @@
       "args": ["--flavor", "prod"]
     },
     {
-      "name": "new_beginnings_prod (release mode)",
+      "name": "your_app_test_prod (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release",
@@ -48,14 +48,14 @@
       "args": ["--flavor", "prod"]
     },
     {
-      "name": "new_beginnings_staging",
+      "name": "your_app_test_staging",
       "request": "launch",
       "type": "dart",
       "program": "lib/src/flavors/main_staging.dart",
       "args": ["--flavor", "staging"]
     },
     {
-      "name": "new_beginnings_staging (profile mode)",
+      "name": "your_app_test_staging (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile",
@@ -64,7 +64,7 @@
       "args": ["--flavor", "staging"]
     },
     {
-      "name": "new_beginnings_staging (release mode)",
+      "name": "your_app_test_staging (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release",

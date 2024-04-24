@@ -1,4 +1,4 @@
-import 'package:new_beginnings/src/domain/model/docotor.dart';
+import 'package:your_app_test/src/domain/model/docotor.dart';
 
 class SharedWithDoctors {
   int doctorId;

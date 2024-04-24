@@ -1,6 +1,6 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/lab_test/components/lab_test_list.dart';
-import 'package:new_beginnings/src/pages/lab_test/components/lab_test_search_bar.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/lab_test/components/lab_test_list.dart';
+import 'package:your_app_test/src/pages/lab_test/components/lab_test_search_bar.dart';
 
 class LabTestScreen extends StatelessWidget {
   const LabTestScreen({super.key});

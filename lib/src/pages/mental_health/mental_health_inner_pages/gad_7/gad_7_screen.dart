@@ -1,8 +1,8 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/mental_health/mental_health_inner_pages/gad_7/components/gad_7_appbar_compoent.dart';
-import 'package:new_beginnings/src/pages/mental_health/mental_health_inner_pages/gad_7/components/gad_7_widget.dart';
-import 'package:new_beginnings/src/pages/mental_health/mental_health_inner_pages/gad_7/cubit/gad_7_cubit.dart';
-import 'package:new_beginnings/src/pages/mental_health/mental_health_inner_pages/gad_7/data_list/gad_7_data_list.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/mental_health/mental_health_inner_pages/gad_7/components/gad_7_appbar_compoent.dart';
+import 'package:your_app_test/src/pages/mental_health/mental_health_inner_pages/gad_7/components/gad_7_widget.dart';
+import 'package:your_app_test/src/pages/mental_health/mental_health_inner_pages/gad_7/cubit/gad_7_cubit.dart';
+import 'package:your_app_test/src/pages/mental_health/mental_health_inner_pages/gad_7/data_list/gad_7_data_list.dart';
 
 class GAD7Screen extends StatelessWidget {
   const GAD7Screen({super.key});

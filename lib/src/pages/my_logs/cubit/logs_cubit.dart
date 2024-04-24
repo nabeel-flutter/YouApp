@@ -1,7 +1,7 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
-import 'package:new_beginnings/src/domain/common/result.dart';
-import 'package:new_beginnings/src/pages/my_logs/model/my_logs_model.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/data/dto/base_response_dto.dart';
+import 'package:your_app_test/src/domain/common/result.dart';
+import 'package:your_app_test/src/pages/my_logs/model/my_logs_model.dart';
 
 part 'logs_state.dart';
 part 'logs_cubit.freezed.dart';

@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/all_services/cubit/cubit/service_cubit.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/all_services/cubit/cubit/service_cubit.dart';
 
 @RoutePage()
 class AllServicesScreen extends StatelessWidget {

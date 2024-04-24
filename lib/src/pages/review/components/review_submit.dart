@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/review/components/review_dialog.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/review/components/review_dialog.dart';
 
 class ReviewSubmit extends StatelessWidget {
   const ReviewSubmit({super.key});

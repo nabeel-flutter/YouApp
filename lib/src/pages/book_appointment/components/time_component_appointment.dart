@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/book_appointment/book_appointment_screen.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/book_appointment/book_appointment_screen.dart';
 
 class TimeComponentAppointment extends StatelessWidget {
   const TimeComponentAppointment({

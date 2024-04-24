@@ -33,7 +33,7 @@ android {
     productFlavors {
         prod {
             dimension "flavor-type"
-        applicationId "com.newBeginnings.new_beginnings.android"
+        applicationId "com.yourApp.your_app_test.android"
             resValue "string", "app_name", "Soft Tech Test"
         }
         staging {

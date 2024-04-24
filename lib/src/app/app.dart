@@ -1,18 +1,18 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/appointment/cubit/appointnent_details/appointment_cubit_cubit.dart';
-import 'package:new_beginnings/src/pages/forgot_password/cubit/forget_password_cubit.dart';
-import 'package:new_beginnings/src/pages/my_bills/cubit/my_bills_cubit.dart';
-import 'package:new_beginnings/src/pages/my_logs/cubit/logs_cubit.dart';
-import 'package:new_beginnings/src/pages/profile/cubit/user_profile_cubit.dart';
-import 'package:new_beginnings/src/pages/sign_in/cubit/sign_in_cubit.dart';
-import 'package:new_beginnings/src/pages/sign_up/cubit/sign_up_cubit.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/appointment/cubit/appointnent_details/appointment_cubit_cubit.dart';
+import 'package:your_app_test/src/pages/forgot_password/cubit/forget_password_cubit.dart';
+import 'package:your_app_test/src/pages/my_bills/cubit/my_bills_cubit.dart';
+import 'package:your_app_test/src/pages/my_logs/cubit/logs_cubit.dart';
+import 'package:your_app_test/src/pages/profile/cubit/user_profile_cubit.dart';
+import 'package:your_app_test/src/pages/sign_in/cubit/sign_in_cubit.dart';
+import 'package:your_app_test/src/pages/sign_up/cubit/sign_up_cubit.dart';
 
-import 'package:new_beginnings/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
+import 'package:your_app_test/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
 
-import 'package:new_beginnings/src/pages/all_services/cubit/cubit/service_cubit.dart';
-import 'package:new_beginnings/src/pages/verify_email/cubit/verify_email_cubit.dart';
+import 'package:your_app_test/src/pages/all_services/cubit/cubit/service_cubit.dart';
+import 'package:your_app_test/src/pages/verify_email/cubit/verify_email_cubit.dart';
 
-import 'package:new_beginnings/src/pages/appointment/cubit/book_appointment/cubit/book_appointment_cubit.dart';
+import 'package:your_app_test/src/pages/appointment/cubit/book_appointment/cubit/book_appointment_cubit.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);

@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/billing/components/bottom_nav_bar_page_widget.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/billing/components/bottom_nav_bar_page_widget.dart';
 
 class MyClaimSbottomBarComponent extends StatelessWidget {
   const MyClaimSbottomBarComponent({

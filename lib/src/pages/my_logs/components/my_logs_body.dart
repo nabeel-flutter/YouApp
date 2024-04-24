@@ -1,6 +1,6 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/my_logs/model/my_logs_model.dart';
-import 'package:new_beginnings/src/pages/my_logs/widgets/log_item_widgets.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/my_logs/model/my_logs_model.dart';
+import 'package:your_app_test/src/pages/my_logs/widgets/log_item_widgets.dart';
 
 class MyLogsBody extends StatelessWidget {
   final LogDetails? logDetails;

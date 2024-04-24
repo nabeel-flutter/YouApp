@@ -1,4 +1,4 @@
-import 'package:new_beginnings/src/domain/domain.dart';
+import 'package:your_app_test/src/domain/domain.dart';
 
 class Result<T> {
   final T? _data;

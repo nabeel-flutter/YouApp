@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 
 class TextFormFieldComponent extends StatefulWidget {
   const TextFormFieldComponent({
@@ -75,10 +75,7 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
             controller: widget.controller,
             style: Theme.of(context).textTheme.bodySmall!.copyWith(
                 fontFamily: FontConstants.gilroyMedium,
-                color: darken(
-                  getThemeColor(context),
-                  0.4,
-                )),
+                color: ColorConstants.white,),
             obscureText: widget.isPassword == true ? showPassword : false,
             decoration: InputDecoration(
                 suffixIcon: widget.isPassword == true
@@ -88,9 +85,31 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
                             showPassword = !showPassword;
                           });
                         },
-                        icon: Icon(showPassword
-                            ? Icons.visibility_off_outlined
-                            : Icons.visibility))
+                        icon: ShaderMask(
+                          shaderCallback: (Rect bounds) {
+                            return LinearGradient(
+                              colors: [
+                                Color(0xff94783E),
+                                Color(0xffF3EDA6),
+                                Color(0xffF8FAE5),
+                                Color(0xffFFE2BE),
+                                Color(0xffD5BE88),
+                                Color(0xffF8FAE5),
+                                Color(0xffD5BE88),
+                              ], // Gradient colors
+                              begin:
+                                  Alignment.topLeft, // Gradient start position
+                              end: Alignment
+                                  .bottomRight, // Gradient end position
+                            ).createShader(bounds);
+                          },
+                          child: Icon(
+                            showPassword
+                                ? Icons.visibility_off_outlined
+                                : Icons.visibility,
+                            color: ColorConstants.bgColorLight,
+                          ),
+                        ))
                     : widget.suffixIcon,
                 focusColor: getThemeColor(context),
                 filled: true,
@@ -99,7 +118,7 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
                 hintStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
-                    color: ColorConstants.hintTextColor),
+                    color: ColorConstants.white),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                         color: widget.borderColor ??

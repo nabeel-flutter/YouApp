@@ -1,16 +1,16 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/core/date_time.dart';
-import 'package:new_beginnings/src/pages/appointment/cubit/appointnent_details/appointment_cubit_cubit.dart';
-import 'package:new_beginnings/src/pages/appointment/views/widgets/input_initial_payment.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/core/date_time.dart';
+import 'package:your_app_test/src/pages/appointment/cubit/appointnent_details/appointment_cubit_cubit.dart';
+import 'package:your_app_test/src/pages/appointment/views/widgets/input_initial_payment.dart';
 
-import 'package:new_beginnings/src/pages/appointment/views/widgets/select_date_widget.dart';
-import 'package:new_beginnings/src/pages/appointment/views/widgets/select_time_widget.dart';
+import 'package:your_app_test/src/pages/appointment/views/widgets/select_date_widget.dart';
+import 'package:your_app_test/src/pages/appointment/views/widgets/select_time_widget.dart';
 
-import 'package:new_beginnings/src/pages/appointment/views/widgets/payment_mode_selection.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/custom_textfeild_widget.dart';
+import 'package:your_app_test/src/pages/appointment/views/widgets/payment_mode_selection.dart';
+import 'package:your_app_test/src/pages/profile/widgets/custom_textfeild_widget.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import 'package:new_beginnings/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
+import 'package:your_app_test/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
 
 class AppointmentScreen extends StatefulWidget {
   const AppointmentScreen({super.key});

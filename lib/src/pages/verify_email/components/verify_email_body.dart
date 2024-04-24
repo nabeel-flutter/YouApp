@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/verify_email/cubit/verify_email_cubit.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/verify_email/cubit/verify_email_cubit.dart';
 
 class VerifyEmailBody extends StatelessWidget {
   const VerifyEmailBody({Key? key, required this.email}) : super(key: key);

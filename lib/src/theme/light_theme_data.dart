@@ -1,4 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:control_style/control_style.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 
 ThemeData lightThemeData(MyTheme theme, {Color? color}) {
   return ThemeData(
@@ -11,14 +12,19 @@ ThemeData lightThemeData(MyTheme theme, {Color? color}) {
         foregroundColor: ColorConstants.white),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        shape: MaterialStatePropertyAll(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
-        fixedSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
+        
+        shape:  MaterialStateProperty.resolveWith((states) {
+      return DecoratedOutlinedBorder(
+        backgroundGradient: LinearGradient(colors: [Colors.blue.withOpacity(0.5), Colors.blue.withOpacity(0.2)]),
+        child: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      );
+    }),   fixedSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
         maximumSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
         minimumSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
         backgroundColor: MaterialStatePropertyAll(
           theme.getColor(),
         ),
+        
         foregroundColor: const MaterialStatePropertyAll(
           ColorConstants.white,
         ),
@@ -30,6 +36,7 @@ ThemeData lightThemeData(MyTheme theme, {Color? color}) {
       buttonColor: theme.getColor(),
       textTheme: ButtonTextTheme.accent,
       height: 70,
+      
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
           10,

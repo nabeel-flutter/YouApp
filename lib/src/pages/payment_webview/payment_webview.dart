@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 
 @RoutePage()
 class PaymentWebViewScreen extends StatefulWidget {

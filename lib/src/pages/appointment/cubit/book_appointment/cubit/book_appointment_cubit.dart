@@ -1,7 +1,7 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/data/dto/base_response_dto.dart';
 
-import 'package:new_beginnings/src/domain/common/result.dart';
+import 'package:your_app_test/src/domain/common/result.dart';
 
 part 'book_appointment_state.dart';
 part 'book_appointment_cubit.freezed.dart';

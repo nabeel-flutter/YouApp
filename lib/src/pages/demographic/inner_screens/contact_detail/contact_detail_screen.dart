@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/demographic/inner_screens/contact_detail/components/contact_details_form.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/demographic/inner_screens/contact_detail/components/contact_details_form.dart';
 
 class ContactDetailScreen extends StatelessWidget {
   const ContactDetailScreen({

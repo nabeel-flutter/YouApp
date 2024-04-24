@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/appointments/components/appointments_body.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/appointments/components/appointments_body.dart';
 
 class AppointmentsScreen extends StatelessWidget {
   const AppointmentsScreen({Key? key}) : super(key: key);

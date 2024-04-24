@@ -1,7 +1,7 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/chatbot/chatbot_screen.dart';
-import 'package:new_beginnings/src/pages/my_bills/my_bills.dart';
-import 'package:new_beginnings/src/pages/my_logs/my_logs.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/chatbot/chatbot_screen.dart';
+import 'package:your_app_test/src/pages/my_bills/my_bills.dart';
+import 'package:your_app_test/src/pages/my_logs/my_logs.dart';
 
 class AnimatedDrawerAfterLoadedState extends StatefulWidget {
   const AnimatedDrawerAfterLoadedState({

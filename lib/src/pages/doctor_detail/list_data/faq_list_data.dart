@@ -1,4 +1,4 @@
-import 'package:new_beginnings/src/pages/doctor_detail/model/faq_list.dart';
+import 'package:your_app_test/src/pages/doctor_detail/model/faq_list.dart';
 
 List<FaqList> faqList = [
   FaqList(

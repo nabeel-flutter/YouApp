@@ -1,4 +1,4 @@
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 part 'animated_drawer_cubit.freezed.dart';
 
 class AnimatedDrawerCubit extends Cubit<AnimatedDrawerState> {

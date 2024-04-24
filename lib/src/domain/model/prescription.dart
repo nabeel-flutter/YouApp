@@ -1,4 +1,4 @@
-import 'package:new_beginnings/src/domain/model/prescribed.dart';
+import 'package:your_app_test/src/domain/model/prescribed.dart';
 
 class Prescription {
   String cosultationNote;

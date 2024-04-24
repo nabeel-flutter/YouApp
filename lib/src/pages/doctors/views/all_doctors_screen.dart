@@ -1,7 +1,7 @@
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 
-import 'package:new_beginnings/src/pages/home/components/widgets/top_doctors_widget.dart';
-import 'package:new_beginnings/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
+import 'package:your_app_test/src/pages/home/components/widgets/top_doctors_widget.dart';
+import 'package:your_app_test/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 @RoutePage()

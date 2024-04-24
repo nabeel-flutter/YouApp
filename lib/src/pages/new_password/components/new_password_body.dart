@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 
 class NewPasswordBody extends StatelessWidget {
   const NewPasswordBody({Key? key}) : super(key: key);

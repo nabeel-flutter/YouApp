@@ -1,13 +1,13 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:new_beginnings/src/constant/app_constants.dart';
-import 'package:new_beginnings/src/constant/http_constants.dart';
-import 'package:new_beginnings/src/constant/shared_preference_constants.dart';
-import 'package:new_beginnings/src/di/injector.dart';
-import 'package:new_beginnings/src/network/dio_network/dio_api_services.dart';
-import 'package:new_beginnings/src/util/logger_utils.dart';
-import 'package:new_beginnings/src/util/shared_preferences_util.dart';
+import 'package:your_app_test/src/constant/app_constants.dart';
+import 'package:your_app_test/src/constant/http_constants.dart';
+import 'package:your_app_test/src/constant/shared_preference_constants.dart';
+import 'package:your_app_test/src/di/injector.dart';
+import 'package:your_app_test/src/network/dio_network/dio_api_services.dart';
+import 'package:your_app_test/src/util/logger_utils.dart';
+import 'package:your_app_test/src/util/shared_preferences_util.dart';
 
 class DioClientNetwork {
   final Dio dio;

@@ -1,6 +1,6 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/appointments/book_appointments/book_appointments_pageview.dart';
-import 'package:new_beginnings/src/pages/appointments/scheduled/scheduled_pageview.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/appointments/book_appointments/book_appointments_pageview.dart';
+import 'package:your_app_test/src/pages/appointments/scheduled/scheduled_pageview.dart';
 
 class AppointmentsBody extends StatefulWidget {
   const AppointmentsBody({super.key});

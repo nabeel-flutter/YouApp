@@ -1,4 +1,4 @@
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 
 @RoutePage()
 class SignUpScreen extends StatelessWidget {
@@ -6,7 +6,7 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MainScaffold(
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -14,39 +14,49 @@ class SignUpScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 40),
-              const Icon(Icons.arrow_back, color: ColorConstants.white),
-              const SizedBox(height: 20),
-              Image(
-                image: const AssetImage(AssetsConstants.nbAuthLogo),
-                height: MediaQuery.of(context).size.height * 0.15,
-                width: double.infinity,
-                alignment: Alignment.center,
+              InkWell(
+                onTap: () {
+                  context.router.pop();
+                },  
+                child: const Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,  
+                  
+                  children: [
+                    Icon(Icons.arrow_back_ios, color: ColorConstants.white),
+                    Text(
+                      'Back',
+                      style: TextStyle(
+                        color: ColorConstants.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),              ),
+                  ],
+                ),
               ),
+              const SizedBox(height: 40),
               const SizedBox(
                 height: 20,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    StringConstants.createAccount,
-                    style: Theme.of(context)
-                        .textTheme
-                        .labelLarge!
-                        .copyWith(fontWeight: FontWeight.bold, fontSize: 28),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    StringConstants.createAccountDescription,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        color: ColorConstants.subTextColor,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16),
+             Row(
+                children: [
+                const SizedBox(
+                  width: 20,
+                ),   Text(
+                    StringConstants.register,
+                    style: const TextStyle(
+                      color: ColorConstants.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ],
               ),
+                 ],
+              ),
+           
               const SignUpForm(),
             ],
           ),

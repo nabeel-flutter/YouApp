@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/notification/model/notification_data_model.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/notification/model/notification_data_model.dart';
 
 class NotificationTileComponent extends StatelessWidget {
   const NotificationTileComponent({

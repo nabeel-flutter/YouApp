@@ -1,4 +1,4 @@
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 
 class OTPHeader extends StatelessWidget {
   const OTPHeader({Key? key}) : super(key: key);

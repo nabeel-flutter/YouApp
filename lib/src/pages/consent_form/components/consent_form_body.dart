@@ -1,4 +1,4 @@
-import 'package:new_beginnings/src/app/app_export.dart';
+import 'package:your_app_test/src/app/app_export.dart';
 
 class ConsentFormBody extends StatelessWidget {
   const ConsentFormBody({super.key});

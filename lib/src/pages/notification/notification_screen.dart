@@ -1,6 +1,6 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/notification/components/notification_tile_component.dart';
-import 'package:new_beginnings/src/pages/notification/list_data/notification_list_data.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/notification/components/notification_tile_component.dart';
+import 'package:your_app_test/src/pages/notification/list_data/notification_list_data.dart';
 
 @RoutePage()
 class NotificationScreen extends StatelessWidget {

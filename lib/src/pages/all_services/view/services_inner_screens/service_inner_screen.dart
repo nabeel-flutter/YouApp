@@ -1,9 +1,9 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/all_services/view/services_inner_screens/widgets/paragraph_widget.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/all_services/view/services_inner_screens/widgets/paragraph_widget.dart';
 
-import 'package:new_beginnings/src/pages/all_services/view/services_inner_screens/widgets/service_top_widget.dart';
+import 'package:your_app_test/src/pages/all_services/view/services_inner_screens/widgets/service_top_widget.dart';
 
-import 'package:new_beginnings/src/pages/all_services/view/services_inner_screens/widgets/service_info_card.dart';
+import 'package:your_app_test/src/pages/all_services/view/services_inner_screens/widgets/service_info_card.dart';
 
 @RoutePage()
 class ServiceInnerScreen extends StatelessWidget {

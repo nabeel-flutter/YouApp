@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/change_location/components/location_list.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/change_location/components/location_list.dart';
 
 class SelectRadioListComponent extends StatefulWidget {
   const SelectRadioListComponent({

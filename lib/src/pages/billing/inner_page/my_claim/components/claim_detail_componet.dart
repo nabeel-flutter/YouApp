@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/payment/inner_page/my_payment/components/payment_responsibility_pop_up.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/payment/inner_page/my_payment/components/payment_responsibility_pop_up.dart';
 
 class ClaimDetailsComponent extends StatefulWidget {
   const ClaimDetailsComponent({

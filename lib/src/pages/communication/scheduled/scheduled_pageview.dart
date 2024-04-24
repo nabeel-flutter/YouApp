@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/communication/scheduled/components/scheduled_body.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/communication/scheduled/components/scheduled_body.dart';
 
 class ScheduledPageView extends StatelessWidget {
   const ScheduledPageView({Key? key}) : super(key: key);

@@ -1,8 +1,8 @@
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/chatbot/message_screen.dart';
-import 'package:new_beginnings/src/pages/chatbot/widgets.dart/chat_input_component.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/chatbot/message_screen.dart';
+import 'package:your_app_test/src/pages/chatbot/widgets.dart/chat_input_component.dart';
 
 class ChatBotScreen extends StatefulWidget {
   const ChatBotScreen({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_beginnings/src/core/extension/string_extension.dart';
-import 'package:new_beginnings/src/pages/my_logs/model/my_logs_model.dart';
+import 'package:your_app_test/src/core/extension/string_extension.dart';
+import 'package:your_app_test/src/pages/my_logs/model/my_logs_model.dart';
 
 class LogDataView extends StatelessWidget {
   final LogDetails? logDetails;

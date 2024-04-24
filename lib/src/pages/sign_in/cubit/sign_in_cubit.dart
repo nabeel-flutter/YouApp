@@ -1,7 +1,7 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/data/dto/base_response_dto.dart';
-import 'package:new_beginnings/src/data/dto/token_dto.dart';
-import 'package:new_beginnings/src/domain/common/result.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/data/dto/base_response_dto.dart';
+import 'package:your_app_test/src/data/dto/token_dto.dart';
+import 'package:your_app_test/src/domain/common/result.dart';
 part 'sign_in_cubit.freezed.dart';
 
 class SignInCubit extends Cubit<SignInState> {

@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/view_prescription/components/view_prescription_body.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/view_prescription/components/view_prescription_body.dart';
 
 class ViewPrescriptionScreen extends StatelessWidget {
   const ViewPrescriptionScreen({super.key});

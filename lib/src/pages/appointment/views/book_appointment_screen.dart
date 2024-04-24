@@ -1,6 +1,6 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/appointment/cubit/book_appointment/cubit/book_appointment_cubit.dart';
-import 'package:new_beginnings/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/appointment/cubit/book_appointment/cubit/book_appointment_cubit.dart';
+import 'package:your_app_test/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 @RoutePage()

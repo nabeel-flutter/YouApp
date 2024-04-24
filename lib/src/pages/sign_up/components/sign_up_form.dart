@@ -1,5 +1,5 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/sign_up/cubit/sign_up_cubit.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/sign_up/cubit/sign_up_cubit.dart';
 
 part 'sign_up_form.freezed.dart';
 
@@ -28,35 +28,37 @@ class _SignUpFormState extends State<SignUpForm> {
       key: _formKey,
       child: Column(
         children: [
-          const SizedBox(height: 30),
-          TextFormFieldComponent(
-            controller: _firstNameController,
-            hintText: 'First Name',
-            textInputType: TextInputType.name,
-          ),
-          TextFormFieldComponent(
-            controller: _lastNameController,
-            hintText: 'Last Name',
-            textInputType: TextInputType.name,
-          ),
-          TextFormFieldComponent(
-            controller: _emailController,
-            hintText: 'Email',
+          const SizedBox(height: 20),
+           TextFormFieldComponent(
+               borderRadius: 12,
+            borderColor: ColorConstants.white.withOpacity(0.00),
+            fillColor: ColorConstants.white.withOpacity(0.06),
+         controller: _emailController,
+            hintText: 'Enter Email',
             textInputType: TextInputType.emailAddress,
           ),
-          TextFormFieldComponent(
-            controller: _phoneController,
-            hintText: 'Phone Number',
-            textInputType: TextInputType.phone,
+         TextFormFieldComponent(
+         borderRadius: 12,
+            borderColor: ColorConstants.white.withOpacity(0.00),
+            fillColor: ColorConstants.white.withOpacity(0.06),
+               controller: _firstNameController,
+            hintText: 'Create Username',
+            textInputType: TextInputType.name,
           ),
           TextFormFieldComponent(
-            controller: _passwordController,
+                borderRadius: 12,
+            borderColor: ColorConstants.white.withOpacity(0.00),
+            fillColor: ColorConstants.white.withOpacity(0.06),
+        controller: _passwordController,
             hintText: 'Password',
             isPassword: true,
             textInputType: TextInputType.visiblePassword,
           ),
           TextFormFieldComponent(
-            controller: _confirmPasswordController,
+                borderRadius: 12,
+            borderColor: ColorConstants.white.withOpacity(0.00),
+            fillColor: ColorConstants.white.withOpacity(0.06),
+        controller: _confirmPasswordController,
             hintText: 'Confirm Password',
             isPassword: true,
             textInputType: TextInputType.visiblePassword,
@@ -64,56 +66,8 @@ class _SignUpFormState extends State<SignUpForm> {
           const SizedBox(height: 20),
           BlocConsumer<SignUpCubit, SignUpState>(
             builder: (context, state) => state.maybeWhen(
-              orElse: () => ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      if (_confirmPasswordController.text ==
-                          _passwordController.text) {
-                        context.read<SignUpCubit>().signUp(
-                            firstName: _firstNameController.text,
-                            lastName: _lastNameController.text,
-                            password: _passwordController.text,
-                            email: _emailController.text,
-                            confirmPassword: _confirmPasswordController.text,
-                            phone: _phoneController.text);
-                      } else {
-                        ToastComponent3(context)
-                            .showToast(context, 'Password not match');
-                      }
-                    }
-                  },
-                  child: Text(
-                    StringConstants.signUp,
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: ColorConstants.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                        ),
-                  )),
-              loading: () => ElevatedButton(
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text('Loading...',
-                          style:
-                              Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                    color: ColorConstants.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
-                                  )),
-                      const SizedBox(width: 10),
-                      const SizedBox(
-                        height: 20,
-                        width: 20,
-                        child: AppProgressIndicator(
-                          color: ColorConstants.white,
-                        ),
-                      )
-                    ],
-                  )),
-              error: (message) => Column(
+              orElse: () => Stack(
+                alignment: Alignment.center,
                 children: [
                   ElevatedButton(
                       onPressed: () {
@@ -125,8 +79,7 @@ class _SignUpFormState extends State<SignUpForm> {
                                 lastName: _lastNameController.text,
                                 password: _passwordController.text,
                                 email: _emailController.text,
-                                confirmPassword:
-                                    _confirmPasswordController.text,
+                                confirmPassword: _confirmPasswordController.text,
                                 phone: _phoneController.text);
                           } else {
                             ToastComponent3(context)
@@ -141,7 +94,108 @@ class _SignUpFormState extends State<SignUpForm> {
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                             ),
-                      )),
+                      )),Text(
+                        StringConstants.signUp,
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                              color: ColorConstants.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
+                      )
+                ],
+              ),
+              loading: () => Stack(
+                alignment: Alignment.center,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {},
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text('Loading...',
+                              style:
+                                  Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                        color: ColorConstants.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w700,
+                                      )),
+                          const SizedBox(width: 10),
+                          const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: AppProgressIndicator(
+                              color: ColorConstants.white,
+                            ),
+                          )
+                        ],
+                      )),   Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Loading...',
+                                  style:
+                                      Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                            color: ColorConstants.white,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                          )),    const SizedBox(width: 10),
+                          const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: AppProgressIndicator(
+                              color: ColorConstants.white,
+                            ),
+                          )
+                      
+                        ],
+                      ),
+                       
+                ],
+              ),
+              error: (message) => Column(
+                children: [
+
+                  Stack(
+                    alignment: Alignment.center ,
+                    children: [
+                          ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              if (_confirmPasswordController.text ==
+                                  _passwordController.text) {
+                                context.read<SignUpCubit>().signUp(
+                                    firstName: _firstNameController.text,
+                                    lastName: _lastNameController.text,
+                                    password: _passwordController.text,
+                                    email: _emailController.text,
+                                    confirmPassword:
+                                        _confirmPasswordController.text,
+                                    phone: _phoneController.text);
+                              } else {
+                                ToastComponent3(context)
+                                    .showToast(context, 'Password not match');
+                              }
+                            }
+                          },
+                          child: Text(
+                            StringConstants.signUp,
+                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                  color: ColorConstants.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                          )),
+                          Text(
+                            StringConstants.signUp,
+                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                  color: ColorConstants.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                          ),
+                        ],
+                  ),
                   const SizedBox(
                     height: 10,
                   ),

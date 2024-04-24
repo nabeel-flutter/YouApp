@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_beginnings/src/constant/shared_preference_constants.dart';
+import 'package:your_app_test/src/constant/shared_preference_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginState extends ChangeNotifier {

@@ -1,19 +1,19 @@
-import 'package:new_beginnings/src/app/app_export.dart';
-import 'package:new_beginnings/src/pages/profile/cubit/user_profile_cubit.dart';
+import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/pages/profile/cubit/user_profile_cubit.dart';
 
-import 'package:new_beginnings/src/pages/profile/model/user_data_model.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/custom_textfeild_widget.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/date_selection_widget.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/gender_selection_widget.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/heading_text_widget.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/payment_selection.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/top_component_widget.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/uploadinsurance_widget.dart';
-import 'package:new_beginnings/src/pages/profile/widgets/user_profile_component.dart';
+import 'package:your_app_test/src/pages/profile/model/user_data_model.dart';
+import 'package:your_app_test/src/pages/profile/widgets/custom_textfeild_widget.dart';
+import 'package:your_app_test/src/pages/profile/widgets/date_selection_widget.dart';
+import 'package:your_app_test/src/pages/profile/widgets/gender_selection_widget.dart';
+import 'package:your_app_test/src/pages/profile/widgets/heading_text_widget.dart';
+import 'package:your_app_test/src/pages/profile/widgets/payment_selection.dart';
+import 'package:your_app_test/src/pages/profile/widgets/top_component_widget.dart';
+import 'package:your_app_test/src/pages/profile/widgets/uploadinsurance_widget.dart';
+import 'package:your_app_test/src/pages/profile/widgets/user_profile_component.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:new_beginnings/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
+import 'package:your_app_test/src/pages/appointment/views/widgets/expanded_selection_widget.dart';
 
 class EditScreenBody extends StatefulWidget {
   final UserDetails? userDetails;
