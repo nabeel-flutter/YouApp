@@ -39,7 +39,7 @@ class EnglishConstant {
         "Enter the verification code we just sent on your email address.",
     'createAccountDescription':
         "Please enter your details to create an account",
-    'onboardingTitle': 'Welcome to New Beginnings',
+    'onboardingTitle': 'Welcome to You App',
     'onboardingDescription':
         "A platform for ordinary people with ideas that can can the world. Meet people, join groups, chat online and be a part of creating next big thing.",
     'toBeCompletedByProvider': '(To be completed by provider)',

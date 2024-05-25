@@ -12,7 +12,7 @@ class TermsConditionsBody extends StatelessWidget {
         ParaWidget(
           heading: "Acceptance of Terms",
           description:
-              "By accessing or using our app, you acknowledge and agree to be bound by these Terms & Conditions. These terms constitute a legally binding agreement between you and New Beginnings. If you do not agree with any part of these terms, please refrain from using our app. Your continued use of the app following any modifications to these terms constitutes acceptance of those changes. We reserve the right to update or modify these terms at any time without prior notice.",
+              "By accessing or using our app, you acknowledge and agree to be bound by these Terms & Conditions. These terms constitute a legally binding agreement between you and You App. If you do not agree with any part of these terms, please refrain from using our app. Your continued use of the app following any modifications to these terms constitutes acceptance of those changes. We reserve the right to update or modify these terms at any time without prior notice.",
         ),
         ParaWidget(
           heading: "User Accounts",
@@ -22,7 +22,7 @@ class TermsConditionsBody extends StatelessWidget {
         ParaWidget(
           heading: "Intellectual Property",
           description:
-              "All content, including text, images, logos, and graphics, displayed on our app is the property of New Beginnings and is protected by copyright laws. You may not reproduce, distribute, modify, or otherwise use any content from our app without prior written consent from New Beginnings. Any unauthorized use of our intellectual property may result in legal action.",
+              "All content, including text, images, logos, and graphics, displayed on our app is the property of You App and is protected by copyright laws. You may not reproduce, distribute, modify, or otherwise use any content from our app without prior written consent from You App. Any unauthorized use of our intellectual property may result in legal action.",
         ),
         ParaWidget(
           heading: "Disclaimer of Warranties",

@@ -119,22 +119,22 @@ flavorizr:
   flavors:
     prod:
       app:
-        name: "New Beginnings"
+        name: "You App"
       android:
-        applicationId: "com.yourApp.your_app_test.android"
+        applicationId: "com.yourApp.you_app_test.android"
       ios:
-        bundleId: "com.yourApp.your_app_test.ios"
+        bundleId: "com.yourApp.you_app_test.ios"
       macos:
-        bundleId: "com.softTech.softTechTest.mac"
+        bundleId: "com.youApp.you_app_text.mac"
     staging:
       app:
-        name: "New Beginnings Staging"
+        name: "You App Staging"
       android:
-        applicationId: "com.yourApp.your_app_test.android"
+        applicationId: "com.yourApp.you_app_test.android"
       ios:
-        bundleId: "com.yourApp.your_app_test.ios"
+        bundleId: "com.yourApp.you_app_test.ios"
       macos:
-        bundleId: "com.softTech.softTechTest.mac"
+        bundleId: "com.yourApp.you_app_test.mac"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
