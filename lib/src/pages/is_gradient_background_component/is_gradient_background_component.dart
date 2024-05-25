@@ -1,4 +1,11 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:your_app_test/src/components/appbar_component.dart';
+import 'package:your_app_test/src/components/main_scaffold.dart';
+import 'package:your_app_test/src/di/injector.dart';
+import 'package:your_app_test/src/pages/is_gradient_background_component/cubit/is_gradient_background_cubit.dart';
+import 'package:your_app_test/src/pages/is_gradient_background_component/liner_gradient_for_app.dart';
+import 'package:your_app_test/src/theme/get_theme_color.dart';
 
 class PrimaryBackground extends StatelessWidget {
   const PrimaryBackground({

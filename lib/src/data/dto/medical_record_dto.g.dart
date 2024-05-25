@@ -9,13 +9,14 @@ part of 'medical_record_dto.dart';
 MedicalRecordsDto _$MedicalRecordsDtoFromJson(Map<String, dynamic> json) =>
     MedicalRecordsDto(
       createdAt: json['created_at'] as String?,
-      id: json['id'] as int?,
-      userId: json['user_id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
+      userId: (json['user_id'] as num?)?.toInt(),
       fileName: json['file_name'] as String?,
-      prescriptionId: json['prescription_id'] as int?,
+      prescriptionId: (json['prescription_id'] as num?)?.toInt(),
       conditions: json['conditions'] as String?,
       totalReports: json['total_reports'],
-      sharedWithDoctorsCount: json['shared_with_doctors_count'] as int?,
+      sharedWithDoctorsCount:
+          (json['shared_with_doctors_count'] as num?)?.toInt(),
       date: json['date'] as String?,
       status: json['status'] as bool?,
       reportsForUser: json['reports_for_user'] as String?,

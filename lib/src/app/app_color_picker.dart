@@ -1,4 +1,10 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_material_color_picker/flutter_material_color_picker.dart';
+import 'package:your_app_test/src/constant/string_constants.dart';
+import 'package:your_app_test/src/pages/is_gradient_background_component/cubit/is_gradient_background_cubit.dart';
+import 'package:your_app_test/src/theme/get_theme_color.dart';
+import 'package:your_app_test/src/theme/switch_color_app.dart';
 
 class AppColorPicker extends StatelessWidget {
   const AppColorPicker({

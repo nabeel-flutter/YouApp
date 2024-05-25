@@ -1,7 +1,9 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:flutter/material.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:your_app_test/src/constant/color_constants.dart';
 
 class OTPFields extends StatelessWidget {
-  const OTPFields({Key? key}) : super(key: key);
+  const OTPFields({super.key});
 
   @override
   Widget build(BuildContext context) {

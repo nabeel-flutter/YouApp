@@ -1,4 +1,21 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:your_app_test/src/constant/assets_constants.dart';
+import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/constant/route_constants.dart';
+import 'package:your_app_test/src/constant/shared_preference_constants.dart';
+import 'package:your_app_test/src/constant/string_constants.dart';
+import 'package:your_app_test/src/di/injector.dart';
+import 'package:your_app_test/src/pages/is_gradient_background_component/cubit/is_gradient_background_cubit.dart';
+import 'package:your_app_test/src/pages/setting/components/app_tile_component.dart';
+import 'package:your_app_test/src/pages/setting/components/text_component_setting_main.dart';
+import 'package:your_app_test/src/route/app_router.dart';
+import 'package:your_app_test/src/theme/get_theme_state.dart';
+import 'package:your_app_test/src/theme/switch_theme.dart';
+import 'package:your_app_test/src/theme/theme_switch.dart';
+import 'package:your_app_test/src/util/navigation_util.dart';
+import 'package:your_app_test/src/util/shared_preferences_util.dart';
 
 class SettingScreenBody extends StatelessWidget {
   const SettingScreenBody({

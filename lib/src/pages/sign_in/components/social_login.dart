@@ -1,4 +1,9 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:your_app_test/src/constant/route_constants.dart';
+import 'package:your_app_test/src/constant/string_constants.dart';
+import 'package:your_app_test/src/util/navigation_util.dart';
 
 class SocialLogin extends StatelessWidget {
   const SocialLogin({super.key});

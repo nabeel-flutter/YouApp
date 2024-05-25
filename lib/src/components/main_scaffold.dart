@@ -1,4 +1,5 @@
-import 'package:your_app_test/src/app/app_export.dart';
+
+import 'package:flutter/material.dart';
 
 class MainScaffold extends StatelessWidget {
   final bool? isGradient;
@@ -24,28 +25,29 @@ class MainScaffold extends StatelessWidget {
     return Stack(
       alignment: Alignment.topCenter,
       fit: StackFit.expand,
-      
       children: [
-        Image.asset('assets/images/bg_image.png',
-        fit: BoxFit.cover,
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        )
-        
-,        Scaffold(
-          
+        isGradient == true
+            ? Image.asset(
+                'assets/images/bg_image.png',
+                fit: BoxFit.cover,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+              )
+            : Container(
+                decoration: const BoxDecoration(color: Color(0xff09141A)),
+              ),
+        Scaffold(
           floatingActionButton: floatingActionButton,
           bottomNavigationBar: bottomNavigationBar,
           backgroundColor: Colors.transparent,
           appBar: appBar != null
               ? PreferredSize(
-                  preferredSize:
-                      Size.fromHeight(preferredSizeAppBar ?? kToolbarHeight + 1),
+                  preferredSize: Size.fromHeight(
+                      preferredSizeAppBar ?? kToolbarHeight + 1),
                   child: appBar!)
               : null,
           body: body,
         ),
-   
       ],
     );
   }

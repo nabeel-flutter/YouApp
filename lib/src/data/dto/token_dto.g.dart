@@ -7,7 +7,7 @@ part of 'token_dto.dart';
 // **************************************************************************
 
 TokenDto _$TokenDtoFromJson(Map<String, dynamic> json) => TokenDto(
-      token: json['token'] as String?,
+      accessToken: json['access_token'] as String?,
     );
 
 Map<String, dynamic> _$TokenDtoToJson(TokenDto instance) {
@@ -19,6 +19,6 @@ Map<String, dynamic> _$TokenDtoToJson(TokenDto instance) {
     }
   }
 
-  writeNotNull('token', instance.token);
+  writeNotNull('access_token', instance.accessToken);
   return val;
 }

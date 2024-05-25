@@ -1,7 +1,10 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:flutter/material.dart';
+import 'package:your_app_test/src/constant/assets_constants.dart';
+import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/constant/string_constants.dart';
 
 class VerifyEmailHeader extends StatelessWidget {
-  const VerifyEmailHeader({Key? key}) : super(key: key);
+  const VerifyEmailHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,7 @@ class VerifyEmailHeader extends StatelessWidget {
           children: [
             const SizedBox(height: 20),
             Image(
-              image: const AssetImage(AssetsConstants.nbAuthLogo),
+              image: const AssetImage(AssetsConstants.logo),
               height: MediaQuery.of(context).size.height * 0.15,
               width: double.infinity,
               alignment: Alignment.center,

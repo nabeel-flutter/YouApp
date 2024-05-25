@@ -12,9 +12,9 @@ DataListDto<T> _$DataListDtoFromJson<T>(
 ) =>
     DataListDto<T>(
       data: (json['data'] as List<dynamic>?)?.map(fromJsonT).toList(),
-      currentPage: json['currentPage'] as int?,
-      pageSize: json['pageSize'] as int?,
-      totalPages: json['totalPages'] as int?,
+      currentPage: (json['currentPage'] as num?)?.toInt(),
+      pageSize: (json['pageSize'] as num?)?.toInt(),
+      totalPages: (json['totalPages'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$DataListDtoToJson<T>(

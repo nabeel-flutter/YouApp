@@ -8,8 +8,8 @@ part of 'prescription_dto.dart';
 
 PrescriptionDto _$PrescriptionDtoFromJson(Map<String, dynamic> json) =>
     PrescriptionDto(
-      id: json['id'] as int?,
-      appointmentId: json['appointment_id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
+      appointmentId: (json['appointment_id'] as num?)?.toInt(),
       cosultationNote: json['cosultation_note'] as String?,
       bloodGroup: json['blood_group'] as String?,
       status: json['status'] as bool?,

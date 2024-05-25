@@ -4,9 +4,9 @@ class RetryButton extends StatelessWidget {
   final VoidCallback onTap;
 
   const RetryButton({
-    Key? key,
+    super.key,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

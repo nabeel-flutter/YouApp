@@ -1,7 +1,9 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:flutter/material.dart';
+import 'package:your_app_test/src/pages/otp/components/otp_button.dart';
+import 'package:your_app_test/src/pages/otp/components/otp_fields.dart';
 
 class OTPBody extends StatelessWidget {
-  const OTPBody({Key? key}) : super(key: key);
+  const OTPBody({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,6 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:your_app_test/src/components/main_scaffold.dart';
 import 'package:your_app_test/src/pages/verify_email/components/verify_email_body.dart';
 import 'package:your_app_test/src/pages/verify_email/components/verify_email_header.dart';
 
@@ -9,7 +11,7 @@ class VerifyEmailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MainScaffold(
+    return MainScaffold(
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -17,7 +19,7 @@ class VerifyEmailScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 40),
               const VerifyEmailHeader(),
-              VerifyEmailBody(email : email),
+              VerifyEmailBody(email: email),
             ],
           ),
         ),

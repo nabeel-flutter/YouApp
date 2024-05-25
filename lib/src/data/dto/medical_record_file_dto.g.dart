@@ -9,8 +9,8 @@ part of 'medical_record_file_dto.dart';
 MedicalRecordFileDto _$MedicalRecordFileDtoFromJson(
         Map<String, dynamic> json) =>
     MedicalRecordFileDto(
-      id: json['id'] as int?,
-      medicalRecordId: json['medical_record_id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
+      medicalRecordId: (json['medical_record_id'] as num?)?.toInt(),
       file: json['file'] as String?,
     );
 

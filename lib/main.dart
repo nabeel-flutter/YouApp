@@ -1,5 +1,16 @@
+import 'dart:async';
+
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:provider/provider.dart';
+import 'package:your_app_test/src/app/app.dart';
+import 'package:your_app_test/src/di/injector.dart';
+import 'package:your_app_test/src/theme/get_theme_color.dart';
+import 'package:your_app_test/src/theme/theme.dart';
+import 'package:your_app_test/src/util/services/navigation_service.dart';
+
 
 FutureOr<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

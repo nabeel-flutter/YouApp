@@ -1,4 +1,10 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:your_app_test/main.dart';
+import 'package:your_app_test/src/constant/language_constants/arabic.dart';
+import 'package:your_app_test/src/constant/language_constants/english.dart';
+import 'package:your_app_test/src/constant/language_constants/hindi.dart';
+import 'package:your_app_test/src/constant/language_constants/spanish.dart';
+import 'package:your_app_test/src/constant/language_constants/urdu.dart';
 
 class StringConstants {
   static String language = 'ur_PK';

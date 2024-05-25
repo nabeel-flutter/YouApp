@@ -1,9 +1,0 @@
-export 'gt_screen.dart';
-export 'pt_screen.dart';
-export 'mm_screen.dart';
-export 'id_screen.dart';
-export 'cpt_screen.dart';
-export 'pm_screen.dart';
-export 'pc_screen.dart';
-export 'at_screen.dart';
-export 'tp_screen.dart';

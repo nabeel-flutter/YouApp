@@ -1,21 +1,26 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:your_app_test/src/data/dto/base_response_dto.dart';
 import 'package:your_app_test/src/domain/common/result.dart';
+import 'package:your_app_test/src/domain/repository/api_repository.dart';
 
 part 'verify_email_state.dart';
 part 'verify_email_cubit.freezed.dart';
 
 class VerifyEmailCubit extends Cubit<VerifyEmailState> {
-  VerifyEmailCubit(this.apiRepository) : super(const VerifyEmailState.initial());
+  VerifyEmailCubit(this.apiRepository)
+      : super(const VerifyEmailState.initial());
   ApiRepository apiRepository;
-   Future<void> verifyEmail({required String email, }) async {
+  Future<void> verifyEmail({
+    required String email,
+  }) async {
     emit(const _Loading());
 
     final Result<BaseResponseDto> result =
         await apiRepository.verifyEmail(email: email);
     result.when(
       success: (data) {
-        emit(_Loaded(data.message??"Email send to your account"));
+        emit(_Loaded(data.message ?? "Email send to your account"));
       },
       failed: (error) {
         emit(_Error(error.message));
@@ -23,6 +28,4 @@ class VerifyEmailCubit extends Cubit<VerifyEmailState> {
     );
     return;
   }
-
-
 }

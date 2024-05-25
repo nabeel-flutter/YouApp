@@ -8,7 +8,7 @@ part of 'rating_dto.dart';
 
 RatingDto _$RatingDtoFromJson(Map<String, dynamic> json) => RatingDto(
       rate: (json['rate'] as num?)?.toDouble(),
-      count: json['count'] as int?,
+      count: (json['count'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$RatingDtoToJson(RatingDto instance) {

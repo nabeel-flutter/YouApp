@@ -8,13 +8,13 @@ part of 'subscription_dto.dart';
 
 SubscriptionDto _$SubscriptionDtoFromJson(Map<String, dynamic> json) =>
     SubscriptionDto(
-      remainingDays: json['remaining_days'] as int?,
+      remainingDays: (json['remaining_days'] as num?)?.toInt(),
       startDate: json['start_date'] as String?,
       endDate: json['end_date'] as String?,
       package: json['package'] == null
           ? null
           : PackageDto.fromJson(json['package'] as Map<String, dynamic>),
-      isYearly: json['is_yearly'] as int?,
+      isYearly: (json['is_yearly'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$SubscriptionDtoToJson(SubscriptionDto instance) {

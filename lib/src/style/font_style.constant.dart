@@ -1,4 +1,7 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/constant/font_constants.dart';
 
 class FontStylesConstants {
   ///Noto Naskh Arabic

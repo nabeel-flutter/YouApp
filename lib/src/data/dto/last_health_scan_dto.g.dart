@@ -8,11 +8,11 @@ part of 'last_health_scan_dto.dart';
 
 LastHealthScanDto _$LastHealthScanDtoFromJson(Map<String, dynamic> json) =>
     LastHealthScanDto(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       stressLevel: json['stress_level'] as String?,
       stressLevelValue: json['stress_level_value'] as String?,
       stressLevelColor: json['stress_level_color'] as String?,
-      sehatScaore: json['sehat_scaore'] as int?,
+      sehatScaore: (json['sehat_scaore'] as num?)?.toInt(),
       date: json['date'] as String?,
       bloodPressureValue: json['blood_pressure_value'] as String?,
       bloodPressure: json['blood_pressure'] as String?,

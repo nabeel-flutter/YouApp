@@ -1,4 +1,8 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:your_app_test/src/components/main_scaffold.dart';
+import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/pages/sign_in/components/sign_in_form.dart';
 
 @RoutePage()
 class SignInScreen extends StatelessWidget {
@@ -7,24 +11,24 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
-      isGradient: false,
-      appBar: 
-      AppBar(
+      isGradient: true,
+      appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                SizedBox(
-                  width: 20,
-                ),  const Text(
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
                     "Login",
                     style: TextStyle(
                       color: ColorConstants.white,
@@ -34,60 +38,7 @@ class SignInScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              // const SizedBox(height: 50),
-              // Image(
-              //   image: const AssetImage(AssetsConstants.nbAuthLogo),
-              //   height: MediaQuery.of(context).size.height * 0.15,
-              //   width: double.infinity,
-              //   alignment: Alignment.center,
-              // ),
-              const SignInForm(),
-          //    const SizedBox(height: 20),
-          //    RichText(
-              //    textAlign: TextAlign.center,
-            //      text: TextSpan(
-     //               text: "By signing up, you are agree to the ",
-       //             style: const TextStyle(
-         //             color: ColorConstants.primaryTextColor,
-           //           fontSize: 16,
-             //         height: 1.5,
-               //     ),
-                 //   children: [
-                   //   TextSpan(
-                     //   text: "Terms of Service",
-                       // style: const TextStyle(
-    //                        color: ColorConstants.primaryColor,
-      //                      fontSize: 16,
-        //                    decoration: TextDecoration.underline,
-          //                  height: 1.5),
-            //            recognizer: TapGestureRecognizer()
-              //            ..onTap = () {
-                //            context.pushRoute(const TermsConditionsRoute());
-                  //        },
-                    //  ),
-     //                 const TextSpan(
-       //                 text: " and",
-         //               style: TextStyle(
-           //               color: ColorConstants.primaryTextColor,
-             //             fontSize: 16,
-               //           height: 1.5,
-                 //       ),
-                   //   ),
-                     // TextSpan(
-      //                  text: " Privacy Policy",
-        //                recognizer: TapGestureRecognizer()
-          //                ..onTap = () {
-            //                context.pushRoute(const PrivacyPolicyRoute());
-              //            },
-                //        style: const TextStyle(
-                  //          color: ColorConstants.primaryColor,
-                    //        fontSize: 16,
-                      //      decoration: TextDecoration.underline,
-                        //    height: 1.5),
-    //                  ),
-      //              ],
-        //          )),
-          
+              SignInForm(),
             ],
           ),
         ),

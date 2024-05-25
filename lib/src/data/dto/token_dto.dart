@@ -8,10 +8,10 @@ part 'token_dto.g.dart';
   fieldRename: FieldRename.snake,
 )
 class TokenDto {
-  String? token;
+  String? accessToken;
 
   TokenDto({
-    this.token,
+    this.accessToken,
   });
 
   factory TokenDto.fromJson(Map<String, dynamic> json) =>

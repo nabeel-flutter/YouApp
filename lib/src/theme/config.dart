@@ -1,5 +1,5 @@
 library config.globals;
 
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/theme/theme.dart';
 
 MyTheme currentTheme = MyTheme();

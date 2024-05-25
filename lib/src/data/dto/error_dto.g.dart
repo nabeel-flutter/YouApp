@@ -7,7 +7,7 @@ part of 'error_dto.dart';
 // **************************************************************************
 
 ErrorDto _$ErrorDtoFromJson(Map<String, dynamic> json) => ErrorDto(
-      code: json['code'] as int? ?? -1,
+      code: (json['code'] as num?)?.toInt() ?? -1,
       message: json['message'] as String? ?? 'Unknown Error',
     );
 

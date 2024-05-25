@@ -9,20 +9,21 @@ part of 'dashboard_overview_dto.dart';
 DashBoardOverViewDto _$DashBoardOverViewDtoFromJson(
         Map<String, dynamic> json) =>
     DashBoardOverViewDto(
-      familyMember: json['family_member'] as int?,
-      healthScans: json['health_scans'] as int?,
-      medicalRecords: json['medical_records'] as int?,
-      totalReviews: json['total_reviews'] as int?,
-      totalAppointments: json['total_appointments'] as int?,
-      inPersonAppointments: json['in_person_appointments'] as int?,
-      virtualAppointments: json['virtual_appointments'] as int?,
-      instantConsultations: json['instant_consultations'] as int?,
-      totalUpcomingAppointments: json['total_upcoming_appointments'] as int?,
+      familyMember: (json['family_member'] as num?)?.toInt(),
+      healthScans: (json['health_scans'] as num?)?.toInt(),
+      medicalRecords: (json['medical_records'] as num?)?.toInt(),
+      totalReviews: (json['total_reviews'] as num?)?.toInt(),
+      totalAppointments: (json['total_appointments'] as num?)?.toInt(),
+      inPersonAppointments: (json['in_person_appointments'] as num?)?.toInt(),
+      virtualAppointments: (json['virtual_appointments'] as num?)?.toInt(),
+      instantConsultations: (json['instant_consultations'] as num?)?.toInt(),
+      totalUpcomingAppointments:
+          (json['total_upcoming_appointments'] as num?)?.toInt(),
       lastHealthScan: json['last_health_scan'] == null
           ? null
           : LastHealthScanDto.fromJson(
               json['last_health_scan'] as Map<String, dynamic>),
-      familyMembers: json['family_members'] as int?,
+      familyMembers: (json['family_members'] as num?)?.toInt(),
       subscription: json['subscription'] == null
           ? null
           : SubscriptionDto.fromJson(

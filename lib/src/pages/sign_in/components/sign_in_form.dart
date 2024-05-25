@@ -1,331 +1,277 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:control_style/control_style.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:your_app_test/src/components/text_field_component.dart';
+import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/constant/route_constants.dart';
+import 'package:your_app_test/src/constant/shared_preference_constants.dart';
+import 'package:your_app_test/src/constant/string_constants.dart';
+import 'package:your_app_test/src/constant/toast_component.dart';
+import 'package:your_app_test/src/di/injector.dart';
+import 'package:your_app_test/src/pages/sign_in/cubit/sign_in_button_validation_cubit.dart';
+
 import 'package:your_app_test/src/pages/sign_in/cubit/sign_in_cubit.dart';
+import 'package:your_app_test/src/route/app_router.dart';
+import 'package:your_app_test/src/util/shared_preferences_util.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailController = TextEditingController(text: '');
-    TextEditingController passwordController = TextEditingController(text: "");
-    // TextEditingController emailController =
-    //     TextEditingController(text: '');
-    // TextEditingController passwordController =
-    //     TextEditingController(text: "");
     final formKey = GlobalKey<FormState>();
-
+    BlocProvider.of<SignInButtonValidationCubit>(context).checkIsValidate();
     return Form(
       key: formKey,
+      autovalidateMode: AutovalidateMode.always,
       child: Column(
         children: [
-          // Text(StringConstants.account),
           const SizedBox(height: 25),
           TextFormFieldComponent(
-            borderRadius: 12,
-            borderColor: ColorConstants.white.withOpacity(0.00),
-            fillColor: ColorConstants.white.withOpacity(0.06),
-            hintText: "Enter Email",
-            controller: emailController,
-            textInputType: TextInputType.emailAddress,
-          ),
+              onChanged: (value) {
+                BlocProvider.of<SignInButtonValidationCubit>(context)
+                    .checkIsValidate();
+              },
+              borderRadius: 12,
+              borderColor: ColorConstants.white.withOpacity(0.00),
+              fillColor: ColorConstants.white.withOpacity(0.06),
+              hintText: "Enter Email",
+              controller: BlocProvider.of<SignInCubit>(context).emailController,
+              textInputType: TextInputType.emailAddress),
           const SizedBox(height: 5),
           TextFormFieldComponent(
-            borderRadius: 12,
-            textInputType: TextInputType.visiblePassword,
-            hintText: "Enter Password",
-            borderColor: ColorConstants.white.withOpacity(0.00),
-            fillColor: ColorConstants.white.withOpacity(0.06),
-            isPassword: true,
-            controller: passwordController,
-          ),
-          const SizedBox(height: 15),
-          // GestureDetector(
-          //   onTap: () {
-          //     context.router.pushNamed(
-          //       RouteConstants.forgotPasswordRoute,
-          //     );
-          //   },
-          //   child: Align(
-          //     alignment: Alignment.centerRight,
-          //     child: Text(StringConstants.forgot,
-          //         style: Theme.of(context).textTheme.bodySmall!.copyWith(
-          //               decoration: TextDecoration.underline,
-          //               decorationColor: ColorConstants.primaryColor,
-          //               color: ColorConstants.primaryColor,
-          //             )),
-          //   ),
-          // ),
-          // const SizedBox(height: 40),
-          BlocConsumer<SignInCubit, SignInState>(
-              listener: (context, state) => state.maybeWhen(
-                    orElse: () {
-                      return null;
-                    },
-                    error: (message) async {
-                      ToastComponent3(context).showToast(context, message);
-
-                      if (message == 'User not verified') {
-                        await context.router.push(
-                            VerifyEmailRoute(email: emailController.text));
-                      }
-                      return null;
-                    },
-                    loaded: (token) async {
-                      await getIt
-                          .get<SharedPreferencesUtil>()
-                          .setString(SharedPreferenceConstants.apiAuthToken,
-                              token.token)
-                          .then((value) => context.router.pushAndPopUntil(
-                              predicate: (route) => false, const HomeRoute()));
-                      return null;
-                    },
-                  ),
-              builder: (context, state) => state.maybeWhen(
-                  loading: () => Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          ElevatedButton(     autofocus: false,
-                       
-                              onPressed: () {
-                                if (formKey.currentState!.validate()) {
-                                  context.read<SignInCubit>().signIn(
-                                      email: emailController.text,
-                                      password: passwordController.text);
-                                }
-                              },
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text('Loading...',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyLarge!
-                                          .copyWith(
-                                            color: ColorConstants.white,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700,
-                                          )),
-                                  const SizedBox(width: 10),
-                                  const SizedBox(
-                                    height: 20,
-                                    width: 20,
-                                    child: AppProgressIndicator(
-                                      color: ColorConstants.white,
-                                    ),
-                                  )
-                                ],
-                              )),
-                          Text('Loading...',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(
-                                    color: ColorConstants.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
-                                  )),
-                        ],
-                      ),
-                  loaded: (token) => Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          ElevatedButton(
-                              onPressed: () {
-                                if (formKey.currentState!.validate()) {
-                                  context.read<SignInCubit>().signIn(
-                                      email: emailController.text,
-                                      password: passwordController.text);
-                                }
-                              },
-                              child: Text(StringConstants.login,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge!
-                                      .copyWith(
-                                        color: ColorConstants.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700,
-                                      ))),
-                          Text(StringConstants.login,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(
-                                    color: ColorConstants.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
-                                  ))
-                        ],
-                      ),
-                  error: (message) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            ElevatedButton(
-                                onPressed: () {
-                                  if (formKey.currentState!.validate()) {
-                                    context.read<SignInCubit>().signIn(
-                                        email: emailController.text,
-                                        password: passwordController.text);
-                                  }
-                                },
-                                child: Text(
-                                  StringConstants.login,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge!
-                                      .copyWith(
-                                        color: ColorConstants.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                )),
-                            Text(
-                              StringConstants.login,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(
-                                    color: ColorConstants.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          message,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall!
-                              .copyWith(
-                                  color: ColorConstants.redIndicatorColor),
-                        ),
-                      ],
-                    );
-                  },
-                  orElse: () => Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          ElevatedButton(
-                            autofocus: false,
-                              onPressed: () {
-                                if (formKey.currentState!.validate()) {
-                                  context.read<SignInCubit>().signIn(
-                                      email: emailController.text,
-                                      password: passwordController.text);
-                                }
-                              },
-                              child: Text(
-                                StringConstants.login,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge!
-                                    .copyWith(
-                                      color: ColorConstants.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                              )),
-                          Text(
-                            StringConstants.login,
-                            style:
-                                Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      color: ColorConstants.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                          )
-                        ],
-                      ))),
-          const SizedBox(height: 50),
-          TextButton(
-              onPressed: () {
-                context.router.pushNamed(RouteConstants.signUpRoute);
+              onChanged: (value) {
+                BlocProvider.of<SignInButtonValidationCubit>(context)
+                    .checkIsValidate();
               },
-              child: RichText(
-                  text: TextSpan(
-                      text: 'No account? ',
-                      style: TextStyle(color: ColorConstants.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 13
-                      ),
-                      children: [
-                    TextSpan(
-                      text: 'Register here',
-                      style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        height: 1.5,
-                        fontSize: 13.0,
-                            fontWeight: FontWeight.w500,
-                  
-                        foreground: Paint()..shader = linearGradientText(),
-                      ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          context.router.pushNamed(RouteConstants.signUpRoute);
-                        },
-                    ),
-                  ]))
-              // const SizedBox(height: 20),
-              // ElevatedButton(
-              //     style: ElevatedButton.styleFrom(
-              //       elevation: 0.0,
-              //       backgroundColor: ColorConstants.white,
-              //       shape: RoundedRectangleBorder(
-              //         side: const BorderSide(
-              //             color: ColorConstants.primaryColor, width: 1),
-              //         borderRadius: BorderRadius.circular(12),
-              //       ),
-              //     ),
-              //     onPressed: () {
-              //       context.router.pushNamed(RouteConstants.signUpRoute);
-              //     },
-              //     child: Row(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         Text(StringConstants.register,
-              //             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-              //                   color: ColorConstants.primaryColor,
-              //                   fontSize: 16,
-              //                   fontWeight: FontWeight.w700,
-              //                 )),
-              //         const SizedBox(width: 10),
-              //         const Icon(
-              //           Icons.arrow_forward_ios,
-              //           color: ColorConstants.primaryColor,
-              //           size: 16,
-              //         )
-              //       ],
-              //     )),
-
-              // const SizedBox(height: 50),
-              // const SocialLogin(),
-              )
+              borderRadius: 12,
+              textInputType: TextInputType.visiblePassword,
+              hintText: "Enter Password",
+              borderColor: ColorConstants.white.withOpacity(0.00),
+              fillColor: ColorConstants.white.withOpacity(0.06),
+              isPassword: true,
+              controller:
+                  BlocProvider.of<SignInCubit>(context).passwordController),
+          const SizedBox(height: 15),
+          SignInButton(formKey: formKey),
+          const SizedBox(height: 50),
+          RegisterHereTextButton()
         ],
       ),
     );
   }
+}
 
-  Shader linearGradientText() {
-    return LinearGradient(
-      colors: [
-        Color(0xff94783E),
-        Color(0xffF3EDA6),
-        Color(0xffF8FAE5),
-        Color(0xffFFE2BE),
-        Color(0xffD5BE88),
-        Color(0xffF8FAE5),
-        Color(0xffD5BE88),
-      ], // Gradient colors
-      begin: Alignment.bottomLeft, // Gradient start position
-      end: Alignment.topRight, // Gradient end position
-    ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0)); // Text bounding box
+class SignInButton extends StatelessWidget {
+  const SignInButton({
+    super.key,
+    required this.formKey,
+  });
+
+  final GlobalKey<FormState> formKey;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<SignInCubit, SignInState>(
+        listener: (context, state) => state.maybeWhen(orElse: () {
+              return null;
+            }, error: (message) async {
+              ToastComponent3(context).showToast(context, message);
+              return null;
+            }, loaded: (token) async {
+              await getIt
+                  .get<SharedPreferencesUtil>()
+                  .setString(
+                      SharedPreferenceConstants.apiAuthToken, token.accessToken)
+                  .then((value) => context.router.pushAndPopUntil(
+                      predicate: (route) => false, const HomeRoute()));
+              return null;
+            }),
+        builder: (context, state) => state.maybeWhen(
+            loading: () => SignUpButtonVadationState(
+                formKey: formKey, title: StringConstants.login),
+            loaded: (token) => SignUpButtonVadationState(
+                formKey: formKey, title: StringConstants.login),
+            error: (message) {
+              return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SignUpButtonVadationState(
+                        formKey: formKey, title: StringConstants.login),
+                    const SizedBox(height: 10),
+                    Text(message,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall!
+                            .copyWith(color: ColorConstants.redIndicatorColor))
+                  ]);
+            },
+            orElse: () => SignUpButtonVadationState(
+                formKey: formKey, title: StringConstants.login)));
+  }
+}
+
+class RegisterHereTextButton extends StatelessWidget {
+  const RegisterHereTextButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+        onPressed: () {
+          context.router.pushNamed(RouteConstants.signUpRoute);
+        },
+        child: RichText(
+            text: TextSpan(
+                text: 'No account? ',
+                style: const TextStyle(
+                    color: ColorConstants.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 13),
+                children: [
+              TextSpan(
+                text: 'Register here',
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  height: 1.5,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w500,
+                  foreground: Paint()..shader = linearGradientText(),
+                ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    context.router.pushNamed(RouteConstants.signUpRoute);
+                  },
+              ),
+            ])));
+  }
+}
+
+Shader linearGradientText() {
+  return const LinearGradient(
+    colors: [
+      Color(0xff94783E),
+      Color(0xffF3EDA6),
+      Color(0xffF8FAE5),
+      Color(0xffFFE2BE),
+      Color(0xffD5BE88),
+      Color(0xffF8FAE5),
+      Color(0xffD5BE88),
+    ], // Gradient colors
+    begin: Alignment.bottomLeft, // Gradient start position
+    end: Alignment.topRight, // Gradient end position
+  ).createShader(
+      const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0)); // Text bounding box
+}
+
+class SignUpButtonVadationState extends StatelessWidget {
+  const SignUpButtonVadationState({
+    super.key,
+    required this.formKey,
+    required this.title,
+  });
+
+  final String title;
+
+  final GlobalKey<FormState> formKey;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<SignInButtonValidationCubit,
+        SignInButtonValidationState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return state.maybeWhen(
+          orElse: () => Container(),
+          enabled: () {
+            return AppButton(
+              enabled: true,
+              title: title,
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  context.read<SignInCubit>().signIn();
+                }
+              },
+            );
+          },
+          disabled: () {
+            return AppButton(
+              enabled: false,
+              title: title,
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  context.read<SignInCubit>().signIn();
+                }
+              },
+            );
+          },
+        );
+      },
+    );
+  }
+}
+
+class AppButton extends StatelessWidget {
+  const AppButton({
+    super.key,
+    required this.onPressed,
+    required this.title,
+    required this.enabled,
+  });
+
+  final VoidCallback onPressed;
+  final String title;
+  final bool enabled;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        ElevatedButton(
+            autofocus: false,
+            style: enabled == true ? null : disableStyle(),
+            onPressed: enabled == true ? () => onPressed() : null,
+            child: Text(
+              title,
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: ColorConstants.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
+            )),
+        Text(
+          title,
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                color: ColorConstants.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
+        )
+      ],
+    );
+  }
+
+  ButtonStyle disableStyle() {
+    return ButtonStyle(
+        shape: MaterialStateProperty.resolveWith((states) {
+          return DecoratedOutlinedBorder(
+              backgroundGradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                  colors: [
+                    const Color(0xff62CDCB).withOpacity(0.5),
+                    const Color(0xff4599DB).withOpacity(0.5)
+                  ]),
+              child: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8)));
+        }),
+        backgroundColor: const MaterialStatePropertyAll(Colors.transparent));
   }
 }

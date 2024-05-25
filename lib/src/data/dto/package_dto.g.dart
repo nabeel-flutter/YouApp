@@ -7,14 +7,14 @@ part of 'package_dto.dart';
 // **************************************************************************
 
 PackageDto _$PackageDtoFromJson(Map<String, dynamic> json) => PackageDto(
-      discountedYearlyPrice: json['discounted_yearly_price'] as int?,
+      discountedYearlyPrice: (json['discounted_yearly_price'] as num?)?.toInt(),
       name: json['name'] as String?,
       durationText: json['duration_text'] as String?,
       durationTextYearly: json['duration_text_yearly'] as String?,
       colorCode: json['color_code'] as String?,
-      price: json['price'] as int?,
-      priceYearly: json['price_yearly'] as int?,
-      discountedPrice: json['discounted_price'] as int?,
+      price: (json['price'] as num?)?.toInt(),
+      priceYearly: (json['price_yearly'] as num?)?.toInt(),
+      discountedPrice: (json['discounted_price'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$PackageDtoToJson(PackageDto instance) {

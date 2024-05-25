@@ -2,7 +2,7 @@ class RouteConstants {
   static const String homeRoute = '/homeRoute';
   static const String splashRoute = 'splashRoute';
   static const String onboardingRoute = '/onboardingRoute';
-  static const String settingRoute = 'settingRoute';
+  static const String settingRoute = '/settingRoute';
   static const String profileRoute = '/profileRoute';
   static const String appointmentsRoute = 'appointmentsRoute';
   static const String communicationRoute = 'communicationRoute';
@@ -17,7 +17,7 @@ class RouteConstants {
   static const String viewPrescriptionRoute = 'viewPrescriptionRoute';
   static const String reviewRoute = 'reviewRoute';
   static const String consentFormRoute = 'consentFormRoute';
-  static const String termsConditionsRoute = 'termsConditionsRoute';
+  static const String termsConditionsRoute = '/termsConditionsRoute';
   static const String privacyPolicyRoute = 'privacyPolicyRoute';
   static const String disclaimerRoute = 'disclaimerRoute';
   static const String allReviewsRoute = 'allReviewsRoute';

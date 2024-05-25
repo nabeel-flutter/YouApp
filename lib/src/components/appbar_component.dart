@@ -1,4 +1,12 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:your_app_test/src/constant/assets_constants.dart';
+import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/constant/font_constants.dart';
+import 'package:your_app_test/src/constant/route_constants.dart';
+import 'package:your_app_test/src/theme/get_theme_color.dart';
+import 'package:your_app_test/src/theme/lighten_darken_color.dart';
+import 'package:your_app_test/src/util/navigation_util.dart';
 
 class AppBarcomponent extends StatelessWidget {
   final bool isGradient;

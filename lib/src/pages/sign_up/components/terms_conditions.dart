@@ -1,7 +1,12 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:your_app_test/src/constant/route_constants.dart';
+import 'package:your_app_test/src/theme/get_theme_color.dart';
+import 'package:your_app_test/src/theme/lighten_darken_color.dart';
+import 'package:your_app_test/src/util/navigation_util.dart';
 
 class TermsConditions extends StatefulWidget {
-  const TermsConditions({Key? key}) : super(key: key);
+  const TermsConditions({super.key});
 
   @override
   State<TermsConditions> createState() => _TermsConditionsState();

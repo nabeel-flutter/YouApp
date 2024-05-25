@@ -1,5 +1,9 @@
 import 'package:control_style/control_style.dart';
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:flutter/material.dart';
+import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/style/font_style.constant.dart';
+import 'package:your_app_test/src/theme/lighten_darken_color.dart';
+import 'package:your_app_test/src/theme/theme.dart';
 
 ThemeData darkThemeData(MyTheme theme) {
   return ThemeData(
@@ -16,20 +20,19 @@ ThemeData darkThemeData(MyTheme theme) {
         }),
         shape: MaterialStateProperty.resolveWith((states) {
           return DecoratedOutlinedBorder(
-            
             shadow: [
               GradientShadow(
                   gradient: LinearGradient(
                       begin: Alignment.bottomLeft,
                       end: Alignment.topRight,
                       colors: [
-                        Color(0xff62CDCB).withOpacity(0.5),
-                        Color(0xff4599DB).withOpacity(0.5),
+                        const Color(0xff62CDCB).withOpacity(0.5),
+                        const Color(0xff4599DB).withOpacity(0.5),
                       ]),
                   blurRadius: 12,
-                  offset: Offset(0, 14))
+                  offset: const Offset(0, 14))
             ],
-            backgroundGradient: LinearGradient(
+            backgroundGradient: const LinearGradient(
                 begin: Alignment.bottomLeft,
                 end: Alignment.topRight,
                 colors: [Color(0xff62CDCB), Color(0xff4599DB)]),
@@ -40,7 +43,7 @@ ThemeData darkThemeData(MyTheme theme) {
         fixedSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
         maximumSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
         minimumSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
-        backgroundColor: MaterialStatePropertyAll(
+        backgroundColor: const MaterialStatePropertyAll(
           Colors.transparent,
         ),
         foregroundColor: const MaterialStatePropertyAll(

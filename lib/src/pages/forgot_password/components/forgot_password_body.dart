@@ -1,8 +1,16 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:your_app_test/src/components/text_field_component.dart';
+import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/constant/route_constants.dart';
+import 'package:your_app_test/src/constant/string_constants.dart';
+import 'package:your_app_test/src/constant/toast_component.dart';
 import 'package:your_app_test/src/pages/forgot_password/cubit/forget_password_cubit.dart';
 
 class ForgotPasswordBody extends StatelessWidget {
-  const ForgotPasswordBody({Key? key}) : super(key: key);
+  const ForgotPasswordBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +34,7 @@ class ForgotPasswordBody extends StatelessWidget {
           child: Column(
             children: [
               TextFormFieldComponent(
+                  onChanged: (value) {},
                   textInputType: TextInputType.emailAddress,
                   controller: email,
                   hintText: 'Enter Your Email'),

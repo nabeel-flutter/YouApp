@@ -1,4 +1,7 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'dart:ui';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'is_gradient_background_cubit.freezed.dart';
 

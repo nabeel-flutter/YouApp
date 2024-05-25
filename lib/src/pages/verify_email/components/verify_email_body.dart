@@ -1,8 +1,16 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:your_app_test/src/components/text_field_component.dart';
+import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/constant/route_constants.dart';
+import 'package:your_app_test/src/constant/string_constants.dart';
+import 'package:your_app_test/src/constant/toast_component.dart';
 import 'package:your_app_test/src/pages/verify_email/cubit/verify_email_cubit.dart';
 
 class VerifyEmailBody extends StatelessWidget {
-  const VerifyEmailBody({Key? key, required this.email}) : super(key: key);
+  const VerifyEmailBody({super.key, required this.email});
   final String email;
   @override
   Widget build(BuildContext context) {
@@ -17,7 +25,7 @@ class VerifyEmailBody extends StatelessWidget {
               ToastComponent3(context).showToast(context, message),
           loaded: (message) {
             ToastComponent2(context).showToast(context, message);
-            context.popRoute();
+            context.maybePop();
           },
         );
       },
@@ -28,6 +36,7 @@ class VerifyEmailBody extends StatelessWidget {
           child: Column(
             children: [
               TextFormFieldComponent(
+                  onChanged: (value) {},
                   textInputType: TextInputType.emailAddress,
                   controller: email,
                   hintText: 'Enter Your Email'),

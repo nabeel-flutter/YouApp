@@ -1,8 +1,11 @@
 // ignore: depend_on_referenced_packages
 
 // ignore: depend_on_referenced_packages
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:http_parser/http_parser.dart';
-import 'package:your_app_test/src/app/app_export.dart';
+
 import 'package:your_app_test/src/data/dto/appointments_history_dto.dart';
 import 'package:your_app_test/src/data/dto/base_response_dto.dart';
 import 'package:your_app_test/src/data/dto/dashboard_overview_dto.dart';
@@ -14,14 +17,9 @@ import 'package:your_app_test/src/data/dto/product_dto.dart';
 import 'package:your_app_test/src/data/dto/sehat_scan_history_dto.dart';
 import 'package:your_app_test/src/data/dto/token_dto.dart';
 
-import 'package:your_app_test/src/pages/doctors/models/team_dto.dart';
-import 'package:your_app_test/src/pages/my_logs/model/my_logs_model.dart';
-
-import 'package:your_app_test/src/pages/profile/model/user_data_model.dart';
-
 ///
 ///
-class SoftTechTestApi {
+class YouAppApi {
   static const String kRouteDashboardOverview = 'dashboard';
   static const String kRouteSehatScanHistory = 'health-scan';
   static const String kRoutePastAppointments = 'appointment';
@@ -63,7 +61,7 @@ class SoftTechTestApi {
 
   final Dio dio;
 
-  const SoftTechTestApi(this.dio);
+  const YouAppApi(this.dio);
 
   ///
   ///  customer Dashboard Overview
@@ -286,8 +284,8 @@ class SoftTechTestApi {
 
   Future<BaseResponseDto<TokenDto>> signIn(
       {required String email, required String password}) async {
-    final response = await dio
-        .post(kRouteAuthLogin, data: {'email': email, 'password': password});
+    final response = await dio.post(kRouteAuthLogin,
+        data: {'email': email, 'password': password, 'username': 'string'});
     return BaseResponseDto.fromJson({"data": response.data},
         (value) => TokenDto.fromJson(value as Map<String, dynamic>));
   }
@@ -311,17 +309,13 @@ class SoftTechTestApi {
 
   Future<BaseResponseDto<TokenDto>> signUp({
     required String password,
-    required firstName,
-    required String lastName,
+    required String userName,
     required String email,
-    required String phone,
     required String confirmPassword,
   }) async {
     final response = await dio.post(kRouteAuthSignUp, data: {
-      'firstName': firstName,
+      'username': userName,
       'password': password,
-      'lastName': lastName,
-      'phone': phone,
       'email': email
     });
     return BaseResponseDto.fromJson({"data": response.data},
@@ -359,33 +353,6 @@ class SoftTechTestApi {
     final response =
         await dio.post(kRouteAuthVerifyEmail, data: {'email': email});
     return BaseResponseDto.fromJson({"data": response.data}, (value) => value);
-  }
-
-  Future<BaseResponseDto<UserDetails>> getUser() async {
-    final response = await dio.get(kRouteUserDetail);
-    return BaseResponseDto.fromJson({"data": response.data},
-        (value) => UserDetails.fromJson(value as Map<String, dynamic>));
-  }
-
-  Future<BaseResponseDto<LogDetails>> getLogs() async {
-    final response = await dio.get(kRouteLogs);
-    return BaseResponseDto.fromJson({"data": response.data},
-        (value) => LogDetails.fromJson(value as Map<String, dynamic>));
-  }
-
-  Future<BaseResponseDto<TeamDto>> getTeam() async {
-    final response = await dio.get(kRoutegetTeam);
-
-    return BaseResponseDto.fromJson({"data": response.data},
-        (value) => TeamDto.fromJson(value as Map<String, dynamic>));
-  }
-
-  Future<BaseResponseDto<AppointmentDetailsDto>> getAppointmentDetails() async {
-    final response = await dio.get(kRouteGetAppointmentDetails);
-    return BaseResponseDto.fromJson(
-        {"data": response.data},
-        (value) =>
-            AppointmentDetailsDto.fromJson(value as Map<String, dynamic>));
   }
 
   Future<BaseResponseDto> updateUser({

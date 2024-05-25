@@ -8,13 +8,13 @@ part of 'prescribed_dto.dart';
 
 PrescribedDto _$PrescribedDtoFromJson(Map<String, dynamic> json) =>
     PrescribedDto(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       unit: json['unit'] as String?,
-      prescriptionId: json['prescription_id'] as int?,
-      prescriptionElementId: json['prescription_element_id'] as int?,
+      prescriptionId: (json['prescription_id'] as num?)?.toInt(),
+      prescriptionElementId: (json['prescription_element_id'] as num?)?.toInt(),
       numberOfDays: json['number_of_days'] as String?,
-      dosage: json['dosage'] as int?,
-      perDay: json['per_day'] as int?,
+      dosage: (json['dosage'] as num?)?.toInt(),
+      perDay: (json['per_day'] as num?)?.toInt(),
       isAfterMeal: json['is_after_meal'] as bool?,
       morning: json['morning'] as String?,
       evening: json['evening'] as String?,

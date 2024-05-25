@@ -8,11 +8,11 @@ part of 'appointment_dto.dart';
 
 AppointmentDto _$AppointmentDtoFromJson(Map<String, dynamic> json) =>
     AppointmentDto(
-      id: json['id'] as int?,
-      userId: json['user_id'] as int?,
-      doctorId: json['doctor_id'] as int?,
-      clinicId: json['clinic_id'] as int?,
-      consultationFee: json['consultation_fee'] as int?,
+      id: (json['id'] as num?)?.toInt(),
+      userId: (json['user_id'] as num?)?.toInt(),
+      doctorId: (json['doctor_id'] as num?)?.toInt(),
+      clinicId: (json['clinic_id'] as num?)?.toInt(),
+      consultationFee: (json['consultation_fee'] as num?)?.toInt(),
       reason: json['reason'] as String?,
       type: json['type'] as String?,
       appointmentType: json['appointment_type'] as String?,
@@ -21,7 +21,7 @@ AppointmentDto _$AppointmentDtoFromJson(Map<String, dynamic> json) =>
       prescriptionHere: json['prescription_here'] as String?,
       time: json['time'] as String?,
       dateTime: json['date_time'] as String?,
-      remainingTime: json['remaining_time'] as int?,
+      remainingTime: (json['remaining_time'] as num?)?.toInt(),
       progress: json['progress'] as String?,
       isPaid: json['is_paid'] as bool?,
       status: json['status'] as bool?,

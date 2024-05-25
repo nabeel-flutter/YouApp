@@ -1,4 +1,8 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:your_app_test/src/components/main_scaffold.dart';
+import 'package:your_app_test/src/pages/forgot_password/components/forgot_password_body.dart';
+import 'package:your_app_test/src/pages/forgot_password/components/forgot_password_header.dart';
 
 @RoutePage()
 class ForgotPasswordScreen extends StatelessWidget {

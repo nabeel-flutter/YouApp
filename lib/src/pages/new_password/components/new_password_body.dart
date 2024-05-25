@@ -1,9 +1,17 @@
 import 'dart:ui';
 
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:your_app_test/src/components/text_field_component.dart';
+import 'package:your_app_test/src/constant/assets_constants.dart';
+import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/constant/route_constants.dart';
+import 'package:your_app_test/src/constant/string_constants.dart';
 
 class NewPasswordBody extends StatelessWidget {
-  const NewPasswordBody({Key? key}) : super(key: key);
+  const NewPasswordBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +22,12 @@ class NewPasswordBody extends StatelessWidget {
       children: [
         const SizedBox(height: 20),
         TextFormFieldComponent(
+          onChanged: (value) {},
           controller: passwordController,
           hintText: 'New Password',
         ),
         TextFormFieldComponent(
+          onChanged: (value) {},
           controller: newPasswordController,
           hintText: 'Confirm Password',
         ),

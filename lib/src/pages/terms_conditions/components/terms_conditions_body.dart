@@ -1,4 +1,4 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:flutter/material.dart';
 
 class TermsConditionsBody extends StatelessWidget {
   const TermsConditionsBody({super.key});

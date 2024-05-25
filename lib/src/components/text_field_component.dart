@@ -1,5 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/constant/font_constants.dart';
+import 'package:your_app_test/src/theme/get_theme_color.dart';
 
 class TextFormFieldComponent extends StatefulWidget {
   const TextFormFieldComponent({
@@ -20,6 +23,7 @@ class TextFormFieldComponent extends StatefulWidget {
     this.borderRadius,
     this.stroke,
     this.isLabel = false,
+    required this.onChanged,
   });
   final List<TextInputFormatter>? listTextInputFormatter;
   final String? label;
@@ -37,6 +41,7 @@ class TextFormFieldComponent extends StatefulWidget {
   final double? borderRadius;
   final double? stroke;
   final bool? isLabel;
+  final Function(String value) onChanged;
 
   @override
   State<TextFormFieldComponent> createState() => _TextFormFieldComponentState();
@@ -67,6 +72,9 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
               height: 1.3,
             ),
             maxLines: widget.maxLines,
+            onChanged: (value) {
+              widget.onChanged(value);
+            },
             validator: (value) {
               return validator(
                   value: value, textInputType: widget.textInputType);
@@ -74,8 +82,9 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
             inputFormatters: widget.listTextInputFormatter,
             controller: widget.controller,
             style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                fontFamily: FontConstants.gilroyMedium,
-                color: ColorConstants.white,),
+                  fontFamily: FontConstants.gilroyMedium,
+                  color: ColorConstants.white,
+                ),
             obscureText: widget.isPassword == true ? showPassword : false,
             decoration: InputDecoration(
                 suffixIcon: widget.isPassword == true
@@ -87,7 +96,7 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
                         },
                         icon: ShaderMask(
                           shaderCallback: (Rect bounds) {
-                            return LinearGradient(
+                            return const LinearGradient(
                               colors: [
                                 Color(0xff94783E),
                                 Color(0xffF3EDA6),

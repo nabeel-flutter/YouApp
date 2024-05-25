@@ -1,4 +1,8 @@
-import 'package:your_app_test/src/app/app_export.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:your_app_test/src/pages/is_gradient_background_component/cubit/is_gradient_background_cubit.dart';
+import 'package:your_app_test/src/theme/get_theme_color.dart';
+import 'package:your_app_test/src/theme/lighten_darken_color.dart';
 
 class ThemeSwitchApp extends StatelessWidget {
   const ThemeSwitchApp({

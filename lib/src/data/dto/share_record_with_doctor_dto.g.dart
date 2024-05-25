@@ -9,12 +9,12 @@ part of 'share_record_with_doctor_dto.dart';
 ShareRecordWithDoctorDto _$ShareRecordWithDoctorDtoFromJson(
         Map<String, dynamic> json) =>
     ShareRecordWithDoctorDto(
-      doctorId: json['doctor_id'] as int?,
-      medicalRecordId: json['medical_record_id'] as int?,
+      doctorId: (json['doctor_id'] as num?)?.toInt(),
+      medicalRecordId: (json['medical_record_id'] as num?)?.toInt(),
       doctor: json['doctor'] == null
           ? null
           : DoctorDto.fromJson(json['doctor'] as Map<String, dynamic>),
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$ShareRecordWithDoctorDtoToJson(

@@ -12,7 +12,7 @@ part of 'readings_status.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ReadingsStatus {
@@ -81,23 +81,24 @@ class _$ReadingsStatusCopyWithImpl<$Res, $Val extends ReadingsStatus>
 }
 
 /// @nodoc
-abstract class _$$_HighCopyWith<$Res> {
-  factory _$$_HighCopyWith(_$_High value, $Res Function(_$_High) then) =
-      __$$_HighCopyWithImpl<$Res>;
+abstract class _$$HighImplCopyWith<$Res> {
+  factory _$$HighImplCopyWith(
+          _$HighImpl value, $Res Function(_$HighImpl) then) =
+      __$$HighImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_HighCopyWithImpl<$Res>
-    extends _$ReadingsStatusCopyWithImpl<$Res, _$_High>
-    implements _$$_HighCopyWith<$Res> {
-  __$$_HighCopyWithImpl(_$_High _value, $Res Function(_$_High) _then)
+class __$$HighImplCopyWithImpl<$Res>
+    extends _$ReadingsStatusCopyWithImpl<$Res, _$HighImpl>
+    implements _$$HighImplCopyWith<$Res> {
+  __$$HighImplCopyWithImpl(_$HighImpl _value, $Res Function(_$HighImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_High extends _High {
-  const _$_High() : super._();
+class _$HighImpl extends _High {
+  const _$HighImpl() : super._();
 
   @override
   String toString() {
@@ -105,9 +106,9 @@ class _$_High extends _High {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_High);
+        (other.runtimeType == runtimeType && other is _$HighImpl);
   }
 
   @override
@@ -183,28 +184,30 @@ class _$_High extends _High {
 }
 
 abstract class _High extends ReadingsStatus {
-  const factory _High() = _$_High;
+  const factory _High() = _$HighImpl;
   const _High._() : super._();
 }
 
 /// @nodoc
-abstract class _$$_NormalCopyWith<$Res> {
-  factory _$$_NormalCopyWith(_$_Normal value, $Res Function(_$_Normal) then) =
-      __$$_NormalCopyWithImpl<$Res>;
+abstract class _$$NormalImplCopyWith<$Res> {
+  factory _$$NormalImplCopyWith(
+          _$NormalImpl value, $Res Function(_$NormalImpl) then) =
+      __$$NormalImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_NormalCopyWithImpl<$Res>
-    extends _$ReadingsStatusCopyWithImpl<$Res, _$_Normal>
-    implements _$$_NormalCopyWith<$Res> {
-  __$$_NormalCopyWithImpl(_$_Normal _value, $Res Function(_$_Normal) _then)
+class __$$NormalImplCopyWithImpl<$Res>
+    extends _$ReadingsStatusCopyWithImpl<$Res, _$NormalImpl>
+    implements _$$NormalImplCopyWith<$Res> {
+  __$$NormalImplCopyWithImpl(
+      _$NormalImpl _value, $Res Function(_$NormalImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Normal extends _Normal {
-  const _$_Normal() : super._();
+class _$NormalImpl extends _Normal {
+  const _$NormalImpl() : super._();
 
   @override
   String toString() {
@@ -212,9 +215,9 @@ class _$_Normal extends _Normal {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Normal);
+        (other.runtimeType == runtimeType && other is _$NormalImpl);
   }
 
   @override
@@ -290,28 +293,28 @@ class _$_Normal extends _Normal {
 }
 
 abstract class _Normal extends ReadingsStatus {
-  const factory _Normal() = _$_Normal;
+  const factory _Normal() = _$NormalImpl;
   const _Normal._() : super._();
 }
 
 /// @nodoc
-abstract class _$$_LowCopyWith<$Res> {
-  factory _$$_LowCopyWith(_$_Low value, $Res Function(_$_Low) then) =
-      __$$_LowCopyWithImpl<$Res>;
+abstract class _$$LowImplCopyWith<$Res> {
+  factory _$$LowImplCopyWith(_$LowImpl value, $Res Function(_$LowImpl) then) =
+      __$$LowImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LowCopyWithImpl<$Res>
-    extends _$ReadingsStatusCopyWithImpl<$Res, _$_Low>
-    implements _$$_LowCopyWith<$Res> {
-  __$$_LowCopyWithImpl(_$_Low _value, $Res Function(_$_Low) _then)
+class __$$LowImplCopyWithImpl<$Res>
+    extends _$ReadingsStatusCopyWithImpl<$Res, _$LowImpl>
+    implements _$$LowImplCopyWith<$Res> {
+  __$$LowImplCopyWithImpl(_$LowImpl _value, $Res Function(_$LowImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Low extends _Low {
-  const _$_Low() : super._();
+class _$LowImpl extends _Low {
+  const _$LowImpl() : super._();
 
   @override
   String toString() {
@@ -319,9 +322,9 @@ class _$_Low extends _Low {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Low);
+        (other.runtimeType == runtimeType && other is _$LowImpl);
   }
 
   @override
@@ -397,6 +400,6 @@ class _$_Low extends _Low {
 }
 
 abstract class _Low extends ReadingsStatus {
-  const factory _Low() = _$_Low;
+  const factory _Low() = _$LowImpl;
   const _Low._() : super._();
 }

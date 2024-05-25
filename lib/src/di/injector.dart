@@ -1,16 +1,26 @@
-import 'package:your_app_test/src/app/app_export.dart';
-import 'package:your_app_test/src/pages/all_services/cubit/cubit/service_cubit.dart';
-import 'package:your_app_test/src/pages/doctors/cubit/cubit/doctors_cubit.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:get_it/get_it.dart';
+import 'package:logger/logger.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uuid/uuid.dart';
+import 'package:your_app_test/src/constant/http_constants.dart';
+import 'package:your_app_test/src/core/log_filter.dart';
+import 'package:your_app_test/src/data/common/object_mapper.dart';
+import 'package:your_app_test/src/data/datasource/api/at_care_api.dart';
+import 'package:your_app_test/src/data/repository/api_repository_impl.dart';
+import 'package:your_app_test/src/domain/repository/api_repository.dart';
+import 'package:your_app_test/src/listeners/login_state.dart';
 import 'package:your_app_test/src/pages/forgot_password/cubit/forget_password_cubit.dart';
-import 'package:your_app_test/src/pages/mental_health/mental_health_inner_pages/gad_7/cubit/gad_7_cubit.dart';
-import 'package:your_app_test/src/pages/my_bills/cubit/my_bills_cubit.dart';
-import 'package:your_app_test/src/pages/my_logs/cubit/logs_cubit.dart';
-import 'package:your_app_test/src/pages/product_detail/cubit/product_detail_cubit.dart';
-import 'package:your_app_test/src/pages/products/cubit/products_list_cubit.dart';
-import 'package:your_app_test/src/pages/profile/cubit/user_profile_cubit.dart';
+import 'package:your_app_test/src/pages/is_gradient_background_component/cubit/is_gradient_background_cubit.dart';
+
 import 'package:your_app_test/src/pages/sign_in/cubit/sign_in_cubit.dart';
 import 'package:your_app_test/src/pages/sign_up/cubit/sign_up_cubit.dart';
 import 'package:your_app_test/src/pages/verify_email/cubit/verify_email_cubit.dart';
+import 'package:your_app_test/src/route/app_router.dart';
+import 'package:your_app_test/src/util/shared_preferences_util.dart';
 
 final getIt = GetIt.instance;
 
@@ -24,7 +34,6 @@ Future<void> initializeInjectedDependencies({
   _injectUtilities(enableLogger: enableLogger);
 
   await _initializeData();
-  await _initRepos();
   _injectBlocsAndCubits();
 }
 
@@ -37,22 +46,11 @@ void _injectUtilities({
 }
 
 void _injectBlocsAndCubits() {
-  getIt.registerFactory(() => AnimatedDrawerCubit());
   getIt.registerFactory(() => IsGradientBackgroundCubit());
-  getIt.registerFactory(() => PHQ9Cubit());
-  getIt.registerFactory(() => ProductsListCubit(getIt.get()));
-  getIt.registerFactory(() => ProductDetailCubit(getIt.get()));
   getIt.registerFactory(() => SignInCubit(getIt.get()));
   getIt.registerFactory(() => SignUpCubit(getIt.get()));
-  getIt.registerFactory(() => MyBillsCubit(getIt.get()));
   getIt.registerFactory(() => ForgetPasswordCubit(getIt.get()));
   getIt.registerFactory(() => VerifyEmailCubit(getIt.get()));
-  getIt.registerFactory(() => UserProfileCubit(getIt.get()));
-  getIt.registerFactory(() => LogsCubit(getIt.get()));
-
-  getIt.registerFactory(() => GAD7Cubit());
-  getIt.registerFactory(() => DoctorsCubit(getIt.get()));
-  getIt.registerFactory(() => ServiceCubit());
   getIt.registerLazySingleton(() => AppRouter());
 }
 
@@ -89,51 +87,18 @@ Future<void> _initializeData({bool enableLogging = true}) async {
 
   // inject dependencies
   getIt
-    ..registerSingleton(DioClientNetwork(dio))
-    ..registerSingleton(SoftTechTestApi(dio))
+    ..registerSingleton(YouAppApi(dio))
     ..registerFactory<ApiRepository>(
       () => ApiRepositoryImpl(
-        softTechTestApi: getIt.get(),
+        youAppApi: getIt.get(),
         objectMapper: getIt.get(),
         logger: getIt.get(),
       ),
     );
   // add interceptor
-  final interceptor = AuthInterceptor(
-    getIt.get(),
-  );
-  dio.interceptors.add(interceptor);
 
   if (enableLogging) {
     dio.interceptors.add(PrettyDioLogger());
   }
 }
 
-Future<void> _initRepos() async {
-  getIt
-    ..registerSingleton(
-      DioApiServices(
-        onAPIErrorDetection: () async {
-          BlocProvider.of<AppCubit>(navigationService!.getKey().currentContext!)
-              .user = null;
-          // await getIt<BottomNavCubit>().logout().then((value) => null);
-          await getIt<SharedPreferencesUtil>().removeValue(
-            SharedPreferenceConstants.user,
-          );
-          await getIt<SharedPreferencesUtil>().removeValue(
-            SharedPreferenceConstants.userId,
-          );
-          await getIt<SharedPreferencesUtil>().removeValue(
-            SharedPreferenceConstants.apiAuthToken,
-          );
-          await getIt<DioClientNetwork>().initializeDioClientNetwork(
-            deleteToken: true,
-            locale: 1,
-          );
-        },
-      ),
-    )
-    ..registerFactory(
-      () => AppCubit(),
-    );
-}

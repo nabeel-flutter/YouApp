@@ -7,28 +7,29 @@ part of 'doctor_dto.dart';
 // **************************************************************************
 
 DoctorDto _$DoctorDtoFromJson(Map<String, dynamic> json) => DoctorDto(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       isShared: json['is_shared'] as bool?,
       role: json['role'] as String?,
       name: json['name'] as String?,
-      cityId: json['city_id'] as int?,
+      cityId: (json['city_id'] as num?)?.toInt(),
       city: json['city'] as String?,
       image: json['image'] as String?,
-      age: json['age'] as int?,
+      age: (json['age'] as num?)?.toInt(),
       gender: json['gender'] as String?,
       prefix: json['prefix'] as String?,
-      sharedMedicalRecordId: json['shared_medical_record_id'] as int?,
+      sharedMedicalRecordId:
+          (json['shared_medical_record_id'] as num?)?.toInt(),
       isSubscribed: json['is_subscribed'] as bool?,
       isInstantConsultation: json['is_instant_consultation'] as bool?,
       isPhysicalConsultancy: json['is_physical_consultancy'] as bool?,
-      waitingTime: json['waiting_time'] as int?,
+      waitingTime: (json['waiting_time'] as num?)?.toInt(),
       consultationDuration: json['consultation_duration'] as String?,
       about: json['about'] as String?,
       badge: json['badge'] as String?,
       pmcNo: json['pmc_no'] as String?,
       clinic: json['clinic'] as String?,
     )
-      ..experienceYear = json['experience_year'] as int?
+      ..experienceYear = (json['experience_year'] as num?)?.toInt()
       ..isAvailable = json['is_available'] as bool?
       ..redirectUrl = json['redirect_url'] as String?
       ..doctorSpecialities = (json['doctor_specialities'] as List<dynamic>?)

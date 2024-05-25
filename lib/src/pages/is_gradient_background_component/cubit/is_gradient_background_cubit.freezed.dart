@@ -12,7 +12,7 @@ part of 'is_gradient_background_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$IsGradientBackgroundState {
@@ -100,24 +100,25 @@ class _$IsGradientBackgroundStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$IsGradientBackgroundStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$IsGradientBackgroundStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -125,9 +126,9 @@ class _$_Initial implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -221,28 +222,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements IsGradientBackgroundState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$IsGradientBackgroundStateCopyWithImpl<$Res, _$_Loading>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$IsGradientBackgroundStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading();
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl();
 
   @override
   String toString() {
@@ -250,9 +252,9 @@ class _$_Loading implements _Loading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loading);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -346,22 +348,24 @@ class _$_Loading implements _Loading {
 }
 
 abstract class _Loading implements IsGradientBackgroundState {
-  const factory _Loading() = _$_Loading;
+  const factory _Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_ErrorCopyWith<$Res> {
-  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
-      __$$_ErrorCopyWithImpl<$Res>;
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<$Res>
-    extends _$IsGradientBackgroundStateCopyWithImpl<$Res, _$_Error>
-    implements _$$_ErrorCopyWith<$Res> {
-  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$IsGradientBackgroundStateCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -369,7 +373,7 @@ class __$$_ErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_Error(
+    return _then(_$ErrorImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -380,8 +384,8 @@ class __$$_ErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Error implements _Error {
-  const _$_Error(this.message);
+class _$ErrorImpl implements _Error {
+  const _$ErrorImpl(this.message);
 
   @override
   final String message;
@@ -392,10 +396,10 @@ class _$_Error implements _Error {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Error &&
+            other is _$ErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -405,8 +409,8 @@ class _$_Error implements _Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ErrorCopyWith<_$_Error> get copyWith =>
-      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -496,32 +500,34 @@ class _$_Error implements _Error {
 }
 
 abstract class _Error implements IsGradientBackgroundState {
-  const factory _Error(final String message) = _$_Error;
+  const factory _Error(final String message) = _$ErrorImpl;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadedCopyWith<$Res> {
-  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
-      __$$_LoadedCopyWithImpl<$Res>;
+abstract class _$$LoadedImplCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadedCopyWithImpl<$Res>
-    extends _$IsGradientBackgroundStateCopyWithImpl<$Res, _$_Loaded>
-    implements _$$_LoadedCopyWith<$Res> {
-  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+class __$$LoadedImplCopyWithImpl<$Res>
+    extends _$IsGradientBackgroundStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Loaded implements _Loaded {
-  const _$_Loaded();
+class _$LoadedImpl implements _Loaded {
+  const _$LoadedImpl();
 
   @override
   String toString() {
@@ -529,9 +535,9 @@ class _$_Loaded implements _Loaded {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loaded);
+        (other.runtimeType == runtimeType && other is _$LoadedImpl);
   }
 
   @override
@@ -625,24 +631,25 @@ class _$_Loaded implements _Loaded {
 }
 
 abstract class _Loaded implements IsGradientBackgroundState {
-  const factory _Loaded() = _$_Loaded;
+  const factory _Loaded() = _$LoadedImpl;
 }
 
 /// @nodoc
-abstract class _$$_UpdateColorStateCopyWith<$Res> {
-  factory _$$_UpdateColorStateCopyWith(
-          _$_UpdateColorState value, $Res Function(_$_UpdateColorState) then) =
-      __$$_UpdateColorStateCopyWithImpl<$Res>;
+abstract class _$$UpdateColorStateImplCopyWith<$Res> {
+  factory _$$UpdateColorStateImplCopyWith(_$UpdateColorStateImpl value,
+          $Res Function(_$UpdateColorStateImpl) then) =
+      __$$UpdateColorStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Color color});
 }
 
 /// @nodoc
-class __$$_UpdateColorStateCopyWithImpl<$Res>
-    extends _$IsGradientBackgroundStateCopyWithImpl<$Res, _$_UpdateColorState>
-    implements _$$_UpdateColorStateCopyWith<$Res> {
-  __$$_UpdateColorStateCopyWithImpl(
-      _$_UpdateColorState _value, $Res Function(_$_UpdateColorState) _then)
+class __$$UpdateColorStateImplCopyWithImpl<$Res>
+    extends _$IsGradientBackgroundStateCopyWithImpl<$Res,
+        _$UpdateColorStateImpl>
+    implements _$$UpdateColorStateImplCopyWith<$Res> {
+  __$$UpdateColorStateImplCopyWithImpl(_$UpdateColorStateImpl _value,
+      $Res Function(_$UpdateColorStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -650,7 +657,7 @@ class __$$_UpdateColorStateCopyWithImpl<$Res>
   $Res call({
     Object? color = null,
   }) {
-    return _then(_$_UpdateColorState(
+    return _then(_$UpdateColorStateImpl(
       null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -661,8 +668,8 @@ class __$$_UpdateColorStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdateColorState implements _UpdateColorState {
-  const _$_UpdateColorState(this.color);
+class _$UpdateColorStateImpl implements _UpdateColorState {
+  const _$UpdateColorStateImpl(this.color);
 
   @override
   final Color color;
@@ -673,10 +680,10 @@ class _$_UpdateColorState implements _UpdateColorState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdateColorState &&
+            other is _$UpdateColorStateImpl &&
             (identical(other.color, color) || other.color == color));
   }
 
@@ -686,8 +693,9 @@ class _$_UpdateColorState implements _UpdateColorState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdateColorStateCopyWith<_$_UpdateColorState> get copyWith =>
-      __$$_UpdateColorStateCopyWithImpl<_$_UpdateColorState>(this, _$identity);
+  _$$UpdateColorStateImplCopyWith<_$UpdateColorStateImpl> get copyWith =>
+      __$$UpdateColorStateImplCopyWithImpl<_$UpdateColorStateImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -777,29 +785,30 @@ class _$_UpdateColorState implements _UpdateColorState {
 }
 
 abstract class _UpdateColorState implements IsGradientBackgroundState {
-  const factory _UpdateColorState(final Color color) = _$_UpdateColorState;
+  const factory _UpdateColorState(final Color color) = _$UpdateColorStateImpl;
 
   Color get color;
   @JsonKey(ignore: true)
-  _$$_UpdateColorStateCopyWith<_$_UpdateColorState> get copyWith =>
+  _$$UpdateColorStateImplCopyWith<_$UpdateColorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_UpdateThemeStateCopyWith<$Res> {
-  factory _$$_UpdateThemeStateCopyWith(
-          _$_UpdateThemeState value, $Res Function(_$_UpdateThemeState) then) =
-      __$$_UpdateThemeStateCopyWithImpl<$Res>;
+abstract class _$$UpdateThemeStateImplCopyWith<$Res> {
+  factory _$$UpdateThemeStateImplCopyWith(_$UpdateThemeStateImpl value,
+          $Res Function(_$UpdateThemeStateImpl) then) =
+      __$$UpdateThemeStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$$_UpdateThemeStateCopyWithImpl<$Res>
-    extends _$IsGradientBackgroundStateCopyWithImpl<$Res, _$_UpdateThemeState>
-    implements _$$_UpdateThemeStateCopyWith<$Res> {
-  __$$_UpdateThemeStateCopyWithImpl(
-      _$_UpdateThemeState _value, $Res Function(_$_UpdateThemeState) _then)
+class __$$UpdateThemeStateImplCopyWithImpl<$Res>
+    extends _$IsGradientBackgroundStateCopyWithImpl<$Res,
+        _$UpdateThemeStateImpl>
+    implements _$$UpdateThemeStateImplCopyWith<$Res> {
+  __$$UpdateThemeStateImplCopyWithImpl(_$UpdateThemeStateImpl _value,
+      $Res Function(_$UpdateThemeStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -807,7 +816,7 @@ class __$$_UpdateThemeStateCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$_UpdateThemeState(
+    return _then(_$UpdateThemeStateImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -818,8 +827,8 @@ class __$$_UpdateThemeStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdateThemeState implements _UpdateThemeState {
-  const _$_UpdateThemeState(this.value);
+class _$UpdateThemeStateImpl implements _UpdateThemeState {
+  const _$UpdateThemeStateImpl(this.value);
 
   @override
   final bool value;
@@ -830,10 +839,10 @@ class _$_UpdateThemeState implements _UpdateThemeState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdateThemeState &&
+            other is _$UpdateThemeStateImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -843,8 +852,9 @@ class _$_UpdateThemeState implements _UpdateThemeState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdateThemeStateCopyWith<_$_UpdateThemeState> get copyWith =>
-      __$$_UpdateThemeStateCopyWithImpl<_$_UpdateThemeState>(this, _$identity);
+  _$$UpdateThemeStateImplCopyWith<_$UpdateThemeStateImpl> get copyWith =>
+      __$$UpdateThemeStateImplCopyWithImpl<_$UpdateThemeStateImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -934,10 +944,10 @@ class _$_UpdateThemeState implements _UpdateThemeState {
 }
 
 abstract class _UpdateThemeState implements IsGradientBackgroundState {
-  const factory _UpdateThemeState(final bool value) = _$_UpdateThemeState;
+  const factory _UpdateThemeState(final bool value) = _$UpdateThemeStateImpl;
 
   bool get value;
   @JsonKey(ignore: true)
-  _$$_UpdateThemeStateCopyWith<_$_UpdateThemeState> get copyWith =>
+  _$$UpdateThemeStateImplCopyWith<_$UpdateThemeStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
