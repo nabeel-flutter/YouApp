@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 
 class OTPFields extends StatelessWidget {
   const OTPFields({super.key});
@@ -16,13 +16,13 @@ class OTPFields extends StatelessWidget {
         pinTheme: PinTheme(
             shape: PinCodeFieldShape.box,
             borderRadius: BorderRadius.circular(10),
-            inactiveColor: ColorConstants.subTextColor.withOpacity(0.5),
-            inactiveFillColor: ColorConstants.white,
-            selectedColor: ColorConstants.primaryColor,
+            inactiveColor: Palette.subTextColor.withOpacity(0.5),
+            inactiveFillColor: Palette.white,
+            selectedColor: Palette.primaryColor,
             fieldWidth: 54,
             inactiveBorderWidth: 2.2,
-            activeFillColor: ColorConstants.white,
-            activeColor: ColorConstants.primaryColor),
+            activeFillColor: Palette.white,
+            activeColor: Palette.primaryColor),
       ),
     );
   }

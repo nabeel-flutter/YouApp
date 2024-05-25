@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:your_app_test/src/components/app_loader.dart';
 import 'package:your_app_test/src/components/text_field_component.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 import 'package:your_app_test/src/constant/string_constants.dart';
 import 'package:your_app_test/src/constant/toast_component.dart';
 import 'package:your_app_test/src/pages/sign_up/components/already_account.dart';
@@ -33,8 +33,8 @@ class _SignUpFormState extends State<SignUpForm> {
           TextFormFieldComponent(
             onChanged: (value) {},
             borderRadius: 12,
-            borderColor: ColorConstants.white.withOpacity(0.00),
-            fillColor: ColorConstants.white.withOpacity(0.06),
+            borderColor: Palette.white.withOpacity(0.00),
+            fillColor: Palette.white.withOpacity(0.06),
             controller: _emailController,
             hintText: 'Enter Email',
             textInputType: TextInputType.emailAddress,
@@ -42,8 +42,8 @@ class _SignUpFormState extends State<SignUpForm> {
           TextFormFieldComponent(
             onChanged: (value) {},
             borderRadius: 12,
-            borderColor: ColorConstants.white.withOpacity(0.00),
-            fillColor: ColorConstants.white.withOpacity(0.06),
+            borderColor: Palette.white.withOpacity(0.00),
+            fillColor: Palette.white.withOpacity(0.06),
             controller: _firstNameController,
             hintText: 'Create Username',
             textInputType: TextInputType.name,
@@ -51,8 +51,8 @@ class _SignUpFormState extends State<SignUpForm> {
           TextFormFieldComponent(
             onChanged: (value) {},
             borderRadius: 12,
-            borderColor: ColorConstants.white.withOpacity(0.00),
-            fillColor: ColorConstants.white.withOpacity(0.06),
+            borderColor: Palette.white.withOpacity(0.00),
+            fillColor: Palette.white.withOpacity(0.06),
             controller: _passwordController,
             hintText: 'Password',
             isPassword: true,
@@ -61,8 +61,8 @@ class _SignUpFormState extends State<SignUpForm> {
           TextFormFieldComponent(
             onChanged: (value) {},
             borderRadius: 12,
-            borderColor: ColorConstants.white.withOpacity(0.00),
-            fillColor: ColorConstants.white.withOpacity(0.06),
+            borderColor: Palette.white.withOpacity(0.00),
+            fillColor: Palette.white.withOpacity(0.06),
             controller: _confirmPasswordController,
             hintText: 'Confirm Password',
             isPassword: true,
@@ -80,12 +80,12 @@ class _SignUpFormState extends State<SignUpForm> {
                           if (_confirmPasswordController.text ==
                               _passwordController.text) {
                             context.read<SignUpCubit>().signUp(
-                                userName: _firstNameController.text,
-                                password: _passwordController.text,
-                                email: _emailController.text,
-                                confirmPassword:
-                                    _confirmPasswordController.text,
-);
+                                  userName: _firstNameController.text,
+                                  password: _passwordController.text,
+                                  email: _emailController.text,
+                                  confirmPassword:
+                                      _confirmPasswordController.text,
+                                );
                           } else {
                             ToastComponent3(context)
                                 .showToast(context, 'Password not match');
@@ -95,7 +95,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       child: Text(
                         StringConstants.signUp,
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                              color: ColorConstants.white,
+                              color: Palette.white,
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                             ),
@@ -103,7 +103,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   Text(
                     StringConstants.signUp,
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: ColorConstants.white,
+                          color: Palette.white,
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                         ),
@@ -124,7 +124,7 @@ class _SignUpFormState extends State<SignUpForm> {
                                   .textTheme
                                   .bodyLarge!
                                   .copyWith(
-                                    color: ColorConstants.white,
+                                    color: Palette.white,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
                                   )),
@@ -133,7 +133,7 @@ class _SignUpFormState extends State<SignUpForm> {
                             height: 20,
                             width: 20,
                             child: AppProgressIndicator(
-                              color: ColorConstants.white,
+                              color: Palette.white,
                             ),
                           )
                         ],
@@ -145,7 +145,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       Text('Loading...',
                           style:
                               Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                    color: ColorConstants.white,
+                                    color: Palette.white,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
                                   )),
@@ -154,7 +154,7 @@ class _SignUpFormState extends State<SignUpForm> {
                         height: 20,
                         width: 20,
                         child: AppProgressIndicator(
-                          color: ColorConstants.white,
+                          color: Palette.white,
                         ),
                       )
                     ],
@@ -172,12 +172,11 @@ class _SignUpFormState extends State<SignUpForm> {
                               if (_confirmPasswordController.text ==
                                   _passwordController.text) {
                                 context.read<SignUpCubit>().signUp(
-                                    userName: _firstNameController.text,
-                                    
-                                    password: _passwordController.text,
-                                    email: _emailController.text,
-                                    confirmPassword:
-                                        _confirmPasswordController.text,
+                                      userName: _firstNameController.text,
+                                      password: _passwordController.text,
+                                      email: _emailController.text,
+                                      confirmPassword:
+                                          _confirmPasswordController.text,
                                     );
                               } else {
                                 ToastComponent3(context)
@@ -189,7 +188,7 @@ class _SignUpFormState extends State<SignUpForm> {
                             StringConstants.signUp,
                             style:
                                 Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      color: ColorConstants.white,
+                                      color: Palette.white,
                                       fontSize: 16,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -197,7 +196,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       Text(
                         StringConstants.signUp,
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                              color: ColorConstants.white,
+                              color: Palette.white,
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                             ),
@@ -212,7 +211,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     style: Theme.of(context)
                         .textTheme
                         .bodySmall!
-                        .copyWith(color: ColorConstants.redIndicatorColor),
+                        .copyWith(color: Palette.redIndicatorColor),
                   ),
                 ],
               ),

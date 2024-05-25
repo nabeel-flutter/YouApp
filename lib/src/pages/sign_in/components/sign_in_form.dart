@@ -4,7 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:your_app_test/src/components/text_field_component.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 import 'package:your_app_test/src/constant/route_constants.dart';
 import 'package:your_app_test/src/constant/shared_preference_constants.dart';
 import 'package:your_app_test/src/constant/string_constants.dart';
@@ -35,8 +35,8 @@ class SignInForm extends StatelessWidget {
                     .checkIsValidate();
               },
               borderRadius: 12,
-              borderColor: ColorConstants.white.withOpacity(0.00),
-              fillColor: ColorConstants.white.withOpacity(0.06),
+              borderColor: Palette.white.withOpacity(0.00),
+              fillColor: Palette.white.withOpacity(0.06),
               hintText: "Enter Email",
               controller: BlocProvider.of<SignInCubit>(context).emailController,
               textInputType: TextInputType.emailAddress),
@@ -49,8 +49,8 @@ class SignInForm extends StatelessWidget {
               borderRadius: 12,
               textInputType: TextInputType.visiblePassword,
               hintText: "Enter Password",
-              borderColor: ColorConstants.white.withOpacity(0.00),
-              fillColor: ColorConstants.white.withOpacity(0.06),
+              borderColor: Palette.white.withOpacity(0.00),
+              fillColor: Palette.white.withOpacity(0.06),
               isPassword: true,
               controller:
                   BlocProvider.of<SignInCubit>(context).passwordController),
@@ -106,7 +106,7 @@ class SignInButton extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .bodySmall!
-                            .copyWith(color: ColorConstants.redIndicatorColor))
+                            .copyWith(color: Palette.redIndicatorColor))
                   ]);
             },
             orElse: () => SignUpButtonVadationState(
@@ -129,7 +129,7 @@ class RegisterHereTextButton extends StatelessWidget {
             text: TextSpan(
                 text: 'No account? ',
                 style: const TextStyle(
-                    color: ColorConstants.white,
+                    color: Palette.white,
                     fontWeight: FontWeight.w500,
                     fontSize: 13),
                 children: [
@@ -241,7 +241,7 @@ class AppButton extends StatelessWidget {
             child: Text(
               title,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: ColorConstants.white,
+                    color: Palette.white,
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                   ),
@@ -249,7 +249,7 @@ class AppButton extends StatelessWidget {
         Text(
           title,
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: ColorConstants.white,
+                color: Palette.white,
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               ),

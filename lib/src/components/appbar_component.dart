@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:your_app_test/src/constant/assets_constants.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
-import 'package:your_app_test/src/constant/font_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
+import 'package:your_app_test/src/theme/font_constants.dart';
 import 'package:your_app_test/src/constant/route_constants.dart';
 import 'package:your_app_test/src/theme/get_theme_color.dart';
 import 'package:your_app_test/src/theme/lighten_darken_color.dart';
@@ -58,7 +58,7 @@ class AppBarcomponent extends StatelessWidget {
                           padding: EdgeInsets.only(top: 6.0, right: 3),
                           child: Icon(
                             Icons.notifications_on_outlined,
-                            color: ColorConstants.white,
+                            color: Palette.white,
                           ),
                         ),
                       ),
@@ -82,7 +82,7 @@ class AppBarcomponent extends StatelessWidget {
                         margin: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            color: ColorConstants.white),
+                            color: Palette.white),
                         child: const Icon(
                           Icons.arrow_back_ios_new,
                           size: 14,
@@ -102,7 +102,7 @@ class AppBarcomponent extends StatelessWidget {
                       maxLines: 2,
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                          color: ColorConstants.white,
+                          color: Palette.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 20),
                     ),
@@ -149,8 +149,7 @@ class TopSheetComponent extends StatelessWidget {
           Text(
             text,
             style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                color: ColorConstants.white,
-                fontFamily: FontConstants.gilroyMedium),
+                color: Palette.white, fontFamily: FontConstants.gilroyMedium),
           )
         ],
       ),

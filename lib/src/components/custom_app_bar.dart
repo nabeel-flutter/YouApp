@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 import 'package:your_app_test/src/util/navigation_util.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget {
             height: 38,
             width: 38,
             decoration: BoxDecoration(
-              color: ColorConstants.white,
+              color: Palette.white,
               borderRadius: BorderRadius.circular(15),
             ),
             child: const Icon(Icons.arrow_back),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 
 class ShowBottomSheetComponent {
   void showBottomSheet({
@@ -34,7 +34,7 @@ class ShowBottomSheetComponent {
             padding: EdgeInsets.only(
                 bottom: MediaQuery.of(context).viewInsets.bottom),
             decoration: const BoxDecoration(
-              color: ColorConstants.white,
+              color: Palette.white,
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20),
                 topLeft: Radius.circular(20),

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:your_app_test/src/components/text_field_component.dart';
 import 'package:your_app_test/src/constant/assets_constants.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 import 'package:your_app_test/src/constant/route_constants.dart';
 import 'package:your_app_test/src/constant/string_constants.dart';
 
@@ -44,7 +44,7 @@ class NewPasswordBody extends StatelessWidget {
                       sigmaY: 5,
                     ),
                     child: Container(
-                      color: ColorConstants.white.withOpacity(0.2),
+                      color: Palette.white.withOpacity(0.2),
                       child: customDialog(
                         title: StringConstants.passwordChanged,
                         description: StringConstants.passwordChangedDescription,
@@ -61,7 +61,7 @@ class NewPasswordBody extends StatelessWidget {
             child: Text(
               StringConstants.save,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: ColorConstants.white,
+                    color: Palette.white,
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                   ),
@@ -80,14 +80,14 @@ class NewPasswordBody extends StatelessWidget {
         style: Theme.of(context)
             .textTheme
             .bodySmall!
-            .copyWith(color: ColorConstants.subTextColor),
+            .copyWith(color: Palette.subTextColor),
         children: [
           TextSpan(
             text: StringConstants.login,
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!
-                .copyWith(color: ColorConstants.primaryColor),
+                .copyWith(color: Palette.primaryColor),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 context.router.pushNamed(RouteConstants.signInRoute);
@@ -122,14 +122,14 @@ class NewPasswordBody extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.w700,
-                    color: ColorConstants.black)),
+                    color: Palette.black)),
             const SizedBox(height: 20),
             Text(
               description,
               style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
-                  color: ColorConstants.black),
+                  color: Palette.black),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
@@ -140,7 +140,7 @@ class NewPasswordBody extends StatelessWidget {
               child: Text(
                 buttonText,
                 style: const TextStyle(
-                    color: ColorConstants.white,
+                    color: Palette.white,
                     fontSize: 16,
                     fontWeight: FontWeight.w700),
               ),

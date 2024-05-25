@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:your_app_test/src/constant/assets_constants.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 import 'package:your_app_test/src/constant/route_constants.dart';
 import 'package:your_app_test/src/constant/shared_preference_constants.dart';
 import 'package:your_app_test/src/constant/string_constants.dart';
@@ -89,7 +89,7 @@ class SettingScreenBody extends StatelessWidget {
                       Text(
                         'Logout',
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            color: ColorConstants.subTextColor,
+                            color: Palette.subTextColor,
                             fontWeight: FontWeight.w500,
                             fontSize: 16),
                       ),

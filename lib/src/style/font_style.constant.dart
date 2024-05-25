@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
-import 'package:your_app_test/src/constant/font_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
+import 'package:your_app_test/src/theme/font_constants.dart';
 
 class FontStylesConstants {
   ///Noto Naskh Arabic
   static TextStyle notoNaskhArabic(
           {required double fontSize,
-          Color color = ColorConstants.black,
+          Color color = Palette.black,
           FontWeight fontWeight = FontWeight.normal,
           TextDecoration decoration = TextDecoration.none,
           double letterSpacing = 0,

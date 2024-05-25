@@ -1,14 +1,12 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 import 'package:your_app_test/src/constant/shared_preference_constants.dart';
 import 'package:your_app_test/src/di/injector.dart';
 import 'package:your_app_test/src/util/shared_preferences_util.dart';
 
 class MyTheme with ChangeNotifier {
   static bool isDark = false;
-  static Color color = ColorConstants.primaryColor;
+  static Color color = Palette.primaryColor;
   void getStorageTheme() async {
     isDark = (await getIt
         .get<SharedPreferencesUtil>()

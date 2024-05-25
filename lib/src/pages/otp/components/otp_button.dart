@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 import 'package:your_app_test/src/route/app_router.dart';
 
 class OTPButton extends StatelessWidget {
@@ -21,7 +21,7 @@ class OTPButton extends StatelessWidget {
             child: Text(
               'Verify',
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: ColorConstants.white,
+                    color: Palette.white,
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                   ),
@@ -35,14 +35,14 @@ class OTPButton extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .bodySmall!
-                .copyWith(color: ColorConstants.subTextColor),
+                .copyWith(color: Palette.subTextColor),
             children: [
               TextSpan(
                 text: 'Resend Code',
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall!
-                    .copyWith(color: ColorConstants.primaryColor),
+                    .copyWith(color: Palette.primaryColor),
                 recognizer: TapGestureRecognizer()..onTap = () {},
               ),
             ],

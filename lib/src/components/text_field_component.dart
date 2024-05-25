@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
-import 'package:your_app_test/src/constant/font_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
+import 'package:your_app_test/src/theme/font_constants.dart';
 import 'package:your_app_test/src/theme/get_theme_color.dart';
 
 class TextFormFieldComponent extends StatefulWidget {
@@ -13,7 +13,7 @@ class TextFormFieldComponent extends StatefulWidget {
     this.maxLines = 1,
     this.hintText = '',
     this.verticalPadding = 8.0,
-    this.lableColor = ColorConstants.greyText,
+    this.lableColor = Palette.greyText,
     this.textInputType = TextInputType.text,
     this.isPassword,
     this.suffixIcon,
@@ -59,7 +59,7 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
           Text(
             widget.label ?? '',
             style: const TextStyle(
-              color: ColorConstants.primaryTextColor,
+              color: Palette.primaryTextColor,
               fontSize: 16,
               fontWeight: FontWeight.w700,
             ),
@@ -83,7 +83,7 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
             controller: widget.controller,
             style: Theme.of(context).textTheme.bodySmall!.copyWith(
                   fontFamily: FontConstants.gilroyMedium,
-                  color: ColorConstants.white,
+                  color: Palette.white,
                 ),
             obscureText: widget.isPassword == true ? showPassword : false,
             decoration: InputDecoration(
@@ -116,51 +116,46 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
                             showPassword
                                 ? Icons.visibility_off_outlined
                                 : Icons.visibility,
-                            color: ColorConstants.bgColorLight,
+                            color: Palette.bgColorLight,
                           ),
                         ))
                     : widget.suffixIcon,
                 focusColor: getThemeColor(context),
                 filled: true,
-                fillColor: widget.fillColor ?? ColorConstants.white,
+                fillColor: widget.fillColor ?? Palette.white,
                 hintText: widget.hintText,
                 hintStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
-                    color: ColorConstants.white),
+                    color: Palette.white),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: widget.borderColor ??
-                            ColorConstants.borderColorFields,
+                        color: widget.borderColor ?? Palette.borderColorFields,
                         width: widget.stroke ?? 2.2),
                     borderRadius:
                         BorderRadius.circular(widget.borderRadius ?? 20)),
                 errorBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: widget.borderColor ??
-                            ColorConstants.borderColorFields,
+                        color: widget.borderColor ?? Palette.borderColorFields,
                         width: widget.stroke ?? 2.2),
                     borderRadius:
                         BorderRadius.circular(widget.borderRadius ?? 20)),
                 disabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: widget.borderColor ??
-                            ColorConstants.borderColorFields,
+                        color: widget.borderColor ?? Palette.borderColorFields,
                         width: widget.stroke ?? 2.2),
                     borderRadius:
                         BorderRadius.circular(widget.borderRadius ?? 20)),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                      color: widget.borderColor ??
-                          ColorConstants.borderColorFields,
+                      color: widget.borderColor ?? Palette.borderColorFields,
                       width: widget.stroke ?? 2.2),
                   borderRadius:
                       BorderRadius.circular(widget.borderRadius ?? 20),
                 ),
                 border: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: widget.borderColor ??
-                            ColorConstants.borderColorFields,
+                        color: widget.borderColor ?? Palette.borderColorFields,
                         width: widget.stroke ?? 2.2),
                     borderRadius:
                         BorderRadius.circular(widget.borderRadius ?? 20))),

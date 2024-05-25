@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:your_app_test/src/components/main_scaffold.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 import 'package:your_app_test/src/pages/sign_in/components/sign_in_form.dart';
 
 @RoutePage()
@@ -31,7 +31,7 @@ class SignInScreen extends StatelessWidget {
                   Text(
                     "Login",
                     style: TextStyle(
-                      color: ColorConstants.white,
+                      color: Palette.white,
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
                     ),

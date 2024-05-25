@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:your_app_test/src/constant/assets_constants.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 import 'package:your_app_test/src/constant/string_constants.dart';
 
 class OTPHeader extends StatelessWidget {
@@ -31,7 +31,7 @@ class OTPHeader extends StatelessWidget {
             Text(
               StringConstants.otpVerificationDescription,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: ColorConstants.subTextColor,
+                  color: Palette.subTextColor,
                   fontWeight: FontWeight.w500,
                   fontSize: 16),
             ),

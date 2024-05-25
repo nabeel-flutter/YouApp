@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 
 class ToastComponent2 {
   final BuildContext context;
@@ -34,8 +34,8 @@ class ToastComponent2 {
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: ColorConstants.primaryColor),
-          color: ColorConstants.widgetBgColor.withOpacity(0.6),
+          border: Border.all(color: Palette.primaryColor),
+          color: Palette.widgetBgColor.withOpacity(0.6),
         ),
         // width: MediaQuery.of(context).size.width * .9,
         child: Row(
@@ -45,7 +45,7 @@ class ToastComponent2 {
               children: [
                 Icon(
                   Icons.info,
-                  color: ColorConstants.primaryColor,
+                  color: Palette.primaryColor,
                 ),
                 SizedBox(width: 12),
               ],
@@ -56,7 +56,7 @@ class ToastComponent2 {
                 maxLines: 5,
                 overflow: TextOverflow.clip,
                 style: const TextStyle(
-                  color: ColorConstants.primaryTextColor,
+                  color: Palette.primaryTextColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -106,8 +106,8 @@ class ToastComponent3 {
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: ColorConstants.redIndicatorColor),
-          color: ColorConstants.redIndicatorColor.withOpacity(0.5),
+          border: Border.all(color: Palette.redIndicatorColor),
+          color: Palette.redIndicatorColor.withOpacity(0.5),
         ),
         // width: MediaQuery.of(context).size.width * .9,
         child: Row(
@@ -117,7 +117,7 @@ class ToastComponent3 {
               children: [
                 Icon(
                   Icons.info,
-                  color: ColorConstants.redIndicatorColor,
+                  color: Palette.redIndicatorColor,
                 ),
                 SizedBox(width: 12),
               ],
@@ -128,7 +128,7 @@ class ToastComponent3 {
                 maxLines: 5,
                 overflow: TextOverflow.clip,
                 style: const TextStyle(
-                  color: ColorConstants.redIndicatorColor,
+                  color: Palette.redIndicatorColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),

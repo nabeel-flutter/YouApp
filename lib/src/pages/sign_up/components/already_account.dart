@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:your_app_test/src/theme/palette.dart';
 
 class AlreadyAccount extends StatelessWidget {
   const AlreadyAccount({super.key});
@@ -14,8 +14,8 @@ class AlreadyAccount extends StatelessWidget {
             text: 'Already have an account? ',
             style: Theme.of(context).textTheme.bodySmall!.copyWith(
                   decoration: TextDecoration.underline,
-                  decorationColor: ColorConstants.primaryColor,
-                  color: ColorConstants.primaryColor,
+                  decorationColor: Palette.primaryColor,
+                  color: Palette.primaryColor,
                 ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
