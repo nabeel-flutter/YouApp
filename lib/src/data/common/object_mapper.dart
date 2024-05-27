@@ -125,4 +125,20 @@ class ObjectMapper {
     
     );
   }
+
+  GetProfileDto toUpdateProfile(GetProfileDto dto) {
+    return    GetProfileDto(name: dto.name ,
+    birthday: dto.birthday,
+    height: dto.height
+    ,
+    username: dto.username,
+    zodiac: dto.zodiac,
+    horoscope: dto.horoscope,
+    weight: dto.weight,
+    interests: dto.interests
+
+    
+    );
+  
+  }
 }

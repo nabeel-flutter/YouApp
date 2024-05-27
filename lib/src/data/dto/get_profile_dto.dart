@@ -7,10 +7,10 @@ part 'get_profile_dto.g.dart';
   fieldRename: FieldRename.snake,
 )
 class GetProfileDto {
-  final String? name;
-  final String? birthday;
-  final int? weight;
-  final int? height;
+  String? name;
+  String? birthday;
+  int? weight;
+  int? height;
   final List<String>? interests;
   String? age;
 
@@ -18,6 +18,10 @@ class GetProfileDto {
   final String? horoscope;
   final String? zodiac;
 
+  set setName(String name) => this.name = name;
+  set setHeight(int height) => this.height = height;
+  set setWeight(int weight) => this.weight = weight;
+  set setBirthday(String birthday) => this.birthday = birthday;
 
   GetProfileDto(
       {this.age,
@@ -33,8 +37,8 @@ class GetProfileDto {
   factory GetProfileDto.fromJson(Map<String, dynamic> json) =>
       _$GetProfileDtoFromJson(json);
 
-
-  void getAge(DateTime today, DateTime dob) => age = (today.year - dob.year).toString();
+  void getAge(DateTime today, DateTime dob) =>
+      age = (today.year - dob.year).toString();
 
   Map<String, dynamic> toJson() => _$GetProfileDtoToJson(this);
 }

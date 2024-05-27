@@ -170,6 +170,6 @@ class AssetsConstants {
   static const String appLogo = "assets/images/logo.png";
 
   static const String profileImage='assets/images/profile.jpeg';
-
+static const String addImageIcon='assets/icon/add_image_icon.png';
   // static String more;
 }

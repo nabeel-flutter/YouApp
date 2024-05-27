@@ -21,5 +21,7 @@ abstract class ApiRepository extends Repository {
 
   Future<Result<BaseResponseDto>> verifyEmail({required String email});
 
- Future<Result<GetProfileDto>>  getProfile();
+  Future<Result<GetProfileDto>> getProfile();
+
+ Future<Result<GetProfileDto>>  updateProfile();
 }

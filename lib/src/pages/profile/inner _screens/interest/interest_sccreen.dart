@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:your_app_test/src/components/main_scaffold.dart';
 import 'package:your_app_test/src/pages/profile/cubit/get_profile_cubit.dart';
+import 'package:your_app_test/src/pages/profile/cubit/update_profile_cubit.dart';
 import 'package:your_app_test/src/pages/profile/my_profile_page.dart';
 import 'package:your_app_test/src/pages/sign_in/components/sign_in_form.dart';
 
@@ -47,7 +48,11 @@ class _InterestScreenState extends State<InterestScreen> {
                             Color(0xffAADAFF),
                           ]),
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          BlocProvider.of<UpdateProfileCubit>(context)
+                              .updateProfileCubit();
+                        },
                     ),
                   ),
                 ],
@@ -56,43 +61,57 @@ class _InterestScreenState extends State<InterestScreen> {
           ],
           isBack: true,
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              RichText(
-                text: TextSpan(
-                  text: 'Tell everyone about yourself',
-                  style: TextStyle(
-                    // height: 1.5,
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w700,
-                    foreground: Paint()
-                      ..shader = linearGradientText(colors: [
-                        Color(0xff94783E),
-                        Color(0xffF3EDA6),
-                        Color(0xffF8FAE5),
-                        Color(0xffFFE2BE),
-                        Color(0xffD5BE88),
-                        Color(0xffF8FAE5),
-                        Color(0xffD5BE88),
-                      ]),
+        body: BlocConsumer<UpdateProfileCubit, UpdateProfileState>(
+          listener: (context, state) {
+            state.maybeWhen(
+              orElse: () {},
+              loaded: (profile) {
+                BlocProvider.of<GetProfileCubit>(context).getProfile();
+                context.router.maybePop();
+              },
+            );
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            return Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      text: 'Tell everyone about yourself',
+                      style: TextStyle(
+                        // height: 1.5,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w700,
+                        foreground: Paint()
+                          ..shader = linearGradientText(colors: [
+                            Color(0xff94783E),
+                            Color(0xffF3EDA6),
+                            Color(0xffF8FAE5),
+                            Color(0xffFFE2BE),
+                            Color(0xffD5BE88),
+                            Color(0xffF8FAE5),
+                            Color(0xffD5BE88),
+                          ]),
+                      ),
+                      recognizer: TapGestureRecognizer()..onTap = () {},
+                    ),
                   ),
-                  recognizer: TapGestureRecognizer()..onTap = () {},
-                ),
+                  SizedBox(height: 12),
+                  Text('What interest you?',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 20)),
+                  SizedBox(height: 35),
+                  ChipTextFieldScreen()
+                ],
               ),
-              SizedBox(height: 12),
-              Text('What interest you?',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20)),
-              SizedBox(height: 35),
-              ChipTextFieldScreen()
-            ],
-          ),
+            );
+          },
         ));
   }
 }

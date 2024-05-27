@@ -16,6 +16,7 @@ import 'package:your_app_test/src/domain/repository/api_repository.dart';
 import 'package:your_app_test/src/listeners/login_state.dart';
 import 'package:your_app_test/src/pages/forgot_password/cubit/forget_password_cubit.dart';
 import 'package:your_app_test/src/pages/profile/cubit/get_profile_cubit.dart';
+import 'package:your_app_test/src/pages/profile/cubit/update_profile_cubit.dart';
 
 import 'package:your_app_test/src/pages/sign_in/cubit/sign_in_cubit.dart';
 import 'package:your_app_test/src/pages/sign_up/cubit/sign_up_cubit.dart';
@@ -52,6 +53,7 @@ void _injectBlocsAndCubits() {
   getIt.registerFactory(() => ForgetPasswordCubit(getIt.get()));
   getIt.registerFactory(() => VerifyEmailCubit(getIt.get()));
   getIt.registerFactory(() => GetProfileCubit(getIt.get()));
+  getIt.registerFactory(() => UpdateProfileCubit(getIt.get()));
   getIt.registerLazySingleton(() => AppRouter());
 }
 

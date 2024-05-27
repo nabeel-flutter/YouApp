@@ -87,4 +87,18 @@ class ApiRepositoryImpl extends ApiRepository {
   
     }
   }
+  
+  @override
+   Future<Result<GetProfileDto>> updateProfile() async {
+    try {
+          final response = await youAppApi.updateProfile();
+      return Result.success(objectMapper.toUpdateProfile(response.data!));
+  
+    }on Exception catch (e) {
+              logger.e(e);
+      return Result.failed(objectMapper.toError(e));
+  
+    }
+    // TODO: implement updateProfile
+  }
 }
