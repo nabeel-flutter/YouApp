@@ -15,9 +15,7 @@ class OTPButton extends StatelessWidget {
           width: double.infinity,
           height: 56,
           child: ElevatedButton(
-            onPressed: () {
-              context.router.push(const NewPasswordRoute());
-            },
+            onPressed: () => context.router.push(const NewPasswordRoute()),
             child: Text(
               'Verify',
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(

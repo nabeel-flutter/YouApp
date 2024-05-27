@@ -33,31 +33,30 @@ class NewPasswordBody extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         ElevatedButton(
-            onPressed: () {
-              //blur the screen and show the pop up
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return BackdropFilter(
-                    filter: ImageFilter.blur(
-                      sigmaX: 5,
-                      sigmaY: 5,
-                    ),
-                    child: Container(
-                      color: ColorConstants.white.withOpacity(0.2),
-                      child: customDialog(
-                        title: StringConstants.passwordChanged,
-                        description: StringConstants.passwordChangedDescription,
-                        buttonText: StringConstants.backtoLogin,
-                        onPressed: () {
-                          context.router.pushNamed(RouteConstants.signInRoute);
-                        },
+            onPressed: () => showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return BackdropFilter(
+                      filter: ImageFilter.blur(
+                        sigmaX: 5,
+                        sigmaY: 5,
                       ),
-                    ),
-                  );
-                },
-              );
-            },
+                      child: Container(
+                        color: ColorConstants.white.withOpacity(0.2),
+                        child: customDialog(
+                          title: StringConstants.passwordChanged,
+                          description:
+                              StringConstants.passwordChangedDescription,
+                          buttonText: StringConstants.backtoLogin,
+                          onPressed: () {
+                            context.router
+                                .pushNamed(RouteConstants.signInRoute);
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                ),
             child: Text(
               StringConstants.save,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(

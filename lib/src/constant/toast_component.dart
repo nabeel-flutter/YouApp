@@ -10,9 +10,7 @@ class ToastComponent2 {
     _fToast = FToast().init(context);
   }
 
-  void removeQueuedToasts() {
-    _fToast.removeQueuedCustomToasts();
-  }
+  void removeQueuedToasts() => _fToast.removeQueuedCustomToasts();
 
   void showToast(
     BuildContext context,
@@ -82,9 +80,7 @@ class ToastComponent3 {
     _fToast = FToast().init(context);
   }
 
-  void removeQueuedToasts() {
-    _fToast.removeQueuedCustomToasts();
-  }
+  void removeQueuedToasts() => _fToast.removeQueuedCustomToasts();
 
   void showToast(
     BuildContext context,

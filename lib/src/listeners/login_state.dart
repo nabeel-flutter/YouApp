@@ -18,7 +18,6 @@ class LoginState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void checkLoggedIn() {
-    loggedIn = prefs.getBool(SharedPreferenceConstants.isLoggedIn) ?? false;
-  }
+  void checkLoggedIn() =>
+      loggedIn = prefs.getBool(SharedPreferenceConstants.isLoggedIn) ?? false;
 }

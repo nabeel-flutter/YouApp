@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:your_app_test/src/components/main_scaffold.dart';
 import 'package:your_app_test/src/constant/shared_preference_constants.dart';
 import 'package:your_app_test/src/di/injector.dart';
-import 'package:your_app_test/src/pages/sign_in/components/sign_in_form.dart';
+import 'package:your_app_test/src/pages/sign_in/components/app_button.dart';
 import 'package:your_app_test/src/route/app_router.dart';
 import 'package:your_app_test/src/util/shared_preferences_util.dart';
 
@@ -51,15 +51,13 @@ class RetryState extends StatelessWidget {
                 isErrorButton: true,
                 enabled: true,
                 title: 'Logout',
-                onPressed: () {
-                  getIt
+                onPressed: () => getIt
                       .get<SharedPreferencesUtil>()
                       .removeValue(SharedPreferenceConstants.apiAuthToken)
                       .then((value) async => await context.router
                           .pushAndPopUntil(
                               predicate: (route) => false,
-                              const SignInRoute()));
-                },
+                              const SignInRoute())),
               ),
             ),
           ],
