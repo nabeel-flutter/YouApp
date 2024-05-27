@@ -6,7 +6,7 @@ import 'package:your_app_test/src/constant/shared_preference_constants.dart';
 import 'package:your_app_test/src/constant/string_constants.dart';
 import 'package:your_app_test/src/constant/toast_component.dart';
 import 'package:your_app_test/src/di/injector.dart';
-import 'package:your_app_test/src/pages/sign_in/components/sign_up_button_navigation_state.dart';
+import 'package:your_app_test/src/pages/sign_in/components/sign_in_button_navigation_state.dart';
 import 'package:your_app_test/src/pages/sign_in/cubit/sign_in_cubit.dart';
 import 'package:your_app_test/src/route/app_router.dart';
 import 'package:your_app_test/src/util/shared_preferences_util.dart';
@@ -37,16 +37,16 @@ class SignInButton extends StatelessWidget {
               return null;
             }),
         builder: (context, state) => state.maybeWhen(
-            loading: () => SignUpButtonVadationState(
+            loading: () => SignInButtonVadationState(
                 formKey: formKey, title: StringConstants.login),
-            loaded: (token) => SignUpButtonVadationState(
+            loaded: (token) => SignInButtonVadationState(
                 formKey: formKey, title: StringConstants.login),
             error: (message) {
               return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SignUpButtonVadationState(
+                    SignInButtonVadationState(
                         formKey: formKey, title: StringConstants.login),
                     const SizedBox(height: 10),
                     Text(message,
@@ -56,7 +56,7 @@ class SignInButton extends StatelessWidget {
                             .copyWith(color: ColorConstants.redIndicatorColor))
                   ]);
             },
-            orElse: () => SignUpButtonVadationState(
+            orElse: () => SignInButtonVadationState(
                 formKey: formKey, title: StringConstants.login)));
   }
 }

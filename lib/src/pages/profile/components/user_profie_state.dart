@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:your_app_test/src/components/main_scaffold.dart';
 import 'package:your_app_test/src/constant/route_constants.dart';
 import 'package:your_app_test/src/data/dto/get_profile_dto.dart';
-import 'package:your_app_test/src/pages/profile/components/app_bar_component.dart';
+import 'package:your_app_test/src/components/app_bar_component.dart';
 import 'package:your_app_test/src/pages/profile/components/user_profile_banner.dart';
 import 'package:your_app_test/src/pages/profile/components/user_profile_information_about.dart';
 import 'package:your_app_test/src/pages/profile/components/user_profile_information_interests.dart';

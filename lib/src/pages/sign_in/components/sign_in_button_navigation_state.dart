@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:your_app_test/src/pages/sign_in/components/app_button.dart';
+import 'package:your_app_test/src/components/app_button.dart';
 import 'package:your_app_test/src/pages/sign_in/cubit/sign_in_button_validation_cubit.dart';
 import 'package:your_app_test/src/pages/sign_in/cubit/sign_in_cubit.dart';
 
-class SignUpButtonVadationState extends StatelessWidget {
-  const SignUpButtonVadationState({
+class SignInButtonVadationState extends StatelessWidget {
+  const SignInButtonVadationState({
     super.key,
     required this.formKey,
     required this.title,

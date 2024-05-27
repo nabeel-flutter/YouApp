@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:your_app_test/src/pages/profile/cubit/about_cubit.dart';
 import 'package:your_app_test/src/pages/profile/cubit/update_profile_cubit.dart';
-import 'package:your_app_test/src/pages/sign_in/components/liner_gradient_text.dart';
+import 'package:your_app_test/src/components/liner_gradient_text.dart';
 
 class AboutEditTitle extends StatelessWidget {
   const AboutEditTitle({

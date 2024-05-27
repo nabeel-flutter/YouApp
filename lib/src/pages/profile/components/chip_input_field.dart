@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:your_app_test/src/pages/profile/components/profile_chip_component.dart';
+import 'package:your_app_test/src/components/chip_component.dart';
 import 'package:your_app_test/src/pages/profile/cubit/get_profile_cubit.dart';
 
 class ChipInputField extends StatelessWidget {
