@@ -26,7 +26,7 @@ class EnglishConstant {
     'yearsExpert': 'Years Expert',
     'rating': 'Rating',
     'reviews': 'Reviews',
-    'aboutMe': 'About Me',
+    'about': 'About',
     'services': 'Services',
     'createNewPassword': 'Create New Password',
     'createNewPasswordDescription':

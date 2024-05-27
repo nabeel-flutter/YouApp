@@ -140,7 +140,16 @@ class RegisterHereTextButton extends StatelessWidget {
                   height: 1.5,
                   fontSize: 13.0,
                   fontWeight: FontWeight.w500,
-                  foreground: Paint()..shader = linearGradientText(),
+                  foreground: Paint()
+                    ..shader = linearGradientText(colors: [
+                      Color(0xff94783E),
+                      Color(0xffF3EDA6),
+                      Color(0xffF8FAE5),
+                      Color(0xffFFE2BE),
+                      Color(0xffD5BE88),
+                      Color(0xffF8FAE5),
+                      Color(0xffD5BE88),
+                    ]),
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
@@ -151,19 +160,11 @@ class RegisterHereTextButton extends StatelessWidget {
   }
 }
 
-Shader linearGradientText() {
-  return const LinearGradient(
-    colors: [
-      Color(0xff94783E),
-      Color(0xffF3EDA6),
-      Color(0xffF8FAE5),
-      Color(0xffFFE2BE),
-      Color(0xffD5BE88),
-      Color(0xffF8FAE5),
-      Color(0xffD5BE88),
-    ], // Gradient colors
+Shader linearGradientText({required List<Color> colors}) {
+  return LinearGradient(
+    colors: colors, // Gradient colors
     begin: Alignment.bottomLeft, // Gradient start position
-    end: Alignment.topRight, // Gradient end position
+    end: Alignment.bottomRight, // Gradient end position
   ).createShader(
       const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0)); // Text bounding box
 }
@@ -223,11 +224,13 @@ class AppButton extends StatelessWidget {
     required this.onPressed,
     required this.title,
     required this.enabled,
+    this.isErrorButton = false,
   });
 
   final VoidCallback onPressed;
   final String title;
   final bool enabled;
+  final bool? isErrorButton;
 
   @override
   Widget build(BuildContext context) {
@@ -236,7 +239,11 @@ class AppButton extends StatelessWidget {
       children: [
         ElevatedButton(
             autofocus: false,
-            style: enabled == true ? null : disableStyle(),
+            style: isErrorButton == true
+                ? disableStyle(isErrorButton: isErrorButton)
+                : enabled == true
+                    ? null
+                    : disableStyle(),
             onPressed: enabled == true ? () => onPressed() : null,
             child: Text(
               title,
@@ -258,17 +265,38 @@ class AppButton extends StatelessWidget {
     );
   }
 
-  ButtonStyle disableStyle() {
+  ButtonStyle disableStyle({bool? isErrorButton = false}) {
     return ButtonStyle(
         shape: MaterialStateProperty.resolveWith((states) {
           return DecoratedOutlinedBorder(
+              shadow: isErrorButton == true
+                  ? [
+                      GradientShadow(
+                          gradient: LinearGradient(
+                              begin: Alignment.bottomLeft,
+                              end: Alignment.topRight,
+                              colors: [
+                                Color.fromARGB(255, 205, 98, 98)
+                                    .withOpacity(0.5),
+                                Color.fromARGB(255, 219, 69, 69)
+                                    .withOpacity(0.5),
+                              ]),
+                          blurRadius: 12,
+                          offset: const Offset(0, 14))
+                    ]
+                  : [],
               backgroundGradient: LinearGradient(
                   begin: Alignment.bottomLeft,
                   end: Alignment.topRight,
-                  colors: [
-                    const Color(0xff62CDCB).withOpacity(0.5),
-                    const Color(0xff4599DB).withOpacity(0.5)
-                  ]),
+                  colors: isErrorButton == true
+                      ? [
+                          Color.fromARGB(255, 205, 98, 98),
+                          Color.fromARGB(255, 219, 69, 69)
+                        ]
+                      : [
+                          const Color(0xff62CDCB).withOpacity(0.5),
+                          const Color(0xff4599DB).withOpacity(0.5)
+                        ]),
               child: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)));
         }),

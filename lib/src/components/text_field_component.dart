@@ -24,6 +24,7 @@ class TextFormFieldComponent extends StatefulWidget {
     this.stroke,
     this.isLabel = false,
     required this.onChanged,
+    this.onFieldSubmitted,
   });
   final List<TextInputFormatter>? listTextInputFormatter;
   final String? label;
@@ -42,6 +43,7 @@ class TextFormFieldComponent extends StatefulWidget {
   final double? stroke;
   final bool? isLabel;
   final Function(String value) onChanged;
+  final Function(String value)? onFieldSubmitted;
 
   @override
   State<TextFormFieldComponent> createState() => _TextFormFieldComponentState();
@@ -72,6 +74,9 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
               height: 1.3,
             ),
             maxLines: widget.maxLines,
+            onFieldSubmitted: (value) {
+              widget.onFieldSubmitted!(value);
+            },
             onChanged: (value) {
               widget.onChanged(value);
             },

@@ -10,11 +10,12 @@ import 'package:your_app_test/src/constant/http_constants.dart';
 import 'package:your_app_test/src/core/log_filter.dart';
 import 'package:your_app_test/src/data/common/object_mapper.dart';
 import 'package:your_app_test/src/data/datasource/api/at_care_api.dart';
+import 'package:your_app_test/src/data/datasource/interceptor/auth_interceptor.dart';
 import 'package:your_app_test/src/data/repository/api_repository_impl.dart';
 import 'package:your_app_test/src/domain/repository/api_repository.dart';
 import 'package:your_app_test/src/listeners/login_state.dart';
 import 'package:your_app_test/src/pages/forgot_password/cubit/forget_password_cubit.dart';
-import 'package:your_app_test/src/pages/is_gradient_background_component/cubit/is_gradient_background_cubit.dart';
+import 'package:your_app_test/src/pages/profile/cubit/get_profile_cubit.dart';
 
 import 'package:your_app_test/src/pages/sign_in/cubit/sign_in_cubit.dart';
 import 'package:your_app_test/src/pages/sign_up/cubit/sign_up_cubit.dart';
@@ -46,11 +47,11 @@ void _injectUtilities({
 }
 
 void _injectBlocsAndCubits() {
-  getIt.registerFactory(() => IsGradientBackgroundCubit());
   getIt.registerFactory(() => SignInCubit(getIt.get()));
   getIt.registerFactory(() => SignUpCubit(getIt.get()));
   getIt.registerFactory(() => ForgetPasswordCubit(getIt.get()));
   getIt.registerFactory(() => VerifyEmailCubit(getIt.get()));
+  getIt.registerFactory(() => GetProfileCubit(getIt.get()));
   getIt.registerLazySingleton(() => AppRouter());
 }
 
@@ -97,8 +98,13 @@ Future<void> _initializeData({bool enableLogging = true}) async {
     );
   // add interceptor
 
+  final interceptor = AuthInterceptor(
+    getIt.get(),
+    getIt.get(),
+  );
+  dio.interceptors.add(interceptor);
+
   if (enableLogging) {
     dio.interceptors.add(PrettyDioLogger());
   }
 }
-

@@ -74,7 +74,7 @@ class StringConstants {
 
   static String reviews = _getLang('reviews');
 
-  static String aboutMe = _getLang('aboutMe');
+  static String about = _getLang('about');
 
   static String services = _getLang('services');
 

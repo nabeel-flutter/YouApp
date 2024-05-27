@@ -27,6 +27,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HomeScreen(),
       );
     },
+    InterestRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const InterestScreen(),
+      );
+    },
     NewPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -106,6 +112,20 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [InterestScreen]
+class InterestRoute extends PageRouteInfo<void> {
+  const InterestRoute({List<PageRouteInfo>? children})
+      : super(
+          InterestRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'InterestRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
