@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:your_app_test/main.dart';
+import 'package:e_finder/main.dart';
 
-import 'package:your_app_test/src/data/dto/base_response_dto.dart';
-import 'package:your_app_test/src/data/dto/get_profile_dto.dart';
-import 'package:your_app_test/src/data/dto/token_dto.dart';
-import 'package:your_app_test/src/pages/profile/cubit/get_profile_cubit.dart';
-import 'package:your_app_test/src/util/logger_utils.dart';
+import 'package:e_finder/src/data/dto/base_response_dto.dart';
+import 'package:e_finder/src/data/dto/get_profile_dto.dart';
+import 'package:e_finder/src/data/dto/token_dto.dart';
+import 'package:e_finder/src/pages/profile/cubit/get_profile_cubit.dart';
+import 'package:e_finder/src/util/logger_utils.dart';
 
 ///
 ///

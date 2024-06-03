@@ -1,7 +1,7 @@
-import 'package:your_app_test/src/data/dto/base_response_dto.dart';
-import 'package:your_app_test/src/data/dto/get_profile_dto.dart';
-import 'package:your_app_test/src/data/dto/token_dto.dart';
-import 'package:your_app_test/src/domain/domain.dart';
+import 'package:e_finder/src/data/dto/base_response_dto.dart';
+import 'package:e_finder/src/data/dto/get_profile_dto.dart';
+import 'package:e_finder/src/data/dto/token_dto.dart';
+import 'package:e_finder/src/domain/domain.dart';
 
 abstract class ApiRepository extends Repository {
   ///
@@ -23,5 +23,5 @@ abstract class ApiRepository extends Repository {
 
   Future<Result<GetProfileDto>> getProfile();
 
- Future<Result<GetProfileDto>>  updateProfile();
+  Future<Result<GetProfileDto>> updateProfile();
 }

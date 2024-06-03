@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
-import 'package:your_app_test/src/util/navigation_util.dart';
+import 'package:e_finder/src/constant/color_constants.dart';
+import 'package:e_finder/src/util/navigation_util.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key, required this.title});

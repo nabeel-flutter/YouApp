@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:e_finder/src/constant/color_constants.dart';
 
 class ToastComponent2 {
   final BuildContext context;

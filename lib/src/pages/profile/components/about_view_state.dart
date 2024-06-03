@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:your_app_test/src/constant/string_constants.dart';
-import 'package:your_app_test/src/data/dto/get_profile_dto.dart';
-import 'package:your_app_test/src/pages/profile/components/about_item_component.dart';
-import 'package:your_app_test/src/pages/profile/components/home_card_component.dart';
-import 'package:your_app_test/src/pages/profile/components/home_edit_card_component.dart';
-import 'package:your_app_test/src/pages/profile/cubit/about_cubit.dart';
+import 'package:e_finder/src/constant/string_constants.dart';
+import 'package:e_finder/src/data/dto/get_profile_dto.dart';
+import 'package:e_finder/src/pages/profile/components/about_item_component.dart';
+import 'package:e_finder/src/pages/profile/components/home_card_component.dart';
+import 'package:e_finder/src/pages/profile/components/home_edit_card_component.dart';
+import 'package:e_finder/src/pages/profile/cubit/about_cubit.dart';
 
 class AboutViewState extends StatelessWidget {
   const AboutViewState({

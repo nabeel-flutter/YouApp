@@ -1,5 +1,5 @@
-import 'package:your_app_test/src/flavors/flavors.dart';
-import 'package:your_app_test/main.dart' as runner;
+import 'package:e_finder/src/flavors/flavors.dart';
+import 'package:e_finder/main.dart' as runner;
 
 Future<void> main() async {
   F.appFlavor = Flavor.staging;

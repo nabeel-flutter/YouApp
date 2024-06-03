@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_test/main.dart';
-import 'package:your_app_test/src/theme/get_theme_color.dart';
-import 'package:your_app_test/src/theme/get_theme_state.dart';
-import 'package:your_app_test/src/theme/lighten_darken_color.dart';
+import 'package:e_finder/main.dart';
+import 'package:e_finder/src/theme/get_theme_color.dart';
+import 'package:e_finder/src/theme/get_theme_state.dart';
+import 'package:e_finder/src/theme/lighten_darken_color.dart';
 
 LinearGradient linerGradientForApp({
   bool isVertical = false,

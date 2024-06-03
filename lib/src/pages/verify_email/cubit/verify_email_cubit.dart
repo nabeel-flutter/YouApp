@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:your_app_test/src/data/dto/base_response_dto.dart';
-import 'package:your_app_test/src/domain/common/result.dart';
-import 'package:your_app_test/src/domain/repository/api_repository.dart';
+import 'package:e_finder/src/data/dto/base_response_dto.dart';
+import 'package:e_finder/src/domain/common/result.dart';
+import 'package:e_finder/src/domain/repository/api_repository.dart';
 
 part 'verify_email_state.dart';
 part 'verify_email_cubit.freezed.dart';

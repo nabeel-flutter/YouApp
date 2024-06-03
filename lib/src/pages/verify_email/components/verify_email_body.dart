@@ -2,12 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:your_app_test/src/components/text_field_component.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
-import 'package:your_app_test/src/constant/route_constants.dart';
-import 'package:your_app_test/src/constant/string_constants.dart';
-import 'package:your_app_test/src/constant/toast_component.dart';
-import 'package:your_app_test/src/pages/verify_email/cubit/verify_email_cubit.dart';
+import 'package:e_finder/src/components/text_field_component.dart';
+import 'package:e_finder/src/constant/color_constants.dart';
+import 'package:e_finder/src/constant/route_constants.dart';
+import 'package:e_finder/src/constant/string_constants.dart';
+import 'package:e_finder/src/constant/toast_component.dart';
+import 'package:e_finder/src/pages/verify_email/cubit/verify_email_cubit.dart';
 
 class VerifyEmailBody extends StatelessWidget {
   const VerifyEmailBody({super.key, required this.email});
@@ -35,7 +35,10 @@ class VerifyEmailBody extends StatelessWidget {
           autovalidateMode: AutovalidateMode.always,
           child: Column(
             children: [
-              TextFormFieldComponent(
+              TextFormFieldComponent(   hintColor: Color(0xFF9747FF),
+lableColor: Color(0xFF9747FF),
+textColor: Color(0xFF9747FF),
+         lable: "Email",
                   onChanged: (value) {},
                   textInputType: TextInputType.emailAddress,
                   controller: email,

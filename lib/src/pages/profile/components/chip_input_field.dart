@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:your_app_test/src/components/chip_component.dart';
-import 'package:your_app_test/src/pages/profile/cubit/get_profile_cubit.dart';
+import 'package:e_finder/src/components/chip_component.dart';
+import 'package:e_finder/src/pages/profile/cubit/get_profile_cubit.dart';
 
 class ChipInputField extends StatelessWidget {
   final TextEditingController textController;

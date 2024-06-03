@@ -1,4 +1,4 @@
-// import 'package:your_app_test/src/theme/theme.dart';
+// import 'package:e_finder/src/theme/theme.dart';
 
 // class SettingScreenArgs {
 //   final MyTheme theme;

@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/components/main_scaffold.dart';
-import 'package:your_app_test/src/constant/route_constants.dart';
-import 'package:your_app_test/src/data/dto/get_profile_dto.dart';
-import 'package:your_app_test/src/components/app_bar_component.dart';
-import 'package:your_app_test/src/pages/profile/components/user_profile_banner.dart';
-import 'package:your_app_test/src/pages/profile/components/user_profile_information_about.dart';
-import 'package:your_app_test/src/pages/profile/components/user_profile_information_interests.dart';
+import 'package:e_finder/src/components/main_scaffold.dart';
+import 'package:e_finder/src/constant/route_constants.dart';
+import 'package:e_finder/src/data/dto/get_profile_dto.dart';
+import 'package:e_finder/src/components/app_bar_component.dart';
+import 'package:e_finder/src/pages/profile/components/user_profile_banner.dart';
+import 'package:e_finder/src/pages/profile/components/user_profile_information_about.dart';
+import 'package:e_finder/src/pages/profile/components/user_profile_information_interests.dart';
 
 class UserProfileState extends StatelessWidget {
   const UserProfileState({

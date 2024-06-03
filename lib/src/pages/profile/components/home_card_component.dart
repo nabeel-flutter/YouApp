@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/data/dto/get_profile_dto.dart';
+import 'package:e_finder/src/data/dto/get_profile_dto.dart';
 
 class HomeCardComponent extends StatelessWidget {
   const HomeCardComponent({

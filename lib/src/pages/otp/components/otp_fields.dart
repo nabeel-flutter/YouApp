@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:e_finder/src/constant/color_constants.dart';
 
 class OTPFields extends StatelessWidget {
   const OTPFields({super.key});

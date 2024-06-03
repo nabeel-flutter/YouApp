@@ -1,6 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:logger/logger.dart';
-import 'package:your_app_test/src/constant/shared_preference_constants.dart';
+import 'package:e_finder/src/constant/shared_preference_constants.dart';
 
 class SharedPreferencesUtil {
   final FlutterSecureStorage secureStorage;

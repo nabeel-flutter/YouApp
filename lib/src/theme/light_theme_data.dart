@@ -1,9 +1,9 @@
 import 'package:control_style/control_style.dart';
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
-import 'package:your_app_test/src/style/font_style.constant.dart';
-import 'package:your_app_test/src/theme/lighten_darken_color.dart';
-import 'package:your_app_test/src/theme/theme.dart';
+import 'package:e_finder/src/constant/color_constants.dart';
+import 'package:e_finder/src/style/font_style.constant.dart';
+import 'package:e_finder/src/theme/lighten_darken_color.dart';
+import 'package:e_finder/src/theme/theme.dart';
 
 ThemeData lightThemeData(MyTheme theme, {Color? color}) {
   return ThemeData(
@@ -16,23 +16,23 @@ ThemeData lightThemeData(MyTheme theme, {Color? color}) {
         foregroundColor: ColorConstants.white),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        shape: MaterialStateProperty.resolveWith((states) {
+        shape: WidgetStateProperty.resolveWith((states) {
           return DecoratedOutlinedBorder(
             backgroundGradient: LinearGradient(colors: [
-              Colors.blue.withOpacity(0.5),
-              Colors.blue.withOpacity(0.2)
+              const Color.fromARGB(255, 233, 33, 243).withOpacity(0.5),
+              Color.fromARGB(255, 240, 33, 243).withOpacity(0.2)
             ]),
-            child:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            child: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100)),
           );
         }),
-        fixedSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
-        maximumSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
-        minimumSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
-        backgroundColor: MaterialStatePropertyAll(
+        fixedSize: const WidgetStatePropertyAll(Size.fromHeight(60)),
+        maximumSize: const WidgetStatePropertyAll(Size.fromHeight(60)),
+        minimumSize: const WidgetStatePropertyAll(Size.fromHeight(60)),
+        backgroundColor: WidgetStatePropertyAll(
           theme.getColor(),
         ),
-        foregroundColor: const MaterialStatePropertyAll(
+        foregroundColor: const WidgetStatePropertyAll(
           ColorConstants.white,
         ),
       ),
@@ -45,7 +45,7 @@ ThemeData lightThemeData(MyTheme theme, {Color? color}) {
       height: 70,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
-          10,
+          100,
         ),
       ),
     ),

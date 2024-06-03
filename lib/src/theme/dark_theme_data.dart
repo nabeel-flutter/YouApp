@@ -1,9 +1,9 @@
 import 'package:control_style/control_style.dart';
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
-import 'package:your_app_test/src/style/font_style.constant.dart';
-import 'package:your_app_test/src/theme/lighten_darken_color.dart';
-import 'package:your_app_test/src/theme/theme.dart';
+import 'package:e_finder/src/constant/color_constants.dart';
+import 'package:e_finder/src/style/font_style.constant.dart';
+import 'package:e_finder/src/theme/lighten_darken_color.dart';
+import 'package:e_finder/src/theme/theme.dart';
 
 ThemeData darkThemeData(MyTheme theme) {
   return ThemeData(
@@ -14,11 +14,11 @@ ThemeData darkThemeData(MyTheme theme) {
     brightness: Brightness.light,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        textStyle: MaterialStateProperty.resolveWith((states) {
+        textStyle: WidgetStateProperty.resolveWith((states) {
           return FontStylesConstants.gilroy(
               fontSize: 16, color: darken(theme.getColor(), 0.35));
         }),
-        shape: MaterialStateProperty.resolveWith((states) {
+        shape: WidgetStateProperty.resolveWith((states) {
           return DecoratedOutlinedBorder(
             shadow: [
               GradientShadow(
@@ -26,27 +26,27 @@ ThemeData darkThemeData(MyTheme theme) {
                       begin: Alignment.bottomLeft,
                       end: Alignment.topRight,
                       colors: [
-                        const Color(0xff62CDCB).withOpacity(0.5),
-                        const Color(0xff4599DB).withOpacity(0.5),
+                        const Color(0xFF9747FF).withOpacity(0.5),
+                        const Color(0xFF9747FF).withOpacity(0.5),
                       ]),
-                  blurRadius: 12,
+                  blurRadius: 100,
                   offset: const Offset(0, 14))
             ],
             backgroundGradient: const LinearGradient(
                 begin: Alignment.bottomLeft,
                 end: Alignment.topRight,
-                colors: [Color(0xff62CDCB), Color(0xff4599DB)]),
-            child:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                colors: [Color(0xFF9747FF), Color(0xFF9747FF)]),
+            child: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100)),
           );
         }),
-        fixedSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
-        maximumSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
-        minimumSize: const MaterialStatePropertyAll(Size.fromHeight(60)),
-        backgroundColor: const MaterialStatePropertyAll(
+        fixedSize: const WidgetStatePropertyAll(Size.fromHeight(60)),
+        maximumSize: const WidgetStatePropertyAll(Size.fromHeight(60)),
+        minimumSize: const WidgetStatePropertyAll(Size.fromHeight(60)),
+        backgroundColor: const WidgetStatePropertyAll(
           Colors.transparent,
         ),
-        foregroundColor: const MaterialStatePropertyAll(
+        foregroundColor: const WidgetStatePropertyAll(
           ColorConstants.white,
         ),
       ),
@@ -57,7 +57,7 @@ ThemeData darkThemeData(MyTheme theme) {
       height: 70,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
-          10,
+          100,
         ),
       ),
     ),

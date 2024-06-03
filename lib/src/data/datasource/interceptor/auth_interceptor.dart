@@ -2,10 +2,10 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
-import 'package:your_app_test/src/constant/app_constants.dart';
-import 'package:your_app_test/src/constant/shared_preference_constants.dart';
-import 'package:your_app_test/src/di/injector.dart';
-import 'package:your_app_test/src/util/shared_preferences_util.dart';
+import 'package:e_finder/src/constant/app_constants.dart';
+import 'package:e_finder/src/constant/shared_preference_constants.dart';
+import 'package:e_finder/src/di/injector.dart';
+import 'package:e_finder/src/util/shared_preferences_util.dart';
 
 class AuthInterceptor extends InterceptorsWrapper {
   static const requiresAuth = 'requiresAuthentication';

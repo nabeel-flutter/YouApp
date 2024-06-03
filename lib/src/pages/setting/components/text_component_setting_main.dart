@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/constant/font_constants.dart';
-import 'package:your_app_test/src/style/font_style.constant.dart';
+import 'package:e_finder/src/constant/font_constants.dart';
+import 'package:e_finder/src/style/font_style.constant.dart';
 
 class TextComponentSettingMainHeading extends StatelessWidget {
   const TextComponentSettingMainHeading({

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:your_app_test/src/constant/assets_constants.dart';
-import 'package:your_app_test/src/data/dto/get_profile_dto.dart';
-import 'package:your_app_test/src/pages/profile/components/about_edit_element_component.dart';
-import 'package:your_app_test/src/pages/profile/components/about_edit_title.dart';
-import 'package:your_app_test/src/pages/profile/components/home_card_component.dart';
-import 'package:your_app_test/src/pages/profile/cubit/get_profile_cubit.dart';
-import 'package:your_app_test/src/pages/profile/formatter/date_formatter.dart';
+import 'package:e_finder/src/constant/assets_constants.dart';
+import 'package:e_finder/src/data/dto/get_profile_dto.dart';
+import 'package:e_finder/src/pages/profile/components/about_edit_element_component.dart';
+import 'package:e_finder/src/pages/profile/components/about_edit_title.dart';
+import 'package:e_finder/src/pages/profile/components/home_card_component.dart';
+import 'package:e_finder/src/pages/profile/cubit/get_profile_cubit.dart';
+import 'package:e_finder/src/pages/profile/formatter/date_formatter.dart';
 
 class AboutEditableState extends StatelessWidget {
   const AboutEditableState({

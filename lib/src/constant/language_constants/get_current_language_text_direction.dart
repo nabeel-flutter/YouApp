@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:your_app_test/main.dart';
+import 'package:e_finder/main.dart';
 
 bool getCurrentLanguageDirection() {
   if (navigationService!.navigatorKey.currentContext!.locale.toString() ==

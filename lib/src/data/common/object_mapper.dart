@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:logger/logger.dart';
-import 'package:your_app_test/src/data/dto/base_response_dto.dart';
-import 'package:your_app_test/src/data/dto/error_dto.dart';
-import 'package:your_app_test/src/data/dto/get_profile_dto.dart';
-import 'package:your_app_test/src/data/dto/token_dto.dart';
-import 'package:your_app_test/src/domain/domain.dart';
-import 'package:your_app_test/src/domain/status/readings_status.dart';
+import 'package:e_finder/src/data/dto/base_response_dto.dart';
+import 'package:e_finder/src/data/dto/error_dto.dart';
+import 'package:e_finder/src/data/dto/get_profile_dto.dart';
+import 'package:e_finder/src/data/dto/token_dto.dart';
+import 'package:e_finder/src/domain/domain.dart';
+import 'package:e_finder/src/domain/status/readings_status.dart';
 
 class ObjectMapper {
   final Logger logger;
@@ -111,34 +111,27 @@ class ObjectMapper {
     return BaseResponseDto(data: dto.data, message: dto.data['message']);
   }
 
-   GetProfileDto toProfile(GetProfileDto dto) {
-    return GetProfileDto(name: dto.name ,
-    birthday: dto.birthday,
-    height: dto.height
-    ,
-    username: dto.username,
-    zodiac: dto.zodiac,
-    horoscope: dto.horoscope,
-    weight: dto.weight,
-    interests: dto.interests
-
-    
-    );
+  GetProfileDto toProfile(GetProfileDto dto) {
+    return GetProfileDto(
+        name: dto.name,
+        birthday: dto.birthday,
+        height: dto.height,
+        username: dto.username,
+        zodiac: dto.zodiac,
+        horoscope: dto.horoscope,
+        weight: dto.weight,
+        interests: dto.interests);
   }
 
   GetProfileDto toUpdateProfile(GetProfileDto dto) {
-    return    GetProfileDto(name: dto.name ,
-    birthday: dto.birthday,
-    height: dto.height
-    ,
-    username: dto.username,
-    zodiac: dto.zodiac,
-    horoscope: dto.horoscope,
-    weight: dto.weight,
-    interests: dto.interests
-
-    
-    );
-  
+    return GetProfileDto(
+        name: dto.name,
+        birthday: dto.birthday,
+        height: dto.height,
+        username: dto.username,
+        zodiac: dto.zodiac,
+        horoscope: dto.horoscope,
+        weight: dto.weight,
+        interests: dto.interests);
   }
 }

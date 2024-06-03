@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/flavors/flavors.dart';
+import 'package:e_finder/src/flavors/flavors.dart';
 
 Widget flavorBanner({
   required Widget child,

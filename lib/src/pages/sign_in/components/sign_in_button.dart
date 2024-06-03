@@ -1,15 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
-import 'package:your_app_test/src/constant/shared_preference_constants.dart';
-import 'package:your_app_test/src/constant/string_constants.dart';
-import 'package:your_app_test/src/constant/toast_component.dart';
-import 'package:your_app_test/src/di/injector.dart';
-import 'package:your_app_test/src/pages/sign_in/components/sign_in_button_navigation_state.dart';
-import 'package:your_app_test/src/pages/sign_in/cubit/sign_in_cubit.dart';
-import 'package:your_app_test/src/route/app_router.dart';
-import 'package:your_app_test/src/util/shared_preferences_util.dart';
+import 'package:e_finder/src/constant/color_constants.dart';
+import 'package:e_finder/src/constant/shared_preference_constants.dart';
+import 'package:e_finder/src/constant/string_constants.dart';
+import 'package:e_finder/src/constant/toast_component.dart';
+import 'package:e_finder/src/di/injector.dart';
+import 'package:e_finder/src/pages/sign_in/components/sign_in_button_navigation_state.dart';
+import 'package:e_finder/src/pages/sign_in/cubit/sign_in_cubit.dart';
+import 'package:e_finder/src/route/app_router.dart';
+import 'package:e_finder/src/util/shared_preferences_util.dart';
 
 class SignInButton extends StatelessWidget {
   const SignInButton({

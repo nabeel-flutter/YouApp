@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/components/main_scaffold.dart';
-import 'package:your_app_test/src/pages/terms_conditions/components/terms_conditions_body.dart';
+import 'package:e_finder/src/components/main_scaffold.dart';
+import 'package:e_finder/src/pages/terms_conditions/components/terms_conditions_body.dart';
 
 @RoutePage()
 class TermsConditionsScreen extends StatelessWidget {

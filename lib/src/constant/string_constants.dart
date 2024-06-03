@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:your_app_test/main.dart';
-import 'package:your_app_test/src/constant/language_constants/arabic.dart';
-import 'package:your_app_test/src/constant/language_constants/english.dart';
-import 'package:your_app_test/src/constant/language_constants/hindi.dart';
-import 'package:your_app_test/src/constant/language_constants/spanish.dart';
-import 'package:your_app_test/src/constant/language_constants/urdu.dart';
+import 'package:e_finder/main.dart';
+import 'package:e_finder/src/constant/language_constants/arabic.dart';
+import 'package:e_finder/src/constant/language_constants/english.dart';
+import 'package:e_finder/src/constant/language_constants/hindi.dart';
+import 'package:e_finder/src/constant/language_constants/spanish.dart';
+import 'package:e_finder/src/constant/language_constants/urdu.dart';
 
 class StringConstants {
   static String language = 'ur_PK';

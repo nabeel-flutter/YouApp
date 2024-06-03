@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
-import 'package:your_app_test/src/constant/string_constants.dart';
-import 'package:your_app_test/src/constant/toast_component.dart';
-import 'package:your_app_test/src/pages/sign_up/components/sign_up_button_state.dart';
-import 'package:your_app_test/src/pages/sign_up/cubit/sign_up_cubit.dart';
+import 'package:e_finder/src/constant/color_constants.dart';
+import 'package:e_finder/src/constant/string_constants.dart';
+import 'package:e_finder/src/constant/toast_component.dart';
+import 'package:e_finder/src/pages/sign_up/components/sign_up_button_state.dart';
+import 'package:e_finder/src/pages/sign_up/cubit/sign_up_cubit.dart';
 
 class SignUpButton extends StatelessWidget {
   const SignUpButton({
@@ -54,4 +54,3 @@ class SignUpButton extends StatelessWidget {
     );
   }
 }
-

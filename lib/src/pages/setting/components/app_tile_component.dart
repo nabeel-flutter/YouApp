@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/theme/get_theme_color.dart';
-import 'package:your_app_test/src/theme/lighten_darken_color.dart';
+import 'package:e_finder/src/theme/get_theme_color.dart';
+import 'package:e_finder/src/theme/lighten_darken_color.dart';
 
 class AppTileComponent extends StatelessWidget {
   final String test;

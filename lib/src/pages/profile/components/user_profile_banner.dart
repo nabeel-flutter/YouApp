@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/constant/assets_constants.dart';
-import 'package:your_app_test/src/data/dto/get_profile_dto.dart';
-import 'package:your_app_test/src/components/chip_component.dart';
+import 'package:e_finder/src/constant/assets_constants.dart';
+import 'package:e_finder/src/data/dto/get_profile_dto.dart';
+import 'package:e_finder/src/components/chip_component.dart';
 
 class UserProfileBanner extends StatelessWidget {
   const UserProfileBanner({

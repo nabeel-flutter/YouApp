@@ -5,12 +5,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:provider/provider.dart';
-import 'package:your_app_test/src/app/app.dart';
-import 'package:your_app_test/src/di/injector.dart';
-import 'package:your_app_test/src/theme/get_theme_color.dart';
-import 'package:your_app_test/src/theme/theme.dart';
-import 'package:your_app_test/src/util/services/navigation_service.dart';
-
+import 'package:e_finder/src/app/app.dart';
+import 'package:e_finder/src/di/injector.dart';
+import 'package:e_finder/src/theme/get_theme_color.dart';
+import 'package:e_finder/src/theme/theme.dart';
+import 'package:e_finder/src/util/services/navigation_service.dart';
 
 FutureOr<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

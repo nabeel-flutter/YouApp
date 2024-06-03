@@ -12,4 +12,6 @@ class SharedPreferenceConstants {
 
   static const String isDark = 'isDark';
   static const String color = 'color';
+
+  static String introScreenSeen='introScreenSeen';
 }

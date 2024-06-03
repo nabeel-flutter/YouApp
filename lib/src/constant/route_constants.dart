@@ -18,4 +18,6 @@ class RouteConstants {
   static const String  newPasswordRoute='/newPasswordRoute';
 
   static const String  termsConditionsRoute='/termsConditionsRoute';
+
+  static const String  onboardingRoute='/onboardingRoute';
   }

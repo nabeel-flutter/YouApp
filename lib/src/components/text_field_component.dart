@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
-import 'package:your_app_test/src/constant/font_constants.dart';
-import 'package:your_app_test/src/theme/get_theme_color.dart';
+import 'package:e_finder/src/constant/color_constants.dart';
+import 'package:e_finder/src/constant/font_constants.dart';
+import 'package:e_finder/src/theme/get_theme_color.dart';
 
 class TextFormFieldComponent extends StatefulWidget {
   const TextFormFieldComponent({
@@ -21,10 +21,14 @@ class TextFormFieldComponent extends StatefulWidget {
     this.borderColor,
     this.fillColor,
     this.borderRadius,
-    this.stroke,
+    this.stroke = 1,
     this.isLabel = false,
     required this.onChanged,
     this.onFieldSubmitted,
+    required this.hintColor,
+    required this.textColor,
+    required this.lable,
+     this.prefixIcon,
   });
   final List<TextInputFormatter>? listTextInputFormatter;
   final String? label;
@@ -42,6 +46,11 @@ class TextFormFieldComponent extends StatefulWidget {
   final double? borderRadius;
   final double? stroke;
   final bool? isLabel;
+  final Color hintColor;
+  final Color textColor;
+  final String lable;
+  final Widget? prefixIcon;
+
   final Function(String value) onChanged;
   final Function(String value)? onFieldSubmitted;
 
@@ -69,7 +78,7 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
           child: TextFormField(
               keyboardType: widget.textInputType,
               strutStyle: const StrutStyle(
-                height: 1.3,
+                height: 2,
               ),
               maxLines: widget.maxLines,
               onFieldSubmitted: (value) {
@@ -86,10 +95,16 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
               controller: widget.controller,
               style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     fontFamily: FontConstants.gilroyMedium,
-                    color: ColorConstants.white,
+                    color: ColorConstants.black,
                   ),
               obscureText: widget.isPassword == true ? showPassword : false,
               decoration: InputDecoration(
+                  prefixIcon: widget.prefixIcon,
+                  label: Text(
+                    widget.lable,
+                    style: TextStyle(color: widget.lableColor),
+                  ),
+                  
                   suffixIcon: widget.isPassword == true
                       ? IconButton(
                           onPressed: () =>
@@ -98,13 +113,8 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
                               shaderCallback: (Rect bounds) {
                                 return const LinearGradient(
                                   colors: [
-                                    Color(0xff94783E),
-                                    Color(0xffF3EDA6),
-                                    Color(0xffF8FAE5),
-                                    Color(0xffFFE2BE),
-                                    Color(0xffD5BE88),
-                                    Color(0xffF8FAE5),
-                                    Color(0xffD5BE88)
+                                    Color(0xFF9747FF),
+                                    Color(0xFF9747FF)
                                   ],
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
@@ -121,7 +131,7 @@ class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
                   hintStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
                       fontWeight: FontWeight.w400,
                       fontSize: 14,
-                      color: ColorConstants.white),
+                      color: ColorConstants.hintTextColor),
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                           color: widget.borderColor ??

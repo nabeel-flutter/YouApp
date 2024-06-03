@@ -1,5 +1,5 @@
 import 'package:logger/logger.dart';
-import 'package:your_app_test/src/data/common/object_mapper.dart';
+import 'package:e_finder/src/data/common/object_mapper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferenceRepositoryImpl {

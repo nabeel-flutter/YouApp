@@ -1,6 +1,6 @@
 import 'package:control_style/control_style.dart';
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/constant/color_constants.dart';
+import 'package:e_finder/src/constant/color_constants.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({
@@ -51,7 +51,7 @@ class AppButton extends StatelessWidget {
 
   ButtonStyle disableStyle({bool? isErrorButton = false}) {
     return ButtonStyle(
-        shape: MaterialStateProperty.resolveWith((states) {
+        shape: WidgetStateProperty.resolveWith((states) {
           return DecoratedOutlinedBorder(
               shadow: isErrorButton == true
                   ? [
@@ -65,7 +65,7 @@ class AppButton extends StatelessWidget {
                                 Color.fromARGB(255, 219, 69, 69)
                                     .withOpacity(0.5),
                               ]),
-                          blurRadius: 12,
+                          blurRadius: 100,
                           offset: const Offset(0, 14))
                     ]
                   : [],
@@ -78,12 +78,12 @@ class AppButton extends StatelessWidget {
                           Color.fromARGB(255, 219, 69, 69)
                         ]
                       : [
-                          const Color(0xff62CDCB).withOpacity(0.5),
-                          const Color(0xff4599DB).withOpacity(0.5)
+                          Color.fromARGB(255, 205, 98, 205).withOpacity(0.5),
+                          Color.fromARGB(255, 219, 69, 212).withOpacity(0.5)
                         ]),
               child: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)));
+                  borderRadius: BorderRadius.circular(100)));
         }),
-        backgroundColor: const MaterialStatePropertyAll(Colors.transparent));
+        backgroundColor: const WidgetStatePropertyAll(Colors.transparent));
   }
 }

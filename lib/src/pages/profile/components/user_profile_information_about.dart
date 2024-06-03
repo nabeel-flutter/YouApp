@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:your_app_test/src/data/dto/get_profile_dto.dart';
-import 'package:your_app_test/src/pages/profile/components/about_editable_state.dart';
-import 'package:your_app_test/src/pages/profile/components/about_view_state.dart';
-import 'package:your_app_test/src/pages/profile/cubit/about_cubit.dart';
-import 'package:your_app_test/src/pages/profile/cubit/get_profile_cubit.dart';
+import 'package:e_finder/src/data/dto/get_profile_dto.dart';
+import 'package:e_finder/src/pages/profile/components/about_editable_state.dart';
+import 'package:e_finder/src/pages/profile/components/about_view_state.dart';
+import 'package:e_finder/src/pages/profile/cubit/about_cubit.dart';
+import 'package:e_finder/src/pages/profile/cubit/get_profile_cubit.dart';
 
 class UserProfileInforamtionAbout extends StatelessWidget {
   const UserProfileInforamtionAbout({

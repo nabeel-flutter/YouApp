@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:your_app_test/src/constant/assets_constants.dart';
+import 'package:e_finder/src/constant/assets_constants.dart';
 
 class HomeEditCardComponent extends StatelessWidget {
   const HomeEditCardComponent({

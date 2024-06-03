@@ -171,5 +171,11 @@ class AssetsConstants {
 
   static const String profileImage='assets/images/profile.jpeg';
 static const String addImageIcon='assets/icon/add_image_icon.png';
+
+  static const  String onboardingContinueButton='assets/icon/onboarding_continue_button.png';
+
+  static const  String splashIntroImage='assets/images/splash_intro.svg';
+
+  static const  String cartIconLoginScreen='assets/icon/shop.png';
   // static String more;
 }
