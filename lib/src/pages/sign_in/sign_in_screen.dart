@@ -3,9 +3,7 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:e_finder/src/constant/assets_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:e_finder/src/components/main_scaffold.dart';
-import 'package:e_finder/src/constant/color_constants.dart';
 import 'package:e_finder/src/pages/sign_in/components/sign_in_form.dart';
-import 'package:e_finder/src/custom_widgets/custom_clip_path.dart';
 
 @RoutePage()
 class SignInScreen extends StatefulWidget {
@@ -122,7 +120,9 @@ class _SignInScreenState extends State<SignInScreen>
                 ],
               ),
               SizedBox(height: height * 0.05),
-              SignInForm(),
+              SignInForm(
+                  rightOffsetAnimation: _rightOffsetAnimation,
+                  leftOffsetAnimation: _leftOffsetAnimation),
             ],
           ),
         ),

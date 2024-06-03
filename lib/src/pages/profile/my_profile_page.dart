@@ -38,8 +38,10 @@ class HomeScreen extends StatelessWidget {
                             name: 'john',
                             interests: ['john']))),
                 loaded: (profile) => UserProfileState(profile: profile),
-                error: (massange) => RetryState(
-                    onTap: () =>
-                        context.read<GetProfileCubit>().getProfile()))));
+                error: (massange) => UserProfileState(
+                    profile: GetProfileDto(
+                        username: 'john',
+                        name: 'john',
+                        interests: ['john'])))));
   }
 }

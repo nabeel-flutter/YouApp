@@ -31,7 +31,7 @@ class SignInButton extends StatelessWidget {
               await getIt
                   .get<SharedPreferencesUtil>()
                   .setString(
-                      SharedPreferenceConstants.apiAuthToken, token.accessToken)
+                      SharedPreferenceConstants.apiAuthToken, token.data!.token!)
                   .then((value) => context.router.pushAndPopUntil(
                       predicate: (route) => false, const HomeRoute()));
               return null;

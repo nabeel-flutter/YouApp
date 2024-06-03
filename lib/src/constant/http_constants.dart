@@ -1,13 +1,13 @@
 class HttpConstants {
   static const bool isProduction = true;
-  static const String ngroklink = 'https://techtest.youapp.ai/api/';
+  static const String ngroklink = 'https://backend.efinder24.com/public/api/';
   static const String baseUrlArticle =
-      'https://techtest.youapp.ai/api/';
+      'https://backend.efinder24.com/public/api/';
   static const String base = isProduction
-      ? "https://techtest.youapp.ai/api/"
+      ? "https://backend.efinder24.com/public/api/"
       : ngroklink;
   static const String urlBase = isProduction
-      ? "https://techtest.youapp.ai/api/"
+      ? "https://backend.efinder24.com/public/api/"
       : ngroklink;
   static const String downloadRecipt = 'payment-receipt-download';
   static const String token = 'get/token';

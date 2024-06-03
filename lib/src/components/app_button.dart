@@ -78,8 +78,8 @@ class AppButton extends StatelessWidget {
                           Color.fromARGB(255, 219, 69, 69)
                         ]
                       : [
-                          Color.fromARGB(255, 205, 98, 205).withOpacity(0.5),
-                          Color.fromARGB(255, 219, 69, 212).withOpacity(0.5)
+                          Color.fromARGB(255, 111, 0, 255).withOpacity(0.5),
+                          Color(0xFF9747FF).withOpacity(0.5)
                         ]),
               child: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(100)));

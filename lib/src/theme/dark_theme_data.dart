@@ -26,7 +26,7 @@ ThemeData darkThemeData(MyTheme theme) {
                       begin: Alignment.bottomLeft,
                       end: Alignment.topRight,
                       colors: [
-                        const Color(0xFF9747FF).withOpacity(0.5),
+                        Color.fromARGB(255, 111, 0, 255).withOpacity(0.5),
                         const Color(0xFF9747FF).withOpacity(0.5),
                       ]),
                   blurRadius: 100,
@@ -35,7 +35,7 @@ ThemeData darkThemeData(MyTheme theme) {
             backgroundGradient: const LinearGradient(
                 begin: Alignment.bottomLeft,
                 end: Alignment.topRight,
-                colors: [Color(0xFF9747FF), Color(0xFF9747FF)]),
+                colors: [Color.fromARGB(255, 111, 0, 255), Color(0xFF9747FF)]),
             child: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(100)),
           );

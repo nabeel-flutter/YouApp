@@ -18,29 +18,22 @@ class RegisterHereTextButton extends StatelessWidget {
         },
         child: RichText(
             text: TextSpan(
-                text: 'No account? ',
+                text: 'Don\'t have an accout? ',
                 style: const TextStyle(
-                    color: ColorConstants.white,
+                    color: ColorConstants.black,
                     fontWeight: FontWeight.w500,
-                    fontSize: 13),
+                    fontSize: 18),
                 children: [
               TextSpan(
                 text: 'Register here',
                 style: TextStyle(
-                  decoration: TextDecoration.underline,
+                  decoration: TextDecoration.none,
                   height: 1.5,
-                  fontSize: 13.0,
+                  fontSize: 18.0,
                   fontWeight: FontWeight.w500,
                   foreground: Paint()
-                    ..shader = linearGradientText(colors: [
-                      Color(0xff94783E),
-                      Color(0xffF3EDA6),
-                      Color(0xffF8FAE5),
-                      Color(0xffFFE2BE),
-                      Color(0xffD5BE88),
-                      Color(0xffF8FAE5),
-                      Color(0xffD5BE88),
-                    ]),
+                    ..shader = linearGradientText(
+                        colors: [Color(0xFF9747FF), Color(0xFF9747FF)]),
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {

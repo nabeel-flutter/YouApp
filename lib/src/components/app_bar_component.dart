@@ -32,11 +32,11 @@ class AppBarWidget extends StatelessWidget {
                     Icon(
                         size: 17,
                         Icons.arrow_back_ios,
-                        color: ColorConstants.white),
+                        color: Color(0xFF9747FF)),
                     Text(
                       'Back',
                       style: TextStyle(
-                        color: ColorConstants.white,
+                        color: Color(0xFF9747FF),
                         fontSize: 16,
                         height: 1.7,
                         fontWeight: FontWeight.w700,
@@ -50,7 +50,7 @@ class AppBarWidget extends StatelessWidget {
             style: const TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 14,
-                color: Colors.white)),
+                color: Color(0xFF9747FF))),
         centerTitle: true,
         actions: actions);
   }
